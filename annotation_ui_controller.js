@@ -123,8 +123,8 @@ class AnnotationUIController {
     updateUI(annotation) {
         console.log('Updating UI with annotation:', annotation);
 
-        // Update dataset name
-        this.updateDatasetName(annotation.dataset_info.dataset_name);
+        // Update dataset name from YAML instead of annotation fallback
+        this.updateDatasetName(annotation.table);
 
         // Update question display
         this.updateQuestion(annotation.question_string);
@@ -140,12 +140,26 @@ class AnnotationUIController {
     }
 
     /**
-     * Update dataset name display
+     * Update dataset name display using YAML data
      */
-    updateDatasetName(datasetName) {
+    async updateDatasetName(tableNumber) {
         const datasetNameElement = document.getElementById('datasetName');
         if (datasetNameElement) {
-            datasetNameElement.textContent = datasetName;
+            // Show loading state
+            datasetNameElement.textContent = 'Loading...';
+            
+            // Load dataset name from YAML
+            if (typeof window.loadDatasetNameFromYAML === 'function') {
+                const datasetName = await window.loadDatasetNameFromYAML(tableNumber);
+                if (datasetName) {
+                    datasetNameElement.textContent = datasetName;
+                } else {
+                    datasetNameElement.textContent = 'Dataset name not found';
+                }
+            } else {
+                console.warn('loadDatasetNameFromYAML function not available');
+                datasetNameElement.textContent = `Table ${tableNumber}`;
+            }
         }
     }
 

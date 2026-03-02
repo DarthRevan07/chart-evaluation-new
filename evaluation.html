@@ -627,6 +627,11 @@
             }
             return null;
         }
+        
+        // Expose YAML loading functions globally for use by annotation_ui_controller
+        window.loadDatasetNameFromYAML = loadDatasetNameFromYAML;
+        window.updateDatasetInfoFromYAML = updateDatasetInfoFromYAML;
+        
         async function loadCSVData(dataset) {
             const filename = csvFilenames[dataset];
             if (!filename) {

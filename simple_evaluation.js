@@ -26,6 +26,7 @@ function initializeSimpleEvaluation(pairId, pairMetadata) {
                 imagePath: null
             },
             overallPreference: null,
+            comments: '',
             completed: false,
             timestamp: null,
             displayedImages: {
@@ -96,6 +97,10 @@ function saveSimpleEvaluation() {
             break;
         }
     }
+    
+    // Get comments
+    const commentsTextarea = document.getElementById('evaluation_comments');
+    evaluation.comments = commentsTextarea ? commentsTextarea.value.trim() : '';
     
     evaluation.timestamp = new Date().toISOString();
     
@@ -255,6 +260,12 @@ function loadSimpleEvaluation(pairId) {
         }
     }
     
+    // Load comments
+    const commentsTextarea = document.getElementById('evaluation_comments');
+    if (commentsTextarea && evaluation.comments) {
+        commentsTextarea.value = evaluation.comments;
+    }
+    
     console.log('Loaded evaluation for pair:', pairId, evaluation);
 }
 
@@ -271,6 +282,12 @@ function clearSimpleEvaluationForm() {
     radioButtons.forEach(radio => {
         radio.checked = false;
     });
+    
+    // Clear comments textarea
+    const commentsTextarea = document.getElementById('evaluation_comments');
+    if (commentsTextarea) {
+        commentsTextarea.value = '';
+    }
     
     console.log('Form cleared for new pair');
 }

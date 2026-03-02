@@ -161,7 +161,7 @@ async function submitSimpleEvaluation() {
             : window.location.hostname.includes('vercel.app') 
             ? '/api/submit-evaluation'  // Vercel
             : window.location.hostname.includes('github.io')
-            ? 'https://your-netlify-site.netlify.app/.netlify/functions/submit-evaluation'  // GitHub Pages to Netlify
+            ? 'https://chart-evaluation-system.netlify.app/.netlify/functions/submit-evaluation'  // GitHub Pages to Netlify - UPDATE THIS
             : '/api/submit-evaluation';  // Local or other
         
         const response = await fetch(apiEndpoint, {

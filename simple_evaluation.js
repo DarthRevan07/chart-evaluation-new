@@ -368,14 +368,55 @@ function exportEvaluationsCSV() {
 
 // Add export buttons to the page
 function addExportButtons() {
-    const exportContainer = document.createElement('div');
-    exportContainer.style.cssText = `
-        position: fixed;
-        bottom: 20px;
-        right: 20px;
+    // Find the form actions container or create one at the end of the form
+    let targetContainer = document.querySelector('.form-actions');
+    if (!targetContainer) {
+        // If no form-actions container exists, create one at the end of the simple-evaluation-form
+        const evaluationForm = document.querySelector('.simple-evaluation-form');
+        if (evaluationForm) {
+            targetContainer = document.createElement('div');
+            targetContainer.className = 'export-actions';
+            targetContainer.style.cssText = `
+                margin-top: 20px;
+                text-align: center;
+                padding: 20px;
+                border-top: 1px solid #dee2e6;
+                background-color: #f8f9fa;
+            `;
+            evaluationForm.appendChild(targetContainer);
+        } else {
+            // Fallback: add to end of document body
+            targetContainer = document.createElement('div');
+            targetContainer.className = 'export-actions';
+            targetContainer.style.cssText = `
+                margin: 20px auto;
+                text-align: center;
+                padding: 20px;
+                max-width: 800px;
+                border-top: 1px solid #dee2e6;
+                background-color: #f8f9fa;
+            `;
+            document.body.appendChild(targetContainer);
+        }
+    }
+    
+    // Create export section header
+    const exportHeader = document.createElement('h4');
+    exportHeader.textContent = 'Export Your Data';
+    exportHeader.style.cssText = `
+        margin: 0 0 15px 0;
+        color: #495057;
+        font-size: 1.1em;
+    `;
+    
+    // Create buttons container
+    const buttonsContainer = document.createElement('div');
+    buttonsContainer.style.cssText = `
         display: flex;
-        gap: 10px;
-        z-index: 1000;
+        gap: 15px;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
     `;
     
     const jsonBtn = document.createElement('button');
@@ -385,11 +426,19 @@ function addExportButtons() {
         background: #007bff;
         color: white;
         border: none;
-        padding: 8px 16px;
+        padding: 12px 24px;
         border-radius: 6px;
         cursor: pointer;
-        font-size: 12px;
+        font-size: 14px;
+        font-weight: 500;
+        transition: background-color 0.3s ease;
     `;
+    jsonBtn.addEventListener('mouseenter', () => {
+        jsonBtn.style.backgroundColor = '#0056b3';
+    });
+    jsonBtn.addEventListener('mouseleave', () => {
+        jsonBtn.style.backgroundColor = '#007bff';
+    });
     
     const csvBtn = document.createElement('button');
     csvBtn.textContent = '📊 Export CSV';
@@ -398,15 +447,40 @@ function addExportButtons() {
         background: #28a745;
         color: white;
         border: none;
-        padding: 8px 16px;
+        padding: 12px 24px;
         border-radius: 6px;
         cursor: pointer;
+        font-size: 14px;
+        font-weight: 500;
+        transition: background-color 0.3s ease;
+    `;
+    csvBtn.addEventListener('mouseenter', () => {
+        csvBtn.style.backgroundColor = '#1e7e34';
+    });
+    csvBtn.addEventListener('mouseleave', () => {
+        csvBtn.style.backgroundColor = '#28a745';
+    });
+    
+    // Add description text
+    const description = document.createElement('p');
+    description.textContent = 'Download your evaluation data for analysis. JSON contains full details, CSV is ready for spreadsheet programs.';
+    description.style.cssText = `
+        margin: 15px 0 0 0;
         font-size: 12px;
+        color: #6c757d;
+        line-height: 1.4;
     `;
     
-    exportContainer.appendChild(jsonBtn);
-    exportContainer.appendChild(csvBtn);
-    document.body.appendChild(exportContainer);
+    // Append elements to target container
+    if (!targetContainer.querySelector('h4')) { // Don't add header if it already exists
+        targetContainer.appendChild(exportHeader);
+    }
+    buttonsContainer.appendChild(jsonBtn);
+    buttonsContainer.appendChild(csvBtn);
+    targetContainer.appendChild(buttonsContainer);
+    if (!targetContainer.querySelector('p')) { // Don't add description if it already exists
+        targetContainer.appendChild(description);
+    }
 }
 
 // Show notification message

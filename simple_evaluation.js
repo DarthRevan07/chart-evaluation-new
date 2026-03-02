@@ -161,7 +161,7 @@ async function submitSimpleEvaluation() {
             : window.location.hostname.includes('vercel.app') 
             ? '/api/submit-evaluation'  // Vercel
             : window.location.hostname.includes('github.io')
-            ? 'https://chart-evaluation-system.netlify.app/.netlify/functions/submit-evaluation'  // GitHub Pages to Netlify - UPDATE THIS
+            ? 'https://chart-evaluation-checkbox.netlify.app/.netlify/functions/submit-evaluation'  // GitHub Pages to Netlify - UPDATE THIS
             : '/api/submit-evaluation';  // Local or other
         
         const response = await fetch(apiEndpoint, {
@@ -286,7 +286,7 @@ function exportSimpleEvaluations() {
     const dataStr = JSON.stringify(evaluations, null, 2);
     const dataUri = 'data:application/json;charset=utf-8,'+ encodeURIComponent(dataStr);
     
-    const exportFileDefaultName = 'simple-chart-evaluations-' + new Date().toISOString().slice(0, 10) + '.json';
+    const exportFileDefaultName = 'chart-evaluations-' + new Date().toISOString().slice(0, 10) + '.json';
     
     const linkElement = document.createElement('a');
     linkElement.setAttribute('href', dataUri);
@@ -294,6 +294,97 @@ function exportSimpleEvaluations() {
     linkElement.click();
     
     showNotification('📁 Evaluations exported successfully!', 'success');
+}
+
+// Export all evaluations in CSV format for analysis
+function exportEvaluationsCSV() {
+    const evaluations = JSON.parse(localStorage.getItem('simpleEvaluations') || '{}');
+    
+    if (Object.keys(evaluations).length === 0) {
+        showNotification('❗ No evaluations to export', 'warning');
+        return;
+    }
+    
+    // Create CSV headers
+    const headers = [
+        'Timestamp', 'Pair ID', 'Session ID', 'Overall Preference',
+        'Chart A Readable', 'Chart A Precise', 'Chart B Readable', 'Chart B Precise',
+        'Chart A Image', 'Chart B Image', 'Completed'
+    ];
+    
+    // Create CSV rows
+    const rows = Object.values(evaluations).map(eval => [
+        eval.timestamp || '',
+        eval.pairId || '',
+        'Local Session',
+        eval.overallPreference || '',
+        eval.chartA?.readable?.yes ? 'Yes' : eval.chartA?.readable?.no ? 'No' : '',
+        eval.chartA?.precision?.yes ? 'Yes' : eval.chartA?.precision?.no ? 'No' : '',
+        eval.chartB?.readable?.yes ? 'Yes' : eval.chartB?.readable?.no ? 'No' : '',
+        eval.chartB?.precision?.yes ? 'Yes' : eval.chartB?.precision?.no ? 'No' : '',
+        eval.chartA?.imagePath?.split('/').pop() || '',
+        eval.chartB?.imagePath?.split('/').pop() || '',
+        eval.completed ? 'Yes' : 'No'
+    ]);
+    
+    // Combine headers and rows
+    const csvContent = [headers, ...rows].map(row => 
+        row.map(cell => `"${cell}"`).join(',')
+    ).join('\n');
+    
+    // Download CSV
+    const dataUri = 'data:text/csv;charset=utf-8,' + encodeURIComponent(csvContent);
+    const exportFileDefaultName = 'chart-evaluations-' + new Date().toISOString().slice(0, 10) + '.csv';
+    
+    const linkElement = document.createElement('a');
+    linkElement.setAttribute('href', dataUri);
+    linkElement.setAttribute('download', exportFileDefaultName);
+    linkElement.click();
+    
+    showNotification('📊 CSV exported successfully!', 'success');
+}
+
+// Add export buttons to the page
+function addExportButtons() {
+    const exportContainer = document.createElement('div');
+    exportContainer.style.cssText = `
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        display: flex;
+        gap: 10px;
+        z-index: 1000;
+    `;
+    
+    const jsonBtn = document.createElement('button');
+    jsonBtn.textContent = '📁 Export JSON';
+    jsonBtn.onclick = exportSimpleEvaluations;
+    jsonBtn.style.cssText = `
+        background: #007bff;
+        color: white;
+        border: none;
+        padding: 8px 16px;
+        border-radius: 6px;
+        cursor: pointer;
+        font-size: 12px;
+    `;
+    
+    const csvBtn = document.createElement('button');
+    csvBtn.textContent = '📊 Export CSV';
+    csvBtn.onclick = exportEvaluationsCSV;
+    csvBtn.style.cssText = `
+        background: #28a745;
+        color: white;
+        border: none;
+        padding: 8px 16px;
+        border-radius: 6px;
+        cursor: pointer;
+        font-size: 12px;
+    `;
+    
+    exportContainer.appendChild(jsonBtn);
+    exportContainer.appendChild(csvBtn);
+    document.body.appendChild(exportContainer);
 }
 
 // Show notification message
@@ -439,6 +530,7 @@ window.updateCurrentEvaluationImages = function() {
 document.addEventListener('DOMContentLoaded', function() {
     addNotificationStyles();
     loadSavedSimpleEvaluations();
+    addExportButtons(); // Add export functionality
     
     // Add event listeners for checkbox and radio changes to auto-save
     document.addEventListener('change', function(e) {

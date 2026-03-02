@@ -575,7 +575,53 @@
             'ATP_rendered_charts': "Player,DOB,Cumulative Weeks,Date,Sex,Weeks,Age (days),Age (years)\nIlie Nastase,7/19/1946,40,8/23/1973,Male,40,9897,27.09\nJohn Newcombe,5/23/1944,8,6/3/1974,Male,8,10968,30.03\nJimmy Connors,9/2/1952,160,7/29/1974,Male,160,8000,21.90\nBjörn Borg,6/6/1956,1,8/23/1977,Male,1,7748,21.21\nJimmy Connors,9/2/1952,244,8/30/1977,Male,84,9128,24.99\nBjörn Borg,6/6/1956,7,4/9/1979,Male,6,8342,22.84\nJimmy Connors,9/2/1952,251,5/21/1979,Male,7,9757,26.71\nBjörn Borg,6/6/1956,41,7/9/1979,Male,34,8433,23.09\nJohn McEnroe,2/16/1959,3,3/3/1980,Male,3,7686,21.04\nBjörn Borg,6/6/1956,61,3/24/1980,Male,20,8692,23.80"
         };
 
-        // Load CSV data from the csv folder
+        // Load dataset name from YAML file
+        async function loadDatasetNameFromYAML(tableNumber) {
+            try {
+                const yamlFileName = `${tableNumber}_info.yaml`;
+                const response = await fetch(`csv_c_squared/${yamlFileName}`);
+                
+                if (!response.ok) {
+                    throw new Error(`Failed to load YAML file: ${yamlFileName}`);
+                }
+                
+                const yamlText = await response.text();
+                
+                // Simple YAML parsing for dataset_name field
+                const lines = yamlText.split('\n');
+                for (const line of lines) {
+                    const trimmedLine = line.trim();
+                    if (trimmedLine.startsWith('dataset_name:')) {
+                        const datasetName = trimmedLine.split('dataset_name:')[1].trim().replace(/['"]/g, '');
+                        return datasetName;
+                    }
+                }
+                
+                // Fallback if dataset_name not found
+                return `Table ${tableNumber}`;
+                
+            } catch (error) {
+                console.error('Error loading dataset name from YAML:', error);
+                return `Table ${tableNumber}`;
+            }
+        }
+
+        // Update dataset info with proper name from YAML
+        async function updateDatasetInfoFromYAML(tableNumber) {
+            const datasetInfo = document.querySelector('.dataset-info');
+            if (datasetInfo) {
+                // Show loading state
+                datasetInfo.innerHTML = `<strong>Dataset:</strong> <span id="datasetName">Loading...</span>`;
+                
+                // Load actual dataset name
+                const datasetName = await loadDatasetNameFromYAML(tableNumber);
+                datasetInfo.innerHTML = `<strong>Dataset:</strong> <span id="datasetName">${datasetName}</span>`;
+                
+                console.log(`Loaded dataset name from YAML: ${datasetName}`);
+                return datasetName;
+            }
+            return null;
+        }
         async function loadCSVData(dataset) {
             const filename = csvFilenames[dataset];
             if (!filename) {
@@ -876,11 +922,9 @@
                         placeholderB.textContent = 'Chart B - Image not found: ' + chartBPath;
                     };
                     
-                    // Update dataset info from annotation
-                    const datasetInfo = document.querySelector('.dataset-info');
-                    if (datasetInfo) {
-                        const datasetName = currentAnnotation.table ? `Table ${currentAnnotation.table}` : 'Unknown Dataset';
-                        datasetInfo.innerHTML = `<strong>Dataset:</strong> <span id="datasetName">${datasetName}</span>`;
+                    // Update dataset info from annotation with YAML data
+                    if (currentAnnotation.table) {
+                        updateDatasetInfoFromYAML(currentAnnotation.table);
                     }
                     
                     // Clear previous form responses when switching pairs
@@ -891,13 +935,17 @@
                     // Initialize evaluation for this pair
                     if (window.initializePairEvaluation && currentAnnotation.table) {
                         const pairId = `${currentAnnotation.table}_${currentAnnotation.variants[0]}_vs_${currentAnnotation.variants[1]}`;
-                        const pairMetadata = {
-                            table: currentAnnotation.table,
-                            dataset: currentAnnotation.dataset_info?.dataset_name || 'Unknown Dataset',
-                            variants: currentAnnotation.variants,
-                            question: currentAnnotation.question_string || currentAnnotation.question
-                        };
-                        window.initializePairEvaluation(pairId, pairMetadata);
+                        
+                        // Load dataset name asynchronously for metadata
+                        loadDatasetNameFromYAML(currentAnnotation.table).then(datasetName => {
+                            const pairMetadata = {
+                                table: currentAnnotation.table,
+                                dataset: datasetName,
+                                variants: currentAnnotation.variants,
+                                question: currentAnnotation.question_string || currentAnnotation.question
+                            };
+                            window.initializePairEvaluation(pairId, pairMetadata);
+                        });
                     }
                     
                     return;

@@ -888,6 +888,18 @@
                         clearFormResponses();
                     }
                     
+                    // Initialize evaluation for this pair
+                    if (window.initializePairEvaluation && currentAnnotation.table) {
+                        const pairId = `${currentAnnotation.table}_${currentAnnotation.variants[0]}_vs_${currentAnnotation.variants[1]}`;
+                        const pairMetadata = {
+                            table: currentAnnotation.table,
+                            dataset: currentAnnotation.dataset_info?.dataset_name || 'Unknown Dataset',
+                            variants: currentAnnotation.variants,
+                            question: currentAnnotation.question_string || currentAnnotation.question
+                        };
+                        window.initializePairEvaluation(pairId, pairMetadata);
+                    }
+                    
                     return;
                 } else {
                     console.log('No annotation or insufficient variants, waiting for data...');
@@ -915,8 +927,15 @@
             // Update dataset info
             updateDatasetInfo(currentPair);
             
+            // Clear form before loading new pair
+            if (typeof clearFormResponses === 'function') {
+                clearFormResponses();
+            }
+            
             // Initialize pair evaluation system
-            if (typeof initializePairEvaluation === 'function') {
+            if (window.initializePairEvaluation) {
+                window.initializePairEvaluation(currentPair.id, currentPair.metadata);
+            } else if (typeof initializePairEvaluation === 'function') {
                 initializePairEvaluation(currentPair.id, currentPair.metadata);
             }
             
@@ -962,10 +981,8 @@
                 updatePairInfo(currentPair);
             }
             
-            // Load saved responses for current category
-            if (typeof loadSavedResponsesForCurrentPair === 'function') {
-                loadSavedResponsesForCurrentPair(currentCategory);
-            }
+            // Load saved responses for current pair (handled by initializePairEvaluation)
+            // No need for separate call since pair initialization handles form state
         }
         
         // Update dataset information
@@ -1097,6 +1114,10 @@
             if (pairSlider) {
                 pairSlider.addEventListener('input', function() {
                     console.log('Slider changed to:', this.value);
+                    // Clear form immediately when starting to change
+                    if (typeof clearFormResponses === 'function') {
+                        clearFormResponses();
+                    }
                     setTimeout(() => {
                         loadCurrentPair();
                         updateStickyQuestionDisplay();
@@ -1105,8 +1126,14 @@
                 
                 pairSlider.addEventListener('change', function() {
                     console.log('Slider final value:', this.value);
-                    loadCurrentPair();
-                    updateStickyQuestionDisplay();
+                    // Ensure form is cleared and new data loaded
+                    if (typeof clearFormResponses === 'function') {
+                        clearFormResponses();
+                    }
+                    setTimeout(() => {
+                        loadCurrentPair();
+                        updateStickyQuestionDisplay();
+                    }, 50);
                 });
             }
             
@@ -1117,6 +1144,10 @@
             if (prevBtn) {
                 prevBtn.addEventListener('click', function() {
                     console.log('Previous button clicked');
+                    // Clear form when navigating
+                    if (typeof clearFormResponses === 'function') {
+                        clearFormResponses();
+                    }
                     setTimeout(() => {
                         loadCurrentPair();
                         updateStickyQuestionDisplay();
@@ -1127,6 +1158,10 @@
             if (nextBtn) {
                 nextBtn.addEventListener('click', function() {
                     console.log('Next button clicked');
+                    // Clear form when navigating
+                    if (typeof clearFormResponses === 'function') {
+                        clearFormResponses();
+                    }
                     setTimeout(() => {
                         loadCurrentPair();
                         updateStickyQuestionDisplay();
@@ -1135,10 +1170,16 @@
             }
             
             // Also listen for any programmatic navigation
-            document.addEventListener('annotationChanged', function() {
+            document.addEventListener('annotationChanged', function(event) {
                 console.log('Annotation changed event detected');
-                loadCurrentPair();
-                updateStickyQuestionDisplay();
+                // Clear form first, then load new pair
+                if (typeof clearFormResponses === 'function') {
+                    clearFormResponses();
+                }
+                setTimeout(() => {
+                    loadCurrentPair();
+                    updateStickyQuestionDisplay();
+                }, 100);
             });
         }
         

@@ -8,6 +8,9 @@ let currentPair = null;
 function initializeSimpleEvaluation(pairId, pairMetadata) {
     currentPair = { id: pairId, metadata: pairMetadata };
     
+    // Clear form first
+    clearSimpleEvaluationForm();
+    
     if (!simpleEvaluations[pairId]) {
         simpleEvaluations[pairId] = {
             pairId: pairId,
@@ -32,8 +35,10 @@ function initializeSimpleEvaluation(pairId, pairMetadata) {
         };
     }
     
-    // Load saved responses into the form
-    loadSimpleEvaluation(pairId);
+    // Load saved responses into the form after a short delay to ensure form is cleared
+    setTimeout(() => {
+        loadSimpleEvaluation(pairId);
+    }, 50);
 }
 
 // Save current evaluation responses
@@ -266,6 +271,23 @@ function clearSimpleEvaluationForm() {
     radioButtons.forEach(radio => {
         radio.checked = false;
     });
+    
+    console.log('Form cleared for new pair');
+}
+
+// Global function to clear form when switching pairs
+function clearFormResponses() {
+    clearSimpleEvaluationForm();
+}
+
+// Function to load evaluation for current pair after pair change
+function loadSavedResponsesForCurrentPair(pairId) {
+    if (pairId && simpleEvaluations[pairId]) {
+        loadSimpleEvaluation(pairId);
+        console.log('Loaded saved responses for pair:', pairId);
+    } else {
+        console.log('No saved responses found for pair:', pairId);
+    }
 }
 
 // Get evaluation statistics
@@ -535,14 +557,35 @@ document.addEventListener('DOMContentLoaded', function() {
     // Add event listeners for checkbox and radio changes to auto-save
     document.addEventListener('change', function(e) {
         if (e.target.closest('.simple-evaluation-form')) {
-            // Auto-save when form changes
-            setTimeout(saveSimpleEvaluation, 100);
+            // Auto-save when form changes, but only if we have a current pair
+            if (currentPair && currentPair.id) {
+                setTimeout(() => {
+                    saveSimpleEvaluation();
+                    console.log('Auto-saved for pair:', currentPair.id);
+                }, 100);
+            }
         }
     });
     
     // Try to submit any pending submissions
     retryFailedSubmissions();
 });
+
+// Enhanced pair initialization that properly handles form state
+function initializePairEvaluation(pairId, pairMetadata) {
+    console.log('Initializing evaluation for pair:', pairId);
+    
+    // Initialize the evaluation data structure
+    initializeSimpleEvaluation(pairId, pairMetadata);
+    
+    // Update image paths after images load
+    setTimeout(() => {
+        updateEvaluationImagePaths(pairId);
+    }, 200);
+}
+
+// Global function that can be called when pairs change
+window.initializePairEvaluation = initializePairEvaluation;
 
 // Get or create a session ID
 function getOrCreateSessionId() {

@@ -1,0 +1,8 @@
+{
+  "name": "chart-evaluation-backend",
+  "version": "1.0.0",
+  "description": "Backend functions for chart evaluation form",
+  "dependencies": {
+    "discord-webhook-node": "^1.1.8"
+  }
+}

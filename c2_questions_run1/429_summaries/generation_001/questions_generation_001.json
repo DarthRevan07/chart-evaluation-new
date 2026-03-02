@@ -1,0 +1,71 @@
+{
+  "table_name": "Imports and Exports of Dogs by state",
+  "generation_dir": "c2_summaries\\Imports_and_Exports_of_Dogs_by_state_summaries\\generation_001",
+  "total_summaries_processed": 2,
+  "questions_per_summary": 4,
+  "schema_context": "## Table 1: Imports_and_Exports_of_Dogs_by_state (90 rows × 5 columns)\n\n### Description\nData loaded from CSV file: 429.csv (Dataset: Imports and Exports of Dogs by state)\n\n### Schema (5 fields)\n  - location -- type: object, values: Afghanistan, Alabama, Alaska, Arizona, Arkansas, ..., Washington, Washington DC, West Virginia, Wisconsin, Wyoming\n  - exported -- type: float64, values: 1.0, 2.0, 3.0, 4.0, 5.0, ..., nan, nan, nan, nan, 635.0\n  - imported -- type: float64, values: 1.0, 2.0, 3.0, 4.0, 5.0, ..., nan, nan, nan, nan, nan\n  - total -- type: float64, values: 15.0, 18.0, 24.0, nan, 542.0, ..., nan, nan, nan, nan, nan\n  - inUS -- type: bool, values: False, True\n\n### Sample Data (first 5 rows)\n```\n         location  exported  imported   total  inUS\n0           Texas     635.0       NaN   566.0  True\n1         Alabama     268.0       2.0  1428.0  True\n2  North Carolina     158.0      14.0  2627.0  True\n3  South Carolina     139.0      12.0  1618.0  True\n4         Georgia     137.0      19.0  3479.0  True\n```\n",
+  "table_metadata": {
+    "total_rows": 90,
+    "total_columns": 5,
+    "source_file": "csv_c_squared\\429.csv",
+    "sheet_name": ""
+  },
+  "questions": [
+    {
+      "table_name": "Imports_and_Exports_of_Dogs_by_state",
+      "summary_idx": 1,
+      "column_combination": [
+        "location",
+        "exported",
+        "imported",
+        "total",
+        "inUS"
+      ],
+      "questions": [
+        "How do imported dog counts differ between locations that are within the US and those outside the US?",
+        "Which states or locations have unusually high or low total dog movement counts compared to others?",
+        "What patterns emerge when comparing exported and imported dog counts across different states or regions?",
+        "Are there states where the difference between exported and imported dog counts stands out, potentially indicating anomalies in reporting or movement?"
+      ],
+      "metadata": {
+        "schema_based": true,
+        "table_metadata": {
+          "total_rows": 90,
+          "total_columns": 5,
+          "source_file": "csv_c_squared\\429.csv",
+          "sheet_name": ""
+        },
+        "num_questions_requested": 4,
+        "num_questions_generated": 4
+      }
+    },
+    {
+      "table_name": "Imports_and_Exports_of_Dogs_by_state",
+      "summary_idx": 2,
+      "column_combination": [
+        "location",
+        "exported",
+        "imported",
+        "total",
+        "inUS"
+      ],
+      "questions": [
+        "How does the total number of dogs imported or exported differ between US and non-US locations?",
+        "Which locations have unusually high or low exported dog counts compared to their imported counts?",
+        "What is the distribution of total dog exchanges across different locations, and are there notable outlier regions?",
+        "Is there a pattern between locations with the highest total counts and their inUS status?"
+      ],
+      "metadata": {
+        "schema_based": true,
+        "table_metadata": {
+          "total_rows": 90,
+          "total_columns": 5,
+          "source_file": "csv_c_squared\\429.csv",
+          "sheet_name": ""
+        },
+        "num_questions_requested": 4,
+        "num_questions_generated": 4
+      }
+    }
+  ]
+}

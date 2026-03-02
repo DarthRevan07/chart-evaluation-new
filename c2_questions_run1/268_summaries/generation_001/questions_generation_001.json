@@ -1,0 +1,81 @@
+{
+  "table_name": "Bangladesh Districts wise population",
+  "generation_dir": "c2_summaries\\Bangladesh_Districts_wise_population_summaries\\generation_001",
+  "total_summaries_processed": 2,
+  "questions_per_summary": 4,
+  "schema_context": "## Table 1: Bangladesh_Districts_wise_population (64 rows × 10 columns)\n\n### Description\nData loaded from CSV file: 268.csv (Dataset: Bangladesh Districts wise population)\n\n### Schema (10 fields)\n  - Name -- type: object, values: Bagerhat, Bandarban, Barguna, Barishal, Bhola, ..., Sirajganj, Sunamganj, Sylhet, Tangail, Thakurgaon\n  - Abbr. -- type: object, values: BAG, BAN, BBA, BHO, BOG, ..., SIR, SUN, SYL, TAN, THA\n  - Division -- type: object, values: Barisal, Chattogram, Dhaka, Khulna, Mymensingh, Rajshahi, Rangpur, Sylhet\n  - Established -- type: int64, values: 1666, 1772, 1781, 1782, 1786, ..., 1969, 1978, 1981, 1983, 1984\n  - Native -- type: object, values: কক্সবাজার জেলা, কিশোরগঞ্জ জেলা, কুড়িগ্রাম জেলা, কুমিল্লা জেলা, কুষ্টিয়া জেলা, ..., সাতক্ষীরা জেলা, সিরাজগঞ্জ জেলা, সিলেট জেলা, সুনামগঞ্জ জেলা, হবিগঞ্জ জেলা\n  - Area (km2) -- type: int64, values: 684, 707, 752, 968, 990, ..., 4394, 4395, 4496, 5282, 6116\n  - Population_1991 -- type: int64, values: 246000, 366000, 430000, 511000, 682000, ..., 3108000, 4097000, 4264000, 5744000, 6164000\n  - Population_2001 -- type: int64, values: 311741, 531489, 549134, 618466, 726182, ..., 3443497, 4696966, 4807649, 7009504, 9151343\n  - Population_2011 -- type: int64, values: 404091, 620215, 638967, 681331, 709914, ..., 3749086, 5313163, 5602624, 7913366, 12517360\n  - Population_2022 -- type: int64, values: 495252, 666627, 677559, 721447, 735116, ..., 5433538, 6097814, 6394875, 9439076, 15210851\n\n### Sample Data (first 5 rows)\n```\n         Name Abbr. Division  Established           Native  Area (km2)  Population_1991  Population_2001  Population_2011  Population_2022\n0     Barguna   BRG  Barisal         1984      বরগুনা জেলা        1831           805000           887376           927889          1035596\n1    Barishal   BRS  Barisal         1797      বরিশাল জেলা        2785          2299000          2465249          2414729          2634203\n2       Bhola   BHO  Barisal         1984        ভোলা জেলা        3403          1532000          1781043          1846351          1980452\n3   Jhalokati   JHA  Barisal         1984     ঝালকাঠি জেলা         707           694000           726182           709914           677559\n4  Patuakhali   PAT  Barisal         1969  পটুয়াখালী জেলা        3221          1323000          1527628          1596223          1770096\n```\n",
+  "table_metadata": {
+    "total_rows": 64,
+    "total_columns": 10,
+    "source_file": "csv_c_squared\\268.csv",
+    "sheet_name": ""
+  },
+  "questions": [
+    {
+      "table_name": "Bangladesh_Districts_wise_population",
+      "summary_idx": 1,
+      "column_combination": [
+        "Name",
+        "Abbr.",
+        "Division",
+        "Established",
+        "Native",
+        "Area (km2)",
+        "Population_1991",
+        "Population_2001",
+        "Population_2011",
+        "Population_2022"
+      ],
+      "questions": [
+        "How has the population of different divisions evolved from 1991 to 2022, and which divisions show the highest growth rates over time?",
+        "What is the relationship between district area (km2) and population density in 2022 across all districts?",
+        "Are there districts established more recently that show distinct population trends compared to those established earlier?",
+        "Which districts stand out as outliers in terms of population growth between any two consecutive census years?"
+      ],
+      "metadata": {
+        "schema_based": true,
+        "table_metadata": {
+          "total_rows": 64,
+          "total_columns": 10,
+          "source_file": "csv_c_squared\\268.csv",
+          "sheet_name": ""
+        },
+        "num_questions_requested": 4,
+        "num_questions_generated": 4
+      }
+    },
+    {
+      "table_name": "Bangladesh_Districts_wise_population",
+      "summary_idx": 2,
+      "column_combination": [
+        "Name",
+        "Abbr.",
+        "Division",
+        "Established",
+        "Native",
+        "Area (km2)",
+        "Population_1991",
+        "Population_2001",
+        "Population_2011",
+        "Population_2022"
+      ],
+      "questions": [
+        "How does the rate of population growth between 1991 and 2022 compare among districts established before and after 1900?",
+        "Are there divisions where districts with similar area sizes have notably different population counts in 2022?",
+        "Which districts within each division demonstrate the largest deviation in population growth rates over the four recorded census years?",
+        "Is there a relationship between the year a district was established and its current population, considering all districts?"
+      ],
+      "metadata": {
+        "schema_based": true,
+        "table_metadata": {
+          "total_rows": 64,
+          "total_columns": 10,
+          "source_file": "csv_c_squared\\268.csv",
+          "sheet_name": ""
+        },
+        "num_questions_requested": 4,
+        "num_questions_generated": 4
+      }
+    }
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "table_name": "Medical Cost Personal Datasets",
+  "file_index": "32",
+  "original_filename": "32.csv",
+  "total_rows": 1338,
+  "total_columns": 7,
+  "column_names": [
+    "age",
+    "sex",
+    "bmi",
+    "children",
+    "smoker",
+    "region",
+    "charges"
+  ],
+  "summaries_per_generation": 4,
+  "num_generations": 1,
+  "successful_generations": 1,
+  "failed_generations": 0,
+  "output_directory": "c2_summaries_run2\\32_summaries",
+  "source_file": "csv_c_squared\\32.csv",
+  "sheet_name": "",
+  "generations": {
+    "generation_001": {
+      "status": "success",
+      "output_file": "c2_summaries_run2\\32_summaries\\generation_001\\summaries_gen_001.json",
+      "summaries_count": 4,
+      "generation_number": 1
+    }
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "table_name": "Car Price Prediction Multiple Linear Regression",
+  "file_index": "22",
+  "original_filename": "22.csv",
+  "total_rows": 205,
+  "total_columns": 26,
+  "column_names": [
+    "car_ID",
+    "symboling",
+    "CarName",
+    "fueltype",
+    "aspiration",
+    "doornumber",
+    "carbody",
+    "drivewheel",
+    "enginelocation",
+    "wheelbase",
+    "carlength",
+    "carwidth",
+    "carheight",
+    "curbweight",
+    "enginetype",
+    "cylindernumber",
+    "enginesize",
+    "fuelsystem",
+    "boreratio",
+    "stroke",
+    "compressionratio",
+    "horsepower",
+    "peakrpm",
+    "citympg",
+    "highwaympg",
+    "price"
+  ],
+  "summaries_per_generation": 4,
+  "num_generations": 1,
+  "successful_generations": 1,
+  "failed_generations": 0,
+  "output_directory": "c2_summaries_run2\\22_summaries",
+  "source_file": "csv_c_squared\\22.csv",
+  "sheet_name": "",
+  "generations": {
+    "generation_001": {
+      "status": "success",
+      "output_file": "c2_summaries_run2\\22_summaries\\generation_001\\summaries_gen_001.json",
+      "summaries_count": 4,
+      "generation_number": 1
+    }
+  }
+}

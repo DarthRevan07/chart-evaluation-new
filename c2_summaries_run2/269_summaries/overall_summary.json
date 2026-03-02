@@ -1,0 +1,41 @@
+{
+  "table_name": "World data population",
+  "file_index": "269",
+  "original_filename": "269.csv",
+  "total_rows": 234,
+  "total_columns": 17,
+  "column_names": [
+    "rank",
+    "cca3",
+    "country",
+    "continent",
+    "2023 population",
+    "2022 population",
+    "2020 population",
+    "2015 population",
+    "2010 population",
+    "2000 population",
+    "1990 population",
+    "1980 population",
+    "1970 population",
+    "area (km²)",
+    "density (km²)",
+    "growth rate",
+    "world percentage"
+  ],
+  "summaries_per_generation": 4,
+  "num_generations": 1,
+  "successful_generations": 1,
+  "failed_generations": 0,
+  "output_directory": "c2_summaries_run2\\269_summaries",
+  "source_file": "csv_c_squared\\269.csv",
+  "sheet_name": "",
+  "generations": {
+    "generation_001": {
+      "status": "success",
+      "output_file": "c2_summaries_run2\\269_summaries\\generation_001\\summaries_gen_001.json",
+      "summaries_count": 4,
+      "generation_number": 1
+    }
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "table_name": "Car Price Prediction Challenge",
+  "file_index": "28",
+  "original_filename": "28.csv",
+  "total_rows": 19237,
+  "total_columns": 18,
+  "column_names": [
+    "ID",
+    "Price",
+    "Levy",
+    "Manufacturer",
+    "Model",
+    "Prod. year",
+    "Category",
+    "Leather interior",
+    "Fuel type",
+    "Engine volume",
+    "Mileage",
+    "Cylinders",
+    "Gear box type",
+    "Drive wheels",
+    "Doors",
+    "Wheel",
+    "Color",
+    "Airbags"
+  ],
+  "summaries_per_generation": 4,
+  "num_generations": 1,
+  "successful_generations": 1,
+  "failed_generations": 0,
+  "output_directory": "c2_summaries_run2\\28_summaries",
+  "source_file": "csv_c_squared\\28.csv",
+  "sheet_name": "",
+  "generations": {
+    "generation_001": {
+      "status": "success",
+      "output_file": "c2_summaries_run2\\28_summaries\\generation_001\\summaries_gen_001.json",
+      "summaries_count": 4,
+      "generation_number": 1
+    }
+  }
+}

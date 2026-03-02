@@ -1,0 +1,29 @@
+{
+  "table_name": "Imports and Exports of Dogs by state",
+  "file_index": "429",
+  "original_filename": "429.csv",
+  "total_rows": 90,
+  "total_columns": 5,
+  "column_names": [
+    "location",
+    "exported",
+    "imported",
+    "total",
+    "inUS"
+  ],
+  "summaries_per_generation": 4,
+  "num_generations": 1,
+  "successful_generations": 1,
+  "failed_generations": 0,
+  "output_directory": "c2_summaries_run2\\429_summaries",
+  "source_file": "csv_c_squared\\429.csv",
+  "sheet_name": "",
+  "generations": {
+    "generation_001": {
+      "status": "success",
+      "output_file": "c2_summaries_run2\\429_summaries\\generation_001\\summaries_gen_001.json",
+      "summaries_count": 4,
+      "generation_number": 1
+    }
+  }
+}

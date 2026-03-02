@@ -1,0 +1,79 @@
+{
+  "table_name": "Global Rice Production Statistics Dataset",
+  "generation_dir": "c2_summaries\\Global_Rice_Production_Statistics_Dataset_summaries\\generation_001",
+  "total_summaries_processed": 2,
+  "questions_per_summary": 4,
+  "schema_context": "## Table 1: Global_Rice_Production_Statistics_Dataset (119 rows × 9 columns)\n\n### Description\nData loaded from CSV file: 3.csv (Dataset: Global Rice Production Statistics Dataset)\n\n### Schema (9 fields)\n  - Country -- type: object, values: Afghanistan, Albania, Algeria, Angola, Argentina, ..., Uzbekistan, Venezuela, Vietnam, Zambia, Zimbabwe\n  - Rice Production (Tons) -- type: object, values:  1.0K,  1.1K,  1.2K,  1.5K,  1.6K, ..., 585, 6.7M, 8.4M, 853, 88\n  - Rank of Rice Production -- type: float64, values: 1.0, 2.0, 3.0, 4.0, 5.0, ..., 115.0, 116.0, 117.0, 118.0, nan\n  - Rice Production Per Person (Kg) -- type: object, values: 0.01, 0.02, 0.05, 0.08, 0.10, ..., 83.2, 89.2, 9.6, 96.1, 97.1\n  - Rank of Rice Production Per Person -- type: int64, values: 1, 2, 3, 4, 5, ..., 115, 116, 117, 118, 119\n  - Rice Acreage (Hectare) -- type: object, values:  1.1K,  1.8K,  1.9K,  10.5K,  102.0K, ..., 601, 7.5M, 773, 9.7M, 99\n  - Rank of Rice Acreage -- type: float64, values: 1.0, 2.0, 3.0, 4.0, 5.0, ..., 115.0, 116.0, 117.0, 118.0, nan\n  - Rice Yield (Kg / Hectare) -- type: object, values: \"1,000.0\", \"1,014.2\", \"1,166.4\", \"1,193.1\", \"1,203.8\", ..., \"8,275.9\", \"8,372.6\", \"8,373.5\", \"8,588.2\", \"8,771.0\"\n  - Rank of Rice Yield -- type: float64, values: 1.0, 2.0, 3.0, 4.0, 5.0, ..., 115.0, 116.0, 117.0, 118.0, nan\n\n### Sample Data (first 5 rows)\n```\n      Country Rice Production (Tons)  Rank of Rice Production Rice Production Per Person (Kg)  Rank of Rice Production Per Person Rice Acreage (Hectare)  Rank of Rice Acreage Rice Yield (Kg / Hectare)  Rank of Rice Yield\n0       Chile                 174.9K                     65.0                            10.0                                  76                  26.2K                  77.0                   6,664.8                16.0\n1  Mauritania                 383.0K                     50.0                            96.1                                  26                  73.0K                  63.0                   5,249.2                36.0\n2      Turkey                   1.0M                     40.0                            12.4                                  68                 126.4K                  52.0                   7,910.2                 7.0\n3  Kyrgyzstan                  41.2K                     87.0                             6.5                                  81                  11.3K                  89.0                   3,646.4                63.0\n4        Laos                   3.4M                     21.0                           493.9                                   3                 783.8K                  23.0                   4,386.5                49.0\n```\n",
+  "table_metadata": {
+    "total_rows": 119,
+    "total_columns": 9,
+    "source_file": "csv_c_squared\\3.csv",
+    "sheet_name": ""
+  },
+  "questions": [
+    {
+      "table_name": "Global_Rice_Production_Statistics_Dataset",
+      "summary_idx": 1,
+      "column_combination": [
+        "Country",
+        "Rice Production (Tons)",
+        "Rank of Rice Production",
+        "Rice Production Per Person (Kg)",
+        "Rank of Rice Production Per Person",
+        "Rice Acreage (Hectare)",
+        "Rank of Rice Acreage",
+        "Rice Yield (Kg / Hectare)",
+        "Rank of Rice Yield"
+      ],
+      "questions": [
+        "Which countries achieve the highest rice yield per hectare, and how do their total rice production volumes compare to others?",
+        "Is there a noticeable relationship between rice acreage and rice yield per hectare among countries in this dataset?",
+        "How does rice production per person vary across different countries, and which countries rank highest in this metric?",
+        "Are there countries with relatively low rice acreage but high ranks in rice yield, and what might this indicate about their production efficiency?"
+      ],
+      "metadata": {
+        "schema_based": true,
+        "table_metadata": {
+          "total_rows": 119,
+          "total_columns": 9,
+          "source_file": "csv_c_squared\\3.csv",
+          "sheet_name": ""
+        },
+        "num_questions_requested": 4,
+        "num_questions_generated": 4
+      }
+    },
+    {
+      "table_name": "Global_Rice_Production_Statistics_Dataset",
+      "summary_idx": 2,
+      "column_combination": [
+        "Country",
+        "Rice Production (Tons)",
+        "Rank of Rice Production",
+        "Rice Production Per Person (Kg)",
+        "Rank of Rice Production Per Person",
+        "Rice Acreage (Hectare)",
+        "Rank of Rice Acreage",
+        "Rice Yield (Kg / Hectare)",
+        "Rank of Rice Yield"
+      ],
+      "questions": [
+        "Which countries have a high total rice production but a low rice production per person, and what does this reveal about population needs and distribution disparities?",
+        "How does rice yield (Kg / Hectare) correlate with rice production per person (Kg) across countries, and are there countries that are outliers in this relationship?",
+        "Among the top ranked countries for rice production per person, how does their rice acreage compare in terms of rank, and what insights can be drawn about land usage efficiency?",
+        "Are there countries where the rank of rice production differs significantly from the rank of rice acreage, and what might this indicate about cultivation practices or productivity?"
+      ],
+      "metadata": {
+        "schema_based": true,
+        "table_metadata": {
+          "total_rows": 119,
+          "total_columns": 9,
+          "source_file": "csv_c_squared\\3.csv",
+          "sheet_name": ""
+        },
+        "num_questions_requested": 4,
+        "num_questions_generated": 4
+      }
+    }
+  ]
+}

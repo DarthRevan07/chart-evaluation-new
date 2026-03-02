@@ -1,0 +1,372 @@
+{
+  "status": "complete",
+  "total_schemas": 20,
+  "successful": 20,
+  "failed": 0,
+  "summaries_per_generation": 4,
+  "num_generations_per_schema": 1,
+  "total_successful_generations": 18,
+  "total_summaries_generated": 72,
+  "processed_schemas": {
+    "1": {
+      "status": "success",
+      "output_directory": "c2_summaries_run2\\1_summaries",
+      "successful_generations": 0,
+      "failed_generations": 1,
+      "total_summaries": 0,
+      "total_rows": 230,
+      "total_columns": 15,
+      "source_file": "csv_c_squared\\1.csv",
+      "generations": {
+        "generation_001": {
+          "status": "generation_failed",
+          "error": "Failed to generate summaries",
+          "generation_number": 1
+        }
+      }
+    },
+    "160": {
+      "status": "success",
+      "output_directory": "c2_summaries_run2\\160_summaries",
+      "successful_generations": 0,
+      "failed_generations": 1,
+      "total_summaries": 0,
+      "total_rows": 568,
+      "total_columns": 7,
+      "source_file": "csv_c_squared\\160.csv",
+      "generations": {
+        "generation_001": {
+          "status": "generation_failed",
+          "error": "Failed to generate summaries",
+          "generation_number": 1
+        }
+      }
+    },
+    "192": {
+      "status": "success",
+      "output_directory": "c2_summaries_run2\\192_summaries",
+      "successful_generations": 1,
+      "failed_generations": 0,
+      "total_summaries": 4,
+      "total_rows": 240,
+      "total_columns": 7,
+      "source_file": "csv_c_squared\\192.csv",
+      "generations": {
+        "generation_001": {
+          "status": "success",
+          "output_file": "c2_summaries_run2\\192_summaries\\generation_001\\summaries_gen_001.json",
+          "summaries_count": 4,
+          "generation_number": 1
+        }
+      }
+    },
+    "2": {
+      "status": "success",
+      "output_directory": "c2_summaries_run2\\2_summaries",
+      "successful_generations": 1,
+      "failed_generations": 0,
+      "total_summaries": 4,
+      "total_rows": 1738,
+      "total_columns": 33,
+      "source_file": "csv_c_squared\\2.csv",
+      "generations": {
+        "generation_001": {
+          "status": "success",
+          "output_file": "c2_summaries_run2\\2_summaries\\generation_001\\summaries_gen_001.json",
+          "summaries_count": 4,
+          "generation_number": 1
+        }
+      }
+    },
+    "206": {
+      "status": "success",
+      "output_directory": "c2_summaries_run2\\206_summaries",
+      "successful_generations": 1,
+      "failed_generations": 0,
+      "total_summaries": 4,
+      "total_rows": 545,
+      "total_columns": 13,
+      "source_file": "csv_c_squared\\206.csv",
+      "generations": {
+        "generation_001": {
+          "status": "success",
+          "output_file": "c2_summaries_run2\\206_summaries\\generation_001\\summaries_gen_001.json",
+          "summaries_count": 4,
+          "generation_number": 1
+        }
+      }
+    },
+    "22": {
+      "status": "success",
+      "output_directory": "c2_summaries_run2\\22_summaries",
+      "successful_generations": 1,
+      "failed_generations": 0,
+      "total_summaries": 4,
+      "total_rows": 205,
+      "total_columns": 26,
+      "source_file": "csv_c_squared\\22.csv",
+      "generations": {
+        "generation_001": {
+          "status": "success",
+          "output_file": "c2_summaries_run2\\22_summaries\\generation_001\\summaries_gen_001.json",
+          "summaries_count": 4,
+          "generation_number": 1
+        }
+      }
+    },
+    "221": {
+      "status": "success",
+      "output_directory": "c2_summaries_run2\\221_summaries",
+      "successful_generations": 1,
+      "failed_generations": 0,
+      "total_summaries": 4,
+      "total_rows": 139,
+      "total_columns": 13,
+      "source_file": "csv_c_squared\\221.csv",
+      "generations": {
+        "generation_001": {
+          "status": "success",
+          "output_file": "c2_summaries_run2\\221_summaries\\generation_001\\summaries_gen_001.json",
+          "summaries_count": 4,
+          "generation_number": 1
+        }
+      }
+    },
+    "243": {
+      "status": "success",
+      "output_directory": "c2_summaries_run2\\243_summaries",
+      "successful_generations": 1,
+      "failed_generations": 0,
+      "total_summaries": 4,
+      "total_rows": 800,
+      "total_columns": 11,
+      "source_file": "csv_c_squared\\243.csv",
+      "generations": {
+        "generation_001": {
+          "status": "success",
+          "output_file": "c2_summaries_run2\\243_summaries\\generation_001\\summaries_gen_001.json",
+          "summaries_count": 4,
+          "generation_number": 1
+        }
+      }
+    },
+    "25": {
+      "status": "success",
+      "output_directory": "c2_summaries_run2\\25_summaries",
+      "successful_generations": 1,
+      "failed_generations": 0,
+      "total_summaries": 4,
+      "total_rows": 50,
+      "total_columns": 13,
+      "source_file": "csv_c_squared\\25.csv",
+      "generations": {
+        "generation_001": {
+          "status": "success",
+          "output_file": "c2_summaries_run2\\25_summaries\\generation_001\\summaries_gen_001.json",
+          "summaries_count": 4,
+          "generation_number": 1
+        }
+      }
+    },
+    "261": {
+      "status": "success",
+      "output_directory": "c2_summaries_run2\\261_summaries",
+      "successful_generations": 1,
+      "failed_generations": 0,
+      "total_summaries": 4,
+      "total_rows": 357,
+      "total_columns": 19,
+      "source_file": "csv_c_squared\\261.csv",
+      "generations": {
+        "generation_001": {
+          "status": "success",
+          "output_file": "c2_summaries_run2\\261_summaries\\generation_001\\summaries_gen_001.json",
+          "summaries_count": 4,
+          "generation_number": 1
+        }
+      }
+    },
+    "268": {
+      "status": "success",
+      "output_directory": "c2_summaries_run2\\268_summaries",
+      "successful_generations": 1,
+      "failed_generations": 0,
+      "total_summaries": 4,
+      "total_rows": 64,
+      "total_columns": 10,
+      "source_file": "csv_c_squared\\268.csv",
+      "generations": {
+        "generation_001": {
+          "status": "success",
+          "output_file": "c2_summaries_run2\\268_summaries\\generation_001\\summaries_gen_001.json",
+          "summaries_count": 4,
+          "generation_number": 1
+        }
+      }
+    },
+    "269": {
+      "status": "success",
+      "output_directory": "c2_summaries_run2\\269_summaries",
+      "successful_generations": 1,
+      "failed_generations": 0,
+      "total_summaries": 4,
+      "total_rows": 234,
+      "total_columns": 17,
+      "source_file": "csv_c_squared\\269.csv",
+      "generations": {
+        "generation_001": {
+          "status": "success",
+          "output_file": "c2_summaries_run2\\269_summaries\\generation_001\\summaries_gen_001.json",
+          "summaries_count": 4,
+          "generation_number": 1
+        }
+      }
+    },
+    "28": {
+      "status": "success",
+      "output_directory": "c2_summaries_run2\\28_summaries",
+      "successful_generations": 1,
+      "failed_generations": 0,
+      "total_summaries": 4,
+      "total_rows": 19237,
+      "total_columns": 18,
+      "source_file": "csv_c_squared\\28.csv",
+      "generations": {
+        "generation_001": {
+          "status": "success",
+          "output_file": "c2_summaries_run2\\28_summaries\\generation_001\\summaries_gen_001.json",
+          "summaries_count": 4,
+          "generation_number": 1
+        }
+      }
+    },
+    "3": {
+      "status": "success",
+      "output_directory": "c2_summaries_run2\\3_summaries",
+      "successful_generations": 1,
+      "failed_generations": 0,
+      "total_summaries": 4,
+      "total_rows": 119,
+      "total_columns": 9,
+      "source_file": "csv_c_squared\\3.csv",
+      "generations": {
+        "generation_001": {
+          "status": "success",
+          "output_file": "c2_summaries_run2\\3_summaries\\generation_001\\summaries_gen_001.json",
+          "summaries_count": 4,
+          "generation_number": 1
+        }
+      }
+    },
+    "32": {
+      "status": "success",
+      "output_directory": "c2_summaries_run2\\32_summaries",
+      "successful_generations": 1,
+      "failed_generations": 0,
+      "total_summaries": 4,
+      "total_rows": 1338,
+      "total_columns": 7,
+      "source_file": "csv_c_squared\\32.csv",
+      "generations": {
+        "generation_001": {
+          "status": "success",
+          "output_file": "c2_summaries_run2\\32_summaries\\generation_001\\summaries_gen_001.json",
+          "summaries_count": 4,
+          "generation_number": 1
+        }
+      }
+    },
+    "39": {
+      "status": "success",
+      "output_directory": "c2_summaries_run2\\39_summaries",
+      "successful_generations": 1,
+      "failed_generations": 0,
+      "total_summaries": 4,
+      "total_rows": 214,
+      "total_columns": 10,
+      "source_file": "csv_c_squared\\39.csv",
+      "generations": {
+        "generation_001": {
+          "status": "success",
+          "output_file": "c2_summaries_run2\\39_summaries\\generation_001\\summaries_gen_001.json",
+          "summaries_count": 4,
+          "generation_number": 1
+        }
+      }
+    },
+    "429": {
+      "status": "success",
+      "output_directory": "c2_summaries_run2\\429_summaries",
+      "successful_generations": 1,
+      "failed_generations": 0,
+      "total_summaries": 4,
+      "total_rows": 90,
+      "total_columns": 5,
+      "source_file": "csv_c_squared\\429.csv",
+      "generations": {
+        "generation_001": {
+          "status": "success",
+          "output_file": "c2_summaries_run2\\429_summaries\\generation_001\\summaries_gen_001.json",
+          "summaries_count": 4,
+          "generation_number": 1
+        }
+      }
+    },
+    "461": {
+      "status": "success",
+      "output_directory": "c2_summaries_run2\\461_summaries",
+      "successful_generations": 1,
+      "failed_generations": 0,
+      "total_summaries": 4,
+      "total_rows": 140,
+      "total_columns": 3,
+      "source_file": "csv_c_squared\\461.csv",
+      "generations": {
+        "generation_001": {
+          "status": "success",
+          "output_file": "c2_summaries_run2\\461_summaries\\generation_001\\summaries_gen_001.json",
+          "summaries_count": 4,
+          "generation_number": 1
+        }
+      }
+    },
+    "63": {
+      "status": "success",
+      "output_directory": "c2_summaries_run2\\63_summaries",
+      "successful_generations": 1,
+      "failed_generations": 0,
+      "total_summaries": 4,
+      "total_rows": 1500,
+      "total_columns": 9,
+      "source_file": "csv_c_squared\\63.csv",
+      "generations": {
+        "generation_001": {
+          "status": "success",
+          "output_file": "c2_summaries_run2\\63_summaries\\generation_001\\summaries_gen_001.json",
+          "summaries_count": 4,
+          "generation_number": 1
+        }
+      }
+    },
+    "97": {
+      "status": "success",
+      "output_directory": "c2_summaries_run2\\97_summaries",
+      "successful_generations": 1,
+      "failed_generations": 0,
+      "total_summaries": 4,
+      "total_rows": 100,
+      "total_columns": 24,
+      "source_file": "csv_c_squared\\97.csv",
+      "generations": {
+        "generation_001": {
+          "status": "success",
+          "output_file": "c2_summaries_run2\\97_summaries\\generation_001\\summaries_gen_001.json",
+          "summaries_count": 4,
+          "generation_number": 1
+        }
+      }
+    }
+  },
+  "schema_directory": "c2_schemas",
+  "output_directory": "c2_summaries_run2"
+}

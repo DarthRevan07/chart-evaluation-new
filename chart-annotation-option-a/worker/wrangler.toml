@@ -1,0 +1,12 @@
+name = "chart-annotation-worker"
+main = "src/index.ts"
+compatibility_date = "2025-02-01"
+
+# KV binding (local + prod)
+kv_namespaces = [
+  { binding = "SUBMISSIONS", id = "00000000000000000000000000000000" }
+]
+
+# Local dev server settings
+[dev]
+port = 8787

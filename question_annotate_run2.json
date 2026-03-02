@@ -1,0 +1,956 @@
+{
+  "metadata": {
+    "description": "Question annotation data extracted from c2_summaries_run2 and c2_questions_run2, filtered by run2.json",
+    "total_entries": 118,
+    "summaries_source": "C:\\\\prose\\\\etc\\\\ExcelCopilot\\\\ExcelCopilotResearch\\\\ChartQuality\\\\ChartGen\\\\summariesDir\\\\c2_summaries_run2",
+    "questions_source": "C:\\\\prose\\\\etc\\\\ExcelCopilot\\\\ExcelCopilotResearch\\\\ChartQuality\\\\ChartGen\\\\questionsDir\\\\c2_questions_run2",
+    "config_source": "C:\\\\prose\\\\etc\\\\ExcelCopilot\\\\ExcelCopilotResearch\\\\ChartQuality\\\\ChartGen\\\\stage3_configs\\\\run2.json",
+    "generated_timestamp": "2026-02-10"
+  },
+  "annotations": [
+    {
+      "table": "1",
+      "summary_idx": 1,
+      "narrative_summary": "This dataset enables business leaders to compare sectoral economic strengths across countries, revealing which countries rely more on agriculture, industry, or services. By examining fields such as GDP (millions of $), Agriculture Sector GDP of % Contribution, Industry%ofGDP, and Services%ofGDP, executives can visualize regional opportunities and risks, guiding investment and expansion strategies. The structure supports cross-country benchmarking and helps establish sectoral dominance relevant for business decisions.",
+      "question_idx": 1,
+      "question_string": "Which countries have the highest percentage contribution from agriculture to their GDP, and how does this compare to their overall GDP values?",
+      "variants": []
+    },
+    {
+      "table": "1",
+      "summary_idx": 1,
+      "narrative_summary": "This dataset enables business leaders to compare sectoral economic strengths across countries, revealing which countries rely more on agriculture, industry, or services. By examining fields such as GDP (millions of $), Agriculture Sector GDP of % Contribution, Industry%ofGDP, and Services%ofGDP, executives can visualize regional opportunities and risks, guiding investment and expansion strategies. The structure supports cross-country benchmarking and helps establish sectoral dominance relevant for business decisions.",
+      "question_idx": 2,
+      "question_string": "How do the industry sector's percentage contribution to GDP differ across countries with the highest and lowest GDP rankings?",
+      "variants": []
+    },
+    {
+      "table": "1",
+      "summary_idx": 1,
+      "narrative_summary": "This dataset enables business leaders to compare sectoral economic strengths across countries, revealing which countries rely more on agriculture, industry, or services. By examining fields such as GDP (millions of $), Agriculture Sector GDP of % Contribution, Industry%ofGDP, and Services%ofGDP, executives can visualize regional opportunities and risks, guiding investment and expansion strategies. The structure supports cross-country benchmarking and helps establish sectoral dominance relevant for business decisions.",
+      "question_idx": 4,
+      "question_string": "Are there any countries where the agriculture, industry, and services sectors contribute almost equally to GDP, based on their % contributions?",
+      "variants": []
+    },
+    {
+      "table": "1",
+      "summary_idx": 1,
+      "narrative_summary": "This dataset enables business leaders to compare sectoral economic strengths across countries, revealing which countries rely more on agriculture, industry, or services. By examining fields such as GDP (millions of $), Agriculture Sector GDP of % Contribution, Industry%ofGDP, and Services%ofGDP, executives can visualize regional opportunities and risks, guiding investment and expansion strategies. The structure supports cross-country benchmarking and helps establish sectoral dominance relevant for business decisions.",
+      "question_idx": 8,
+      "question_string": "How does the distribution of GDP (millions of $) vary among countries with similar ServicesRank values?",
+      "variants": []
+    },
+    {
+      "table": "1",
+      "summary_idx": 2,
+      "narrative_summary": "The schema permits policy makers to visualize and analyze the relative strength and development stage of agriculture, industry, and services sectors across various economies. Fields like Agriculture Sector GDP Rank, IndustryRank, ServicesRank, and sectoral % contribution support comparative analysis for policy formulation, allowing agencies to benchmark progress, identify underdeveloped sectors, and inform resource allocation decisions. Visualization of ranks and contributions over time fosters evidence-based policy design.",
+      "question_idx": 4,
+      "question_string": "Are there countries where the Agriculture Sector GDP Rank is significantly better than their overall Rank?",
+      "variants": ["sum_2_ques_4/var2.png", "sum_2_ques_4/var3.png"]
+    },
+    {
+      "table": "1",
+      "summary_idx": 2,
+      "narrative_summary": "The schema permits policy makers to visualize and analyze the relative strength and development stage of agriculture, industry, and services sectors across various economies. Fields like Agriculture Sector GDP Rank, IndustryRank, ServicesRank, and sectoral % contribution support comparative analysis for policy formulation, allowing agencies to benchmark progress, identify underdeveloped sectors, and inform resource allocation decisions. Visualization of ranks and contributions over time fosters evidence-based policy design.",
+      "question_idx": 6,
+      "question_string": "In which countries does Agriculture GDP make up a disproportionately large share of total GDP (millions of $)?",
+      "variants": []
+    },
+    {
+      "table": "1",
+      "summary_idx": 3,
+      "narrative_summary": "Researchers are empowered to explore global economic restructuring by leveraging fields such as Year GDP, Year Sector, and sectoral % contribution. The schema enables visualization of temporal patterns and changes in sector dominance, facilitating studies of industrialization, service sector growth, and agricultural decline. Analysts can also investigate correlations between GDP size and sector composition, yielding insights into development trajectories and structural transformation.",
+      "question_idx": 2,
+      "question_string": "What trends can be observed in the industry sector’s percentage of GDP over the years?",
+      "variants": []
+    },
+    {
+      "table": "1",
+      "summary_idx": 3,
+      "narrative_summary": "Researchers are empowered to explore global economic restructuring by leveraging fields such as Year GDP, Year Sector, and sectoral % contribution. The schema enables visualization of temporal patterns and changes in sector dominance, facilitating studies of industrialization, service sector growth, and agricultural decline. Analysts can also investigate correlations between GDP size and sector composition, yielding insights into development trajectories and structural transformation.",
+      "question_idx": 7,
+      "question_string": "What is the relationship between the year of GDP measurement and the sectoral composition (agriculture, industry, services) in a given country?",
+      "variants": []
+    },
+    {
+      "table": "192",
+      "summary_idx": 1,
+      "narrative_summary": "This dataset offers a rich basis for visually demonstrating the principles behind stellar classification. For educational purposes, combining Temperature, Luminosity, Radius, and Spectral Class enables instructors to showcase the structure and rationale of the HR diagram, aiding learners in grasping how different physical attributes and spectral classes are used to differentiate star types. Visualizations of these attributes collectively support the narrative of how stars are scientifically categorized, making stellar classification more approachable and relevant for instructional design and classroom engagement.",
+      "question_idx": 1,
+      "question_string": "How does Temperature vary across different Spectral Classes?",
+      "variants": []
+    },
+    {
+      "table": "192",
+      "summary_idx": 1,
+      "narrative_summary": "This dataset offers a rich basis for visually demonstrating the principles behind stellar classification. For educational purposes, combining Temperature, Luminosity, Radius, and Spectral Class enables instructors to showcase the structure and rationale of the HR diagram, aiding learners in grasping how different physical attributes and spectral classes are used to differentiate star types. Visualizations of these attributes collectively support the narrative of how stars are scientifically categorized, making stellar classification more approachable and relevant for instructional design and classroom engagement.",
+      "question_idx": 2,
+      "question_string": "What is the relationship between Luminosity and Radius for stars of the same Star type?",
+      "variants": []
+    },
+    {
+      "table": "192",
+      "summary_idx": 1,
+      "narrative_summary": "This dataset offers a rich basis for visually demonstrating the principles behind stellar classification. For educational purposes, combining Temperature, Luminosity, Radius, and Spectral Class enables instructors to showcase the structure and rationale of the HR diagram, aiding learners in grasping how different physical attributes and spectral classes are used to differentiate star types. Visualizations of these attributes collectively support the narrative of how stars are scientifically categorized, making stellar classification more approachable and relevant for instructional design and classroom engagement.",
+      "question_idx": 4,
+      "question_string": "How does the distribution of Star types relate to their Luminosity levels?",
+      "variants": ["sum_1_ques_4/var1.png", "sum_1_ques_4/var2.png"]
+    },
+    {
+      "table": "192",
+      "summary_idx": 1,
+      "narrative_summary": "This dataset offers a rich basis for visually demonstrating the principles behind stellar classification. For educational purposes, combining Temperature, Luminosity, Radius, and Spectral Class enables instructors to showcase the structure and rationale of the HR diagram, aiding learners in grasping how different physical attributes and spectral classes are used to differentiate star types. Visualizations of these attributes collectively support the narrative of how stars are scientifically categorized, making stellar classification more approachable and relevant for instructional design and classroom engagement.",
+      "question_idx": 6,
+      "question_string": "How does Star color correlate with Temperature?",
+      "variants": []
+    },
+    {
+      "table": "192",
+      "summary_idx": 1,
+      "narrative_summary": "This dataset offers a rich basis for visually demonstrating the principles behind stellar classification. For educational purposes, combining Temperature, Luminosity, Radius, and Spectral Class enables instructors to showcase the structure and rationale of the HR diagram, aiding learners in grasping how different physical attributes and spectral classes are used to differentiate star types. Visualizations of these attributes collectively support the narrative of how stars are scientifically categorized, making stellar classification more approachable and relevant for instructional design and classroom engagement.",
+      "question_idx": 7,
+      "question_string": "Are there any outliers in the Temperature and Luminosity relationship?",
+      "variants": []
+    },
+    {
+      "table": "192",
+      "summary_idx": 3,
+      "narrative_summary": "This schema serves as a prototypical example for building supervised learning models aimed at predicting star types. Featuring clear distinctions between input variables (Temperature, Luminosity, Radius, Absolute magnitude, Star color, Spectral Class) and the output label (Star type), the dataset enables practitioners to experiment with feature selection, categorical encoding, and model evaluation strategies. Insights gained from visualizing feature importances, confusion matrices, and decision boundaries help improve automated classification accuracy and reliability, translating astrophysical patterns into actionable, algorithmic knowledge.",
+      "question_idx": 8,
+      "question_string": "How do the values of Temperature (K) and Luminosity(L/Lo) compare for stars classified as Spectral Class O versus Class M?",
+      "variants": []
+    },
+    {
+      "table": "192",
+      "summary_idx": 4,
+      "narrative_summary": "This dataset is structured to support vibrant, informative storytelling about different types of stars. By blending Star color and Spectral Class with quantitative metrics such as Temperature or Luminosity, communicators can develop compelling graphics that align visually distinguishable features with physical properties. Such combinations make it easier for audiences to intuitively grasp how varied star appearances map to underlying scientific phenomena, encouraging broader engagement and curiosity about astronomy through accessible, visually driven narratives.",
+      "question_idx": 8,
+      "question_string": "What is the association between Radius(R/Ro) and Temperature (K) for stars of the same Star type?",
+      "variants": []
+    },
+    {
+      "table": "2",
+      "summary_idx": 1,
+      "narrative_summary": "This dataset enables policymakers to visualize the evolution of methane emissions by country and sector from 1990 to 2018, uncovering which nations and sectors contribute most and how patterns have shifted. Audiences can identify where emission mitigation policies have succeeded or failed, compare sector performance between countries, and prioritize areas for intervention based on historical data. The schema's structure supports trend analysis, comparative country-sector profiling, and benchmarking for international agreements.",
+      "question_idx": 1,
+      "question_string": "Which countries had the highest total methane emissions in 2018, and how does this compare to their values in 1990?",
+      "variants": ["sum_1_ques_1/var3.png", "sum_1_ques_1/var5.png"]
+    },
+    {
+      "table": "2",
+      "summary_idx": 1,
+      "narrative_summary": "This dataset enables policymakers to visualize the evolution of methane emissions by country and sector from 1990 to 2018, uncovering which nations and sectors contribute most and how patterns have shifted. Audiences can identify where emission mitigation policies have succeeded or failed, compare sector performance between countries, and prioritize areas for intervention based on historical data. The schema's structure supports trend analysis, comparative country-sector profiling, and benchmarking for international agreements.",
+      "question_idx": 4,
+      "question_string": "Are there countries where methane emissions from the Energy sector show clear decreasing trends between 1990 and 2018?",
+      "variants": []
+    },
+    {
+      "table": "2",
+      "summary_idx": 1,
+      "narrative_summary": "This dataset enables policymakers to visualize the evolution of methane emissions by country and sector from 1990 to 2018, uncovering which nations and sectors contribute most and how patterns have shifted. Audiences can identify where emission mitigation policies have succeeded or failed, compare sector performance between countries, and prioritize areas for intervention based on historical data. The schema's structure supports trend analysis, comparative country-sector profiling, and benchmarking for international agreements.",
+      "question_idx": 5,
+      "question_string": "How does methane emission from the Waste sector in 2018 vary across different countries?",
+      "variants": []
+    },
+    {
+      "table": "2",
+      "summary_idx": 1,
+      "narrative_summary": "This dataset enables policymakers to visualize the evolution of methane emissions by country and sector from 1990 to 2018, uncovering which nations and sectors contribute most and how patterns have shifted. Audiences can identify where emission mitigation policies have succeeded or failed, compare sector performance between countries, and prioritize areas for intervention based on historical data. The schema's structure supports trend analysis, comparative country-sector profiling, and benchmarking for international agreements.",
+      "question_idx": 6,
+      "question_string": "Are there significant anomalies or spikes in methane emissions for any country-sector combination in a given year?",
+      "variants": []
+    },
+    {
+      "table": "2",
+      "summary_idx": 2,
+      "narrative_summary": "Researchers can leverage the rich schema to conduct multi-dimensional analyses of methane emissions—investigating correlations between sectoral activity and emissions, modeling global and regional trends, and validating climate models against observed emission trajectories. Time series columns allow for longitudinal studies and anomaly detection, while categorical breakdowns by country and sector facilitate deeper examination of emission sources and potential climate impact drivers. This enables rigorous scientific studies that inform theoretical understanding and practical climate action.",
+      "question_idx": 1,
+      "question_string": "How have methane emissions in the Agriculture sector changed across different countries from 1990 to 2018?",
+      "variants": []
+    },
+    {
+      "table": "2",
+      "summary_idx": 2,
+      "narrative_summary": "Researchers can leverage the rich schema to conduct multi-dimensional analyses of methane emissions—investigating correlations between sectoral activity and emissions, modeling global and regional trends, and validating climate models against observed emission trajectories. Time series columns allow for longitudinal studies and anomaly detection, while categorical breakdowns by country and sector facilitate deeper examination of emission sources and potential climate impact drivers. This enables rigorous scientific studies that inform theoretical understanding and practical climate action.",
+      "question_idx": 3,
+      "question_string": "What trends can be observed in methane emissions for the Energy sector over the years 1990 to 2018 in selected countries?",
+      "variants": []
+    },
+    {
+      "table": "2",
+      "summary_idx": 2,
+      "narrative_summary": "Researchers can leverage the rich schema to conduct multi-dimensional analyses of methane emissions—investigating correlations between sectoral activity and emissions, modeling global and regional trends, and validating climate models against observed emission trajectories. Time series columns allow for longitudinal studies and anomaly detection, while categorical breakdowns by country and sector facilitate deeper examination of emission sources and potential climate impact drivers. This enables rigorous scientific studies that inform theoretical understanding and practical climate action.",
+      "question_idx": 4,
+      "question_string": "Are there any anomalies or outliers in the time series of methane emissions for the Waste sector in any country?",
+      "variants": []
+    },
+    {
+      "table": "2",
+      "summary_idx": 3,
+      "narrative_summary": "Industry leaders can use this data structure to pinpoint countries and sectors with rising or falling methane emissions, revealing business risks and market opportunities tied to regulation or sustainability initiatives. Sector-specific breakdowns support competitive benchmarking and strategic planning; temporal comparisons highlight periods of change, providing situational awareness for investment and innovation. Visualizations of sectoral emission trajectories across geographies can drive actionable decisions on sustainability investments and operational improvements.",
+      "question_idx": 1,
+      "question_string": "How have methane emissions changed in the Energy sector across different countries between 1990 and 2018?",
+      "variants": []
+    },
+    {
+      "table": "2",
+      "summary_idx": 4,
+      "narrative_summary": "The structure of this table, with multiple categorical fields and yearly quantitative columns, is ideal for designing dynamic dashboards and visual exploration tools. Data analysts can create interactive charts showing country and sector emission trends, map outliers, and animate temporal changes. This supports broad audience engagement, making complex emission data accessible and revealing actionable patterns suited to policy, business, or educational outreach. The schema encourages visual storytelling and intuitive insight discovery to drive wider climate awareness.",
+      "question_idx": 8,
+      "question_string": "Which sectors contribute the most to total methane emissions in a specific country, and how has this changed from 1990 to 2018?",
+      "variants": []
+    },
+    {
+      "table": "206",
+      "summary_idx": 1,
+      "narrative_summary": "The schema enables real estate developers and property investors to analyze how key property characteristics, such as area size, number of bedrooms, and furnishing status, contribute to price variations across the dataset. By visualizing the relationships between these fields, stakeholders can identify trends in premium pricing, assess which features are most influential in value appreciation, and detect potential outliers that reveal high-value or undervalued properties. This field combination supports strategic decision-making for investment portfolios and resource allocation by uncovering market-driven price determinants.",
+      "question_idx": 3,
+      "question_string": "Do properties with more bedrooms tend to have higher prices compared to those with fewer bedrooms?",
+      "variants": ["sum_1_ques_3/var4.png", "sum_1_ques_3/var3.png"]
+    },
+    {
+      "table": "206",
+      "summary_idx": 1,
+      "narrative_summary": "The schema enables real estate developers and property investors to analyze how key property characteristics, such as area size, number of bedrooms, and furnishing status, contribute to price variations across the dataset. By visualizing the relationships between these fields, stakeholders can identify trends in premium pricing, assess which features are most influential in value appreciation, and detect potential outliers that reveal high-value or undervalued properties. This field combination supports strategic decision-making for investment portfolios and resource allocation by uncovering market-driven price determinants.",
+      "question_idx": 6,
+      "question_string": "Is there a noticeable trend in property prices based on the number of stories?",
+      "variants": ["sum_1_ques_6/var1.png", "sum_1_ques_6/var4.png"]
+    },
+    {
+      "table": "206",
+      "summary_idx": 2,
+      "narrative_summary": "The data schema provides urban planners and policy advisors with a platform to analyze combinations of area, parking availability, main road access, and preferred area designation against price and furnishing status. This analysis exposes the influence of location and amenities on housing affordability and reveals distribution patterns pointing to potential spatial inequities. By accepting and exploring these relationships, stakeholders can better inform zoning policy, affordable housing initiatives, and infrastructure planning to address observed disparities and align solutions with community needs.",
+      "question_idx": 6,
+      "question_string": "How does the distribution of houses with guestrooms compare between preferred and non-preferred areas?",
+      "variants": []
+    },
+    {
+      "table": "206",
+      "summary_idx": 3,
+      "narrative_summary": "Data analysts and machine learning practitioners are encouraged to leverage the diverse set of numerical and categorical fields, such as area, stories, parking, air conditioning, and furnishing status, to construct predictive models of housing price. The schema structure facilitates correlation analysis, feature engineering, and cross-field interaction exploration, assisting in establishing high-impact data pipelines for price forecasting. By systematically investigating these field relationships, practitioners can improve model accuracy, detect confounding variables, and build interpretable solutions for future housing price estimation.",
+      "question_idx": 4,
+      "question_string": "How do prices differ across the three furnishing status categories: furnished, semi-furnished, and unfurnished?",
+      "variants": []
+    },
+    {
+      "table": "206",
+      "summary_idx": 3,
+      "narrative_summary": "Data analysts and machine learning practitioners are encouraged to leverage the diverse set of numerical and categorical fields, such as area, stories, parking, air conditioning, and furnishing status, to construct predictive models of housing price. The schema structure facilitates correlation analysis, feature engineering, and cross-field interaction exploration, assisting in establishing high-impact data pipelines for price forecasting. By systematically investigating these field relationships, practitioners can improve model accuracy, detect confounding variables, and build interpretable solutions for future housing price estimation.",
+      "question_idx": 5,
+      "question_string": "Does the presence of a guestroom influence the price for homes with similar area?",
+      "variants": []
+    },
+    {
+      "table": "22",
+      "summary_idx": 1,
+      "narrative_summary": "The schema provides a rich foundation for pricing strategists to identify which vehicle features most strongly impact car prices. Through visualization of carbody, enginetype, and enginesize against price, viewers can detect patterns and understand which combinations create higher perceived value. This supports segment-level trend identification and strategic adjustments in offering or marketing, empowering business actions aligned with data-backed feature-to-value relationships.",
+      "question_idx": 1,
+      "question_string": "How does car price differ across various carbody types?",
+      "variants": []
+    },
+    {
+      "table": "22",
+      "summary_idx": 1,
+      "narrative_summary": "The schema provides a rich foundation for pricing strategists to identify which vehicle features most strongly impact car prices. Through visualization of carbody, enginetype, and enginesize against price, viewers can detect patterns and understand which combinations create higher perceived value. This supports segment-level trend identification and strategic adjustments in offering or marketing, empowering business actions aligned with data-backed feature-to-value relationships.",
+      "question_idx": 4,
+      "question_string": "Among different enginetypes, which are associated with higher average prices?",
+      "variants": ["sum_1_ques_4/var1.png", "sum_1_ques4/var3.png"]
+    },
+    {
+      "table": "22",
+      "summary_idx": 1,
+      "narrative_summary": "The schema provides a rich foundation for pricing strategists to identify which vehicle features most strongly impact car prices. Through visualization of carbody, enginetype, and enginesize against price, viewers can detect patterns and understand which combinations create higher perceived value. This supports segment-level trend identification and strategic adjustments in offering or marketing, empowering business actions aligned with data-backed feature-to-value relationships.",
+      "question_idx": 5,
+      "question_string": "Are there noticeable differences in price between fuel types (gas vs diesel)?",
+      "variants": []
+    },
+    {
+      "table": "22",
+      "summary_idx": 1,
+      "narrative_summary": "The schema provides a rich foundation for pricing strategists to identify which vehicle features most strongly impact car prices. Through visualization of carbody, enginetype, and enginesize against price, viewers can detect patterns and understand which combinations create higher perceived value. This supports segment-level trend identification and strategic adjustments in offering or marketing, empowering business actions aligned with data-backed feature-to-value relationships.",
+      "question_idx": 8,
+      "question_string": "Which combination of enginetype and enginesize consistently leads to higher car prices?",
+      "variants": []
+    },
+    {
+      "table": "22",
+      "summary_idx": 2,
+      "narrative_summary": "By linking fueltype, citympg, highwaympg, and price, the schema invites sustainability analysts to explore fuel efficiency distributions within price categories. Visualizations can reveal which segments offer high savings or ecological benefits, providing vital evidence for incentives or regulation. This supports actionable policy recommendations and market guidance that balance environmental goals and consumer costs.",
+      "question_idx": 1,
+      "question_string": "How does citympg differ across the various fueltype categories?",
+      "variants": []
+    },
+    {
+      "table": "22",
+      "summary_idx": 2,
+      "narrative_summary": "By linking fueltype, citympg, highwaympg, and price, the schema invites sustainability analysts to explore fuel efficiency distributions within price categories. Visualizations can reveal which segments offer high savings or ecological benefits, providing vital evidence for incentives or regulation. This supports actionable policy recommendations and market guidance that balance environmental goals and consumer costs.",
+      "question_idx": 8,
+      "question_string": "Which specific CarName entries stand out for combining high citympg with low price, and what fueltype do they use?",
+      "variants": []
+    },
+    {
+      "table": "22",
+      "summary_idx": 3,
+      "narrative_summary": "The table schema offers technical field combinations that let engineering teams investigate how diverse engine setup parameters drive performance outcomes. By plotting enginesize, boreratio, stroke, and horsepower, viewers gain insight into optimal configurations and potential trade-offs, supporting evidence-based engineering decisions and design improvements. This empowers innovation by clarifying configuration-performance relationships.",
+      "question_idx": 6,
+      "question_string": "What is the distribution of horsepower across different fuel types (gas vs diesel)?",
+      "variants": []
+    },
+    {
+      "table": "22",
+      "summary_idx": 4,
+      "narrative_summary": "Combining CarName, symboling, and price sets the stage for market researchers to uncover the landscape of brand offerings, observe perceived risk or value, and benchmark against competitors. Through segmentation and trend visualizations, the audience identifies how brands align with different price ranges or symboling scores, guiding strategic positioning and differentiation opportunities in the automotive marketplace.",
+      "question_idx": 1,
+      "question_string": "How do car prices vary between different CarName brands, and are certain brands consistently in higher or lower price ranges?",
+      "variants": []
+    },
+    {
+      "table": "221",
+      "summary_idx": 1,
+      "narrative_summary": "By analyzing combinations such as Destination, Traveler nationality, Accommodation type, and Accommodation cost, stakeholders can visualize patterns in traveler preferences and spending habits across countries and lodging types. This enables marketing managers to pinpoint profitable destination-accommodation segments, assess pricing strategies, and uncover untapped markets. Visualizations derived from these schema fields can reveal demographic-driven demand, facilitate personalized package development, and support data-backed pricing adjustments, aligning with the curator's intent to foster actionable segmentation.",
+      "question_idx": 3,
+      "question_string": "Is there a relationship between traveler age and accommodation type preference?",
+      "variants": []
+    },
+    {
+      "table": "221",
+      "summary_idx": 1,
+      "narrative_summary": "By analyzing combinations such as Destination, Traveler nationality, Accommodation type, and Accommodation cost, stakeholders can visualize patterns in traveler preferences and spending habits across countries and lodging types. This enables marketing managers to pinpoint profitable destination-accommodation segments, assess pricing strategies, and uncover untapped markets. Visualizations derived from these schema fields can reveal demographic-driven demand, facilitate personalized package development, and support data-backed pricing adjustments, aligning with the curator's intent to foster actionable segmentation.",
+      "question_idx": 4,
+      "question_string": "How does the duration of trips differ among travelers selecting hotels versus Airbnbs?",
+      "variants": []
+    },
+    {
+      "table": "221",
+      "summary_idx": 1,
+      "narrative_summary": "By analyzing combinations such as Destination, Traveler nationality, Accommodation type, and Accommodation cost, stakeholders can visualize patterns in traveler preferences and spending habits across countries and lodging types. This enables marketing managers to pinpoint profitable destination-accommodation segments, assess pricing strategies, and uncover untapped markets. Visualizations derived from these schema fields can reveal demographic-driven demand, facilitate personalized package development, and support data-backed pricing adjustments, aligning with the curator's intent to foster actionable segmentation.",
+      "question_idx": 5,
+      "question_string": "Are there any notable patterns in transportation cost associated with specific destinations?",
+      "variants": []
+    },
+    {
+      "table": "221",
+      "summary_idx": 2,
+      "narrative_summary": "Exploring correlations among Transportation type, Transportation cost, Duration (days), and Traveler age enables planners to visualize which modes are preferred, cost-effective, or predominant for different age groups and trip lengths. This schema structure encourages stakeholders to detect inefficiencies, optimize fleet management, and tailor transportation solutions for distinct traveler profiles. Analysts can use these fields for pattern discovery, cost-benefit analysis, and scenario planning, supporting the curator's aim for operational improvements based on empirical insights.",
+      "question_idx": 5,
+      "question_string": "Are certain transportation types more common among specific traveler nationalities?",
+      "variants": []
+    },
+    {
+      "table": "221",
+      "summary_idx": 2,
+      "narrative_summary": "Exploring correlations among Transportation type, Transportation cost, Duration (days), and Traveler age enables planners to visualize which modes are preferred, cost-effective, or predominant for different age groups and trip lengths. This schema structure encourages stakeholders to detect inefficiencies, optimize fleet management, and tailor transportation solutions for distinct traveler profiles. Analysts can use these fields for pattern discovery, cost-benefit analysis, and scenario planning, supporting the curator's aim for operational improvements based on empirical insights.",
+      "question_idx": 7,
+      "question_string": "Which destinations see higher transportation costs, and is this linked to specific transportation types?",
+      "variants": []
+    },
+    {
+      "table": "221",
+      "summary_idx": 3,
+      "narrative_summary": "By visualizing the relationships among Traveler nationality, Traveler gender, Traveler age, and Destination, policymakers can identify demographic characteristics underlying travel patterns and destination appeal. The schema's structure supports analyses of diversity, inclusivity, and strategic gaps in tourism offerings. Visualizations can expose underrepresented traveler segments, highlight emerging destinations, and guide targeted outreach or policy, reflecting the curator's intention to foster acceptance of evidence-based inclusivity and trend recognition.",
+      "question_idx": 2,
+      "question_string": "What is the distribution of traveler ages across various destinations?",
+      "variants": []
+    },
+    {
+      "table": "221",
+      "summary_idx": 3,
+      "narrative_summary": "By visualizing the relationships among Traveler nationality, Traveler gender, Traveler age, and Destination, policymakers can identify demographic characteristics underlying travel patterns and destination appeal. The schema's structure supports analyses of diversity, inclusivity, and strategic gaps in tourism offerings. Visualizations can expose underrepresented traveler segments, highlight emerging destinations, and guide targeted outreach or policy, reflecting the curator's intention to foster acceptance of evidence-based inclusivity and trend recognition.",
+      "question_idx": 8,
+      "question_string": "Are there any destinations that predominantly attract travelers of a specific nationality?",
+      "variants": []
+    },
+    {
+      "table": "243",
+      "summary_idx": 1,
+      "narrative_summary": "This dataset enables urban planners to visually compare weather variability across multiple metropolitan areas, helping them accept the reality of climate diversity and establish baseline risk profiles. By exploring patterns between temperature, humidity, wind speed, and weather conditions at different observation times, planners can identify potential challenges for infrastructure or public safety, such as extreme weather moments or persistent trends. The rich granularity of location and time supports actionable geographic and temporal insights, stimulating strategic city-wide adaptation and investment decisions.",
+      "question_idx": 1,
+      "question_string": "How does temperature vary across different metropolitan locations at specific observation times?",
+      "variants": []
+    },
+    {
+      "table": "243",
+      "summary_idx": 1,
+      "narrative_summary": "This dataset enables urban planners to visually compare weather variability across multiple metropolitan areas, helping them accept the reality of climate diversity and establish baseline risk profiles. By exploring patterns between temperature, humidity, wind speed, and weather conditions at different observation times, planners can identify potential challenges for infrastructure or public safety, such as extreme weather moments or persistent trends. The rich granularity of location and time supports actionable geographic and temporal insights, stimulating strategic city-wide adaptation and investment decisions.",
+      "question_idx": 3,
+      "question_string": "How does the 'feels like' temperature compare to the actual temperature in each city?",
+      "variants": ["sum_1_ques_3/var2.png", "sum_1_ques_3/var3.png"]
+    },
+    {
+      "table": "243",
+      "summary_idx": 1,
+      "narrative_summary": "This dataset enables urban planners to visually compare weather variability across multiple metropolitan areas, helping them accept the reality of climate diversity and establish baseline risk profiles. By exploring patterns between temperature, humidity, wind speed, and weather conditions at different observation times, planners can identify potential challenges for infrastructure or public safety, such as extreme weather moments or persistent trends. The rich granularity of location and time supports actionable geographic and temporal insights, stimulating strategic city-wide adaptation and investment decisions.",
+      "question_idx": 5,
+      "question_string": "How does the UV Index change throughout the observation times for each city?",
+      "variants": []
+    },
+    {
+      "table": "243",
+      "summary_idx": 1,
+      "narrative_summary": "This dataset enables urban planners to visually compare weather variability across multiple metropolitan areas, helping them accept the reality of climate diversity and establish baseline risk profiles. By exploring patterns between temperature, humidity, wind speed, and weather conditions at different observation times, planners can identify potential challenges for infrastructure or public safety, such as extreme weather moments or persistent trends. The rich granularity of location and time supports actionable geographic and temporal insights, stimulating strategic city-wide adaptation and investment decisions.",
+      "question_idx": 8,
+      "question_string": "What patterns can be observed in temperature trends for major cities over the series of observation times?",
+      "variants": []
+    },
+    {
+      "table": "243",
+      "summary_idx": 2,
+      "narrative_summary": "The schema is structured to allow researchers to accept data consistency and reliability, agree on the value of multidimensional weather measurements, and establish new knowledge by identifying correlations among temperature, humidity, pressure, UV index, and cloud cover. By creating scatterplots and line charts across these fields, researchers can infer scientific relationships, detect anomalies, and build predictive models of urban weather patterns. The dataset's uniform layout and richness invite exploration of causality and temporal trends, supporting novel climate science discoveries.",
+      "question_idx": 2,
+      "question_string": "What is the relationship between humidity and cloud cover in each city?",
+      "variants": []
+    },
+    {
+      "table": "243",
+      "summary_idx": 2,
+      "narrative_summary": "The schema is structured to allow researchers to accept data consistency and reliability, agree on the value of multidimensional weather measurements, and establish new knowledge by identifying correlations among temperature, humidity, pressure, UV index, and cloud cover. By creating scatterplots and line charts across these fields, researchers can infer scientific relationships, detect anomalies, and build predictive models of urban weather patterns. The dataset's uniform layout and richness invite exploration of causality and temporal trends, supporting novel climate science discoveries.",
+      "question_idx": 7,
+      "question_string": "Does higher humidity correspond to lower visibility in specific urban areas?",
+      "variants": []
+    },
+    {
+      "table": "243",
+      "summary_idx": 2,
+      "narrative_summary": "The schema is structured to allow researchers to accept data consistency and reliability, agree on the value of multidimensional weather measurements, and establish new knowledge by identifying correlations among temperature, humidity, pressure, UV index, and cloud cover. By creating scatterplots and line charts across these fields, researchers can infer scientific relationships, detect anomalies, and build predictive models of urban weather patterns. The dataset's uniform layout and richness invite exploration of causality and temporal trends, supporting novel climate science discoveries.",
+      "question_idx": 8,
+      "question_string": "What trends can be observed in wind speed over time for each location?",
+      "variants": []
+    },
+    {
+      "table": "243",
+      "summary_idx": 3,
+      "narrative_summary": "Travel and logistics stakeholders can utilize this dataset to easily visualize weather conditions across key global cities. By inspecting fields like weather condition, wind speed, cloud cover, visibility, and time of observation, they can accept situational hazards, agree on proactive scheduling adjustments, and establish operational best practices. Visual dashboards combining these fields help managers anticipate travel disruptions, plan routes, and trigger alerts, ensuring safer and more reliable services for clients and personnel.",
+      "question_idx": 8,
+      "question_string": "Do higher Wind Speed (kph) values correspond with lower Visibility (km) at certain times of day?",
+      "variants": []
+    },
+    {
+      "table": "243",
+      "summary_idx": 4,
+      "narrative_summary": "Public health and safety coordinators can leverage this dataset to analyze environmental factors impacting community health. By visualizing humidity, UV index, and visibility alongside weather condition and observation time, officials can accept potential exposure risks, agree on the need for dynamic health advisories, and establish proactive population outreach. The schema supports distribution and outlier detection, helping identify periods or locations with heightened concerns, fueling actionable health guidance and emergency preparedness.",
+      "question_idx": 1,
+      "question_string": "How does humidity (%) vary across different locations, and which locations tend to experience higher humidity levels?",
+      "variants": []
+    },
+    {
+      "table": "25",
+      "summary_idx": 1,
+      "narrative_summary": "This dataset empowers business leaders to visualize and compare multi-period stock performance, identifying both short-term momentum and long-term stability across NIFTY 50 stocks. By integrating change percentages for 365-day and 30-day periods with high/low price bounds, executives can efficiently pinpoint outperformers, underperformers, and highlight strategic investment opportunities or risks. These field combinations lay the foundation for high-level dashboards that guide capital allocation decisions and risk management strategies.",
+      "question_idx": 1,
+      "question_string": "Which stocks have demonstrated the largest positive or negative percentage changes over the past 30 days, and how do these changes compare to their 365-day percentage changes?",
+      "variants": []
+    },
+    {
+      "table": "25",
+      "summary_idx": 1,
+      "narrative_summary": "This dataset empowers business leaders to visualize and compare multi-period stock performance, identifying both short-term momentum and long-term stability across NIFTY 50 stocks. By integrating change percentages for 365-day and 30-day periods with high/low price bounds, executives can efficiently pinpoint outperformers, underperformers, and highlight strategic investment opportunities or risks. These field combinations lay the foundation for high-level dashboards that guide capital allocation decisions and risk management strategies.",
+      "question_idx": 4,
+      "question_string": "Which stocks have the highest turnover (crs.) and do they show significant price movement as indicated by % Chng?",
+      "variants": []
+    },
+    {
+      "table": "25",
+      "summary_idx": 1,
+      "narrative_summary": "This dataset empowers business leaders to visualize and compare multi-period stock performance, identifying both short-term momentum and long-term stability across NIFTY 50 stocks. By integrating change percentages for 365-day and 30-day periods with high/low price bounds, executives can efficiently pinpoint outperformers, underperformers, and highlight strategic investment opportunities or risks. These field combinations lay the foundation for high-level dashboards that guide capital allocation decisions and risk management strategies.",
+      "question_idx": 6,
+      "question_string": "Is there a noticeable relationship between a stock’s Open price and its High price in the current period?",
+      "variants": []
+    },
+    {
+      "table": "25",
+      "summary_idx": 1,
+      "narrative_summary": "This dataset empowers business leaders to visualize and compare multi-period stock performance, identifying both short-term momentum and long-term stability across NIFTY 50 stocks. By integrating change percentages for 365-day and 30-day periods with high/low price bounds, executives can efficiently pinpoint outperformers, underperformers, and highlight strategic investment opportunities or risks. These field combinations lay the foundation for high-level dashboards that guide capital allocation decisions and risk management strategies.",
+      "question_idx": 7,
+      "question_string": "Do stocks with larger intra-day price ranges (difference between High and Low) tend to also have higher trading volumes?",
+      "variants": []
+    },
+    {
+      "table": "25",
+      "summary_idx": 1,
+      "narrative_summary": "This dataset empowers business leaders to visualize and compare multi-period stock performance, identifying both short-term momentum and long-term stability across NIFTY 50 stocks. By integrating change percentages for 365-day and 30-day periods with high/low price bounds, executives can efficiently pinpoint outperformers, underperformers, and highlight strategic investment opportunities or risks. These field combinations lay the foundation for high-level dashboards that guide capital allocation decisions and risk management strategies.",
+      "question_idx": 8,
+      "question_string": "Are there any outliers or anomalies in the 365-day % change or 30-day % change values that stand out when compared across all stock symbols?",
+      "variants": []
+    },
+    {
+      "table": "261",
+      "summary_idx": 1,
+      "narrative_summary": "This schema enables a comprehensive examination of the demographic, academic, and gender composition of NASA astronauts over time. By leveraging fields such as Gender, Alma Mater, Undergraduate Major, Birth Place, and Year, stakeholders can visualize trends in diversity and the academic origins of astronauts. This narrative supports actionable insights into which educational institutions contributed to NASA's talent pool and the evolution of gender representation, informing future outreach, recruitment, and curriculum development strategies in STEM education.",
+      "question_idx": 2,
+      "question_string": "Which undergraduate majors are most common among astronauts, and how does this distribution differ by gender?",
+      "variants": ["sum_1_ques_2/var4.png", "sum_1_ques_2/var1.png"]
+    },
+    {
+      "table": "261",
+      "summary_idx": 1,
+      "narrative_summary": "This schema enables a comprehensive examination of the demographic, academic, and gender composition of NASA astronauts over time. By leveraging fields such as Gender, Alma Mater, Undergraduate Major, Birth Place, and Year, stakeholders can visualize trends in diversity and the academic origins of astronauts. This narrative supports actionable insights into which educational institutions contributed to NASA's talent pool and the evolution of gender representation, informing future outreach, recruitment, and curriculum development strategies in STEM education.",
+      "question_idx": 3,
+      "question_string": "Which alma maters have produced the highest number of NASA astronauts, and how does their representation vary across decades?",
+      "variants": []
+    },
+    {
+      "table": "261",
+      "summary_idx": 2,
+      "narrative_summary": "The schema offers rich possibilities to visualize operational profiles by combining fields such as Space Flights, Space Flight (hr), Space Walks, Space Walks (hr), Missions, and Status. Analysts can identify patterns and distributions in career longevity, mission frequency, and roles taken by astronauts. Such analysis supports mission planners in forecasting crew experience requirements, evaluating risk exposure, and optimizing future crew selection processes based on historical operational data.",
+      "question_idx": 4,
+      "question_string": "How does Space Walks (hr) vary between male and female astronauts?",
+      "variants": ["sum_2_ques_4/var1.png", "sum_2_ques_4/var2.png"]
+    },
+    {
+      "table": "261",
+      "summary_idx": 3,
+      "narrative_summary": "By focusing on Military Rank, Military Branch, Group, and Status fields, researchers can visualize the military profile distribution within NASA's astronaut corps. This enables analysis of which branches and ranks most frequently transition into astronaut roles, and how military experience may influence career progression. The narrative drives actionable outcomes in recruitment policy, targeted outreach, and inter-organizational partnerships to optimize candidate selection and preparation for space missions.",
+      "question_idx": 3,
+      "question_string": "What patterns can be observed in the number of space flights across different military ranks?",
+      "variants": []
+    },
+    {
+      "table": "261",
+      "summary_idx": 4,
+      "narrative_summary": "Using fields such as Year, Missions, Status, Death Date, and Death Mission, the schema supports temporal analyses of astronaut participation, mission milestones, and significant events such as retirements or fatalities. This strategic narrative enables science communicators to create engaging historical timelines, highlight major program shifts, and foster public understanding of space exploration's challenges and achievements, turning raw data into actionable storytelling and educational resources.",
+      "question_idx": 6,
+      "question_string": "Compare the frequency and timing of astronaut fatalities (Death Date) with their mission involvement (Death Mission).",
+      "variants": []
+    },
+    {
+      "table": "268",
+      "summary_idx": 1,
+      "narrative_summary": "The schema's combination of population counts across multiple decades and district-level area fields offers urban planners actionable insights into spatial population density trends and regional growth hotspots. By visualizing population per area for different districts and tracking changes over time, planners can pinpoint regions undergoing accelerated demographic changes that may require targeted investment in infrastructure, housing, or resource allocation. This analysis is designed to foster strategic planning and evidence-based decision making in urban and rural development contexts.",
+      "question_idx": 2,
+      "question_string": "Which districts in each division experienced the highest population growth rates from 1991 to 2022?",
+      "variants": []
+    },
+    {
+      "table": "268",
+      "summary_idx": 1,
+      "narrative_summary": "The schema's combination of population counts across multiple decades and district-level area fields offers urban planners actionable insights into spatial population density trends and regional growth hotspots. By visualizing population per area for different districts and tracking changes over time, planners can pinpoint regions undergoing accelerated demographic changes that may require targeted investment in infrastructure, housing, or resource allocation. This analysis is designed to foster strategic planning and evidence-based decision making in urban and rural development contexts.",
+      "question_idx": 4,
+      "question_string": "How does the area size of a district relate to its population density in 2022?",
+      "variants": []
+    },
+    {
+      "table": "268",
+      "summary_idx": 1,
+      "narrative_summary": "The schema's combination of population counts across multiple decades and district-level area fields offers urban planners actionable insights into spatial population density trends and regional growth hotspots. By visualizing population per area for different districts and tracking changes over time, planners can pinpoint regions undergoing accelerated demographic changes that may require targeted investment in infrastructure, housing, or resource allocation. This analysis is designed to foster strategic planning and evidence-based decision making in urban and rural development contexts.",
+      "question_idx": 8,
+      "question_string": "Which districts show accelerated population growth between the last two census periods (2011 and 2022)?",
+      "variants": []
+    },
+    {
+      "table": "269",
+      "summary_idx": 1,
+      "narrative_summary": "This schema allows policy makers to visualize the interplay between country population size, continent, growth rate, and world percentage. By comparing these fields, leaders can identify high-impact geographic areas for targeted interventions, track how regional population dynamics shift over time, and allocate international development resources more effectively. The curated structural focus encourages insights into where rapid growth may create future needs, ensuring responsive policy planning aligned with major demographic trends.",
+      "question_idx": 1,
+      "question_string": "How does the growth rate differ by continent, and which continent shows the highest average population growth?",
+      "variants": []
+    },
+    {
+      "table": "269",
+      "summary_idx": 1,
+      "narrative_summary": "This schema allows policy makers to visualize the interplay between country population size, continent, growth rate, and world percentage. By comparing these fields, leaders can identify high-impact geographic areas for targeted interventions, track how regional population dynamics shift over time, and allocate international development resources more effectively. The curated structural focus encourages insights into where rapid growth may create future needs, ensuring responsive policy planning aligned with major demographic trends.",
+      "question_idx": 4,
+      "question_string": "What is the relationship between a country's area (km²) and its 2023 population?",
+      "variants": ["sum_1_ques_4/var1.png", "sum_1_ques_4/var4.png"]
+    },
+    {
+      "table": "269",
+      "summary_idx": 1,
+      "narrative_summary": "This schema allows policy makers to visualize the interplay between country population size, continent, growth rate, and world percentage. By comparing these fields, leaders can identify high-impact geographic areas for targeted interventions, track how regional population dynamics shift over time, and allocate international development resources more effectively. The curated structural focus encourages insights into where rapid growth may create future needs, ensuring responsive policy planning aligned with major demographic trends.",
+      "question_idx": 5,
+      "question_string": "Are there any countries with unusually high or low population density compared to others on the same continent?",
+      "variants": []
+    },
+    {
+      "table": "269",
+      "summary_idx": 1,
+      "narrative_summary": "This schema allows policy makers to visualize the interplay between country population size, continent, growth rate, and world percentage. By comparing these fields, leaders can identify high-impact geographic areas for targeted interventions, track how regional population dynamics shift over time, and allocate international development resources more effectively. The curated structural focus encourages insights into where rapid growth may create future needs, ensuring responsive policy planning aligned with major demographic trends.",
+      "question_idx": 6,
+      "question_string": "Which countries have experienced a decrease in population between 2020 and 2023, and how do their growth rates compare to the global average?",
+      "variants": []
+    },
+    {
+      "table": "269",
+      "summary_idx": 1,
+      "narrative_summary": "This schema allows policy makers to visualize the interplay between country population size, continent, growth rate, and world percentage. By comparing these fields, leaders can identify high-impact geographic areas for targeted interventions, track how regional population dynamics shift over time, and allocate international development resources more effectively. The curated structural focus encourages insights into where rapid growth may create future needs, ensuring responsive policy planning aligned with major demographic trends.",
+      "question_idx": 8,
+      "question_string": "Which countries rank in the top 10 for 2023 population, and on which continents are they located?",
+      "variants": []
+    },
+    {
+      "table": "269",
+      "summary_idx": 2,
+      "narrative_summary": "By providing sequential population counts for each decade and linking this with area and density, the dataset enables researchers to construct longitudinal visualizations of demographic change by country and region. This supports advanced analyses such as detecting shifts in population density, exploring the effects of land area on population distribution, and testing models of demographic transition theory. The schema is designed to facilitate time-series and cross-sectional analyses that can highlight outliers and support comparative research across space and time.",
+      "question_idx": 1,
+      "question_string": "How has the population of each continent changed from 1970 to 2023?",
+      "variants": []
+    },
+    {
+      "table": "269",
+      "summary_idx": 4,
+      "narrative_summary": "With fields detailing area, density, and multi-year population counts, this data structure empowers planners to visualize how countries differ in crowding and land resources relative to their population. Analysts can detect where increases in density may be straining infrastructure, or where land resources are abundant but underutilized. The schema encourages analyses that map density hotspots, monitor the spatial dynamics of growth, and support decision making for sustainable infrastructure investment based on evolving population-physical geography relationships.",
+      "question_idx": 7,
+      "question_string": "Among the top-ranked countries by 2023 population, how do their population densities compare?",
+      "variants": ["sum_4_ques_7/var1.png", "sum_4_ques_7/var4.png"]
+    },
+    {
+      "table": "28",
+      "summary_idx": 1,
+      "narrative_summary": "This dataset structure provides a rich analytical foundation for exploring how car price distributions are influenced by brand, model, production year, and vehicle category. By mapping these attributes to price, executives can identify pricing trends, detect underpriced or overpriced groups, and assess brand premiums. Visualization of these relationships empowers strategic decision making for market segmentation, pricing adjustments, and new model launches, driving outcomes such as competitive benchmarking and targeted pricing interventions.",
+      "question_idx": 1,
+      "question_string": "How does the average car price vary across different manufacturers?",
+      "variants": []
+    },
+    {
+      "table": "28",
+      "summary_idx": 1,
+      "narrative_summary": "This dataset structure provides a rich analytical foundation for exploring how car price distributions are influenced by brand, model, production year, and vehicle category. By mapping these attributes to price, executives can identify pricing trends, detect underpriced or overpriced groups, and assess brand premiums. Visualization of these relationships empowers strategic decision making for market segmentation, pricing adjustments, and new model launches, driving outcomes such as competitive benchmarking and targeted pricing interventions.",
+      "question_idx": 2,
+      "question_string": "What pricing trends can be observed for various car categories over different production years?",
+      "variants": []
+    },
+    {
+      "table": "28",
+      "summary_idx": 1,
+      "narrative_summary": "This dataset structure provides a rich analytical foundation for exploring how car price distributions are influenced by brand, model, production year, and vehicle category. By mapping these attributes to price, executives can identify pricing trends, detect underpriced or overpriced groups, and assess brand premiums. Visualization of these relationships empowers strategic decision making for market segmentation, pricing adjustments, and new model launches, driving outcomes such as competitive benchmarking and targeted pricing interventions.",
+      "question_idx": 7,
+      "question_string": "What are the highest and lowest price outliers by manufacturer and model?",
+      "variants": []
+    },
+    {
+      "table": "28",
+      "summary_idx": 2,
+      "narrative_summary": "Leveraging the linkage between airbags, leather interior, price, and manufacturer, the schema enables analysis of how safety and comfort are valued in the marketplace. This can reveal whether vehicles with higher safety equipment command premium prices or if some manufacturers offer advanced safety at no price markup. Insights from these field combinations facilitate data-driven recommendations for safety regulations, market incentives, and public awareness initiatives.",
+      "question_idx": 5,
+      "question_string": "What trend can be observed in the Price of cars with advanced safety features (more Airbags) across different Production years?",
+      "variants": ["sum_2_ques_5/var2.png", "sum_2_ques_5/var3.png"]
+    },
+    {
+      "table": "28",
+      "summary_idx": 3,
+      "narrative_summary": "By coupling fuel type, engine volume, mileage, and drive wheels, the schema enables exploration of patterns relevant to transportation sustainability. Researchers can analyze the prevalence and market value of hybrids versus traditional fuels, engine size distributions, and real-world usage via mileage. Planners can use this data to identify trends in city-friendly vehicles and formulate policies for environmental improvement, such as promoting low-emission vehicle adoption.",
+      "question_idx": 7,
+      "question_string": "Do vehicles with higher mileage tend to have lower prices regardless of fuel type?",
+      "variants": []
+    },
+    {
+      "table": "28",
+      "summary_idx": 4,
+      "narrative_summary": "Through multi-field analysis of price, mileage, production year, gear box type, and color, the schema facilitates actionable insights into used car market dynamics. Stakeholders can visualize factors impacting depreciation, identify which gear box types or colors command higher prices, and make informed buying or selling decisions. This enables more accurate pricing, enhances market transparency, and optimizes inventory strategies for sellers.",
+      "question_idx": 4,
+      "question_string": "Do certain car colors command higher prices compared to others?",
+      "variants": []
+    },
+    {
+      "table": "28",
+      "summary_idx": 4,
+      "narrative_summary": "Through multi-field analysis of price, mileage, production year, gear box type, and color, the schema facilitates actionable insights into used car market dynamics. Stakeholders can visualize factors impacting depreciation, identify which gear box types or colors command higher prices, and make informed buying or selling decisions. This enables more accurate pricing, enhances market transparency, and optimizes inventory strategies for sellers.",
+      "question_idx": 8,
+      "question_string": "How does the proportion of manual versus automatic gear box types change over production years?",
+      "variants": []
+    },
+    {
+      "table": "3",
+      "summary_idx": 1,
+      "narrative_summary": "This dataset provides a comparative overview of global rice production and yield, ranking countries both in terms of total output and production per hectare. The structured combination of production, acreage, and yield fields allows policymakers to pinpoint where land utilization is most efficient, which nations excel in productivity, and where interventions are needed. Visualizing these field relationships supports identifying policy-relevant trends and benchmarking against high-yield nations, helping stakeholders prioritize resource allocation and national food strategies.",
+      "question_idx": 1,
+      "question_string": "Which countries have the highest rice yield per hectare, and how does their total rice production compare with those having the greatest production volumes?",
+      "variants": []
+    },
+    {
+      "table": "3",
+      "summary_idx": 1,
+      "narrative_summary": "This dataset provides a comparative overview of global rice production and yield, ranking countries both in terms of total output and production per hectare. The structured combination of production, acreage, and yield fields allows policymakers to pinpoint where land utilization is most efficient, which nations excel in productivity, and where interventions are needed. Visualizing these field relationships supports identifying policy-relevant trends and benchmarking against high-yield nations, helping stakeholders prioritize resource allocation and national food strategies.",
+      "question_idx": 2,
+      "question_string": "How does rice production per person vary across different countries, and are there any countries where this value significantly exceeds or falls below the global average?",
+      "variants": []
+    },
+    {
+      "table": "3",
+      "summary_idx": 1,
+      "narrative_summary": "This dataset provides a comparative overview of global rice production and yield, ranking countries both in terms of total output and production per hectare. The structured combination of production, acreage, and yield fields allows policymakers to pinpoint where land utilization is most efficient, which nations excel in productivity, and where interventions are needed. Visualizing these field relationships supports identifying policy-relevant trends and benchmarking against high-yield nations, helping stakeholders prioritize resource allocation and national food strategies.",
+      "question_idx": 4,
+      "question_string": "Are there countries that rank highly in rice production but have relatively low rice yield per hectare, and what might explain these discrepancies?",
+      "variants": []
+    },
+    {
+      "table": "3",
+      "summary_idx": 1,
+      "narrative_summary": "This dataset provides a comparative overview of global rice production and yield, ranking countries both in terms of total output and production per hectare. The structured combination of production, acreage, and yield fields allows policymakers to pinpoint where land utilization is most efficient, which nations excel in productivity, and where interventions are needed. Visualizing these field relationships supports identifying policy-relevant trends and benchmarking against high-yield nations, helping stakeholders prioritize resource allocation and national food strategies.",
+      "question_idx": 7,
+      "question_string": "Which countries are outliers in terms of either extremely high or low rice production per hectare relative to their rank in rice production?",
+      "variants": []
+    },
+    {
+      "table": "3",
+      "summary_idx": 1,
+      "narrative_summary": "This dataset provides a comparative overview of global rice production and yield, ranking countries both in terms of total output and production per hectare. The structured combination of production, acreage, and yield fields allows policymakers to pinpoint where land utilization is most efficient, which nations excel in productivity, and where interventions are needed. Visualizing these field relationships supports identifying policy-relevant trends and benchmarking against high-yield nations, helping stakeholders prioritize resource allocation and national food strategies.",
+      "question_idx": 8,
+      "question_string": "What are the top five countries for rice yield per hectare, and what are their corresponding ranks in rice acreage and total production?",
+      "variants": []
+    },
+    {
+      "table": "3",
+      "summary_idx": 2,
+      "narrative_summary": "The dataset's inclusion of rice production per person and its rank enables agencies to assess how well countries meet their population's nutritional needs through domestic rice production. By visualizing per capita production alongside acreage and output, stakeholders can identify vulnerable countries where rice supply may fall short of basic requirements, supporting the design of cross-border food aid strategies and sustainable agricultural development plans.",
+      "question_idx": 4,
+      "question_string": "How is rice production per person distributed across all countries in the dataset?",
+      "variants": []
+    },
+    {
+      "table": "3",
+      "summary_idx": 2,
+      "narrative_summary": "The dataset's inclusion of rice production per person and its rank enables agencies to assess how well countries meet their population's nutritional needs through domestic rice production. By visualizing per capita production alongside acreage and output, stakeholders can identify vulnerable countries where rice supply may fall short of basic requirements, supporting the design of cross-border food aid strategies and sustainable agricultural development plans.",
+      "question_idx": 6,
+      "question_string": "Which countries have the lowest rice production per person despite having large rice acreage?",
+      "variants": []
+    },
+    {
+      "table": "3",
+      "summary_idx": 2,
+      "narrative_summary": "The dataset's inclusion of rice production per person and its rank enables agencies to assess how well countries meet their population's nutritional needs through domestic rice production. By visualizing per capita production alongside acreage and output, stakeholders can identify vulnerable countries where rice supply may fall short of basic requirements, supporting the design of cross-border food aid strategies and sustainable agricultural development plans.",
+      "question_idx": 7,
+      "question_string": "Are there outliers where a country’s rank in rice production per person differs greatly from its rank in rice production?",
+      "variants": []
+    },
+    {
+      "table": "3",
+      "summary_idx": 3,
+      "narrative_summary": "By examining the fields for rice acreage, yield per hectare, and their respective ranks, researchers are positioned to uncover patterns and correlations that may explain differences in productivity across nations. This data structure facilitates exploration of efficiency versus land usage, helping identify outliers and potential best practices. Visualization-driven analysis supports studies on the impact of agricultural techniques, climate, and resource management on the global rice supply chain.",
+      "question_idx": 8,
+      "question_string": "Which countries have both high rice production (Tons) and high rice yield (Kg / Hectare)?",
+      "variants": []
+    },
+    {
+      "table": "3",
+      "summary_idx": 4,
+      "narrative_summary": "Leveraging the ranking and quantitative production data, supply chain managers and executives can assess the relative market position of countries within the global rice trade. The dataset enables identification of high-output producers with efficient land use, as well as nations whose low ranking may indicate emerging opportunities or supply risk. Visualization of these relationships provides actionable intelligence for business planning, sourcing strategy, and competitive benchmarking in the rice industry.",
+      "question_idx": 8,
+      "question_string": "Which countries show emerging opportunities in the global rice trade based on low production rank but high yield per hectare?",
+      "variants": ["sum_4_ques_8/var4.png", "sum_4_ques_8/var2.png"]
+    },
+    {
+      "table": "32",
+      "summary_idx": 1,
+      "narrative_summary": "This dataset enables policy makers to visualize how medical charges vary across regions, considering demographic factors like age and smoking status. By examining field combinations such as region, smoker, and age alongside charges, users can identify patterns that highlight communities at higher risk of elevated medical costs. Analytical tools could be used to spot regional outliers, uncover demographic-driven disparities, and support strategies for targeted intervention, thereby informing public health allocation and preventative programs.",
+      "question_idx": 1,
+      "question_string": "How do average medical charges differ between smokers and non-smokers across various regions?",
+      "variants": []
+    },
+    {
+      "table": "32",
+      "summary_idx": 1,
+      "narrative_summary": "This dataset enables policy makers to visualize how medical charges vary across regions, considering demographic factors like age and smoking status. By examining field combinations such as region, smoker, and age alongside charges, users can identify patterns that highlight communities at higher risk of elevated medical costs. Analytical tools could be used to spot regional outliers, uncover demographic-driven disparities, and support strategies for targeted intervention, thereby informing public health allocation and preventative programs.",
+      "question_idx": 2,
+      "question_string": "What trends can be observed in medical charges as age increases, and do these trends differ by smoking status?",
+      "variants": []
+    },
+    {
+      "table": "32",
+      "summary_idx": 1,
+      "narrative_summary": "This dataset enables policy makers to visualize how medical charges vary across regions, considering demographic factors like age and smoking status. By examining field combinations such as region, smoker, and age alongside charges, users can identify patterns that highlight communities at higher risk of elevated medical costs. Analytical tools could be used to spot regional outliers, uncover demographic-driven disparities, and support strategies for targeted intervention, thereby informing public health allocation and preventative programs.",
+      "question_idx": 3,
+      "question_string": "Is there a noticeable difference in medical charges for males versus females within each region?",
+      "variants": []
+    },
+    {
+      "table": "32",
+      "summary_idx": 1,
+      "narrative_summary": "This dataset enables policy makers to visualize how medical charges vary across regions, considering demographic factors like age and smoking status. By examining field combinations such as region, smoker, and age alongside charges, users can identify patterns that highlight communities at higher risk of elevated medical costs. Analytical tools could be used to spot regional outliers, uncover demographic-driven disparities, and support strategies for targeted intervention, thereby informing public health allocation and preventative programs.",
+      "question_idx": 4,
+      "question_string": "How is the distribution of medical charges affected by the number of children in the household?",
+      "variants": []
+    },
+    {
+      "table": "32",
+      "summary_idx": 1,
+      "narrative_summary": "This dataset enables policy makers to visualize how medical charges vary across regions, considering demographic factors like age and smoking status. By examining field combinations such as region, smoker, and age alongside charges, users can identify patterns that highlight communities at higher risk of elevated medical costs. Analytical tools could be used to spot regional outliers, uncover demographic-driven disparities, and support strategies for targeted intervention, thereby informing public health allocation and preventative programs.",
+      "question_idx": 5,
+      "question_string": "Are there any regions where medical charges show unusually high or low values compared to others?",
+      "variants": []
+    },
+    {
+      "table": "32",
+      "summary_idx": 1,
+      "narrative_summary": "This dataset enables policy makers to visualize how medical charges vary across regions, considering demographic factors like age and smoking status. By examining field combinations such as region, smoker, and age alongside charges, users can identify patterns that highlight communities at higher risk of elevated medical costs. Analytical tools could be used to spot regional outliers, uncover demographic-driven disparities, and support strategies for targeted intervention, thereby informing public health allocation and preventative programs.",
+      "question_idx": 7,
+      "question_string": "How do average medical charges vary by age group across different regions?",
+      "variants": []
+    },
+    {
+      "table": "32",
+      "summary_idx": 2,
+      "narrative_summary": "The schema supports advanced research into the effect of health behaviors (such as smoking) and clinical measurements (BMI) on personal medical expenses. Researchers can visualize scatterplots and regression analyses connecting BMI, smoking status, and charges, uncovering statistical associations that point to actionable trends and predictors. Such insights foster evidence-based recommendations for preventative medicine and inform future research on healthcare cost containment.",
+      "question_idx": 2,
+      "question_string": "What is the relationship between BMI and medical charges?",
+      "variants": []
+    },
+    {
+      "table": "32",
+      "summary_idx": 3,
+      "narrative_summary": "Actuarial professionals can leverage this schema to analyze risk profiles of insured populations, segmenting by sex, age, number of children, and smoking status. Visualization of cross-tabulations and predictive modeling using these fields against medical charges would uncover risk clusters, help detect adverse selection, and support scenario analysis for pricing and product development. Such data-driven insights directly inform underwriting strategies and improve the precision of insurance offerings.",
+      "question_idx": 4,
+      "question_string": "Are there noticeable differences in medical charges between males and females across various age ranges?",
+      "variants": []
+    },
+    {
+      "table": "39",
+      "summary_idx": 1,
+      "narrative_summary": "This schema equips materials scientists and quality engineers with a comprehensive basis for compositional analysis in glass manufacturing. The structured relationships between chemical fields and the Type classification encourage the audience to explore which elemental combinations most strongly drive classification. Visualization of these relationships can reveal key patterns and support monitoring for quality assurance and process optimization. Analytical attention to multivariate relationships and threshold effects could lead to improvements in both classification protocols and production processes.",
+      "question_idx": 1,
+      "question_string": "How does the distribution of RI (refractive index) vary across different Type classifications?",
+      "variants": []
+    },
+    {
+      "table": "39",
+      "summary_idx": 1,
+      "narrative_summary": "This schema equips materials scientists and quality engineers with a comprehensive basis for compositional analysis in glass manufacturing. The structured relationships between chemical fields and the Type classification encourage the audience to explore which elemental combinations most strongly drive classification. Visualization of these relationships can reveal key patterns and support monitoring for quality assurance and process optimization. Analytical attention to multivariate relationships and threshold effects could lead to improvements in both classification protocols and production processes.",
+      "question_idx": 4,
+      "question_string": "How are Si (silicon) values distributed within each Type, and do these distributions indicate any distinctive patterns?",
+      "variants": []
+    },
+    {
+      "table": "39",
+      "summary_idx": 1,
+      "narrative_summary": "This schema equips materials scientists and quality engineers with a comprehensive basis for compositional analysis in glass manufacturing. The structured relationships between chemical fields and the Type classification encourage the audience to explore which elemental combinations most strongly drive classification. Visualization of these relationships can reveal key patterns and support monitoring for quality assurance and process optimization. Analytical attention to multivariate relationships and threshold effects could lead to improvements in both classification protocols and production processes.",
+      "question_idx": 7,
+      "question_string": "How does the ratio of K (potassium) to Ca (calcium) differ among the identified glass Types?",
+      "variants": []
+    },
+    {
+      "table": "39",
+      "summary_idx": 1,
+      "narrative_summary": "This schema equips materials scientists and quality engineers with a comprehensive basis for compositional analysis in glass manufacturing. The structured relationships between chemical fields and the Type classification encourage the audience to explore which elemental combinations most strongly drive classification. Visualization of these relationships can reveal key patterns and support monitoring for quality assurance and process optimization. Analytical attention to multivariate relationships and threshold effects could lead to improvements in both classification protocols and production processes.",
+      "question_idx": 8,
+      "question_string": "Among the numeric fields, which elemental combinations most strongly distinguish one Type from another?",
+      "variants": []
+    },
+    {
+      "table": "39",
+      "summary_idx": 3,
+      "narrative_summary": "For researchers interested in the classification and definition of material types, this schema offers structured, multi-dimensional insights into glass taxonomy. The array of continuous compositional measures paired with discrete classification invites detailed exploration of how boundaries are drawn between types. Analyzing cluster overlaps or outlier points through visualizations can foster hypotheses around reclassification or the emergence of new material categories, advancing academic discourse and knowledge refinement.",
+      "question_idx": 8,
+      "question_string": "Are there any glass types where the range of magnesium (Mg) is unusually broad or narrow compared to others?",
+      "variants": []
+    },
+    {
+      "table": "39",
+      "summary_idx": 4,
+      "narrative_summary": "This schema provides regulatory stakeholders with a foundation for norm-setting and threshold definition across glass classes. By exploring the distributions of elemental constituents segmented by Type, organizations can visualize typical ranges, identify rare outliers, and set benchmarks for safety or compliance. The structural clarity supports effective communication of policy guidelines and underpins auditable criteria for materials acceptance or certification in industrial practice.",
+      "question_idx": 7,
+      "question_string": "Is there a correlation between iron (Fe) content and refractive index (RI) within the dataset?",
+      "variants": []
+    },
+    {
+      "table": "429",
+      "summary_idx": 1,
+      "narrative_summary": "This schema provides policymakers an opportunity to visualize import and export volumes of dogs across US states and international locations. By examining the combination of location, exported, imported, and inUS fields, stakeholders can identify regions with significant cross-border activity and assess implications for animal health regulation. Visualizations can help reveal distribution patterns, highlight states or countries with extreme activity, and support risk or policy prioritization, aligning with the curator's intent for scenario-based regulation and informed decision-making.",
+      "question_idx": 3,
+      "question_string": "Are there any states or countries where the total volume of dogs is significantly higher or lower than the average?",
+      "variants": ["sum_1_ques_3/var1.png", "sum_1_ques_3/var3.png"]
+    },
+    {
+      "table": "429",
+      "summary_idx": 2,
+      "narrative_summary": "The schema structure invites logistics professionals to analyze total volumes (total field) alongside exported and imported metrics, segmented by location. Visual explorations can highlight geographical hotspots, indicate inefficiencies or anomalies, and enable forecasting for staffing or facility planning. This structured data supports operational insights into seasonal or regional fluctuations, fostering data-driven resource deployment and strategic planning.",
+      "question_idx": 1,
+      "question_string": "Which locations have the highest and lowest total volumes, and how do these totals relate to whether the location is within the US?",
+      "variants": []
+    },
+    {
+      "table": "429",
+      "summary_idx": 3,
+      "narrative_summary": "The field composition allows researchers to explore contextual relationships between domestic (inUS True) and international (inUS False) locations, as well as the magnitude and directionality (imported vs exported) of flows. Visualization of these fields can facilitate correlation analysis, enhance academic understanding of factors affecting the dog trade, and support cross-disciplinary studies into state-level effects or global ties.",
+      "question_idx": 4,
+      "question_string": "Are there any domestic states that import significantly more dogs than they export?",
+      "variants": []
+    },
+    {
+      "table": "461",
+      "summary_idx": 1,
+      "narrative_summary": "This table provides a structured foundation for examining monthly temperature maxima across a multi-year timespan. By connecting year and temperature fields, the dataset empowers climate scientists and environmental policy makers to identify macro trends, seasonal shifts, and persistent anomalies. Visualizing these patterns facilitates early detection of climate change signals, supports evidence-based policy recommendations, and encourages exploration of annual variability essential for regional climate assessments.",
+      "question_idx": 1,
+      "question_string": "How do monthly highest temperatures in Amherst change over the years covered in the dataset?",
+      "variants": []
+    },
+    {
+      "table": "461",
+      "summary_idx": 1,
+      "narrative_summary": "This table provides a structured foundation for examining monthly temperature maxima across a multi-year timespan. By connecting year and temperature fields, the dataset empowers climate scientists and environmental policy makers to identify macro trends, seasonal shifts, and persistent anomalies. Visualizing these patterns facilitates early detection of climate change signals, supports evidence-based policy recommendations, and encourages exploration of annual variability essential for regional climate assessments.",
+      "question_idx": 2,
+      "question_string": "Are there any months or years where the highest temperature appears much higher or lower than the surrounding periods?",
+      "variants": []
+    },
+    {
+      "table": "461",
+      "summary_idx": 1,
+      "narrative_summary": "This table provides a structured foundation for examining monthly temperature maxima across a multi-year timespan. By connecting year and temperature fields, the dataset empowers climate scientists and environmental policy makers to identify macro trends, seasonal shifts, and persistent anomalies. Visualizing these patterns facilitates early detection of climate change signals, supports evidence-based policy recommendations, and encourages exploration of annual variability essential for regional climate assessments.",
+      "question_idx": 4,
+      "question_string": "How do the highest temperatures in the winter months (e.g., January, February) compare to those in the summer months (e.g., July, August) for each year?",
+      "variants": []
+    },
+    {
+      "table": "461",
+      "summary_idx": 1,
+      "narrative_summary": "This table provides a structured foundation for examining monthly temperature maxima across a multi-year timespan. By connecting year and temperature fields, the dataset empowers climate scientists and environmental policy makers to identify macro trends, seasonal shifts, and persistent anomalies. Visualizing these patterns facilitates early detection of climate change signals, supports evidence-based policy recommendations, and encourages exploration of annual variability essential for regional climate assessments.",
+      "question_idx": 8,
+      "question_string": "How variable are monthly temperature maxima from year to year in Amherst—do some years show more extreme fluctuations than others?",
+      "variants": []
+    },
+    {
+      "table": "63",
+      "summary_idx": 1,
+      "narrative_summary": "This data enables business decision makers to visualize how customer age, annual income, gender, and loyalty program status relate to purchase conversion rates. Executives can accept which segments are most lucrative, agree to direct resources toward the highest-value demographic groups, and establish data-driven marketing priorities using clear patterns in demographic and loyalty characteristics. The schema empowers trend identification, segment prioritization, and outcome-focused strategy refinement.",
+      "question_idx": 1,
+      "question_string": "How does the purchase conversion rate vary across different age groups?",
+      "variants": []
+    },
+    {
+      "table": "63",
+      "summary_idx": 1,
+      "narrative_summary": "This data enables business decision makers to visualize how customer age, annual income, gender, and loyalty program status relate to purchase conversion rates. Executives can accept which segments are most lucrative, agree to direct resources toward the highest-value demographic groups, and establish data-driven marketing priorities using clear patterns in demographic and loyalty characteristics. The schema empowers trend identification, segment prioritization, and outcome-focused strategy refinement.",
+      "question_idx": 3,
+      "question_string": "How do annual income levels relate to the likelihood of purchase?",
+      "variants": []
+    },
+    {
+      "table": "63",
+      "summary_idx": 1,
+      "narrative_summary": "This data enables business decision makers to visualize how customer age, annual income, gender, and loyalty program status relate to purchase conversion rates. Executives can accept which segments are most lucrative, agree to direct resources toward the highest-value demographic groups, and establish data-driven marketing priorities using clear patterns in demographic and loyalty characteristics. The schema empowers trend identification, segment prioritization, and outcome-focused strategy refinement.",
+      "question_idx": 4,
+      "question_string": "Are there differences in purchase conversion rates between genders?",
+      "variants": []
+    },
+    {
+      "table": "63",
+      "summary_idx": 1,
+      "narrative_summary": "This data enables business decision makers to visualize how customer age, annual income, gender, and loyalty program status relate to purchase conversion rates. Executives can accept which segments are most lucrative, agree to direct resources toward the highest-value demographic groups, and establish data-driven marketing priorities using clear patterns in demographic and loyalty characteristics. The schema empowers trend identification, segment prioritization, and outcome-focused strategy refinement.",
+      "question_idx": 5,
+      "question_string": "How does time spent on the website correlate with purchase status?",
+      "variants": []
+    },
+    {
+      "table": "63",
+      "summary_idx": 1,
+      "narrative_summary": "This data enables business decision makers to visualize how customer age, annual income, gender, and loyalty program status relate to purchase conversion rates. Executives can accept which segments are most lucrative, agree to direct resources toward the highest-value demographic groups, and establish data-driven marketing priorities using clear patterns in demographic and loyalty characteristics. The schema empowers trend identification, segment prioritization, and outcome-focused strategy refinement.",
+      "question_idx": 6,
+      "question_string": "Do customers who avail more discounts tend to have higher purchase rates?",
+      "variants": []
+    },
+    {
+      "table": "63",
+      "summary_idx": 1,
+      "narrative_summary": "This data enables business decision makers to visualize how customer age, annual income, gender, and loyalty program status relate to purchase conversion rates. Executives can accept which segments are most lucrative, agree to direct resources toward the highest-value demographic groups, and establish data-driven marketing priorities using clear patterns in demographic and loyalty characteristics. The schema empowers trend identification, segment prioritization, and outcome-focused strategy refinement.",
+      "question_idx": 7,
+      "question_string": "Which product categories have the highest proportion of successful purchases?",
+      "variants": []
+    },
+    {
+      "table": "63",
+      "summary_idx": 1,
+      "narrative_summary": "This data enables business decision makers to visualize how customer age, annual income, gender, and loyalty program status relate to purchase conversion rates. Executives can accept which segments are most lucrative, agree to direct resources toward the highest-value demographic groups, and establish data-driven marketing priorities using clear patterns in demographic and loyalty characteristics. The schema empowers trend identification, segment prioritization, and outcome-focused strategy refinement.",
+      "question_idx": 8,
+      "question_string": "What trends are observed in the number of purchases among customers who are part of the loyalty program compared to those who are not?",
+      "variants": []
+    }
+  ]
+}

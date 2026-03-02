@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Annotation System Test</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .test-container {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+        .status {
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 4px;
+            font-weight: bold;
+        }
+        .status.success { background: #d4edda; color: #155724; border: 1px solid #c3e6cb; }
+        .status.error { background: #f8d7da; color: #721c24; border: 1px solid #f5c6cb; }
+        .status.info { background: #d1ecf1; color: #0c5460; border: 1px solid #bee5eb; }
+        .annotation-display {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 4px;
+            margin: 10px 0;
+        }
+        .navigation {
+            text-align: center;
+            margin: 20px 0;
+        }
+        .nav-btn {
+            background: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            margin: 0 10px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .nav-btn:disabled {
+            background: #6c757d;
+            cursor: not-allowed;
+        }
+        .info-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            margin: 10px 0;
+        }
+        .dataset-info {
+            background: #e9ecef;
+            padding: 10px;
+            border-radius: 4px;
+        }
+        .context-display {
+            background: #fff3cd;
+            padding: 15px;
+            border-radius: 4px;
+            margin: 10px 0;
+            border: 1px solid #ffeaa7;
+        }
+        .question-display {
+            background: #d1ecf1;
+            padding: 15px;
+            border-radius: 4px;
+            margin: 10px 0;
+            border: 1px solid #bee5eb;
+        }
+    </style>
+</head>
+<body>
+    <div class="test-container">
+        <h1>Annotation Data Loading System Test</h1>
+        <div id="status-container">
+            <div class="status info">Initializing annotation system...</div>
+        </div>
+        
+        <div class="navigation">
+            <button class="nav-btn" id="prevBtn" onclick="testPrevious()">← Previous</button>
+            <span id="position-info">Loading...</span>
+            <button class="nav-btn" id="nextBtn" onclick="testNext()">Next →</button>
+        </div>
+        
+        <div id="annotation-container" class="annotation-display" style="display: none;">
+            <!-- Annotation data will be displayed here -->
+        </div>
+        
+        <div class="test-container">
+            <h3>Manual Test Controls</h3>
+            <button class="nav-btn" onclick="testGoToIndex(0)">Go to First</button>
+            <button class="nav-btn" onclick="testGoToIndex(5)">Go to Index 5</button>
+            <button class="nav-btn" onclick="testShowStats()">Show Statistics</button>
+            <button class="nav-btn" onclick="testLoadCSV()">Test CSV Loading</button>
+        </div>
+        
+        <div id="debug-output" class="test-container">
+            <h3>Debug Output</h3>
+            <pre id="debug-content"></pre>
+        </div>
+    </div>
+
+    <!-- Include our annotation system -->
+    <script src="annotation_data_loader.js"></script>
+    
+    <script>
+        // Test functions
+        let testUI = null;
+        
+        async function initializeTest() {
+            const statusContainer = document.getElementById('status-container');
+            
+            try {
+                // Initialize the annotation loader
+                const success = await window.annotationLoader.initialize();
+                
+                if (success) {
+                    statusContainer.innerHTML = '<div class="status success">✓ Annotation system loaded successfully!</div>';
+                    displayCurrentAnnotation();
+                    updateNavigation();
+                } else {
+                    statusContainer.innerHTML = '<div class="status error">✗ Failed to load annotation system</div>';
+                }
+            } catch (error) {
+                statusContainer.innerHTML = `<div class="status error">✗ Error: ${error.message}</div>`;
+                logDebug('Initialization error:', error);
+            }
+        }
+        
+        function displayCurrentAnnotation() {
+            const annotation = window.annotationLoader.getCurrentAnnotationWithDatasetInfo();
+            const container = document.getElementById('annotation-container');
+            
+            if (!annotation) {
+                container.innerHTML = '<p>No annotation data available</p>';
+                return;
+            }
+            
+            container.style.display = 'block';
+            container.innerHTML = `
+                <h3>Annotation ${annotation.annotation_index + 1} of ${annotation.total_annotations}</h3>
+                
+                <div class="dataset-info">
+                    <strong>Dataset:</strong> ${annotation.dataset_info.dataset_name}<br>
+                    <strong>Table ID:</strong> ${annotation.table}<br>
+                    <strong>Category:</strong> ${annotation.dataset_info.category}<br>
+                    <strong>License:</strong> ${annotation.dataset_info.license || 'Not specified'}
+                </div>
+                
+                <div class="question-display">
+                    <strong>Question ${annotation.question_idx}:</strong><br>
+                    ${annotation.question_string}
+                </div>
+                
+                <div class="context-display">
+                    <strong>Context (Narrative Summary):</strong><br>
+                    ${annotation.narrative_summary}
+                </div>
+                
+                <div class="info-grid">
+                    <div><strong>Summary Index:</strong> ${annotation.summary_idx}</div>
+                    <div><strong>Variants:</strong> ${annotation.variants ? annotation.variants.length : 0}</div>
+                </div>
+            `;
+        }
+        
+        function updateNavigation() {
+            const loader = window.annotationLoader;
+            const positionInfo = document.getElementById('position-info');
+            const prevBtn = document.getElementById('prevBtn');
+            const nextBtn = document.getElementById('nextBtn');
+            
+            positionInfo.textContent = `${loader.getCurrentIndex() + 1} of ${loader.getTotalAnnotations()}`;
+            prevBtn.disabled = !loader.hasPrevious();
+            nextBtn.disabled = !loader.hasNext();
+        }
+        
+        function testPrevious() {
+            const annotation = window.annotationLoader.previousAnnotation();
+            if (annotation) {
+                displayCurrentAnnotation();
+                updateNavigation();
+            }
+        }
+        
+        function testNext() {
+            const annotation = window.annotationLoader.nextAnnotation();
+            if (annotation) {
+                displayCurrentAnnotation();
+                updateNavigation();
+            }
+        }
+        
+        function testGoToIndex(index) {
+            const annotation = window.annotationLoader.navigateToAnnotation(index);
+            if (annotation) {
+                displayCurrentAnnotation();
+                updateNavigation();
+            }
+        }
+        
+        function testShowStats() {
+            const stats = window.annotationLoader.getSummaryStats();
+            logDebug('Summary Statistics:', stats);
+        }
+        
+        async function testLoadCSV() {
+            const annotation = window.annotationLoader.getCurrentAnnotationWithDatasetInfo();
+            if (!annotation) {
+                logDebug('No current annotation to test CSV loading');
+                return;
+            }
+            
+            try {
+                const csvPath = `./csv_c_squared/${annotation.table}.csv`;
+                logDebug(`Testing CSV load for table ${annotation.table} from: ${csvPath}`);
+                
+                const response = await fetch(csvPath);
+                if (response.ok) {
+                    const csvText = await response.text();
+                    const lines = csvText.split('\\n').slice(0, 3); // First 3 lines
+                    logDebug('CSV Load Test - First 3 lines:', lines);
+                } else {
+                    logDebug(`CSV Load Test - Failed: ${response.status}`);
+                }
+            } catch (error) {
+                logDebug('CSV Load Test - Error:', error);
+            }
+        }
+        
+        function logDebug(message, data = null) {
+            const debugContent = document.getElementById('debug-content');
+            const timestamp = new Date().toLocaleTimeString();
+            const logEntry = `[${timestamp}] ${message}${data ? '\\n' + JSON.stringify(data, null, 2) : ''}`;
+            debugContent.textContent += logEntry + '\\n\\n';
+            debugContent.scrollTop = debugContent.scrollHeight;
+            console.log(message, data);
+        }
+        
+        // Initialize when DOM is loaded
+        document.addEventListener('DOMContentLoaded', initializeTest);
+    </script>
+</body>
+</html>

@@ -1,0 +1,964 @@
+{
+  "dataset": "ATP_rendered_charts",
+  "questionnaires": [
+    {
+      "questions": [
+        {
+          "question_id": 1,
+          "question_text": "Which chart makes it easier to visually identify the players with the longest cumulative weeks at top rank, without searching for information in multiple places?"
+        },
+        {
+          "question_id": 2,
+          "question_text": "Which chart presents the ages at which peak performance spans occurred in a more clear and understandable manner, so that you can match ages to performance periods without confusion?"
+        },
+        {
+          "question_id": 3,
+          "question_text": "Which chart contains fewer distracting or unnecessary visual elements (such as excessive gridlines, overlapping labels, or unrelated icons) that might make the chart harder to read?"
+        },
+        {
+          "question_id": 4,
+          "question_text": "Considering legends, labels, and color keys, which chart requires less mental effort to decode and match visual elements to player names and their time at top rank?"
+        },
+        {
+          "question_id": 5,
+          "question_text": "Which chart is less likely to be misinterpreted or misunderstood regarding which players had the longest career at top rank and the ages at which these periods occurred?"
+        },
+        {
+          "question_id": 6,
+          "question_text": "Looking at visual style only (colors, fonts, layout), which chart feels more professionally designed and appealing for a presentation to sports management professionals?"
+        },
+        {
+          "question_id": 7,
+          "question_text": "Comparing both charts, which one best supports quick comparison of career longevity and peak ages among all athletes, based on clarity and ease of matching elements?"
+        },
+        {
+          "question_id": 8,
+          "question_text": "Which chart feels more balanced and visually organized, making it comfortable to scan through the athletes and their performance periods without getting lost or overwhelmed?"
+        }
+      ],
+      "metadata": {
+        "dataset": "ATP Number 1 Rankings",
+        "summary_id": 1,
+        "question_id": 1,
+        "master_question": "Which players demonstrated the longest spans of cumulative weeks at top rank and at what ages did these spans occur?",
+        "target_audience": "Sports management professionals and performance coaches",
+        "curator_intention": "Enable comparison of career longevity and peak performance periods among athletes",
+        "num_questions_requested": 8,
+        "num_questions_generated": 8,
+        "evaluation_constructs": [
+          "cognitive_load",
+          "interpretability",
+          "style"
+        ]
+      },
+      "summary_id": 1,
+      "question_id": 1
+    },
+    {
+      "questions": [
+        {
+          "question_id": 1,
+          "question_text": "Which chart makes it easier and quicker to identify at what ages most athletes reach their highest cumulative weeks at elite ranking, without requiring repeated checking between legends, labels, or axes?"
+        },
+        {
+          "question_id": 2,
+          "question_text": "Comparing both charts, which one displays the differences in peak performance periods between athletes more clearly and unambiguously, ensuring that each athlete’s age window is easy to distinguish?"
+        },
+        {
+          "question_id": 3,
+          "question_text": "Between the two charts, which one minimizes visual clutter, such as excessive overlapping marks, dense labeling, or crowded elements, making the information about career longevity and peaks more comfortable to scan and compare?"
+        },
+        {
+          "question_id": 4,
+          "question_text": "Considering the need for sports management professionals and coaches to compare athletes quickly, which chart offers simpler and less mentally demanding visual encodings (like colors or shapes) to spot high-achievement age ranges?"
+        },
+        {
+          "question_id": 5,
+          "question_text": "Assessing both charts, which one avoids confusion from ambiguous colors, unclear legends, or missing axis labels, so that age-based trends and differences aren’t misinterpreted?"
+        },
+        {
+          "question_id": 6,
+          "question_text": "Which of the two charts demonstrates a more visually appealing and professionally styled presentation, including balanced layout, harmonious color choices, and clear typography, while keeping the intent of athlete comparison in mind?"
+        },
+        {
+          "question_id": 7,
+          "question_text": "When focusing on comparing career longevity and peak ages among athletes, which chart’s design allows you to follow and compare multiple athletes without losing track or having to constantly refer to external legends and explanations?"
+        },
+        {
+          "question_id": 8,
+          "question_text": "Comparing the two charts, which one feels better suited for inclusion in a professional report or presentation for sports managers, based solely on design quality and overall user impression, regardless of the data content?"
+        }
+      ],
+      "metadata": {
+        "dataset": "ATP Number 1 Rankings",
+        "summary_id": 1,
+        "question_id": 2,
+        "master_question": "Are there observable age windows where most players achieve the highest cumulative weeks at elite ranking, and how do these differ between athletes?",
+        "target_audience": "Sports management professionals and performance coaches",
+        "curator_intention": "Enable comparison of career longevity and peak performance periods among athletes",
+        "num_questions_requested": 8,
+        "num_questions_generated": 8,
+        "evaluation_constructs": [
+          "cognitive_load",
+          "interpretability",
+          "style"
+        ]
+      },
+      "summary_id": 1,
+      "question_id": 2
+    },
+    {
+      "questions": [
+        {
+          "question_id": 1,
+          "question_text": "Which chart makes it easier to quickly see the range and variation of peak performance ages across athletes without unnecessary visual distractions?"
+        },
+        {
+          "question_id": 2,
+          "question_text": "Which chart allows you to clearly and unambiguously identify athletes who achieved peak performance early versus late in their careers?"
+        },
+        {
+          "question_id": 3,
+          "question_text": "Comparing the two charts, which requires less effort to locate necessary legends, labels, and explanations to understand how peak ages are represented?"
+        },
+        {
+          "question_id": 4,
+          "question_text": "Which chart uses visual elements (color, shape, size, annotations) in a way that helps you interpret trends and comparisons among athlete career longevity and peak performance, without causing confusion?"
+        },
+        {
+          "question_id": 5,
+          "question_text": "Which chart’s layout and spacing feel cleaner and less crowded, making it easier for a sports management professional to scan for key information about career peaks?"
+        },
+        {
+          "question_id": 6,
+          "question_text": "Which chart feels more professionally designed, with visually appealing colors, fonts, and element positioning suitable for a high-quality sports analytics presentation?"
+        },
+        {
+          "question_id": 7,
+          "question_text": "When you look at both charts, which one avoids misleading or ambiguous elements (such as unclear axes, confusing legend placement, or overlapping data points) that could cause misinterpretation of career success timing?"
+        },
+        {
+          "question_id": 8,
+          "question_text": "Thinking about the needs of performance coaches and sports managers, which chart more successfully highlights patterns in early or late career success among players in a visually clear and engaging way?"
+        }
+      ],
+      "metadata": {
+        "dataset": "ATP Number 1 Rankings",
+        "summary_id": 1,
+        "question_id": 3,
+        "master_question": "How does the distribution of peak performance ages vary across players, and what might account for early or late career success?",
+        "target_audience": "Sports management professionals and performance coaches",
+        "curator_intention": "Enable comparison of career longevity and peak performance periods among athletes",
+        "num_questions_requested": 8,
+        "num_questions_generated": 8,
+        "evaluation_constructs": [
+          "cognitive_load",
+          "interpretability",
+          "style"
+        ]
+      },
+      "summary_id": 1,
+      "question_id": 3
+    },
+    {
+      "questions": [
+        {
+          "question_id": 1,
+          "question_text": "Which chart makes it easier to spot overall trends in career longevity by comparing cumulative weeks across increasing age ranges for each athlete?"
+        },
+        {
+          "question_id": 2,
+          "question_text": "Which chart allows you to quickly and confidently distinguish between different athletes’ career phases without confusion?"
+        },
+        {
+          "question_id": 3,
+          "question_text": "Which chart requires less effort to locate and interpret legends, age ranges, and athlete identifiers when answering the master question?"
+        },
+        {
+          "question_id": 4,
+          "question_text": "Which chart presents information with fewer overlapping or competing visual elements, making the main comparisons clearer?"
+        },
+        {
+          "question_id": 5,
+          "question_text": "Which chart's use of color, symbols, and spacing helps you immediately recognize periods of peak performance and career longevity?"
+        },
+        {
+          "question_id": 6,
+          "question_text": "Which chart is more visually appealing and professionally styled for a sports management audience, considering layout, colors, and overall design?"
+        },
+        {
+          "question_id": 7,
+          "question_text": "Which chart’s axis labels, scales, and legends are more readable and make it easier to accurately interpret career length across athletes?"
+        },
+        {
+          "question_id": 8,
+          "question_text": "Which chart avoids misleading or confusing representations (such as similar colors for different athletes or ambiguous plot areas), ensuring interpretations are correct?"
+        }
+      ],
+      "metadata": {
+        "dataset": "ATP Number 1 Rankings",
+        "summary_id": 1,
+        "question_id": 4,
+        "master_question": "Can we identify any trends or patterns in career longevity by comparing cumulative weeks across increasing age ranges for each athlete?",
+        "target_audience": "Sports management professionals and performance coaches",
+        "curator_intention": "Enable comparison of career longevity and peak performance periods among athletes",
+        "num_questions_requested": 8,
+        "num_questions_generated": 8,
+        "evaluation_constructs": [
+          "cognitive_load",
+          "interpretability",
+          "style"
+        ]
+      },
+      "summary_id": 1,
+      "question_id": 4
+    },
+    {
+      "questions": [
+        {
+          "question_id": 1,
+          "question_text": "Which chart makes it easier and quicker to spot at what ages athletes reached their peak cumulative weeks, helping you decide on contract renewal or training focus?"
+        },
+        {
+          "question_id": 2,
+          "question_text": "Looking at the legends and labels, which chart requires less back-and-forth eye movement or decoding to match colors or symbols to the correct athletes and age groups?"
+        },
+        {
+          "question_id": 3,
+          "question_text": "Which chart presents career longevity and peak performance periods more unambiguously, with clearer trends and comparisons relevant to benchmarking athletes for management decisions?"
+        },
+        {
+          "question_id": 4,
+          "question_text": "Comparing both charts, which one avoids excessive visual clutter (such as overlapping lines, crowded labels, or unnecessary design elements) while still allowing you to answer the master question?"
+        },
+        {
+          "question_id": 5,
+          "question_text": "Which chart’s use of color, typography, and layout feels more modern, visually appealing, and professionally suited for a sports management audience?"
+        },
+        {
+          "question_id": 6,
+          "question_text": "Considering axis labels, legends, and scales, which chart makes it easier to understand what ‘cumulative weeks at certain ages’ actually means in relation to athlete performance?"
+        },
+        {
+          "question_id": 7,
+          "question_text": "When comparing athletes side by side to inform contract or training decisions, which chart allows for clearer and faster retrieval of key values or age ranges without risk of misinterpretation?"
+        },
+        {
+          "question_id": 8,
+          "question_text": "Based on your initial visual impression, which chart would you be more confident sharing in a professional report to management or coaches, assuming the underlying data is the same?"
+        }
+      ],
+      "metadata": {
+        "dataset": "ATP Number 1 Rankings",
+        "summary_id": 1,
+        "question_id": 5,
+        "master_question": "How could benchmarking an athlete's cumulative weeks at certain ages inform contract renewal or training focus decisions?",
+        "target_audience": "Sports management professionals and performance coaches",
+        "curator_intention": "Enable comparison of career longevity and peak performance periods among athletes",
+        "num_questions_requested": 8,
+        "num_questions_generated": 8,
+        "evaluation_constructs": [
+          "cognitive_load",
+          "interpretability",
+          "style"
+        ]
+      },
+      "summary_id": 1,
+      "question_id": 5
+    },
+    {
+      "questions": [
+        {
+          "question_id": 1,
+          "question_text": "Which chart makes it easier and faster to spot athletes who are outliers in the relationship between age and sustained ranking, without constantly checking the legend or axis labels?"
+        },
+        {
+          "question_id": 2,
+          "question_text": "Which chart avoids unnecessary clutter and overlapping visual elements, allowing you to clearly identify periods of peak performance for each athlete?"
+        },
+        {
+          "question_id": 3,
+          "question_text": "Which chart presents information about athlete ages and sustained rankings in a way that is straightforward to interpret, with clear labels and no ambiguous elements?"
+        },
+        {
+          "question_id": 4,
+          "question_text": "Considering only the design (colors, font, balance), which chart appears more visually appealing and professionally crafted for sports management professionals and performance coaches?"
+        },
+        {
+          "question_id": 5,
+          "question_text": "Which chart’s legend and labeling system allows you to understand what each visual element represents most quickly and confidently, with minimal confusion?"
+        },
+        {
+          "question_id": 6,
+          "question_text": "Which chart is less likely to be misinterpreted regarding which athletes had exceptional career longevity, or the factors that might explain their deviations from usual patterns?"
+        },
+        {
+          "question_id": 7,
+          "question_text": "Which chart helps you easily compare multiple athletes at once, making it clear who stands out as an outlier and who fits typical patterns?"
+        },
+        {
+          "question_id": 8,
+          "question_text": "If you were presenting to a group of sports professionals, which chart would you feel more confident using to explain outliers in career longevity and performance, based on its clarity and style?"
+        }
+      ],
+      "metadata": {
+        "dataset": "ATP Number 1 Rankings",
+        "summary_id": 1,
+        "question_id": 6,
+        "master_question": "What outliers exist in the relationship between age and sustained ranking, and what strategies or factors might explain these deviations?",
+        "target_audience": "Sports management professionals and performance coaches",
+        "curator_intention": "Enable comparison of career longevity and peak performance periods among athletes",
+        "num_questions_requested": 8,
+        "num_questions_generated": 8,
+        "evaluation_constructs": [
+          "cognitive_load",
+          "interpretability",
+          "style"
+        ]
+      },
+      "summary_id": 1,
+      "question_id": 6
+    },
+    {
+      "questions": [
+        {
+          "question_id": 1,
+          "question_text": "Which chart allows you to more quickly and easily see differences in the average number of weeks at peak rank between male and female athletes across age ranges, without needing to scan back and forth excessively?"
+        },
+        {
+          "question_id": 2,
+          "question_text": "Which chart uses colors, shapes, or other visual cues in a way that makes it immediately clear which data belongs to each gender and age group, with no risk of mixing up categories?"
+        },
+        {
+          "question_id": 3,
+          "question_text": "Between the charts, which presents the data with less visual clutter, making it easier to focus on the main comparisons intended by the master question?"
+        },
+        {
+          "question_id": 4,
+          "question_text": "Which chart’s legends, labels, and axis titles are clearer and more helpful, so you do not get confused about what the lines, bars, or points represent for gender and age range?"
+        },
+        {
+          "question_id": 5,
+          "question_text": "Comparing both charts, does one use font size and type, colors, and element spacing in a more visually appealing or professional way that makes the chart look suitable for a publication or presentation to sports sociologists?"
+        },
+        {
+          "question_id": 6,
+          "question_text": "Which chart makes it easier to interpret the overall trend or relationship—how average peak rank weeks differ by gender and age—without getting lost or misled by unnecessary complexity?"
+        },
+        {
+          "question_id": 7,
+          "question_text": "Are any important chart elements (like legends, labels, axis scales, or units) missing or unclear in either chart, making it harder to answer the master question accurately?"
+        },
+        {
+          "question_id": 8,
+          "question_text": "Does either chart include extra features, marks, or decorations that distract from understanding how average weeks at peak rank compare by gender and age—making the chart feel busier than it needs to be?"
+        }
+      ],
+      "metadata": {
+        "dataset": "ATP Number 1 Rankings",
+        "summary_id": 2,
+        "question_id": 1,
+        "master_question": "How does the average number of weeks at peak rank differ between male and female athletes across distinct age ranges?",
+        "target_audience": "Sports sociologists and gender equity advocates",
+        "curator_intention": "Highlight demographic equity and performance variability across gender and age",
+        "num_questions_requested": 8,
+        "num_questions_generated": 8,
+        "evaluation_constructs": [
+          "cognitive_load",
+          "interpretability",
+          "style"
+        ]
+      },
+      "summary_id": 2,
+      "question_id": 1
+    },
+    {
+      "questions": [
+        {
+          "question_id": 1,
+          "question_text": "Which chart makes it easier to clearly identify for each age group which sex maintains longer top-ranking tenures, without needing to jump between different elements or consult the legend multiple times?"
+        },
+        {
+          "question_id": 2,
+          "question_text": "Which chart avoids unnecessary visual clutter, such as overlapping colors, excessive gridlines, or too many data points, making it simpler to notice patterns in gender and age group disparities?"
+        },
+        {
+          "question_id": 3,
+          "question_text": "Between the two charts, in which is it more immediately obvious where notable disparities between sexes occur across age groups, with less mental effort required to spot these differences?"
+        },
+        {
+          "question_id": 4,
+          "question_text": "Which chart provides the clearest and least ambiguous encoding of sex and age group, so that you are confident you understand what each visual element represents in relation to the master question?"
+        },
+        {
+          "question_id": 5,
+          "question_text": "Which chart's labels, legends, and axes are more straightforward to locate and interpret, allowing you to quickly connect chart elements to demographic and performance categories?"
+        },
+        {
+          "question_id": 6,
+          "question_text": "Considering the overall visual style (fonts, colors, visual balance), which chart looks more professionally designed and suitable for a presentation aimed at sports sociologists and gender equity advocates?"
+        },
+        {
+          "question_id": 7,
+          "question_text": "Which chart avoids confusing or misleading design choices (such as unclear axis scales, overlapping series, or similar colors for different groups) that could cause a viewer to misread the key message about tenure disparities?"
+        },
+        {
+          "question_id": 8,
+          "question_text": "Which chart gives a stronger and clearer overall impression of demographic equity and variability in performance across genders and age groups, as intended by the curator?"
+        }
+      ],
+      "metadata": {
+        "dataset": "ATP Number 1 Rankings",
+        "summary_id": 2,
+        "question_id": 2,
+        "master_question": "Are there specific age groups where one sex consistently maintains longer tenures at the top ranking, and what might drive such disparities?",
+        "target_audience": "Sports sociologists and gender equity advocates",
+        "curator_intention": "Highlight demographic equity and performance variability across gender and age",
+        "num_questions_requested": 8,
+        "num_questions_generated": 8,
+        "evaluation_constructs": [
+          "cognitive_load",
+          "interpretability",
+          "style"
+        ]
+      },
+      "summary_id": 2,
+      "question_id": 2
+    },
+    {
+      "questions": [
+        {
+          "question_id": 1,
+          "question_text": "Which chart makes it easier to visually compare how age at peak tenure relates to weeks spent at the top, for male and female athletes?"
+        },
+        {
+          "question_id": 2,
+          "question_text": "Which chart has clearer legends and labels, allowing you to quickly understand what each color, symbol, or axis represents in relation to gender and age?"
+        },
+        {
+          "question_id": 3,
+          "question_text": "Looking at both charts, which one avoids overwhelming you with too many visual elements (like unnecessary lines, colors, or annotations) while still helping answer the master question?"
+        },
+        {
+          "question_id": 4,
+          "question_text": "Which chart’s use of colors, shapes, or grouping helps you immediately distinguish between male and female athletes without causing confusion or ambiguity?"
+        },
+        {
+          "question_id": 5,
+          "question_text": "When moving your eyes between the chart and its legend or labels, which chart lets you decode the relationship between age and peak weeks with less back-and-forth searching?"
+        },
+        {
+          "question_id": 6,
+          "question_text": "Which chart best avoids errors or misleading design choices, such as unclear scales or ambiguous marks, that could result in misunderstandings about the correlation between age and peak weeks for each gender?"
+        },
+        {
+          "question_id": 7,
+          "question_text": "From a visual design perspective, which chart looks more professional and polished for an audience of sports sociologists and gender equity advocates?"
+        },
+        {
+          "question_id": 8,
+          "question_text": "Which chart layout and spacing makes it easier to focus on the key differences in correlation between male and female athletes’ age and competitive tenure, without feeling visually cramped or lost?"
+        }
+      ],
+      "metadata": {
+        "dataset": "ATP Number 1 Rankings",
+        "summary_id": 2,
+        "question_id": 3,
+        "master_question": "Does age at reaching peak competitive tenure correlate differently with weeks spent at the top for male versus female athletes?",
+        "target_audience": "Sports sociologists and gender equity advocates",
+        "curator_intention": "Highlight demographic equity and performance variability across gender and age",
+        "num_questions_requested": 8,
+        "num_questions_generated": 8,
+        "evaluation_constructs": [
+          "cognitive_load",
+          "interpretability",
+          "style"
+        ]
+      },
+      "summary_id": 2,
+      "question_id": 3
+    },
+    {
+      "questions": [
+        {
+          "question_id": 1,
+          "question_text": "Which chart makes it easier and quicker to compare age distributions by sex and observe performance variability patterns without scanning back and forth between labels or legends?"
+        },
+        {
+          "question_id": 2,
+          "question_text": "Which chart presents visual elements (such as lines, colors, points, legends) in a way that avoids crowding or overwhelming you when trying to answer the master question?"
+        },
+        {
+          "question_id": 3,
+          "question_text": "Which chart allows you to clearly understand what each group (e.g., each sex and age category) represents, with no ambiguous color or symbol assignments that could confuse the audience?"
+        },
+        {
+          "question_id": 4,
+          "question_text": "Considering the purpose of highlighting equity and variability, which chart’s design helps you identify key trends and compare groups more clearly and confidently?"
+        },
+        {
+          "question_id": 5,
+          "question_text": "Which chart uses axis labels, legends, and scales in a way that clearly communicates what the numbers mean (such as age in days, weeks at top rank, or sex), with minimal risk of misinterpretation?"
+        },
+        {
+          "question_id": 6,
+          "question_text": "If you had to include one of these charts in a professional presentation for sports sociologists or gender equity advocates, which would you choose based purely on its visual style and design appeal?"
+        },
+        {
+          "question_id": 7,
+          "question_text": "Which chart is more balanced and harmonious in terms of color, spacing of elements, and overall composition, making the information on gender and age equity feel accessible and inviting to view?"
+        },
+        {
+          "question_id": 8,
+          "question_text": "Which chart avoids using unnecessary visual features, annotations, or multiple legends that could add confusion or distract from understanding patterns related to the master question?"
+        }
+      ],
+      "metadata": {
+        "dataset": "ATP Number 1 Rankings",
+        "summary_id": 2,
+        "question_id": 4,
+        "master_question": "What patterns emerge when comparing the distribution of age in days with weeks at top rank by sex, and how do these patterns inform equity discussions?",
+        "target_audience": "Sports sociologists and gender equity advocates",
+        "curator_intention": "Highlight demographic equity and performance variability across gender and age",
+        "num_questions_requested": 8,
+        "num_questions_generated": 8,
+        "evaluation_constructs": [
+          "cognitive_load",
+          "interpretability",
+          "style"
+        ]
+      },
+      "summary_id": 2,
+      "question_id": 4
+    },
+    {
+      "questions": [
+        {
+          "question_id": 1,
+          "question_text": "Which chart makes it easier to quickly spot and compare how peak ranking age pathways differ between male and female athletes, without unnecessary distractions?"
+        },
+        {
+          "question_id": 2,
+          "question_text": "In which chart is it more straightforward to match visual elements (such as colors or symbols) to the correct gender and age categories, with minimal need to refer back and forth to legends or labels?"
+        },
+        {
+          "question_id": 3,
+          "question_text": "Which chart presents clearer trends or patterns regarding barriers or accelerators in reaching peak rank, making it less likely for viewers to misinterpret what each line, mark, or segment represents?"
+        },
+        {
+          "question_id": 4,
+          "question_text": "Looking only at the aesthetic design (such as color choices, font, and general layout), which chart would you consider more visually appealing and suitable for a professional presentation to sports sociologists and gender equity advocates?"
+        },
+        {
+          "question_id": 5,
+          "question_text": "Which chart feels less visually cluttered, allowing you to focus more easily on how gender and age impact the pathways to peak rank without being distracted by excessive visual elements?"
+        },
+        {
+          "question_id": 6,
+          "question_text": "Between the charts, which one requires less mental effort for you to follow lines, identify trends, and correctly interpret axis scales when answering the master question?"
+        },
+        {
+          "question_id": 7,
+          "question_text": "Is it evident in both charts what each axis and visual encoding (color, shape, size) represent, or does one chart make this more obvious and less ambiguous when assessing equity and variability?"
+        },
+        {
+          "question_id": 8,
+          "question_text": "Considering all chart elements together, which chart do you trust more to avoid misleading impressions or confusion about the main message: whether pathways to peak ranking age are comparable across sexes?"
+        }
+      ],
+      "metadata": {
+        "dataset": "ATP Number 1 Rankings",
+        "summary_id": 2,
+        "question_id": 5,
+        "master_question": "Do trajectories to peak rank (as measured by age) reflect comparable pathways for both sexes, or do trends suggest barriers or accelerators unique to each?",
+        "target_audience": "Sports sociologists and gender equity advocates",
+        "curator_intention": "Highlight demographic equity and performance variability across gender and age",
+        "num_questions_requested": 8,
+        "num_questions_generated": 8,
+        "evaluation_constructs": [
+          "cognitive_load",
+          "interpretability",
+          "style"
+        ]
+      },
+      "summary_id": 2,
+      "question_id": 5
+    },
+    {
+      "questions": [
+        {
+          "question_id": 1,
+          "question_text": "Which chart allows you to most easily identify differences in weeks at top rank by both sex and age, without feeling visually overwhelmed or lost?"
+        },
+        {
+          "question_id": 2,
+          "question_text": "Between the charts, which one lets you quickly spot key trends or comparisons relevant to equitable access and athlete development, with minimal effort needed to find and understand labels, legends, and data points?"
+        },
+        {
+          "question_id": 3,
+          "question_text": "Looking at both charts, which design helps you unambiguously see how gender and age groups vary in top rank duration, with all elements (axes, legends, colors) clearly representing what they mean?"
+        },
+        {
+          "question_id": 4,
+          "question_text": "Which chart's overall appearance (fonts, colors, layout) feels most professionally designed and visually appealing for sharing with sports sociologists and gender equity advocates?"
+        },
+        {
+          "question_id": 5,
+          "question_text": "Comparing the charts, which one has fewer unnecessary lines, marks, or color distractions that might clutter the view and distract from the message about equity in athlete performance?"
+        },
+        {
+          "question_id": 6,
+          "question_text": "Which chart requires less back-and-forth eye movement between legends/labels and the data marks to confidently understand key findings about how policy could address age and gender equity?"
+        },
+        {
+          "question_id": 7,
+          "question_text": "Does either chart present information in a way that could be misinterpreted or cause confusion about which group is being represented or how differences in top rank weeks should be understood? If so, which chart is clearer?"
+        },
+        {
+          "question_id": 8,
+          "question_text": "For a typical viewer interested in policy implications, which chart would make it easiest to explain the main story of demographic equity and performance variability, purely based on its design and presentation?"
+        }
+      ],
+      "metadata": {
+        "dataset": "ATP Number 1 Rankings",
+        "summary_id": 2,
+        "question_id": 6,
+        "master_question": "How could the observed differences in weeks at top rank by sex and age inform future policy decisions targeting equitable access and athlete development?",
+        "target_audience": "Sports sociologists and gender equity advocates",
+        "curator_intention": "Highlight demographic equity and performance variability across gender and age",
+        "num_questions_requested": 8,
+        "num_questions_generated": 8,
+        "evaluation_constructs": [
+          "cognitive_load",
+          "interpretability",
+          "style"
+        ]
+      },
+      "summary_id": 2,
+      "question_id": 6
+    },
+    {
+      "questions": [
+        {
+          "question_id": 1,
+          "question_text": "Which chart lets you more quickly see how a player's age at achievement relates to their total ranking weeks, without needing to constantly check the legend or axes?"
+        },
+        {
+          "question_id": 2,
+          "question_text": "Which chart has clearer labels, legends, and axes that make it easy to understand exactly what each visual element represents in the context of age and ranking duration?"
+        },
+        {
+          "question_id": 3,
+          "question_text": "Which chart avoids unnecessary clutter, such as overlapping text, dense lines, or extra symbols, making the relationship between age at achievement and ranking weeks easier to examine?"
+        },
+        {
+          "question_id": 4,
+          "question_text": "Which chart has a more visually appealing and professional design, with better use of colors, font choices, and layout for comparing age and ranking duration among players?"
+        },
+        {
+          "question_id": 5,
+          "question_text": "When focusing on the master question, which chart provides a clearer overall message about how age at achievement might correlate with ranking weeks, minimizing ambiguity or misunderstandings?"
+        },
+        {
+          "question_id": 6,
+          "question_text": "Which chart makes it easier to distinguish between different players and compare their data at a glance, through effective use of visual cues like color, size, or symbol?"
+        },
+        {
+          "question_id": 7,
+          "question_text": "Which chart requires less mental effort to follow timelines or patterns, due to simple scales and straightforward encoding, when reconstructing an athlete’s achievement history?"
+        },
+        {
+          "question_id": 8,
+          "question_text": "Which chart is more suitable for data analysts and sports historians who need to scrutinize and accurately reconstruct the timeline of athlete achievements, based just on what you can see?"
+        }
+      ],
+      "metadata": {
+        "dataset": "ATP Number 1 Rankings",
+        "summary_id": 3,
+        "question_id": 1,
+        "master_question": "How does the age at achievement correlate with the duration of ranking weeks among different players?",
+        "target_audience": "Data analysts and sports historians",
+        "curator_intention": "Encourage scrutiny and accurate timeline reconstruction of athlete achievement history",
+        "num_questions_requested": 8,
+        "num_questions_generated": 8,
+        "evaluation_constructs": [
+          "cognitive_load",
+          "interpretability",
+          "style"
+        ]
+      },
+      "summary_id": 3,
+      "question_id": 1
+    },
+    {
+      "questions": [
+        {
+          "question_id": 1,
+          "question_text": "Which chart makes it easier to quickly find out which athlete reached their landmark ranking at the youngest age, without searching through many elements?"
+        },
+        {
+          "question_id": 2,
+          "question_text": "When considering both charts, which one allows you to clearly and confidently compare how the age at achieving the top ranking relates to the number of weeks spent at the top, with minimal confusion or ambiguity?"
+        },
+        {
+          "question_id": 3,
+          "question_text": "In which chart do elements such as labels, legends, and color schemes help you interpret the main message (youngest achiever and weeks at the top) more accurately and with less chance of misunderstanding?"
+        },
+        {
+          "question_id": 4,
+          "question_text": "Which chart feels less visually crowded or overwhelming, making it easier to focus on the key information needed to answer the master question?"
+        },
+        {
+          "question_id": 5,
+          "question_text": "Comparing both charts, which one requires less effort to track legends, labels, and scale information while trying to reconstruct the timeline of athlete achievements?"
+        },
+        {
+          "question_id": 6,
+          "question_text": "Which chart presents its information in a clearer, more unambiguous way, ensuring that viewers do not walk away with different understandings regarding the youngest achiever and weeks at the top?"
+        },
+        {
+          "question_id": 7,
+          "question_text": "Focusing only on visual style and overall design, which chart appears more professionally crafted and visually appealing for a data analyst or sports historian audience?"
+        },
+        {
+          "question_id": 8,
+          "question_text": "Comparing both charts, which one avoids errors or misleading visual elements that could incorrectly guide the viewer when answering which player was youngest at their top ranking and their duration at the top?"
+        }
+      ],
+      "metadata": {
+        "dataset": "ATP Number 1 Rankings",
+        "summary_id": 3,
+        "question_id": 2,
+        "master_question": "Which player achieved their landmark ranking at the youngest age, and how does this relate to the number of weeks spent at the top?",
+        "target_audience": "Data analysts and sports historians",
+        "curator_intention": "Encourage scrutiny and accurate timeline reconstruction of athlete achievement history",
+        "num_questions_requested": 8,
+        "num_questions_generated": 8,
+        "evaluation_constructs": [
+          "cognitive_load",
+          "interpretability",
+          "style"
+        ]
+      },
+      "summary_id": 3,
+      "question_id": 2
+    },
+    {
+      "questions": [
+        {
+          "question_id": 1,
+          "question_text": "Which chart allows you to most quickly and easily spot patterns or changes in athlete achievement frequency across different eras, based on DOB and Date?"
+        },
+        {
+          "question_id": 2,
+          "question_text": "In which chart do you find it clearer and less confusing to distinguish between players from different time periods when answering the main question?"
+        },
+        {
+          "question_id": 3,
+          "question_text": "Which chart has labels, legends, or axis titles that most clearly help you understand what the marks represent for trends in achievement frequency?"
+        },
+        {
+          "question_id": 4,
+          "question_text": "Between the charts, which one feels visually less crowded or overwhelming when you try to follow the timeline of athlete achievements?"
+        },
+        {
+          "question_id": 5,
+          "question_text": "Which chart has the most effective use of color, shapes, or sizes to help you quickly recognize trends in achievement frequency across player eras?"
+        },
+        {
+          "question_id": 6,
+          "question_text": "Looking at both charts, which one would be more likely to avoid misleading or ambiguous interpretations about when players achieved their successes?"
+        },
+        {
+          "question_id": 7,
+          "question_text": "Which chart appears more visually polished and professionally designed, in a way that would impress a data analyst or sports historian?"
+        },
+        {
+          "question_id": 8,
+          "question_text": "Which chart makes it easier to visually track individual player histories and reconstruct their achievement timelines without unnecessary effort?"
+        }
+      ],
+      "metadata": {
+        "dataset": "ATP Number 1 Rankings",
+        "summary_id": 3,
+        "question_id": 3,
+        "master_question": "Are there visible trends in achievement frequency among players across different eras based on DOB and Date?",
+        "target_audience": "Data analysts and sports historians",
+        "curator_intention": "Encourage scrutiny and accurate timeline reconstruction of athlete achievement history",
+        "num_questions_requested": 8,
+        "num_questions_generated": 8,
+        "evaluation_constructs": [
+          "cognitive_load",
+          "interpretability",
+          "style"
+        ]
+      },
+      "summary_id": 3,
+      "question_id": 3
+    },
+    {
+      "questions": [
+        {
+          "question_id": 1,
+          "question_text": "Which chart makes it easier to spot periods when players have rapidly gained cumulative weeks, without requiring extra effort to scan for labels, legends, or axis details?"
+        },
+        {
+          "question_id": 2,
+          "question_text": "Between the charts, which one presents the data with less visual clutter — that is, fewer distracting or unnecessary elements — while still allowing you to accurately identify time periods of achievement surges?"
+        },
+        {
+          "question_id": 3,
+          "question_text": "Which chart provides clearer and more unambiguous cues to interpret sudden increases in cumulative weeks, making it less likely for users to misread the timeline or confuse player achievements?"
+        },
+        {
+          "question_id": 4,
+          "question_text": "Comparing the charts, which one uses color, shape, or other encodings in a way that consistently highlights periods of rapid change without confusing different players or time intervals?"
+        },
+        {
+          "question_id": 5,
+          "question_text": "Looking at both charts, which one has legend and labeling systems that require less back-and-forth eye movement and make it easier for you to reconstruct historical achievement timelines?"
+        },
+        {
+          "question_id": 6,
+          "question_text": "Which chart’s layout, spacing, and element placement feels more professionally designed and visually appealing, matching the expectations of data analysts and sports historians for archival presentation?"
+        },
+        {
+          "question_id": 7,
+          "question_text": "Between the charts, which one is more likely to prevent misunderstandings or errors when identifying notable time periods, due to clear axis labels, units, or other necessary annotations?"
+        },
+        {
+          "question_id": 8,
+          "question_text": "Which chart better balances the amount of information shown and overall visual clarity, helping you focus on identifying significant achievement surges in athletes’ timelines, without overwhelming you?"
+        }
+      ],
+      "metadata": {
+        "dataset": "ATP Number 1 Rankings",
+        "summary_id": 3,
+        "question_id": 4,
+        "master_question": "Can you identify periods where players experienced rapid increases in cumulative weeks, and what historical events might explain these surges?",
+        "target_audience": "Data analysts and sports historians",
+        "curator_intention": "Encourage scrutiny and accurate timeline reconstruction of athlete achievement history",
+        "num_questions_requested": 8,
+        "num_questions_generated": 8,
+        "evaluation_constructs": [
+          "cognitive_load",
+          "interpretability",
+          "style"
+        ]
+      },
+      "summary_id": 3,
+      "question_id": 4
+    },
+    {
+      "questions": [
+        {
+          "question_id": 1,
+          "question_text": "Which chart makes it easier to spot players with unusually long or short reigns at the top, considering their age when they reached those achievements?"
+        },
+        {
+          "question_id": 2,
+          "question_text": "Which chart allows you to quickly identify and compare the time spans different players spent at the top without excessive scanning or searching for information?"
+        },
+        {
+          "question_id": 3,
+          "question_text": "Which chart presents the relationship between a player's age and their achievement duration in a way that is unambiguous and free of possible misinterpretation?"
+        },
+        {
+          "question_id": 4,
+          "question_text": "Which chart has labels, legends, and explanatory elements that are more clearly presented, making it easier to decode what each part represents in relation to the master question?"
+        },
+        {
+          "question_id": 5,
+          "question_text": "Which chart minimizes unnecessary visual clutter, helping you focus directly on the relevant timelines and ages needed to answer the master question?"
+        },
+        {
+          "question_id": 6,
+          "question_text": "Considering overall design professionalism and visual balance, which chart would you prefer to include in a report or presentation for analysts and historians interested in athlete achievement timelines?"
+        },
+        {
+          "question_id": 7,
+          "question_text": "Which chart uses color, size, or other visual encodings in a way that makes player comparisons clearer and does not cause confusion about who achieved what at what age?"
+        },
+        {
+          "question_id": 8,
+          "question_text": "Which chart avoids misleading scale choices or axis labeling errors that could make it difficult or ambiguous to determine the significance of a player's time at the top relative to their age?"
+        }
+      ],
+      "metadata": {
+        "dataset": "ATP Number 1 Rankings",
+        "summary_id": 3,
+        "question_id": 5,
+        "master_question": "Does any player demonstrate significantly longer or shorter periods at the top relative to their age at the time of achievement?",
+        "target_audience": "Data analysts and sports historians",
+        "curator_intention": "Encourage scrutiny and accurate timeline reconstruction of athlete achievement history",
+        "num_questions_requested": 8,
+        "num_questions_generated": 8,
+        "evaluation_constructs": [
+          "cognitive_load",
+          "interpretability",
+          "style"
+        ]
+      },
+      "summary_id": 3,
+      "question_id": 5
+    },
+    {
+      "questions": [
+        {
+          "question_id": 1,
+          "question_text": "Which chart makes it easier to visually trace changes in achievement dates and durations over time, helping you spot potential shifts from tournament structure or ranking criteria?"
+        },
+        {
+          "question_id": 2,
+          "question_text": "Which chart displays labels, legends, and annotations in a way that minimizes confusion or ambiguity when identifying key periods or events relating to athlete achievements?"
+        },
+        {
+          "question_id": 3,
+          "question_text": "Considering the overall layout and spacing, which chart avoids visual clutter and enables you to focus on the main timeline patterns most relevant to the master question?"
+        },
+        {
+          "question_id": 4,
+          "question_text": "When comparing the two charts, which one requires less mental effort to locate relevant timeline segments, interpret encodings, and understand how achievement durations relate to possible changes in tournament or ranking criteria?"
+        },
+        {
+          "question_id": 5,
+          "question_text": "Which chart uses color, font, and graphical style in a way that delivers a more professional, visually harmonious presentation while still supporting the scrutiny of changes over time?"
+        },
+        {
+          "question_id": 6,
+          "question_text": "Which chart presents information with clear axis labels, units, and scales that help you reliably discern when and how patterns in athlete achievements may reflect historical changes?"
+        },
+        {
+          "question_id": 7,
+          "question_text": "Between the two charts, which one offers a clearer distinction between different periods or tournament structures, reducing potential misinterpretation about what each segment or marker represents?"
+        },
+        {
+          "question_id": 8,
+          "question_text": "Which chart strikes the best balance between presenting comprehensive information and remaining visually organized, helping data analysts or sports historians accurately reconstruct achievement timelines?"
+        }
+      ],
+      "metadata": {
+        "dataset": "ATP Number 1 Rankings",
+        "summary_id": 3,
+        "question_id": 6,
+        "master_question": "How might changes in tournament structure or ranking criteria over time be reflected in the patterns of achievement dates and durations?",
+        "target_audience": "Data analysts and sports historians",
+        "curator_intention": "Encourage scrutiny and accurate timeline reconstruction of athlete achievement history",
+        "num_questions_requested": 8,
+        "num_questions_generated": 8,
+        "evaluation_constructs": [
+          "cognitive_load",
+          "interpretability",
+          "style"
+        ]
+      },
+      "summary_id": 3,
+      "question_id": 6
+    }
+  ],
+  "summary": {
+    "total_processed": 18,
+    "successful": 18,
+    "failed": 0
+  }
+}

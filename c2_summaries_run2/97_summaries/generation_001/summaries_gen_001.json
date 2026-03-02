@@ -1,0 +1,74 @@
+{
+  "generation_number": 1,
+  "table_name": "Supply Chain Analysis",
+  "total_rows": 100,
+  "total_columns": 24,
+  "column_names": [
+    "Product type",
+    "SKU",
+    "Price",
+    "Availability",
+    "Number of products sold",
+    "Revenue generated",
+    "Customer demographics",
+    "Stock levels",
+    "Lead times",
+    "Order quantities",
+    "Shipping times",
+    "Shipping carriers",
+    "Shipping costs",
+    "Supplier name",
+    "Location",
+    "Lead time",
+    "Production volumes",
+    "Manufacturing lead time",
+    "Manufacturing costs",
+    "Inspection results",
+    "Defect rates",
+    "Transportation modes",
+    "Routes",
+    "Costs"
+  ],
+  "summaries_per_generation": 4,
+  "schema_context": "## Table 1: Supply_Chain_Analysis (100 rows × 24 columns)\n\n### Description\nData loaded from CSV file: 97.csv (Dataset: Supply Chain Analysis)\n\n### Schema (24 fields)\n  - Product type -- type: object, values: cosmetics, haircare, skincare\n  - SKU -- type: object, values: SKU0, SKU1, SKU10, SKU11, SKU12, ..., SKU95, SKU96, SKU97, SKU98, SKU99\n  - Price -- type: float64, values: 1.6999760138659377, 2.397274705597141, 3.037688724631414, 3.170011413566155, 3.526111259143416, ..., 97.44694661789282, 97.76008558193868, 98.03182965646508, 99.11329161531717, 99.1713286386242\n  - Availability -- type: int64, values: 1, 3, 5, 6, 9, ..., 96, 97, 98, 99, 100\n  - Number of products sold -- type: int64, values: 8, 24, 25, 29, 32, ..., 960, 963, 980, 987, 996\n  - Revenue generated -- type: float64, values: 1061.618523013288, 1229.5910285649834, 1292.4584179377562, 1605.8669003924058, 1752.3810874841247, ..., 9577.74962586873, 9592.633570280312, 9655.135102719398, 9692.318040218432, 9866.465457979695\n  - Customer demographics -- type: object, values: Female, Male, Non-binary, Unknown\n  - Stock levels -- type: int64, values: 0, 1, 2, 4, 5, ..., 95, 96, 97, 98, 100\n  - Lead times -- type: int64, values: 1, 2, 3, 4, 5, ..., 26, 27, 28, 29, 30\n  - Order quantities -- type: int64, values: 1, 2, 4, 6, 7, ..., 85, 88, 94, 95, 96\n  - Shipping times -- type: int64, values: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10\n  - Shipping carriers -- type: object, values: Carrier A, Carrier B, Carrier C\n  - Shipping costs -- type: float64, values: 1.0134865660958965, 1.019487570822119, 1.1942518648849991, 1.3110237561206226, 1.325274010184522, ..., 9.705286790120349, 9.71657477143131, 9.741291689284369, 9.898140508069222, 9.92981624527726\n  - Supplier name -- type: object, values: Supplier 1, Supplier 2, Supplier 3, Supplier 4, Supplier 5\n  - Location -- type: object, values: Bangalore, Chennai, Delhi, Kolkata, Mumbai\n  - Lead time -- type: int64, values: 1, 2, 3, 4, 5, ..., 26, 27, 28, 29, 30\n  - Production volumes -- type: int64, values: 104, 109, 152, 171, 173, ..., 955, 963, 964, 971, 985\n  - Manufacturing lead time -- type: int64, values: 1, 2, 3, 4, 5, ..., 26, 27, 28, 29, 30\n  - Manufacturing costs -- type: float64, values: 1.0850685695870688, 1.5972227430506774, 1.900762243519458, 4.46527843494324, 5.604690864371781, ..., 97.12128175147431, 97.73059380053304, 97.82905011017328, 98.60995724270389, 99.46610860359912\n  - Inspection results -- type: object, values: Fail, Pass, Pending\n  - Defect rates -- type: float64, values: 0.0186075676310149, 0.0211698213729943, 0.0453022623982596, 0.1006828515650937, 0.1020207549181761, ..., 4.754800804671185, 4.843456577118041, 4.854068026388706, 4.911095954842331, 4.939255288620948\n  - Transportation modes -- type: object, values: Air, Rail, Road, Sea\n  - Routes -- type: object, values: Route A, Route B, Route C\n  - Costs -- type: float64, values: 103.91624796070496, 110.36433523136472, 123.43702751182708, 126.72303340940724, 127.8618000016254, ..., 929.2352899608896, 990.0784725058112, 995.9294614986416, 996.7783149506238, 997.4134501331946\n\n### Sample Data (first 5 rows)\n```\n  Product type   SKU      Price  Availability  Number of products sold  Revenue generated Customer demographics  Stock levels  Lead times  Order quantities  Shipping times Shipping carriers  Shipping costs Supplier name Location  Lead time  Production volumes  Manufacturing lead time  Manufacturing costs Inspection results  Defect rates Transportation modes   Routes       Costs\n0     haircare  SKU0  69.808006            55                      802        8661.996792            Non-binary            58           7                96               4         Carrier B        2.956572    Supplier 3   Mumbai         29                 215                       29            46.279879            Pending      0.226410                 Road  Route B  187.752075\n1     skincare  SKU1  14.843523            95                      736        7460.900065                Female            53          30                37               2         Carrier A        9.716575    Supplier 3   Mumbai         23                 517                       30            33.616769            Pending      4.854068                 Road  Route B  503.065579\n2     haircare  SKU2  11.319683            34                        8        9577.749626               Unknown             1          10                88               2         Carrier B        8.054479    Supplier 1   Mumbai         12                 971                       27            30.688019            Pending      4.580593                  Air  Route C  141.920282\n3     skincare  SKU3  61.163343            68                       83        7766.836426            Non-binary            23          13                59               6         Carrier C        1.729569    Supplier 5  Kolkata         24                 937                       18            35.624741               Fail      4.746649                 Rail  Route A  254.776159\n4     skincare  SKU4   4.805496            26                      871        2686.505152            Non-binary             5           3                56               8         Carrier A        3.890548    Supplier 1    Delhi          5                 414                        3            92.065161               Fail      3.145580                  Air  Route A  923.440632\n```\n",
+  "source_file": "csv_c_squared\\97.csv",
+  "sheet_name": "",
+  "summaries": [
+    {
+      "idx": 1,
+      "chain_of_thought": {
+        "target_audience": "Business executives seeking to optimize product profitability and supply chain efficiency",
+        "curator_intention": "Highlight disparities in revenue, costs, and product performance across categories and markets. Encourage strategic assessment of profitability drivers and inefficiencies within product types and locations.",
+        "common_ground": "Both curator and business executives aim to leverage quantitative insights from fields such as Product type, Price, Number of products sold, Revenue generated, Costs, and Location to make high-level decisions about resource allocation, pricing strategies, and market prioritization."
+      },
+      "narrative_summary": "This data schema enables executives to visually explore which product categories yield the greatest revenue relative to their underlying costs across distinct geographic markets. By examining relationships between Product type, Price, Number of products sold, Revenue generated, Costs, and Location, stakeholders can identify profitable segments, detect inefficiencies or cost overruns, and prioritize high-performing SKUs in optimal regions. Visualizations can support actionable insights into trends, outliers, and uneven performance, guiding data-driven decisions for production scaling, pricing adjustments, and supply chain investments."
+    },
+    {
+      "idx": 2,
+      "chain_of_thought": {
+        "target_audience": "Supply chain operations managers focused on logistics optimization and risk mitigation",
+        "curator_intention": "Facilitate comparative analysis of lead times, shipping carriers, transportation modes, and cost structures. Prompt exploration of operational bottlenecks and logistics performance variations for targeted improvements.",
+        "common_ground": "Curator and supply chain managers share interest in dissecting factors such as Lead times, Shipping carriers, Shipping times, Transportation modes, Routes, Shipping costs, and Supplier name, enabling multi-stage process diagnostics and enhancement."
+      },
+      "narrative_summary": "Through a detailed schema capturing every logistics stage, managers can visualize performance and risks across suppliers, carriers, and transport modes. Charts that juxtapose Lead times, Shipping carriers, Shipping times, Transportation modes, and Shipping costs empower stakeholders to pinpoint areas of delay, cost escalation, or route inefficiency. Comparative field combinations make it possible to identify operational patterns, optimize carrier selection and transport modes, and minimize supply chain disruptions, fostering more resilient and streamlined logistics processes."
+    },
+    {
+      "idx": 3,
+      "chain_of_thought": {
+        "target_audience": "Quality assurance specialists and manufacturing process analysts",
+        "curator_intention": "Draw attention to defect rates, inspection outcomes, and their correlation with manufacturing conditions and supplier choices. Reinforce the exploration of production quality trends and anomaly detection.",
+        "common_ground": "Both curator and QA specialists prioritize Performance fields like Defect rates, Inspection results, Manufacturing costs, Manufacturing lead time, Supplier name, and Production volumes for continuous improvement and risk mitigation strategies."
+      },
+      "narrative_summary": "The schema offers rich opportunities to visualize and analyze how manufacturing lead times, costs, and supplier decisions impact production quality. By aligning fields such as Defect rates, Inspection results, Manufacturing costs, Manufacturing lead time, and Supplier name, specialists can uncover trends and patterns that signal quality deviations. This enables timely detection of process weaknesses and identification of suppliers or manufacturing practices associated with higher defect rates, informing corrective actions and reinforcing quality control initiatives across the supply chain."
+    },
+    {
+      "idx": 4,
+      "chain_of_thought": {
+        "target_audience": "Market researchers investigating consumer behavior, product availability, and inventory dynamics",
+        "curator_intention": "Encourage discovery of relationships between availability, customer demographics, stock levels, and sales performance. Foster understanding of market demand, segmentation, and inventory management efficiency.",
+        "common_ground": "Curator and researchers both aim to leverage insights from Customer demographics, Product type, Availability, Stock levels, and Number of products sold to identify demand patterns, consumer segment opportunities, and supply constraints."
+      },
+      "narrative_summary": "Leveraging the schema's demographic and inventory fields, researchers can visually investigate how various consumer segments interact with product types, availability, and stock levels. By analyzing Customer demographics, Product type, Availability, Stock levels, and Number of products sold, stakeholders can uncover demand trends, segment behaviors, and potential mismatches between supply and market needs. Such visualization-driven analysis allows for detection of emerging opportunities and inefficiencies in inventory management, supporting strategic market entry, restocking, and targeting of specific demographic groups."
+    }
+  ]
+}

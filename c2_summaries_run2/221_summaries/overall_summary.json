@@ -1,0 +1,37 @@
+{
+  "table_name": "Traveler Trip Dataset ",
+  "file_index": "221",
+  "original_filename": "221.csv",
+  "total_rows": 139,
+  "total_columns": 13,
+  "column_names": [
+    "Trip ID",
+    "Destination",
+    "Start date",
+    "End date",
+    "Duration (days)",
+    "Traveler name",
+    "Traveler age",
+    "Traveler gender",
+    "Traveler nationality",
+    "Accommodation type",
+    "Accommodation cost",
+    "Transportation type",
+    "Transportation cost"
+  ],
+  "summaries_per_generation": 4,
+  "num_generations": 1,
+  "successful_generations": 1,
+  "failed_generations": 0,
+  "output_directory": "c2_summaries_run2\\221_summaries",
+  "source_file": "csv_c_squared\\221.csv",
+  "sheet_name": "",
+  "generations": {
+    "generation_001": {
+      "status": "success",
+      "output_file": "c2_summaries_run2\\221_summaries\\generation_001\\summaries_gen_001.json",
+      "summaries_count": 4,
+      "generation_number": 1
+    }
+  }
+}

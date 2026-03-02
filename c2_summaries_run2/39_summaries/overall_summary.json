@@ -1,0 +1,34 @@
+{
+  "table_name": "Glass Classification",
+  "file_index": "39",
+  "original_filename": "39.csv",
+  "total_rows": 214,
+  "total_columns": 10,
+  "column_names": [
+    "RI",
+    "Na",
+    "Mg",
+    "Al",
+    "Si",
+    "K",
+    "Ca",
+    "Ba",
+    "Fe",
+    "Type"
+  ],
+  "summaries_per_generation": 4,
+  "num_generations": 1,
+  "successful_generations": 1,
+  "failed_generations": 0,
+  "output_directory": "c2_summaries_run2\\39_summaries",
+  "source_file": "csv_c_squared\\39.csv",
+  "sheet_name": "",
+  "generations": {
+    "generation_001": {
+      "status": "success",
+      "output_file": "c2_summaries_run2\\39_summaries\\generation_001\\summaries_gen_001.json",
+      "summaries_count": 4,
+      "generation_number": 1
+    }
+  }
+}

@@ -1,0 +1,76 @@
+{
+  "generation_number": 1,
+  "table_name": "Car Price Prediction Multiple Linear Regression",
+  "total_rows": 205,
+  "total_columns": 26,
+  "column_names": [
+    "car_ID",
+    "symboling",
+    "CarName",
+    "fueltype",
+    "aspiration",
+    "doornumber",
+    "carbody",
+    "drivewheel",
+    "enginelocation",
+    "wheelbase",
+    "carlength",
+    "carwidth",
+    "carheight",
+    "curbweight",
+    "enginetype",
+    "cylindernumber",
+    "enginesize",
+    "fuelsystem",
+    "boreratio",
+    "stroke",
+    "compressionratio",
+    "horsepower",
+    "peakrpm",
+    "citympg",
+    "highwaympg",
+    "price"
+  ],
+  "summaries_per_generation": 4,
+  "schema_context": "## Table 1: Car_Price_Prediction_Multiple_Linear_Regression (205 rows × 26 columns)\n\n### Description\nData loaded from CSV file: 22.csv (Dataset: Car Price Prediction Multiple Linear Regression)\n\n### Schema (26 fields)\n  - car_ID -- type: int64, values: 1, 2, 3, 4, 5, ..., 201, 202, 203, 204, 205\n  - symboling -- type: int64, values: -2, -1, 0, 1, 2, 3\n  - CarName -- type: object, values: Nissan versa, alfa-romero Quadrifoglio, alfa-romero giulia, alfa-romero stelvio, audi 100 ls, ..., volvo 246, volvo 264gl, volvo diesel, vw dasher, vw rabbit\n  - fueltype -- type: object, values: diesel, gas\n  - aspiration -- type: object, values: std, turbo\n  - doornumber -- type: object, values: four, two\n  - carbody -- type: object, values: convertible, hardtop, hatchback, sedan, wagon\n  - drivewheel -- type: object, values: 4wd, fwd, rwd\n  - enginelocation -- type: object, values: front, rear\n  - wheelbase -- type: float64, values: 86.6, 88.4, 88.6, 89.5, 91.3, ..., 112.0, 113.0, 114.2, 115.6, 120.9\n  - carlength -- type: float64, values: 141.1, 144.6, 150.0, 155.9, 156.9, ..., 198.9, 199.2, 199.6, 202.6, 208.1\n  - carwidth -- type: float64, values: 60.3, 61.8, 62.5, 63.4, 63.6, ..., 70.9, 71.4, 71.7, 72.0, 72.3\n  - carheight -- type: float64, values: 47.8, 48.8, 49.4, 49.6, 49.7, ..., 57.5, 58.3, 58.7, 59.1, 59.8\n  - curbweight -- type: int64, values: 1488, 1713, 1819, 1837, 1874, ..., 3750, 3770, 3900, 3950, 4066\n  - enginetype -- type: object, values: dohc, dohcv, l, ohc, ohcf, ohcv, rotor\n  - cylindernumber -- type: object, values: eight, five, four, six, three, twelve, two\n  - enginesize -- type: int64, values: 61, 70, 79, 80, 90, ..., 234, 258, 304, 308, 326\n  - fuelsystem -- type: object, values: 1bbl, 2bbl, 4bbl, idi, mfi, mpfi, spdi, spfi\n  - boreratio -- type: float64, values: 2.54, 2.68, 2.91, 2.92, 2.97, ..., 3.74, 3.76, 3.78, 3.8, 3.94\n  - stroke -- type: float64, values: 2.07, 2.19, 2.36, 2.64, 2.68, ..., 3.58, 3.64, 3.86, 3.9, 4.17\n  - compressionratio -- type: float64, values: 7.0, 7.5, 7.6, 7.7, 7.8, ..., 21.9, 22.0, 22.5, 22.7, 23.0\n  - horsepower -- type: int64, values: 48, 52, 55, 56, 58, ..., 184, 200, 207, 262, 288\n  - peakrpm -- type: int64, values: 4150, 4200, 4250, 4350, 4400, ..., 5750, 5800, 5900, 6000, 6600\n  - citympg -- type: int64, values: 13, 14, 15, 16, 17, ..., 37, 38, 45, 47, 49\n  - highwaympg -- type: int64, values: 16, 17, 18, 19, 20, ..., 46, 47, 50, 53, 54\n  - price -- type: float64, values: 5118.0, 5151.0, 5195.0, 5348.0, 5389.0, ..., 36880.0, 37028.0, 40960.0, 41315.0, 45400.0\n\n### Sample Data (first 5 rows)\n```\n   car_ID  symboling                   CarName fueltype aspiration doornumber      carbody drivewheel enginelocation  wheelbase  carlength  carwidth  carheight  curbweight enginetype cylindernumber  enginesize fuelsystem  boreratio  stroke  compressionratio  horsepower  peakrpm  citympg  highwaympg    price\n0       1          3        alfa-romero giulia      gas        std        two  convertible        rwd          front       88.6      168.8      64.1       48.8        2548       dohc           four         130       mpfi       3.47    2.68               9.0         111     5000       21          27  13495.0\n1       2          3       alfa-romero stelvio      gas        std        two  convertible        rwd          front       88.6      168.8      64.1       48.8        2548       dohc           four         130       mpfi       3.47    2.68               9.0         111     5000       21          27  16500.0\n2       3          1  alfa-romero Quadrifoglio      gas        std        two    hatchback        rwd          front       94.5      171.2      65.5       52.4        2823       ohcv            six         152       mpfi       2.68    3.47               9.0         154     5000       19          26  16500.0\n3       4          2               audi 100 ls      gas        std       four        sedan        fwd          front       99.8      176.6      66.2       54.3        2337        ohc           four         109       mpfi       3.19    3.40              10.0         102     5500       24          30  13950.0\n4       5          2                audi 100ls      gas        std       four        sedan        4wd          front       99.4      176.6      66.4       54.3        2824        ohc           five         136       mpfi       3.19    3.40               8.0         115     5500       18          22  17450.0\n```\n",
+  "source_file": "csv_c_squared\\22.csv",
+  "sheet_name": "",
+  "summaries": [
+    {
+      "idx": 1,
+      "chain_of_thought": {
+        "target_audience": "Automotive industry pricing strategists and product managers",
+        "curator_intention": "Guide the audience to accept and explore correlations between car features and sale price, enabling more informed pricing decisions and feature prioritization.",
+        "common_ground": "Both curator and audience are interested in quantifying how car attributes such as body type, engine specifications, and brand influence market price, facilitating actionable strategies for competitive positioning."
+      },
+      "narrative_summary": "The schema provides a rich foundation for pricing strategists to identify which vehicle features most strongly impact car prices. Through visualization of carbody, enginetype, and enginesize against price, viewers can detect patterns and understand which combinations create higher perceived value. This supports segment-level trend identification and strategic adjustments in offering or marketing, empowering business actions aligned with data-backed feature-to-value relationships."
+    },
+    {
+      "idx": 2,
+      "chain_of_thought": {
+        "target_audience": "Environmental policymakers and sustainability analysts",
+        "curator_intention": "Encourage evaluation of fueltype, citympg, and highwaympg alongside price to draw insights on eco-performance relative to cost, fostering data-driven decisions in green automotive regulation.",
+        "common_ground": "Curator and audience share the goal of understanding the environmental and economic balance, uncovering how vehicle fuel efficiency varies across types and price points to inform responsible recommendations and incentives."
+      },
+      "narrative_summary": "By linking fueltype, citympg, highwaympg, and price, the schema invites sustainability analysts to explore fuel efficiency distributions within price categories. Visualizations can reveal which segments offer high savings or ecological benefits, providing vital evidence for incentives or regulation. This supports actionable policy recommendations and market guidance that balance environmental goals and consumer costs."
+    },
+    {
+      "idx": 3,
+      "chain_of_thought": {
+        "target_audience": "Mechanical engineering researchers and automotive design teams",
+        "curator_intention": "Promote a deeper understanding of interrelationships between technical characteristics, such as enginesize, boreratio, stroke, and horsepower, highlighting design patterns that affect vehicle performance.",
+        "common_ground": "Both curator and audience wish to establish a comprehensive knowledge base around engine configuration impacts and how they translate to real-world output, facilitating innovation and engineering refinement."
+      },
+      "narrative_summary": "The table schema offers technical field combinations that let engineering teams investigate how diverse engine setup parameters drive performance outcomes. By plotting enginesize, boreratio, stroke, and horsepower, viewers gain insight into optimal configurations and potential trade-offs, supporting evidence-based engineering decisions and design improvements. This empowers innovation by clarifying configuration-performance relationships."
+    },
+    {
+      "idx": 4,
+      "chain_of_thought": {
+        "target_audience": "Market researchers and car brand analysts",
+        "curator_intention": "Encourage analysis of brand variations and market segmentation via CarName, symboling, and price fields, fostering brand positioning and competitive benchmarking.",
+        "common_ground": "Curator and audience are aligned in seeking patterns of brand-level differentiation and risk assessment, using schema structure for brand impact evaluation and strategic market insights."
+      },
+      "narrative_summary": "Combining CarName, symboling, and price sets the stage for market researchers to uncover the landscape of brand offerings, observe perceived risk or value, and benchmark against competitors. Through segmentation and trend visualizations, the audience identifies how brands align with different price ranges or symboling scores, guiding strategic positioning and differentiation opportunities in the automotive marketplace."
+    }
+  ]
+}

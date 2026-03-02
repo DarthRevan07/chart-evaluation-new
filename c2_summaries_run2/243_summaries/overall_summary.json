@@ -1,0 +1,35 @@
+{
+  "table_name": "Global Metropolis Weather Dataset",
+  "file_index": "243",
+  "original_filename": "243.csv",
+  "total_rows": 800,
+  "total_columns": 11,
+  "column_names": [
+    "Location",
+    "Observation Time",
+    "Temperature (°C)",
+    "Feels Like (°C)",
+    "Humidity (%)",
+    "Wind Speed (kph)",
+    "Weather Condition",
+    "Cloud Cover (%)",
+    "Pressure (mb)",
+    "UV Index",
+    "Visibility (km)"
+  ],
+  "summaries_per_generation": 4,
+  "num_generations": 1,
+  "successful_generations": 1,
+  "failed_generations": 0,
+  "output_directory": "c2_summaries_run2\\243_summaries",
+  "source_file": "csv_c_squared\\243.csv",
+  "sheet_name": "",
+  "generations": {
+    "generation_001": {
+      "status": "success",
+      "output_file": "c2_summaries_run2\\243_summaries\\generation_001\\summaries_gen_001.json",
+      "summaries_count": 4,
+      "generation_number": 1
+    }
+  }
+}

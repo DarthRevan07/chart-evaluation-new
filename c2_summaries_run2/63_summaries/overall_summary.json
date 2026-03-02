@@ -1,0 +1,33 @@
+{
+  "table_name": "🛍️ Predict Customer Purchase Behavior Dataset",
+  "file_index": "63",
+  "original_filename": "63.csv",
+  "total_rows": 1500,
+  "total_columns": 9,
+  "column_names": [
+    "Age",
+    "Gender",
+    "AnnualIncome",
+    "NumberOfPurchases",
+    "ProductCategory",
+    "TimeSpentOnWebsite",
+    "LoyaltyProgram",
+    "DiscountsAvailed",
+    "PurchaseStatus"
+  ],
+  "summaries_per_generation": 4,
+  "num_generations": 1,
+  "successful_generations": 1,
+  "failed_generations": 0,
+  "output_directory": "c2_summaries_run2\\63_summaries",
+  "source_file": "csv_c_squared\\63.csv",
+  "sheet_name": "",
+  "generations": {
+    "generation_001": {
+      "status": "success",
+      "output_file": "c2_summaries_run2\\63_summaries\\generation_001\\summaries_gen_001.json",
+      "summaries_count": 4,
+      "generation_number": 1
+    }
+  }
+}

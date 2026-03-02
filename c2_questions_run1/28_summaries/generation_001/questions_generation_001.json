@@ -1,0 +1,97 @@
+{
+  "table_name": "Car Price Prediction Challenge",
+  "generation_dir": "c2_summaries\\Car_Price_Prediction_Challenge_summaries\\generation_001",
+  "total_summaries_processed": 2,
+  "questions_per_summary": 4,
+  "schema_context": "## Table 1: Car_Price_Prediction_Challenge (19,237 rows × 18 columns)\n\n### Description\nData loaded from CSV file: 28.csv (Dataset: Car Price Prediction Challenge)\n\n### Schema (18 fields)\n  - ID -- type: int64, values: 20746880, 23242980, 24367759, 24701923, 24940334, ..., 45816647, 45816648, 45816650, 45816651, 45816654\n  - Price -- type: int64, values: 1, 3, 6, 9, 19, ..., 297930, 308906, 627220, 872946, 26307500\n  - Levy -- type: object, values: -, 1011, 1016, 1017, 1018, ..., 986, 988, 993, 994, 997\n  - Manufacturer -- type: object, values: ACURA, ALFA ROMEO, ASTON MARTIN, AUDI, BENTLEY, ..., VAZ, VOLKSWAGEN, VOLVO, ZAZ, სხვა\n  - Model -- type: object, values: 09-Mar, 100, 100 NX, 1000, 1111, ..., kona, macan, macan S, tC, xD\n  - Prod. year -- type: int64, values: 1939, 1943, 1947, 1953, 1957, ..., 2016, 2017, 2018, 2019, 2020\n  - Category -- type: object, values: Cabriolet, Coupe, Goods wagon, Hatchback, Jeep, ..., Microbus, Minivan, Pickup, Sedan, Universal\n  - Leather interior -- type: object, values: No, Yes\n  - Fuel type -- type: object, values: CNG, Diesel, Hybrid, Hydrogen, LPG, Petrol, Plug-in Hybrid\n  - Engine volume -- type: object, values: 0, 0.1, 0.2, 0.2 Turbo, 0.3, ..., 6.3 Turbo, 6.4, 6.7, 6.8, 7.3\n  - Mileage -- type: object, values: 0 km, 1000 km, 10000 km, 100000 km, 1000000 km, ..., 99949 km, 99971 km, 99999 km, 999999 km, 999999999 km\n  - Cylinders -- type: float64, values: 1.0, 2.0, 3.0, 4.0, 5.0, ..., 9.0, 10.0, 12.0, 14.0, 16.0\n  - Gear box type -- type: object, values: Automatic, Manual, Tiptronic, Variator\n  - Drive wheels -- type: object, values: 4x4, Front, Rear\n  - Doors -- type: object, values: 02-Mar, 04-May, >5\n  - Wheel -- type: object, values: Left wheel, Right-hand drive\n  - Color -- type: object, values: Beige, Black, Blue, Brown, Carnelian red, ..., Red, Silver, Sky blue, White, Yellow\n  - Airbags -- type: int64, values: 0, 1, 2, 3, 4, ..., 12, 13, 14, 15, 16\n\n### Sample Data (first 5 rows)\n```\n         ID  Price  Levy Manufacturer    Model  Prod. year   Category Leather interior Fuel type Engine volume    Mileage  Cylinders Gear box type Drive wheels   Doors             Wheel   Color  Airbags\n0  45654403  13328  1399        LEXUS   RX 450        2010       Jeep              Yes    Hybrid           3.5  186005 km        6.0     Automatic          4x4  04-May        Left wheel  Silver       12\n1  44731507  16621  1018    CHEVROLET  Equinox        2011       Jeep               No    Petrol             3  192000 km        6.0     Tiptronic          4x4  04-May        Left wheel   Black        8\n2  45774419   8467     -        HONDA      FIT        2006  Hatchback               No    Petrol           1.3  200000 km        4.0      Variator        Front  04-May  Right-hand drive   Black        2\n3  45769185   3607   862         FORD   Escape        2011       Jeep              Yes    Hybrid           2.5  168966 km        4.0     Automatic          4x4  04-May        Left wheel   White        0\n4  45809263  11726   446        HONDA      FIT        2014  Hatchback              Yes    Petrol           1.3   91901 km        4.0     Automatic        Front  04-May        Left wheel  Silver        4\n```\n",
+  "table_metadata": {
+    "total_rows": 19237,
+    "total_columns": 18,
+    "source_file": "csv_c_squared\\28.csv",
+    "sheet_name": ""
+  },
+  "questions": [
+    {
+      "table_name": "Car_Price_Prediction_Challenge",
+      "summary_idx": 1,
+      "column_combination": [
+        "ID",
+        "Price",
+        "Levy",
+        "Manufacturer",
+        "Model",
+        "Prod. year",
+        "Category",
+        "Leather interior",
+        "Fuel type",
+        "Engine volume",
+        "Mileage",
+        "Cylinders",
+        "Gear box type",
+        "Drive wheels",
+        "Doors",
+        "Wheel",
+        "Color",
+        "Airbags"
+      ],
+      "questions": [
+        "How does car price vary by manufacturer, and which brands show the highest or lowest average prices?",
+        "What is the relationship between production year and car price, and do newer vehicles always command higher prices?",
+        "How does mileage impact car price, and does this effect differ across different vehicle categories?",
+        "Which types of fuel are associated with higher or lower prices, and do these patterns change across engine volumes?"
+      ],
+      "metadata": {
+        "schema_based": true,
+        "table_metadata": {
+          "total_rows": 19237,
+          "total_columns": 18,
+          "source_file": "csv_c_squared\\28.csv",
+          "sheet_name": ""
+        },
+        "num_questions_requested": 4,
+        "num_questions_generated": 4
+      }
+    },
+    {
+      "table_name": "Car_Price_Prediction_Challenge",
+      "summary_idx": 2,
+      "column_combination": [
+        "ID",
+        "Price",
+        "Levy",
+        "Manufacturer",
+        "Model",
+        "Prod. year",
+        "Category",
+        "Leather interior",
+        "Fuel type",
+        "Engine volume",
+        "Mileage",
+        "Cylinders",
+        "Gear box type",
+        "Drive wheels",
+        "Doors",
+        "Wheel",
+        "Color",
+        "Airbags"
+      ],
+      "questions": [
+        "How does the average price of cars vary based on the number of airbags present?",
+        "What is the relationship between engine volume and insurance levy across different manufacturers?",
+        "Do cars with leather interiors tend to have higher prices compared to those without, across various categories?",
+        "Are there any noticeable trends in the prevalence of automatic versus manual gear box types by production year?"
+      ],
+      "metadata": {
+        "schema_based": true,
+        "table_metadata": {
+          "total_rows": 19237,
+          "total_columns": 18,
+          "source_file": "csv_c_squared\\28.csv",
+          "sheet_name": ""
+        },
+        "num_questions_requested": 4,
+        "num_questions_generated": 4
+      }
+    }
+  ]
+}

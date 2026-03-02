@@ -1,0 +1,109 @@
+{
+  "table_name": "Supply Chain Analysis",
+  "generation_dir": "c2_summaries\\Supply_Chain_Analysis_summaries\\generation_001",
+  "total_summaries_processed": 2,
+  "questions_per_summary": 4,
+  "schema_context": "## Table 1: Supply_Chain_Analysis (100 rows × 24 columns)\n\n### Description\nData loaded from CSV file: 97.csv (Dataset: Supply Chain Analysis)\n\n### Schema (24 fields)\n  - Product type -- type: object, values: cosmetics, haircare, skincare\n  - SKU -- type: object, values: SKU0, SKU1, SKU10, SKU11, SKU12, ..., SKU95, SKU96, SKU97, SKU98, SKU99\n  - Price -- type: float64, values: 1.6999760138659377, 2.397274705597141, 3.037688724631414, 3.170011413566155, 3.526111259143416, ..., 97.44694661789282, 97.76008558193868, 98.03182965646508, 99.11329161531717, 99.1713286386242\n  - Availability -- type: int64, values: 1, 3, 5, 6, 9, ..., 96, 97, 98, 99, 100\n  - Number of products sold -- type: int64, values: 8, 24, 25, 29, 32, ..., 960, 963, 980, 987, 996\n  - Revenue generated -- type: float64, values: 1061.618523013288, 1229.5910285649834, 1292.4584179377562, 1605.8669003924058, 1752.3810874841247, ..., 9577.74962586873, 9592.633570280312, 9655.135102719398, 9692.318040218432, 9866.465457979695\n  - Customer demographics -- type: object, values: Female, Male, Non-binary, Unknown\n  - Stock levels -- type: int64, values: 0, 1, 2, 4, 5, ..., 95, 96, 97, 98, 100\n  - Lead times -- type: int64, values: 1, 2, 3, 4, 5, ..., 26, 27, 28, 29, 30\n  - Order quantities -- type: int64, values: 1, 2, 4, 6, 7, ..., 85, 88, 94, 95, 96\n  - Shipping times -- type: int64, values: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10\n  - Shipping carriers -- type: object, values: Carrier A, Carrier B, Carrier C\n  - Shipping costs -- type: float64, values: 1.0134865660958965, 1.019487570822119, 1.1942518648849991, 1.3110237561206226, 1.325274010184522, ..., 9.705286790120349, 9.71657477143131, 9.741291689284369, 9.898140508069222, 9.92981624527726\n  - Supplier name -- type: object, values: Supplier 1, Supplier 2, Supplier 3, Supplier 4, Supplier 5\n  - Location -- type: object, values: Bangalore, Chennai, Delhi, Kolkata, Mumbai\n  - Lead time -- type: int64, values: 1, 2, 3, 4, 5, ..., 26, 27, 28, 29, 30\n  - Production volumes -- type: int64, values: 104, 109, 152, 171, 173, ..., 955, 963, 964, 971, 985\n  - Manufacturing lead time -- type: int64, values: 1, 2, 3, 4, 5, ..., 26, 27, 28, 29, 30\n  - Manufacturing costs -- type: float64, values: 1.0850685695870688, 1.5972227430506774, 1.900762243519458, 4.46527843494324, 5.604690864371781, ..., 97.12128175147431, 97.73059380053304, 97.82905011017328, 98.60995724270389, 99.46610860359912\n  - Inspection results -- type: object, values: Fail, Pass, Pending\n  - Defect rates -- type: float64, values: 0.0186075676310149, 0.0211698213729943, 0.0453022623982596, 0.1006828515650937, 0.1020207549181761, ..., 4.754800804671185, 4.843456577118041, 4.854068026388706, 4.911095954842331, 4.939255288620948\n  - Transportation modes -- type: object, values: Air, Rail, Road, Sea\n  - Routes -- type: object, values: Route A, Route B, Route C\n  - Costs -- type: float64, values: 103.91624796070496, 110.36433523136472, 123.43702751182708, 126.72303340940724, 127.8618000016254, ..., 929.2352899608896, 990.0784725058112, 995.9294614986416, 996.7783149506238, 997.4134501331946\n\n### Sample Data (first 5 rows)\n```\n  Product type   SKU      Price  Availability  Number of products sold  Revenue generated Customer demographics  Stock levels  Lead times  Order quantities  Shipping times Shipping carriers  Shipping costs Supplier name Location  Lead time  Production volumes  Manufacturing lead time  Manufacturing costs Inspection results  Defect rates Transportation modes   Routes       Costs\n0     haircare  SKU0  69.808006            55                      802        8661.996792            Non-binary            58           7                96               4         Carrier B        2.956572    Supplier 3   Mumbai         29                 215                       29            46.279879            Pending      0.226410                 Road  Route B  187.752075\n1     skincare  SKU1  14.843523            95                      736        7460.900065                Female            53          30                37               2         Carrier A        9.716575    Supplier 3   Mumbai         23                 517                       30            33.616769            Pending      4.854068                 Road  Route B  503.065579\n2     haircare  SKU2  11.319683            34                        8        9577.749626               Unknown             1          10                88               2         Carrier B        8.054479    Supplier 1   Mumbai         12                 971                       27            30.688019            Pending      4.580593                  Air  Route C  141.920282\n3     skincare  SKU3  61.163343            68                       83        7766.836426            Non-binary            23          13                59               6         Carrier C        1.729569    Supplier 5  Kolkata         24                 937                       18            35.624741               Fail      4.746649                 Rail  Route A  254.776159\n4     skincare  SKU4   4.805496            26                      871        2686.505152            Non-binary             5           3                56               8         Carrier A        3.890548    Supplier 1    Delhi          5                 414                        3            92.065161               Fail      3.145580                  Air  Route A  923.440632\n```\n",
+  "table_metadata": {
+    "total_rows": 100,
+    "total_columns": 24,
+    "source_file": "csv_c_squared\\97.csv",
+    "sheet_name": ""
+  },
+  "questions": [
+    {
+      "table_name": "Supply_Chain_Analysis",
+      "summary_idx": 1,
+      "column_combination": [
+        "Product type",
+        "SKU",
+        "Price",
+        "Availability",
+        "Number of products sold",
+        "Revenue generated",
+        "Customer demographics",
+        "Stock levels",
+        "Lead times",
+        "Order quantities",
+        "Shipping times",
+        "Shipping carriers",
+        "Shipping costs",
+        "Supplier name",
+        "Location",
+        "Lead time",
+        "Production volumes",
+        "Manufacturing lead time",
+        "Manufacturing costs",
+        "Inspection results",
+        "Defect rates",
+        "Transportation modes",
+        "Routes",
+        "Costs"
+      ],
+      "questions": [
+        "How do shipping costs differ among various shipping carriers, and which carrier tends to incur the highest expenses?",
+        "What relationship can be observed between stock levels and order quantities across different product types?",
+        "Are there any notable trends in manufacturing costs based on lead times?",
+        "How does the number of products sold relate to revenue generated for different SKUs?"
+      ],
+      "metadata": {
+        "schema_based": true,
+        "table_metadata": {
+          "total_rows": 100,
+          "total_columns": 24,
+          "source_file": "csv_c_squared\\97.csv",
+          "sheet_name": ""
+        },
+        "num_questions_requested": 4,
+        "num_questions_generated": 4
+      }
+    },
+    {
+      "table_name": "Supply_Chain_Analysis",
+      "summary_idx": 2,
+      "column_combination": [
+        "Product type",
+        "SKU",
+        "Price",
+        "Availability",
+        "Number of products sold",
+        "Revenue generated",
+        "Customer demographics",
+        "Stock levels",
+        "Lead times",
+        "Order quantities",
+        "Shipping times",
+        "Shipping carriers",
+        "Shipping costs",
+        "Supplier name",
+        "Location",
+        "Lead time",
+        "Production volumes",
+        "Manufacturing lead time",
+        "Manufacturing costs",
+        "Inspection results",
+        "Defect rates",
+        "Transportation modes",
+        "Routes",
+        "Costs"
+      ],
+      "questions": [
+        "How does the number of products sold vary across different customer demographics for each product type?",
+        "Which product types generate the highest revenue, and how is this linked to their average price?",
+        "Is there a noticeable relationship between stock levels and availability for different SKUs?",
+        "Are there any patterns in shipping costs associated with different shipping carriers?"
+      ],
+      "metadata": {
+        "schema_based": true,
+        "table_metadata": {
+          "total_rows": 100,
+          "total_columns": 24,
+          "source_file": "csv_c_squared\\97.csv",
+          "sheet_name": ""
+        },
+        "num_questions_requested": 4,
+        "num_questions_generated": 4
+      }
+    }
+  ]
+}

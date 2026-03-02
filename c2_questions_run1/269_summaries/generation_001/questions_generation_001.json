@@ -1,0 +1,95 @@
+{
+  "table_name": "World data population",
+  "generation_dir": "c2_summaries\\World_data_population_summaries\\generation_001",
+  "total_summaries_processed": 2,
+  "questions_per_summary": 4,
+  "schema_context": "## Table 1: World_data_population (234 rows × 17 columns)\n\n### Description\nData loaded from CSV file: 269.csv (Dataset: World data population)\n\n### Schema (17 fields)\n  - rank -- type: int64, values: 1, 2, 3, 4, 5, ..., 230, 231, 232, 233, 234\n  - cca3 -- type: object, values: ABW, AFG, AGO, AIA, ALB, ..., WSM, YEM, ZAF, ZMB, ZWE\n  - country -- type: object, values: Afghanistan, Albania, Algeria, American Samoa, Andorra, ..., Wallis and Futuna, Western Sahara, Yemen, Zambia, Zimbabwe\n  - continent -- type: object, values: Africa, Asia, Europe, North America, Oceania, South America\n  - 2023 population -- type: int64, values: 518, 1893, 1935, 3791, 4386, ..., 240485658, 277534122, 339996563, 1425671352, 1428627663\n  - 2022 population -- type: int64, values: 510, 1871, 1934, 3780, 4390, ..., 235824862, 275501339, 338289857, 1417173173, 1425887337\n  - 2020 population -- type: int64, values: 520, 1827, 1942, 3747, 4500, ..., 227196741, 271857970, 335942003, 1396387127, 1424929781\n  - 2015 population -- type: int64, values: 564, 1454, 1847, 3408, 5059, ..., 210969298, 259091970, 324607776, 1322866505, 1393715448\n  - 2010 population -- type: int64, values: 596, 1367, 1812, 3187, 4938, ..., 196353492, 244016173, 311182845, 1240613620, 1348191368\n  - 2000 population -- type: int64, values: 651, 1666, 2074, 3080, 5138, ..., 175873720, 214072421, 282398554, 1059633675, 1264099069\n  - 1990 population -- type: int64, values: 700, 1669, 2332, 2533, 5168, ..., 150706446, 182159874, 248083732, 870452165, 1153704252\n  - 1980 population -- type: int64, values: 733, 1647, 2240, 2983, 3637, ..., 138257420, 148177096, 223140018, 696828385, 982372466\n  - 1970 population -- type: int64, values: 752, 1714, 2274, 2417, 5185, ..., 115228394, 130093010, 200328340, 557501301, 822534450\n  - area (km²) -- type: float64, values: 0.44, 2.02, 6.8, 12.0, 21.0, ..., 8515767.0, 9372610.0, 9706961.0, 9984670.0, 17098242.0\n  - density (km²) -- type: int64, values: 0, 2, 3, 4, 5, ..., 4807, 7135, 8377, 18149, 21403\n  - growth rate -- type: object, values: -0.01%, -0.02%, -0.05%, -0.06%, -0.08%, ..., 3.10%, 3.13%, 3.29%, 3.80%, 4.98%\n  - world percentage -- type: object, values: 0.00%, 0.01%, 0.02%, 0.03%, 0.04%, ..., 2.70%, 2.80%, 3.00%, 3.47%, 4.25%\n\n### Sample Data (first 5 rows)\n```\n   rank cca3        country      continent  2023 population  2022 population  2020 population  2015 population  2010 population  2000 population  1990 population  1980 population  1970 population  area (km²)  density (km²) growth rate world percentage\n0     1  IND          India           Asia       1428627663       1417173173       1396387127       1322866505       1240613620       1059633675        870452165        696828385        557501301   3287590.0            481       0.81%           17.85%\n1     2  CHN          China           Asia       1425671352       1425887337       1424929781       1393715448       1348191368       1264099069       1153704252        982372466        822534450   9706961.0            151      -0.02%           17.81%\n2     3  USA  United States  North America        339996563        338289857        335942003        324607776        311182845        282398554        248083732        223140018        200328340   9372610.0             37       0.50%            4.25%\n3     4  IDN      Indonesia           Asia        277534122        275501339        271857970        259091970        244016173        214072421        182159874        148177096        115228394   1904569.0            148       0.74%            3.47%\n4     5  PAK       Pakistan           Asia        240485658        235824862        227196741        210969298        194454498        154369924        115414069         80624057         59290872    881912.0            312       1.98%            3.00%\n```\n",
+  "table_metadata": {
+    "total_rows": 234,
+    "total_columns": 17,
+    "source_file": "csv_c_squared\\269.csv",
+    "sheet_name": ""
+  },
+  "questions": [
+    {
+      "table_name": "World_data_population",
+      "summary_idx": 1,
+      "column_combination": [
+        "rank",
+        "cca3",
+        "country",
+        "continent",
+        "2023 population",
+        "2022 population",
+        "2020 population",
+        "2015 population",
+        "2010 population",
+        "2000 population",
+        "1990 population",
+        "1980 population",
+        "1970 population",
+        "area (km²)",
+        "density (km²)",
+        "growth rate",
+        "world percentage"
+      ],
+      "questions": [
+        "How does population growth rate differ between continents in 2023, and which continent shows the highest rate?",
+        "Which countries have the largest change in population between 2000 and 2023, and how does this relate to their global population share?",
+        "What is the relationship between population density and growth rate across countries, and are there any notable outliers?",
+        "How does world percentage compare among countries with the largest area, and does greater land area correspond to a higher share of the world population?"
+      ],
+      "metadata": {
+        "schema_based": true,
+        "table_metadata": {
+          "total_rows": 234,
+          "total_columns": 17,
+          "source_file": "csv_c_squared\\269.csv",
+          "sheet_name": ""
+        },
+        "num_questions_requested": 4,
+        "num_questions_generated": 4
+      }
+    },
+    {
+      "table_name": "World_data_population",
+      "summary_idx": 2,
+      "column_combination": [
+        "rank",
+        "cca3",
+        "country",
+        "continent",
+        "2023 population",
+        "2022 population",
+        "2020 population",
+        "2015 population",
+        "2010 population",
+        "2000 population",
+        "1990 population",
+        "1980 population",
+        "1970 population",
+        "area (km²)",
+        "density (km²)",
+        "growth rate",
+        "world percentage"
+      ],
+      "questions": [
+        "How does population density vary across different continents, and which continents show the greatest disparity between country densities?",
+        "What relationship can be observed between country area (km²) and population growth rate in 2023?",
+        "Which countries are outliers in terms of having both very high or very low density compared to their actual 2023 population size?",
+        "How has the population of the top-ranked countries evolved from 1970 to 2023, and what trends can be identified in their growth rates over this period?"
+      ],
+      "metadata": {
+        "schema_based": true,
+        "table_metadata": {
+          "total_rows": 234,
+          "total_columns": 17,
+          "source_file": "csv_c_squared\\269.csv",
+          "sheet_name": ""
+        },
+        "num_questions_requested": 4,
+        "num_questions_generated": 4
+      }
+    }
+  ]
+}

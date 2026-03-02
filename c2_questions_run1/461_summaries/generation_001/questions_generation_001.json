@@ -1,0 +1,67 @@
+{
+  "table_name": "Monthly highest temperature in Amherst",
+  "generation_dir": "c2_summaries\\Monthly_highest_temperature_in_Amherst_summaries\\generation_001",
+  "total_summaries_processed": 2,
+  "questions_per_summary": 4,
+  "schema_context": "## Table 1: Monthly_highest_temperature_in_Amherst (140 rows × 3 columns)\n\n### Description\nData loaded from CSV file: 461.csv (Dataset: Monthly highest temperature in Amherst)\n\n### Schema (3 fields)\n  - Year -- type: int64, values: 2004, 2005, 2006, 2007, 2008, ..., 2011, 2012, 2013, 2014, 2015\n  - Date -- type: object, values: 2004/1/1, 2004/10/1, 2004/11/1, 2004/12/1, 2004/2/1, ..., 2015/4/1, 2015/5/1, 2015/6/1, 2015/7/1, 2015/8/1\n  - Temperature -- type: int64, values: 41, 42, 44, 47, 49, ..., 94, 95, 96, 97, 98\n\n### Sample Data (first 5 rows)\n```\n   Year      Date  Temperature\n0  2004  2004/1/1           49\n1  2004  2004/2/1           54\n2  2004  2004/3/1           89\n3  2004  2004/4/1           88\n4  2004  2004/5/1           92\n```\n",
+  "table_metadata": {
+    "total_rows": 140,
+    "total_columns": 3,
+    "source_file": "csv_c_squared\\461.csv",
+    "sheet_name": ""
+  },
+  "questions": [
+    {
+      "table_name": "Monthly_highest_temperature_in_Amherst",
+      "summary_idx": 1,
+      "column_combination": [
+        "Year",
+        "Date",
+        "Temperature"
+      ],
+      "questions": [
+        "What overall trend in highest monthly temperatures can be observed in Amherst from year to year?",
+        "Are there any months where the highest recorded temperature significantly deviates from patterns observed in adjacent months or years?",
+        "How do the highest monthly temperatures vary across different years for the same month?",
+        "Which years experienced the most extreme monthly high temperatures, and during which months did these occur?"
+      ],
+      "metadata": {
+        "schema_based": true,
+        "table_metadata": {
+          "total_rows": 140,
+          "total_columns": 3,
+          "source_file": "csv_c_squared\\461.csv",
+          "sheet_name": ""
+        },
+        "num_questions_requested": 4,
+        "num_questions_generated": 4
+      }
+    },
+    {
+      "table_name": "Monthly_highest_temperature_in_Amherst",
+      "summary_idx": 2,
+      "column_combination": [
+        "Year",
+        "Date",
+        "Temperature"
+      ],
+      "questions": [
+        "How does the highest monthly temperature change across different years?",
+        "Are there any months that consistently show unusually high or low temperatures compared to others?",
+        "What patterns of seasonality can be observed in temperature extremes when comparing the same month across multiple years?",
+        "Can you identify any years or months in which the highest temperature appears to be an outlier relative to other entries?"
+      ],
+      "metadata": {
+        "schema_based": true,
+        "table_metadata": {
+          "total_rows": 140,
+          "total_columns": 3,
+          "source_file": "csv_c_squared\\461.csv",
+          "sheet_name": ""
+        },
+        "num_questions_requested": 4,
+        "num_questions_generated": 4
+      }
+    }
+  ]
+}

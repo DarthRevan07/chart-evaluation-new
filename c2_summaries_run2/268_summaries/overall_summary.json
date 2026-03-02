@@ -1,0 +1,34 @@
+{
+  "table_name": "Bangladesh Districts wise population",
+  "file_index": "268",
+  "original_filename": "268.csv",
+  "total_rows": 64,
+  "total_columns": 10,
+  "column_names": [
+    "Name",
+    "Abbr.",
+    "Division",
+    "Established",
+    "Native",
+    "Area (km2)",
+    "Population_1991",
+    "Population_2001",
+    "Population_2011",
+    "Population_2022"
+  ],
+  "summaries_per_generation": 4,
+  "num_generations": 1,
+  "successful_generations": 1,
+  "failed_generations": 0,
+  "output_directory": "c2_summaries_run2\\268_summaries",
+  "source_file": "csv_c_squared\\268.csv",
+  "sheet_name": "",
+  "generations": {
+    "generation_001": {
+      "status": "success",
+      "output_file": "c2_summaries_run2\\268_summaries\\generation_001\\summaries_gen_001.json",
+      "summaries_count": 4,
+      "generation_number": 1
+    }
+  }
+}

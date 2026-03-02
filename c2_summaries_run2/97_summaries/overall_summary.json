@@ -1,0 +1,48 @@
+{
+  "table_name": "Supply Chain Analysis",
+  "file_index": "97",
+  "original_filename": "97.csv",
+  "total_rows": 100,
+  "total_columns": 24,
+  "column_names": [
+    "Product type",
+    "SKU",
+    "Price",
+    "Availability",
+    "Number of products sold",
+    "Revenue generated",
+    "Customer demographics",
+    "Stock levels",
+    "Lead times",
+    "Order quantities",
+    "Shipping times",
+    "Shipping carriers",
+    "Shipping costs",
+    "Supplier name",
+    "Location",
+    "Lead time",
+    "Production volumes",
+    "Manufacturing lead time",
+    "Manufacturing costs",
+    "Inspection results",
+    "Defect rates",
+    "Transportation modes",
+    "Routes",
+    "Costs"
+  ],
+  "summaries_per_generation": 4,
+  "num_generations": 1,
+  "successful_generations": 1,
+  "failed_generations": 0,
+  "output_directory": "c2_summaries_run2\\97_summaries",
+  "source_file": "csv_c_squared\\97.csv",
+  "sheet_name": "",
+  "generations": {
+    "generation_001": {
+      "status": "success",
+      "output_file": "c2_summaries_run2\\97_summaries\\generation_001\\summaries_gen_001.json",
+      "summaries_count": 4,
+      "generation_number": 1
+    }
+  }
+}

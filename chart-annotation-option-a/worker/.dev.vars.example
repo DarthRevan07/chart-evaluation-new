@@ -1,0 +1,7 @@
+# Optional: enable GitHub Issue creation
+# GITHUB_TOKEN=ghp_...  (token with permission to create issues in the repo)
+# GITHUB_OWNER=your-org-or-user
+# GITHUB_REPO=your-repo
+
+# Optional: lock down CORS to your Pages origin
+# ALLOWED_ORIGIN=http://127.0.0.1:5173

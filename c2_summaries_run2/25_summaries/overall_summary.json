@@ -1,0 +1,37 @@
+{
+  "table_name": "NIFTY-50 Stocks Dataset",
+  "file_index": "25",
+  "original_filename": "25.csv",
+  "total_rows": 50,
+  "total_columns": 13,
+  "column_names": [
+    "Symbol",
+    "Open",
+    "High",
+    "Low",
+    "LTP",
+    "Chng",
+    "% Chng",
+    "Volume (lacs)",
+    "Turnover (crs.)",
+    "52w H",
+    "52w L",
+    "365 d % chng",
+    "30 d % chng"
+  ],
+  "summaries_per_generation": 4,
+  "num_generations": 1,
+  "successful_generations": 1,
+  "failed_generations": 0,
+  "output_directory": "c2_summaries_run2\\25_summaries",
+  "source_file": "csv_c_squared\\25.csv",
+  "sheet_name": "",
+  "generations": {
+    "generation_001": {
+      "status": "success",
+      "output_file": "c2_summaries_run2\\25_summaries\\generation_001\\summaries_gen_001.json",
+      "summaries_count": 4,
+      "generation_number": 1
+    }
+  }
+}

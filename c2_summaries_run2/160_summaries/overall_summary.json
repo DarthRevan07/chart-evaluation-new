@@ -1,0 +1,30 @@
+{
+  "table_name": "wwc_outcomes",
+  "file_index": "160",
+  "original_filename": "160.csv",
+  "total_rows": 568,
+  "total_columns": 7,
+  "column_names": [
+    "year",
+    "team",
+    "score",
+    "round",
+    "yearly_game_id",
+    "team_num",
+    "win_status"
+  ],
+  "summaries_per_generation": 4,
+  "num_generations": 1,
+  "successful_generations": 0,
+  "failed_generations": 1,
+  "output_directory": "c2_summaries_run2\\160_summaries",
+  "source_file": "csv_c_squared\\160.csv",
+  "sheet_name": "",
+  "generations": {
+    "generation_001": {
+      "status": "generation_failed",
+      "error": "Failed to generate summaries",
+      "generation_number": 1
+    }
+  }
+}

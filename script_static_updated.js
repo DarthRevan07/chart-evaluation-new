@@ -7,64 +7,23 @@ let allPairEvaluations = {}; // Store evaluations per pair
 function initializePairEvaluation(pairId, pairMetadata) {
     currentPairId = pairId;
     
-    if (!allPairEvaluations[pairId]) {
-        allPairEvaluations[pairId] = {
-            pairId: pairId,
-            metadata: pairMetadata,
-            evaluations: {
-                clutter: { completed: false, responses: {} },
-                cognitive_load: { completed: false, responses: {} },
-                interpretability: { completed: false, responses: {} },
-                style: { completed: false, responses: {} }
-            },
-            startedAt: new Date().toISOString(),
-            completedAt: null,
-            completionStatus: {
-                clutter: false,
-                cognitive_load: false,
-                interpretability: false,
-                style: false
-            }
-        };
+    // Use the simple evaluation system instead of complex category system
+    if (typeof initializeSimpleEvaluation === 'function') {
+        initializeSimpleEvaluation(pairId, pairMetadata);
     }
     
     // Update UI to show current pair evaluation status
     updateEvaluationStatus();
 }
 
-// Show specific category content
+// Show specific category content (disabled for simplified evaluation)
 function showCategory(category) {
-    currentCategory = category;
+    // Categories are no longer used in the simplified evaluation
+    // This function is kept for compatibility but doesn't do anything
+    console.log('Category switching disabled - using simplified evaluation');
     
-    // Update navigation tabs
-    document.getElementById('clutterTab').classList.toggle('active', category === 'clutter');
-    document.getElementById('cognitiveTab').classList.toggle('active', category === 'cognitive_load');
-    document.getElementById('interpretabilityTab').classList.toggle('active', category === 'interpretability');
-    document.getElementById('styleTab').classList.toggle('active', category === 'style');
-    
-    // Show/hide guidelines
-    document.getElementById('clutterGuidelines').style.display = category === 'clutter' ? 'block' : 'none';
-    document.getElementById('cognitiveGuidelines').style.display = category === 'cognitive_load' ? 'block' : 'none';
-    document.getElementById('interpretabilityGuidelines').style.display = category === 'interpretability' ? 'block' : 'none';
-    document.getElementById('styleGuidelines').style.display = category === 'style' ? 'block' : 'none';
-    
-    // Show/hide forms
-    document.getElementById('clutterForm').style.display = category === 'clutter' ? 'block' : 'none';
-    document.getElementById('cognitiveForm').style.display = category === 'cognitive_load' ? 'block' : 'none';
-    document.getElementById('interpretabilityForm').style.display = category === 'interpretability' ? 'block' : 'none';
-    document.getElementById('styleForm').style.display = category === 'style' ? 'block' : 'none';
-    
-    // Load saved responses for current pair and category
-    loadSavedResponsesForCurrentPair(category);
-    
-    // Update page title based on category
-    const categoryNames = {
-        'clutter': 'Visual Clutter Evaluation',
-        'cognitive_load': 'Cognitive Load Evaluation',
-        'interpretability': 'Interpretability Evaluation',
-        'style': 'Style Evaluation'
-    };
-    document.title = categoryNames[category] + ' - Chart Evaluation System';
+    // Update page title to be generic
+    document.title = 'Chart Pair Evaluation - Simple Questionnaire';
     
     // Update evaluation status indicators
     updateEvaluationStatus();
@@ -698,18 +657,6 @@ function showCompletionButton() {
                     transition: all 0.3s ease;
                     min-width: 150px;
                 ">💾 Export Results</button>
-                <button onclick="goToHomePage()" style="
-                    background: #ffc107;
-                    color: #212529;
-                    border: none;
-                    padding: 12px 25px;
-                    border-radius: 25px;
-                    cursor: pointer;
-                    font-weight: 600;
-                    font-size: 16px;
-                    transition: all 0.3s ease;
-                    min-width: 150px;
-                ">🏠 Go to Home</button>
             </div>
         `;
         
@@ -1118,17 +1065,25 @@ function getCurrentPairSummary() {
 
 // Clear form responses
 function clearFormResponses() {
-    // Clear all radio buttons and text areas
-    const radioButtons = document.querySelectorAll('input[type="radio"]');
-    radioButtons.forEach(radio => radio.checked = false);
-    
-    const textAreas = document.querySelectorAll('textarea');
-    textAreas.forEach(textarea => textarea.value = '');
+    // Use the simple evaluation form clearing function if available
+    if (typeof clearSimpleEvaluationForm === 'function') {
+        clearSimpleEvaluationForm();
+    } else {
+        // Fallback: Clear all radio buttons, checkboxes and text areas
+        const radioButtons = document.querySelectorAll('input[type="radio"]');
+        radioButtons.forEach(radio => radio.checked = false);
+        
+        const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+        checkboxes.forEach(checkbox => checkbox.checked = false);
+        
+        const textAreas = document.querySelectorAll('textarea');
+        textAreas.forEach(textarea => textarea.value = '');
+    }
 }
 
 // Initialize page
 document.addEventListener('DOMContentLoaded', function() {
-    // Load pair evaluations from localStorage
+    // Load pair evaluations from localStorage (kept for compatibility)
     const savedPairEvaluations = localStorage.getItem('pairEvaluations');
     if (savedPairEvaluations) {
         try {
@@ -1139,8 +1094,8 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
     
-    // Start with clutter category
-    showCategory('clutter');
+    // No need to show categories anymore - simplified evaluation is always shown
+    console.log('Initialized simplified chart evaluation system');
 });
 
 // Keyboard navigation
@@ -1160,10 +1115,4 @@ document.addEventListener('keydown', function(event) {
     }
 });
 
-// Navigate to home page
-function goToHomePage() {
-    const result = confirm('Are you sure you want to return to the home page? Make sure you have submitted all your evaluations first.');
-    if (result) {
-        window.location.href = 'index.html';
-    }
-}
+

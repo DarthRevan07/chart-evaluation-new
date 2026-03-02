@@ -1,0 +1,964 @@
+{
+  "dataset": "Inc500Charts",
+  "questionnaires": [
+    {
+      "questions": [
+        {
+          "question_id": 1,
+          "question_text": "Which chart makes it easiest for a business executive or investor to quickly identify which industries consistently have the highest-growth companies across different states?"
+        },
+        {
+          "question_id": 2,
+          "question_text": "Looking at both charts, which one allows you to recognize possible regional growth patterns—such as industry clusters in specific states—with the least visual confusion or clutter?"
+        },
+        {
+          "question_id": 3,
+          "question_text": "Which chart presents its legends and labels in a way that requires less back-and-forth eye movement, allowing you to focus directly on comparing key industry and state information?"
+        },
+        {
+          "question_id": 4,
+          "question_text": "Considering both charts, which one gives you a clearer and less ambiguous impression of how different industries perform across US states, with minimal risk of misinterpretation?"
+        },
+        {
+          "question_id": 5,
+          "question_text": "Comparing the charts, which one uses color, shape, or size in a way that makes it obvious what each visual element represents—without forcing you to guess or decode complex legends?"
+        },
+        {
+          "question_id": 6,
+          "question_text": "Which chart’s overall design (including your impression of its professionalism, color palette, and font choices) would you feel is better suited for a strategic business presentation targeting executives and investors?"
+        },
+        {
+          "question_id": 7,
+          "question_text": "If you wanted to zoom in on a specific city or region to investigate high-growth industry opportunities, which chart would let you do this most easily—without getting lost in unnecessary details or clutter?"
+        },
+        {
+          "question_id": 8,
+          "question_text": "Looking at both charts as a strategic planner, which one overall feels more motivating and engaging, encouraging a deeper exploration of regional advantages and potential investment opportunities?"
+        }
+      ],
+      "metadata": {
+        "dataset": "Inc5000 Company List 2014",
+        "summary_id": 1,
+        "question_id": 1,
+        "master_question": "Which industries consistently produce the highest-growth companies across different states, and are there regional patterns worth exploring?",
+        "target_audience": "Business executives, investors, and strategic planners seeking market expansion opportunities",
+        "curator_intention": "Encourage these decision makers to analyze high-growth sectors for potential investment, benchmarking, or location-based strategic expansion. The curator wants users to accept that certain industries and cities yield faster growth and higher revenue, prompting deeper examination of regional advantages.",
+        "num_questions_requested": 8,
+        "num_questions_generated": 8,
+        "evaluation_constructs": [
+          "cognitive_load",
+          "interpretability",
+          "style"
+        ]
+      },
+      "summary_id": 1,
+      "question_id": 1
+    },
+    {
+      "questions": [
+        {
+          "question_id": 1,
+          "question_text": "Which chart makes it easier to quickly spot which cities have the largest clusters of top-revenue companies, without excessive scanning or confusion?"
+        },
+        {
+          "question_id": 2,
+          "question_text": "Which chart uses colors, shapes, or patterns in a way that helps you clearly distinguish between industry categories and cities, rather than blending them or making them hard to tell apart?"
+        },
+        {
+          "question_id": 3,
+          "question_text": "Which chart's labels, legends, or axis markings are more straightforward and require less looking back and forth to understand what each element represents?"
+        },
+        {
+          "question_id": 4,
+          "question_text": "In which chart is the overall organization and visual layout more effective at guiding your eyes to answer the master question about city-industry hotspots?"
+        },
+        {
+          "question_id": 5,
+          "question_text": "Which chart avoids unnecessary information, overlapping elements, or visual clutter that might distract from identifying the top-performing cities and industries?"
+        },
+        {
+          "question_id": 6,
+          "question_text": "Between the charts, which one makes it less likely for a typical user to misinterpret the relationships between cities, industries, and company revenues?"
+        },
+        {
+          "question_id": 7,
+          "question_text": "Which chart appears more professionally designed and visually appealing for use in a business strategy presentation to executives and investors?"
+        },
+        {
+          "question_id": 8,
+          "question_text": "Which chart better aligns the visual emphasis (e.g., use of size, color, or spacing) with the main message about economic hotspots, rather than highlighting irrelevant details?"
+        }
+      ],
+      "metadata": {
+        "dataset": "Inc5000 Company List 2014",
+        "summary_id": 1,
+        "question_id": 2,
+        "master_question": "In which cities do top-revenue companies cluster, and how do these economic hotspots align with industry categories?",
+        "target_audience": "Business executives, investors, and strategic planners seeking market expansion opportunities",
+        "curator_intention": "Encourage these decision makers to analyze high-growth sectors for potential investment, benchmarking, or location-based strategic expansion. The curator wants users to accept that certain industries and cities yield faster growth and higher revenue, prompting deeper examination of regional advantages.",
+        "num_questions_requested": 8,
+        "num_questions_generated": 8,
+        "evaluation_constructs": [
+          "cognitive_load",
+          "interpretability",
+          "style"
+        ]
+      },
+      "summary_id": 1,
+      "question_id": 2
+    },
+    {
+      "questions": [
+        {
+          "question_id": 1,
+          "question_text": "Which chart makes it easiest for a business executive or investor to quickly identify which states or cities have both high growth and high revenue industries?"
+        },
+        {
+          "question_id": 2,
+          "question_text": "Which chart has less visual clutter, allowing you to spot major trends or strategic opportunities without feeling overwhelmed by too many elements?"
+        },
+        {
+          "question_id": 3,
+          "question_text": "Which chart’s legends, axis labels, and annotations are clearer and help you understand exactly which industry, city, or state is being referenced, with little risk of misinterpretation?"
+        },
+        {
+          "question_id": 4,
+          "question_text": "Between the two charts, which one requires less effort and fewer eye movements to find the relationship between location (city/state), industry, and high growth/high revenue values?"
+        },
+        {
+          "question_id": 5,
+          "question_text": "Which chart’s color choices, spacing, and layout make the information appear more professional, polished, and suitable for a strategic business presentation?"
+        },
+        {
+          "question_id": 6,
+          "question_text": "In which chart does the mapping between colors, shapes or other visual cues and their meaning (such as industry or location) appear most straightforward and least likely to confuse viewers?"
+        },
+        {
+          "question_id": 7,
+          "question_text": "Which chart makes it more obvious where high growth and high revenue coincide for specific industries in specific cities, reducing ambiguity about these overlaps?"
+        },
+        {
+          "question_id": 8,
+          "question_text": "Between the two charts, which would you expect a group of business executives to correctly interpret and discuss with confidence after a short glance?"
+        }
+      ],
+      "metadata": {
+        "dataset": "Inc5000 Company List 2014",
+        "summary_id": 1,
+        "question_id": 3,
+        "master_question": "Are there states or cities where high growth and high revenue frequently coincide for specific industries, indicating strategic investment opportunities?",
+        "target_audience": "Business executives, investors, and strategic planners seeking market expansion opportunities",
+        "curator_intention": "Encourage these decision makers to analyze high-growth sectors for potential investment, benchmarking, or location-based strategic expansion. The curator wants users to accept that certain industries and cities yield faster growth and higher revenue, prompting deeper examination of regional advantages.",
+        "num_questions_requested": 8,
+        "num_questions_generated": 8,
+        "evaluation_constructs": [
+          "cognitive_load",
+          "interpretability",
+          "style"
+        ]
+      },
+      "summary_id": 1,
+      "question_id": 3
+    },
+    {
+      "questions": [
+        {
+          "question_id": 1,
+          "question_text": "Which chart makes it easier to quickly spot which companies outperform their industry peers in both growth and revenue without feeling visually overloaded by too many elements or colors?"
+        },
+        {
+          "question_id": 2,
+          "question_text": "When comparing the charts, which one requires less back-and-forth looking between legends, axis labels, and chart marks to clearly identify company names, performance metrics, and geographical locations?"
+        },
+        {
+          "question_id": 3,
+          "question_text": "Which chart allows you to confidently and unambiguously tell which companies are both high-growth and high-revenue, with no confusion about what each visual element means?"
+        },
+        {
+          "question_id": 4,
+          "question_text": "Looking at the charts, which one enables you to more quickly recognize patterns or trends in company performance across different cities or regions, without having to closely examine every detail?"
+        },
+        {
+          "question_id": 5,
+          "question_text": "Which chart provides clear, readable labels and legends that help you easily identify distinguishing factors (such as industry or city) for top-performing companies?"
+        },
+        {
+          "question_id": 6,
+          "question_text": "If you had to present one chart in a professional meeting with business executives and investors, which would you choose based solely on its visual appeal and modern design style?"
+        },
+        {
+          "question_id": 7,
+          "question_text": "Between the two charts, which one presents the information about company performance and locations in a way that avoids clutter and overlapping items, making the comparison straightforward and pleasant to view?"
+        },
+        {
+          "question_id": 8,
+          "question_text": "Which chart better supports a first impression of trustworthiness and professionalism, considering the color palette, layout, and typography?"
+        }
+      ],
+      "metadata": {
+        "dataset": "Inc5000 Company List 2014",
+        "summary_id": 1,
+        "question_id": 4,
+        "master_question": "Which companies outperform industry peers in both growth and revenue, and do they share similar geographical locations or distinguishing factors?",
+        "target_audience": "Business executives, investors, and strategic planners seeking market expansion opportunities",
+        "curator_intention": "Encourage these decision makers to analyze high-growth sectors for potential investment, benchmarking, or location-based strategic expansion. The curator wants users to accept that certain industries and cities yield faster growth and higher revenue, prompting deeper examination of regional advantages.",
+        "num_questions_requested": 8,
+        "num_questions_generated": 8,
+        "evaluation_constructs": [
+          "cognitive_load",
+          "interpretability",
+          "style"
+        ]
+      },
+      "summary_id": 1,
+      "question_id": 4
+    },
+    {
+      "questions": [
+        {
+          "question_id": 1,
+          "question_text": "Which chart more clearly shows how industry concentration in each city relates to potential risk or yield for expansion or investment strategies, based on your visual inspection?"
+        },
+        {
+          "question_id": 2,
+          "question_text": "In which chart can you more quickly and easily find key patterns or trends of high-growth sectors by city, without feeling overwhelmed by unnecessary design elements?"
+        },
+        {
+          "question_id": 3,
+          "question_text": "Comparing both charts, which one requires less effort to locate and understand legends, labels, and scales when trying to identify which industries are most concentrated in each city?"
+        },
+        {
+          "question_id": 4,
+          "question_text": "Which chart makes it easier for you to accurately understand what each color, shape, or size represents, helping you avoid confusion about the meaning of different visual elements?"
+        },
+        {
+          "question_id": 5,
+          "question_text": "Based only on the visual design and aesthetics, which chart would you be more comfortable presenting to business executives or investors as part of a strategic expansion analysis?"
+        },
+        {
+          "question_id": 6,
+          "question_text": "Which chart layout provides a cleaner, more organized view that helps you compare cities and industries without unnecessary visual clutter or distractions?"
+        },
+        {
+          "question_id": 7,
+          "question_text": "Which chart minimizes ambiguity or misinterpretation, making it harder for viewers to walk away with different or incorrect understandings about where high-growth industries are located?"
+        },
+        {
+          "question_id": 8,
+          "question_text": "Considering the intended audience and master question, which chart better highlights areas (cities or industries) that present notable opportunities or risks for investment decisions, using clear visuals and straightforward design?"
+        }
+      ],
+      "metadata": {
+        "dataset": "Inc5000 Company List 2014",
+        "summary_id": 1,
+        "question_id": 5,
+        "master_question": "How do patterns of industry concentration by city suggest potential risk or yield for expansion or investment strategies?",
+        "target_audience": "Business executives, investors, and strategic planners seeking market expansion opportunities",
+        "curator_intention": "Encourage these decision makers to analyze high-growth sectors for potential investment, benchmarking, or location-based strategic expansion. The curator wants users to accept that certain industries and cities yield faster growth and higher revenue, prompting deeper examination of regional advantages.",
+        "num_questions_requested": 8,
+        "num_questions_generated": 8,
+        "evaluation_constructs": [
+          "cognitive_load",
+          "interpretability",
+          "style"
+        ]
+      },
+      "summary_id": 1,
+      "question_id": 5
+    },
+    {
+      "questions": [
+        {
+          "question_id": 1,
+          "question_text": "Which chart allows you to quickly and easily identify emerging cities with exceptional company growth without having to frequently refer back to the legend or axis labels?"
+        },
+        {
+          "question_id": 2,
+          "question_text": "Which chart presents the key values and trends more clearly, reducing the amount of mental effort needed to compare growth rates between cities?"
+        },
+        {
+          "question_id": 3,
+          "question_text": "Which chart makes it easier to accurately understand which cities and industries are leading in high revenue growth, without causing confusion from ambiguous colors, symbols, or labels?"
+        },
+        {
+          "question_id": 4,
+          "question_text": "Which chart avoids visual clutter, making it simpler to scan for exceptional growth regions and benchmark opportunities for site selection?"
+        },
+        {
+          "question_id": 5,
+          "question_text": "Which chart uses colors and design elements in a way that clearly differentiates cities and industries, helping you interpret future industry trends without misreading data?"
+        },
+        {
+          "question_id": 6,
+          "question_text": "Which chart has a more polished and visually balanced design, looking professional and appealing for a business executive presentation?"
+        },
+        {
+          "question_id": 7,
+          "question_text": "Which chart’s layout and spacing help you focus on the most important information for making strategic market expansion decisions, without feeling overwhelmed by unnecessary details?"
+        },
+        {
+          "question_id": 8,
+          "question_text": "Which chart avoids misleading representations, such as unclear scale markings or inconsistent symbols, ensuring the message about potential expansion locations is trustworthy and easy to grasp?"
+        }
+      ],
+      "metadata": {
+        "dataset": "Inc5000 Company List 2014",
+        "summary_id": 1,
+        "question_id": 6,
+        "master_question": "Are there emerging cities with exceptional company growth that may signal future industry trends, and how does this affect site selection decisions?",
+        "target_audience": "Business executives, investors, and strategic planners seeking market expansion opportunities",
+        "curator_intention": "Encourage these decision makers to analyze high-growth sectors for potential investment, benchmarking, or location-based strategic expansion. The curator wants users to accept that certain industries and cities yield faster growth and higher revenue, prompting deeper examination of regional advantages.",
+        "num_questions_requested": 8,
+        "num_questions_generated": 8,
+        "evaluation_constructs": [
+          "cognitive_load",
+          "interpretability",
+          "style"
+        ]
+      },
+      "summary_id": 1,
+      "question_id": 6
+    },
+    {
+      "questions": [
+        {
+          "question_id": 1,
+          "question_text": "Which chart makes it quicker and easier to identify which industries have the most companies with top ranks spanning multiple years, without needing to search through legends or crowded areas?"
+        },
+        {
+          "question_id": 2,
+          "question_text": "For the master question, which chart's labels, legends, and data markings are immediately understandable, with minimal chance for confusion about what each element means?"
+        },
+        {
+          "question_id": 3,
+          "question_text": "Comparing both charts, which one presents trends in company rankings and longevity across industries in a way that is least visually cluttered and allows you to focus on the main message?"
+        },
+        {
+          "question_id": 4,
+          "question_text": "Which chart requires less back-and-forth eye movement between legends, axis labels, and data points to figure out the answer to the master question?"
+        },
+        {
+          "question_id": 5,
+          "question_text": "Between the two charts, which one uses colors, shapes, or other visual cues in a way that makes industry groupings clear and reduces risk of mixed-up categories or ambiguous interpretation?"
+        },
+        {
+          "question_id": 6,
+          "question_text": "Which chart’s overall style (use of space, colors, fonts, and design elements) looks more professional and visually appealing for a presentation to data analysts or performance researchers?"
+        },
+        {
+          "question_id": 7,
+          "question_text": "If you had to share one of these charts to help inspire further research into what drives long-term company success, which would you choose based on how clearly it conveys the business context?"
+        },
+        {
+          "question_id": 8,
+          "question_text": "Looking at axis titles, scales, and critical annotations, which chart makes measurement units and time periods explicit and avoids any possible misreading of the data for the target audience?"
+        }
+      ],
+      "metadata": {
+        "dataset": "Inc5000 Company List 2014",
+        "summary_id": 2,
+        "question_id": 1,
+        "master_question": "Which industries feature the most companies with high ranks and multiple years on the list?",
+        "target_audience": "Data analysts, consultants, and performance researchers focused on trend analysis and long-term company success",
+        "curator_intention": "Prompt audiences to examine which companies maintain top rankings and high revenue over multiple years, inspiring further research into drivers of sustained success and longevity in competitive industries.",
+        "num_questions_requested": 8,
+        "num_questions_generated": 8,
+        "evaluation_constructs": [
+          "cognitive_load",
+          "interpretability",
+          "style"
+        ]
+      },
+      "summary_id": 2,
+      "question_id": 1
+    },
+    {
+      "questions": [
+        {
+          "question_id": 1,
+          "question_text": "Which chart makes it easier and faster to visually spot if companies with higher total revenue consistently have more years on the list?"
+        },
+        {
+          "question_id": 2,
+          "question_text": "Which chart presents a clearer and less confusing relationship between company ranking, revenue, and longevity, with minimal risk of mixing up data categories?"
+        },
+        {
+          "question_id": 3,
+          "question_text": "When inspecting both charts, which one requires less effort to find key labels, legends, or axis titles needed to answer the question about revenue and years on the list?"
+        },
+        {
+          "question_id": 4,
+          "question_text": "Which chart achieves a visually clean and uncluttered look, making it simple to focus on companies that maintain top rankings across years?"
+        },
+        {
+          "question_id": 5,
+          "question_text": "Which chart uses colors, shapes, and size in a way that is both visually appealing and makes it clear how different companies compare in terms of revenue and longevity?"
+        },
+        {
+          "question_id": 6,
+          "question_text": "Looking at both charts, which one is more professionally designed and better suited for a presentation to analysts and consultants interested in trends and sustained success?"
+        },
+        {
+          "question_id": 7,
+          "question_text": "If a viewer wanted to quickly check for exceptions—companies with high revenue but few years on the list, or vice versa—which chart would help them do that more reliably?"
+        },
+        {
+          "question_id": 8,
+          "question_text": "Which chart avoids common mistakes such as missing axis labels, unclear legends, or misleading scales that could cause users to misinterpret the relationship between revenue and longevity?"
+        }
+      ],
+      "metadata": {
+        "dataset": "Inc5000 Company List 2014",
+        "summary_id": 2,
+        "question_id": 2,
+        "master_question": "Is there a consistent relationship between total revenue and years on list among top-ranked companies?",
+        "target_audience": "Data analysts, consultants, and performance researchers focused on trend analysis and long-term company success",
+        "curator_intention": "Prompt audiences to examine which companies maintain top rankings and high revenue over multiple years, inspiring further research into drivers of sustained success and longevity in competitive industries.",
+        "num_questions_requested": 8,
+        "num_questions_generated": 8,
+        "evaluation_constructs": [
+          "cognitive_load",
+          "interpretability",
+          "style"
+        ]
+      },
+      "summary_id": 2,
+      "question_id": 2
+    },
+    {
+      "questions": [
+        {
+          "question_id": 1,
+          "question_text": "Which chart makes it easiest to identify companies that maintain top rankings over multiple years, without requiring excessive back-and-forth between chart elements?"
+        },
+        {
+          "question_id": 2,
+          "question_text": "Which chart uses visual elements (such as color, shape, or labels) in a way that avoids confusion about which company is represented or their rank over time?"
+        },
+        {
+          "question_id": 3,
+          "question_text": "Which chart allows you to quickly and unambiguously determine if a company’s revenue stays high when industry averages are volatile?"
+        },
+        {
+          "question_id": 4,
+          "question_text": "Looking at both charts, which design feels less visually crowded and makes it easier to focus on the companies' long-term performance trends?"
+        },
+        {
+          "question_id": 5,
+          "question_text": "Which chart presents labels, axes, and legends in a way that reduces mental effort needed to understand the key information relevant to the master question?"
+        },
+        {
+          "question_id": 6,
+          "question_text": "Which chart feels more professionally designed and visually appealing for a presentation aimed at analysts and consultants interested in company success over time?"
+        },
+        {
+          "question_id": 7,
+          "question_text": "Which chart avoids possible misinterpretation by making relationships and comparisons between companies’ rankings and revenue changes clear at a glance?"
+        },
+        {
+          "question_id": 8,
+          "question_text": "Which chart uses colors, spacing, and overall layout in a way that contributes to both clarity and a pleasant viewing experience, considering the intended audience and analysis purpose?"
+        }
+      ],
+      "metadata": {
+        "dataset": "Inc5000 Company List 2014",
+        "summary_id": 2,
+        "question_id": 3,
+        "master_question": "Do certain companies maintain top ranks over time despite volatility in their industry's average revenue?",
+        "target_audience": "Data analysts, consultants, and performance researchers focused on trend analysis and long-term company success",
+        "curator_intention": "Prompt audiences to examine which companies maintain top rankings and high revenue over multiple years, inspiring further research into drivers of sustained success and longevity in competitive industries.",
+        "num_questions_requested": 8,
+        "num_questions_generated": 8,
+        "evaluation_constructs": [
+          "cognitive_load",
+          "interpretability",
+          "style"
+        ]
+      },
+      "summary_id": 2,
+      "question_id": 3
+    },
+    {
+      "questions": [
+        {
+          "question_id": 1,
+          "question_text": "Which chart makes it easier to quickly identify which companies have sustained high revenue across multiple years, with minimal back-and-forth between legend, labels, and data points?"
+        },
+        {
+          "question_id": 2,
+          "question_text": "In which chart is it clearer to distinguish between persistent companies (appearing in multiple years) and single-year entries when comparing their revenue growth?"
+        },
+        {
+          "question_id": 3,
+          "question_text": "Which chart avoids unnecessary visual clutter and allows you to focus on the main comparison of revenue growth between company types, without distraction from excess colors, shapes, or annotations?"
+        },
+        {
+          "question_id": 4,
+          "question_text": "Which chart’s use of colors, shapes, or other visual encodings makes it more obvious at a glance which companies are persistent and which are not, reducing confusion or misinterpretation?"
+        },
+        {
+          "question_id": 5,
+          "question_text": "Considering the overall design and layout, which chart appears more visually balanced, professionally polished, and suitable for a presentation to data analysts or researchers?"
+        },
+        {
+          "question_id": 6,
+          "question_text": "Which chart better supports accurate retrieval of specific values or trends—such as identifying peak revenue years or consistent top performers—based only on what is visually presented?"
+        },
+        {
+          "question_id": 7,
+          "question_text": "Looking only at axes, legends, and labels, which chart minimizes the effort required to understand the time period and revenue scale for each company featured?"
+        },
+        {
+          "question_id": 8,
+          "question_text": "Which chart, if shown to someone unfamiliar with the dataset, would most likely prevent misunderstandings or misreading of which companies are long-term performers versus one-time entrants?"
+        }
+      ],
+      "metadata": {
+        "dataset": "Inc5000 Company List 2014",
+        "summary_id": 2,
+        "question_id": 4,
+        "master_question": "How do persistent companies in each industry compare in terms of revenue growth versus single-year entries?",
+        "target_audience": "Data analysts, consultants, and performance researchers focused on trend analysis and long-term company success",
+        "curator_intention": "Prompt audiences to examine which companies maintain top rankings and high revenue over multiple years, inspiring further research into drivers of sustained success and longevity in competitive industries.",
+        "num_questions_requested": 8,
+        "num_questions_generated": 8,
+        "evaluation_constructs": [
+          "cognitive_load",
+          "interpretability",
+          "style"
+        ]
+      },
+      "summary_id": 2,
+      "question_id": 4
+    },
+    {
+      "questions": [
+        {
+          "question_id": 1,
+          "question_text": "Which chart makes it easier to quickly spot patterns in how different industries are represented among companies with high rank and long tenure?"
+        },
+        {
+          "question_id": 2,
+          "question_text": "Which chart presents the key information (such as legends, axis labels, and color codes) in a way that reduces the need to visually jump back and forth to understand what each part of the chart means?"
+        },
+        {
+          "question_id": 3,
+          "question_text": "Which chart displays the data without causing confusion or ambiguity about what each visual element (such as colors or shapes) represents, especially in the context of identifying long-standing, high-ranked companies?"
+        },
+        {
+          "question_id": 4,
+          "question_text": "Which chart avoids unnecessary clutter, overlapping elements, or excessive details that might distract from answering whether certain industries have more companies with sustained high rank and tenure?"
+        },
+        {
+          "question_id": 5,
+          "question_text": "Which chart uses colors, fonts, and layout in a way that looks professional and visually appealing, suitable for use in a business or research presentation?"
+        },
+        {
+          "question_id": 6,
+          "question_text": "Which chart’s legend and labeling make it less likely that someone could misinterpret which industry each company belongs to or how long they have been on the list?"
+        },
+        {
+          "question_id": 7,
+          "question_text": "Which chart helps you more easily compare the tenure and ranking of companies across different industries without needing extra mental effort to decode the information?"
+        },
+        {
+          "question_id": 8,
+          "question_text": "Which chart provides a clear and unambiguous overall impression about which industries feature companies with both high ranking and long-term success, without introducing confusion or misleading impressions?"
+        }
+      ],
+      "metadata": {
+        "dataset": "Inc5000 Company List 2014",
+        "summary_id": 2,
+        "question_id": 5,
+        "master_question": "Are there patterns in industry representation among companies with both high rank and long tenure on the list?",
+        "target_audience": "Data analysts, consultants, and performance researchers focused on trend analysis and long-term company success",
+        "curator_intention": "Prompt audiences to examine which companies maintain top rankings and high revenue over multiple years, inspiring further research into drivers of sustained success and longevity in competitive industries.",
+        "num_questions_requested": 8,
+        "num_questions_generated": 8,
+        "evaluation_constructs": [
+          "cognitive_load",
+          "interpretability",
+          "style"
+        ]
+      },
+      "summary_id": 2,
+      "question_id": 5
+    },
+    {
+      "questions": [
+        {
+          "question_id": 1,
+          "question_text": "Which chart makes it easier to clearly identify the companies that consistently achieve both high rank and multi-year presence, without overwhelming you with too many visual details at once?"
+        },
+        {
+          "question_id": 2,
+          "question_text": "Which chart allows you to quickly locate and decode key elements like legends, labels, and scales, making it less mentally demanding to compare long-term and short-term performers?"
+        },
+        {
+          "question_id": 3,
+          "question_text": "Which chart provides a clearer and more unambiguous representation of trends, making it easier to distinguish companies with lasting high performance from temporary top performers?"
+        },
+        {
+          "question_id": 4,
+          "question_text": "Looking at the use of colors, symbols, and lines, which chart is less likely to cause confusion about what each visual element represents in the context of sustained company success?"
+        },
+        {
+          "question_id": 5,
+          "question_text": "Which chart appears more visually organized and less cluttered, making it easier to focus on what distinguishes companies that have achieved long-term high rankings?"
+        },
+        {
+          "question_id": 6,
+          "question_text": "Comparing the design quality—such as layout, color harmony, and font choices—which chart would you consider more professional and appealing for sharing with data analysts or consultants?"
+        },
+        {
+          "question_id": 7,
+          "question_text": "Which chart presents the necessary information (such as rankings over multiple years) in a way that minimizes eye movement between legends, axes, and data marks, making it easier to follow company trajectories?"
+        },
+        {
+          "question_id": 8,
+          "question_text": "Which chart is less likely to create ambiguity or mislead viewers about which companies truly stand out for both high rank and endurance, due to clearer data encoding and labeling?"
+        }
+      ],
+      "metadata": {
+        "dataset": "Inc5000 Company List 2014",
+        "summary_id": 2,
+        "question_id": 6,
+        "master_question": "What characteristics distinguish companies achieving both high rank and multi-year presence compared to short-term high performers?",
+        "target_audience": "Data analysts, consultants, and performance researchers focused on trend analysis and long-term company success",
+        "curator_intention": "Prompt audiences to examine which companies maintain top rankings and high revenue over multiple years, inspiring further research into drivers of sustained success and longevity in competitive industries.",
+        "num_questions_requested": 8,
+        "num_questions_generated": 8,
+        "evaluation_constructs": [
+          "cognitive_load",
+          "interpretability",
+          "style"
+        ]
+      },
+      "summary_id": 2,
+      "question_id": 6
+    },
+    {
+      "questions": [
+        {
+          "question_id": 1,
+          "question_text": "Which chart makes it easier and quicker to identify the metro areas with the highest average company workforce counts across industries, with minimum effort needed to locate and interpret key information?"
+        },
+        {
+          "question_id": 2,
+          "question_text": "Which chart presents employment concentrations and industrial diversity across metro areas more clearly, without causing ambiguity or confusion about what the data elements represent?"
+        },
+        {
+          "question_id": 3,
+          "question_text": "Which chart has a layout and design that looks more visually balanced, professional, and well-presented, suitable for sharing with economic development officials or urban planners?"
+        },
+        {
+          "question_id": 4,
+          "question_text": "Between the charts, which one uses legends, labels, and color encodings in a way that minimizes the need to look back and forth or repeatedly check to understand what each data point means?"
+        },
+        {
+          "question_id": 5,
+          "question_text": "Looking at both charts, which one feels less visually cluttered and more organized, making it easier to focus on the most important information relevant to the workforce and industry differences?"
+        },
+        {
+          "question_id": 6,
+          "question_text": "Considering the goal of comparing workforce size across sectors and metro areas, which chart avoids misleading visual tricks (such as confusing scale choices or unclear category grouping) and provides a trustworthy impression?"
+        },
+        {
+          "question_id": 7,
+          "question_text": "Which chart provides clearer and more readable axis labels, units, and category names that directly support answering which metro areas and industries have large average workforce counts?"
+        },
+        {
+          "question_id": 8,
+          "question_text": "Based purely on the choice of colors, fonts, and overall visual style, which chart gives a more appealing impression that would be attractive in policy reports or stakeholder presentations?"
+        }
+      ],
+      "metadata": {
+        "dataset": "Inc5000 Company List 2014",
+        "summary_id": 3,
+        "question_id": 1,
+        "master_question": "Which metro areas host the highest average company workforce counts, and how does this vary across industries?",
+        "target_audience": "Economic development officials, urban planners, and workforce strategists evaluating employment impact and cluster formation across regions",
+        "curator_intention": "Direct attention to employment concentrations and industrial diversity across metro areas, promoting detailed scrutiny of where large-scale job creation aligns with specific sectors and urban hubs.",
+        "num_questions_requested": 8,
+        "num_questions_generated": 8,
+        "evaluation_constructs": [
+          "cognitive_load",
+          "interpretability",
+          "style"
+        ]
+      },
+      "summary_id": 3,
+      "question_id": 1
+    },
+    {
+      "questions": [
+        {
+          "question_id": 1,
+          "question_text": "Which chart makes it easier to quickly spot which industries have the largest employment concentrations in specific metro regions, without overwhelming you with unnecessary details?"
+        },
+        {
+          "question_id": 2,
+          "question_text": "Which chart uses colors, shapes, or symbols in a way that helps you clearly distinguish between different industries and regions, without causing confusion or ambiguity?"
+        },
+        {
+          "question_id": 3,
+          "question_text": "Comparing the charts, which one allows you to accurately and unambiguously tell which industries dominate employment in each metro area, with clear labels and legends?"
+        },
+        {
+          "question_id": 4,
+          "question_text": "Which chart feels less cluttered by unnecessary visual elements (such as excessive gridlines, overlapping marks, or too many annotations), making it easier to focus on the main patterns?"
+        },
+        {
+          "question_id": 5,
+          "question_text": "Between the two charts, which one provides a cleaner and more professional visual style that would be more suitable for a formal audience, such as economic development officials?"
+        },
+        {
+          "question_id": 6,
+          "question_text": "Which chart requires less back-and-forth searching between legends, axis labels, and the main chart area to understand what each element means in the context of employment clusters?"
+        },
+        {
+          "question_id": 7,
+          "question_text": "Looking at both charts, which one better highlights where large-scale job creation aligns with particular sectors and metro hubs, making the intended message more obvious at a glance?"
+        },
+        {
+          "question_id": 8,
+          "question_text": "Which chart avoids misleading or ambiguous features (such as unclear axes, similar colors for different categories, or confusing scales) that could make users misinterpret sectoral employment patterns?"
+        }
+      ],
+      "metadata": {
+        "dataset": "Inc5000 Company List 2014",
+        "summary_id": 3,
+        "question_id": 2,
+        "master_question": "Are there specific industries that dominate employment in certain metro regions, suggesting strong sectoral clustering?",
+        "target_audience": "Economic development officials, urban planners, and workforce strategists evaluating employment impact and cluster formation across regions",
+        "curator_intention": "Direct attention to employment concentrations and industrial diversity across metro areas, promoting detailed scrutiny of where large-scale job creation aligns with specific sectors and urban hubs.",
+        "num_questions_requested": 8,
+        "num_questions_generated": 8,
+        "evaluation_constructs": [
+          "cognitive_load",
+          "interpretability",
+          "style"
+        ]
+      },
+      "summary_id": 3,
+      "question_id": 2
+    },
+    {
+      "questions": [
+        {
+          "question_id": 1,
+          "question_text": "Which chart more clearly helps you see where large employers are concentrated in different metro areas, without causing visual overcrowding or distraction from unnecessary details?"
+        },
+        {
+          "question_id": 2,
+          "question_text": "Which chart makes it easier to quickly match metro areas with their corresponding state-level talent strategies, requiring less effort to reference legends, labels, or scales?"
+        },
+        {
+          "question_id": 3,
+          "question_text": "Which chart avoids ambiguity or confusion in showing the relationship between metro area employment clusters and state strategies—that is, where you can be confident you are interpreting the data correctly?"
+        },
+        {
+          "question_id": 4,
+          "question_text": "Which chart uses colors, symbols, and shapes in a way that clearly distinguishes sectors and regions relevant to the master question, without causing misinterpretation or overlap?"
+        },
+        {
+          "question_id": 5,
+          "question_text": "Looking at both charts, which one presents the data in a visually appealing way—considering color harmony, typography, and overall professionalism for an audience of economic development officials and planners?"
+        },
+        {
+          "question_id": 6,
+          "question_text": "Which chart allows you to easily identify overall trends or patterns (such as growing employment clusters or sector diversity) in the distribution, without scanning back and forth or hunting for information?"
+        },
+        {
+          "question_id": 7,
+          "question_text": "Which chart is less likely to be misread or misunderstood due to unclear axes, legends, or visual codes when trying to answer how metro area employer distribution connects to state-level talent strategies?"
+        },
+        {
+          "question_id": 8,
+          "question_text": "Considering the intended audience and purpose, which chart would you feel more confident using in a professional planning meeting to spark a focused discussion about employment impact and sector alignment?"
+        }
+      ],
+      "metadata": {
+        "dataset": "Inc5000 Company List 2014",
+        "summary_id": 3,
+        "question_id": 3,
+        "master_question": "How does the distribution of large employers by metro area correlate with state-level talent strategies?",
+        "target_audience": "Economic development officials, urban planners, and workforce strategists evaluating employment impact and cluster formation across regions",
+        "curator_intention": "Direct attention to employment concentrations and industrial diversity across metro areas, promoting detailed scrutiny of where large-scale job creation aligns with specific sectors and urban hubs.",
+        "num_questions_requested": 8,
+        "num_questions_generated": 8,
+        "evaluation_constructs": [
+          "cognitive_load",
+          "interpretability",
+          "style"
+        ]
+      },
+      "summary_id": 3,
+      "question_id": 3
+    },
+    {
+      "questions": [
+        {
+          "question_id": 1,
+          "question_text": "Which chart makes it easier to quickly spot differences in workforce sizes for the same industry across different metro areas?"
+        },
+        {
+          "question_id": 2,
+          "question_text": "Which chart uses color, size, or other visual elements in a way that is less overwhelming and helps you focus on regional employment patterns without feeling crowded?"
+        },
+        {
+          "question_id": 3,
+          "question_text": "Which chart allows you to clearly and unambiguously identify what each axis and legend represents when comparing employment across regions?"
+        },
+        {
+          "question_id": 4,
+          "question_text": "Which chart would make it easier for an economic development official or urban planner to explain which metro areas have the largest job clusters in a specific industry?"
+        },
+        {
+          "question_id": 5,
+          "question_text": "Which chart has a layout, font, and color scheme that looks more professional and visually appealing for this audience and topic?"
+        },
+        {
+          "question_id": 6,
+          "question_text": "Which chart’s labels and annotations are clearer and less likely to be misinterpreted when comparing industry diversity across metro regions?"
+        },
+        {
+          "question_id": 7,
+          "question_text": "Which chart minimizes the mental effort needed to match chart elements (such as colors, lines, or shapes) with the legend or categories for the industries or metro areas?"
+        },
+        {
+          "question_id": 8,
+          "question_text": "Which chart better avoids confusing or misleading scales, symbols, or legends that could cause different viewers to draw different conclusions about workforce size patterns?"
+        }
+      ],
+      "metadata": {
+        "dataset": "Inc5000 Company List 2014",
+        "summary_id": 3,
+        "question_id": 4,
+        "master_question": "What patterns emerge when comparing workforce sizes in similar industries across different metropolitan areas?",
+        "target_audience": "Economic development officials, urban planners, and workforce strategists evaluating employment impact and cluster formation across regions",
+        "curator_intention": "Direct attention to employment concentrations and industrial diversity across metro areas, promoting detailed scrutiny of where large-scale job creation aligns with specific sectors and urban hubs.",
+        "num_questions_requested": 8,
+        "num_questions_generated": 8,
+        "evaluation_constructs": [
+          "cognitive_load",
+          "interpretability",
+          "style"
+        ]
+      },
+      "summary_id": 3,
+      "question_id": 4
+    },
+    {
+      "questions": [
+        {
+          "question_id": 1,
+          "question_text": "Which chart makes it easier to visually identify metro areas with the greatest diversity of large employers without feeling overwhelmed by unnecessary elements or clutter?"
+        },
+        {
+          "question_id": 2,
+          "question_text": "Which chart requires less effort to locate and understand key information (such as metro names, industry categories, and employer sizes) to answer the master question about economic resilience?"
+        },
+        {
+          "question_id": 3,
+          "question_text": "Which chart allows you to unambiguously distinguish between different industries and metros, minimizing any confusion about what each visual element represents?"
+        },
+        {
+          "question_id": 4,
+          "question_text": "Are the legends, labels, color codes, and axis scales in either chart clear and concise enough so you can confidently interpret which areas demonstrate greater employment diversity?"
+        },
+        {
+          "question_id": 5,
+          "question_text": "Which chart’s overall visual style (color palette, font choices, and layout) would be more appropriate and impressive for a professional audience of urban planners and economic development officials?"
+        },
+        {
+          "question_id": 6,
+          "question_text": "Does either chart include confusing or overlapping elements (such as excessive gridlines, icons, or annotation layers) that make it more difficult or slower to assess industrial diversity across metro areas?"
+        },
+        {
+          "question_id": 7,
+          "question_text": "Considering the intended goal to promote detailed scrutiny of where large-scale job creation aligns with industry clusters, which chart better directs attention to these patterns without distracting or misleading the viewer?"
+        },
+        {
+          "question_id": 8,
+          "question_text": "In terms of overall interpretability and ease of extracting the main message, which chart ensures that viewers can clearly spot metros with a diverse mix of industries among large employers, supporting reliable conclusions about economic resilience?"
+        }
+      ],
+      "metadata": {
+        "dataset": "Inc5000 Company List 2014",
+        "summary_id": 3,
+        "question_id": 5,
+        "master_question": "Do any metros show a particularly diverse mix of industries among their large employers, and what does this imply for economic resilience?",
+        "target_audience": "Economic development officials, urban planners, and workforce strategists evaluating employment impact and cluster formation across regions",
+        "curator_intention": "Direct attention to employment concentrations and industrial diversity across metro areas, promoting detailed scrutiny of where large-scale job creation aligns with specific sectors and urban hubs.",
+        "num_questions_requested": 8,
+        "num_questions_generated": 8,
+        "evaluation_constructs": [
+          "cognitive_load",
+          "interpretability",
+          "style"
+        ]
+      },
+      "summary_id": 3,
+      "question_id": 5
+    },
+    {
+      "questions": [
+        {
+          "question_id": 1,
+          "question_text": "Which chart allows you to quickly spot the metro areas with the highest concentration of large employers and see which industries drive these clusters, without needing to search back and forth between legend and data marks?"
+        },
+        {
+          "question_id": 2,
+          "question_text": "Which chart makes it clearer, at a glance, where the largest groups of high-worker-count companies are located and what industry each cluster belongs to?"
+        },
+        {
+          "question_id": 3,
+          "question_text": "Looking at both charts, which one uses labels, legends, and axes in a way that avoids confusion or ambiguous meanings about geographic locations and industry categories?"
+        },
+        {
+          "question_id": 4,
+          "question_text": "Which chart feels less visually crowded or cluttered, making it easier to absorb the main patterns of employment concentration by region and sector?"
+        },
+        {
+          "question_id": 5,
+          "question_text": "When comparing both charts, which one feels more professionally designed in terms of color scheme, font choice, and overall visual harmony for an audience of economic planners?"
+        },
+        {
+          "question_id": 6,
+          "question_text": "Which chart presents information about regions, employer sizes, and industry types in a more consistent and unambiguous way, reducing chances of misinterpretation for someone new to the dataset?"
+        },
+        {
+          "question_id": 7,
+          "question_text": "Which chart minimizes mental effort by making it easier to trace how industry diversity overlaps with high employment concentrations across various metro areas?"
+        },
+        {
+          "question_id": 8,
+          "question_text": "Overall, which chart would you trust more to present to city officials or economic strategists if the goal is to clearly and accurately identify geographic and sectoral job concentration patterns?"
+        }
+      ],
+      "metadata": {
+        "dataset": "Inc5000 Company List 2014",
+        "summary_id": 3,
+        "question_id": 6,
+        "master_question": "Where do concentrations of high-worker-count companies align geographically, and which industries are driving these clusters?",
+        "target_audience": "Economic development officials, urban planners, and workforce strategists evaluating employment impact and cluster formation across regions",
+        "curator_intention": "Direct attention to employment concentrations and industrial diversity across metro areas, promoting detailed scrutiny of where large-scale job creation aligns with specific sectors and urban hubs.",
+        "num_questions_requested": 8,
+        "num_questions_generated": 8,
+        "evaluation_constructs": [
+          "cognitive_load",
+          "interpretability",
+          "style"
+        ]
+      },
+      "summary_id": 3,
+      "question_id": 6
+    }
+  ],
+  "summary": {
+    "total_processed": 18,
+    "successful": 18,
+    "failed": 0
+  }
+}

@@ -40,305 +40,353 @@
             border: 1px solid #dee2e6;
             border-radius: 4px;
         }
+        
+        /* Evaluation Instructions */
+        .evaluation-instructions.compact {
+            background: #e3f2fd;
+            border: 1px solid #90caf9;
+            border-radius: 15px;
+            padding: 15px;
+            margin: 15px 0;
+        }
+        
+        .instruction-bullets ul {
+            margin: 0;
+            padding-left: 20px;
+            font-size: 0.9em;
+            color: #1565c0;
+            line-height: 1.5;
+        }
+        
+        .instruction-bullets li {
+            margin-bottom: 5px;
+        }
+        
+        .instruction-bullets li:last-child {
+            margin-bottom: 0;
+        }
+        
+        /* Combined Fixed Header with Question and Controls */
+        .question-display-sticky {
+            position: fixed !important;
+            top: 0 !important;
+            left: 0 !important;
+            right: 0 !important;
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef) !important;
+            border-bottom: 3px solid #007bff !important;
+            z-index: 9999 !important;
+            padding: 15px 20px !important;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.15) !important;
+            box-sizing: border-box !important;
+        }
+        
+        .sticky-header-content {
+            display: flex !important;
+            flex-direction: column !important;
+            gap: 10px !important;
+            max-width: 100% !important;
+        }
+        
+        /* Question text styling */
+        .question-section {
+            background: white !important;
+            padding: 12px 15px !important;
+            border-radius: 8px !important;
+            border-left: 4px solid #007bff !important;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1) !important;
+        }
+        
+        .question-label {
+            color: #007bff !important;
+            font-size: 0.85em !important;
+            font-weight: 600 !important;
+            margin-bottom: 5px !important;
+            text-transform: uppercase !important;
+            letter-spacing: 0.5px !important;
+        }
+        
+        .question-content {
+            margin: 0 !important;
+            font-weight: 500 !important;
+            font-size: 1.05em !important;
+            line-height: 1.4 !important;
+            color: #495057 !important;
+        }
+        
+        /* Navigation controls styling */
+        .navigation-section {
+            display: flex !important;
+            align-items: center !important;
+            justify-content: space-between !important;
+            background: rgba(255,255,255,0.9) !important;
+            padding: 8px 15px !important;
+            border-radius: 6px !important;
+            border: 1px solid #dee2e6 !important;
+        }
+        
+        .nav-title {
+            font-weight: 600 !important;
+            color: #495057 !important;
+            margin-right: 15px !important;
+        }
+        
+        .nav-controls {
+            display: flex !important;
+            align-items: center !important;
+            gap: 10px !important;
+            flex: 1 !important;
+            justify-content: center !important;
+        }
+        
+        /* Adjust body padding for combined header */
+        body {
+            margin: 0 !important;
+            padding-top: 160px !important; /* Increased for combined header */
+        }
+        
+        .container {
+            position: relative !important;
+            overflow: visible !important;
+            margin-top: 0 !important;
+            padding-top: 0 !important;
+        }
+        
+        /* Ensure header content is properly styled */
+        .compact-header .header-title {
+            display: inline-block !important;
+            margin-right: 20px !important;
+        }
+        
+        .compact-header .compact-pair-selector {
+            display: inline-flex !important;
+            align-items: center !important;
+            gap: 10px !important;
+        }
+        
+        /* Reset the master-question-section padding since we're using body padding now */
+        .container > .master-question-section {
+            padding-top: 15px;
+        }
+        
+        /* Horizontal radio group layout */
+        .radio-group.horizontal {
+            display: flex;
+            gap: 20px;
+            align-items: flex-start;
+            justify-content: flex-start;
+            margin-top: 8px;
+            margin-left: 0;
+            text-align: left;
+            width: 100%;
+            flex-wrap: wrap;
+        }
+        
+        /* Question group styling */
+        .question-group {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        
+        .question-item {
+            background: #f8f9fa;
+            border: 1px solid #e9ecef;
+            border-radius: 8px;
+            padding: 15px;
+            border-left: 4px solid #007bff;
+        }
+        
+        .question-number {
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: #495057;
+            font-size: 1em;
+            line-height: 1.4;
+        }
+        
+        .checkbox-group.horizontal {
+            display: flex;
+            gap: 20px;
+            align-items: flex-start;
+            justify-content: flex-start;
+            margin-top: 8px;
+            margin-left: 0;
+            text-align: left;
+            width: 100%;
+        }
+        
+        /* Smaller checkbox and radio button styling */
+        .checkbox-item, .radio-item {
+            position: relative;
+            padding-left: 25px;
+            font-size: 0.95em;
+            margin-left: 0;
+            display: inline-flex;
+            align-items: center;
+            cursor: pointer;
+        }
+        
+        .checkbox-item input[type="checkbox"], 
+        .radio-item input[type="radio"] {
+            position: absolute;
+            opacity: 0;
+            cursor: pointer;
+        }
+        
+        .checkmark, .radio-button {
+            position: absolute;
+            top: 2px;
+            left: 0;
+            height: 14px;
+            width: 14px;
+            background-color: #fff;
+            border: 2px solid #ddd;
+            cursor: pointer;
+        }
+        
+        .checkmark {
+            border-radius: 3px;
+        }
+        
+        .radio-button {
+            border-radius: 50%;
+        }
+        
+        .checkbox-item:hover .checkmark, 
+        .radio-item:hover .radio-button {
+            border-color: #007bff;
+        }
+        
+        .checkbox-item input:checked ~ .checkmark {
+            background-color: #007bff;
+            border-color: #007bff;
+        }
+        
+        .radio-item input:checked ~ .radio-button {
+            background-color: #007bff;
+            border-color: #007bff;
+        }
+        
+        .checkmark:after {
+            content: "";
+            position: absolute;
+            display: none;
+        }
+        
+        .checkbox-item input:checked ~ .checkmark:after {
+            display: block;
+        }
+        
+        .checkbox-item .checkmark:after {
+            left: 3px;
+            top: 0px;
+            width: 4px;
+            height: 8px;
+            border: solid white;
+            border-width: 0 2px 2px 0;
+            transform: rotate(45deg);
+        }
+        
+        .radio-button:after {
+            content: "";
+            position: absolute;
+            display: none;
+        }
+        
+        .radio-item input:checked ~ .radio-button:after {
+            display: block;
+        }
+        
+        .radio-item .radio-button:after {
+            top: 2px;
+            left: 2px;
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: white;
+        }
     </style>
 </head>
 <body>
-    <div class="container">
-        <header class="header">
-            <div style="display: flex; justify-content: space-between; align-items: center;">
-                <div>
-                    <h1>Chart Evaluation System</h1>
-                    <p class="subtitle">Evaluate charts across different cognitive constructs</p>
+    <!-- Combined Sticky Header with Question and Navigation -->
+    <div class="question-display-sticky" id="stickyQuestionDisplay">
+        <div class="sticky-header-content">
+            <!-- Question Section -->
+            <div class="question-section">
+                <div class="question-label">Current Question:</div>
+                <div class="question-content" id="stickyQuestionText">Loading question...</div>
+            </div>
+            
+            <!-- Navigation Section -->
+            <div class="navigation-section">
+                <div class="nav-title">Navigate:</div>
+                <div class="nav-controls">
+                    <button id="prevBtn" class="nav-btn" title="Previous Question">‹</button>
+                    <label for="pairSlider" class="compact-slider-label">Question:</label>
+                    <input type="range" id="pairSlider" class="pair-slider" min="0" max="13" value="0" step="1">
+                    <button id="nextBtn" class="nav-btn" title="Next Question">›</button>
+                    <span class="compact-slider-current">1 of 14</span>
                 </div>
-                <button onclick="goToHomePage()" style="
-                    background: #007bff;
-                    color: white;
-                    border: none;
-                    padding: 10px 20px;
-                    border-radius: 25px;
-                    cursor: pointer;
-                    font-weight: 600;
-                    font-size: 14px;
-                    transition: all 0.3s ease;
-                    box-shadow: 0 2px 8px rgba(0,123,255,0.3);
-                " title="Return to Home Page">
-                    🏠 Home
-                </button>
             </div>
-        </header>
-
-        <!-- Static Navigation Tabs -->
-        <div class="category-navigation">
-            <button class="nav-tab active" id="clutterTab" onclick="showCategory('clutter')">Visual Clutter Evaluation</button>
-            <button class="nav-tab" id="cognitiveTab" onclick="showCategory('cognitive_load')">Cognitive Load Evaluation</button>
-            <button class="nav-tab" id="interpretabilityTab" onclick="showCategory('interpretability')">Interpretability Evaluation</button>
-            <button class="nav-tab" id="styleTab" onclick="showCategory('style')">Style Evaluation</button>
         </div>
+    </div>
 
-        <!-- Master Question Section -->
+    <div class="container">
+        <!-- Dataset Info Section -->
         <div class="master-question-section" id="masterQuestionSection">
-            <h2 class="master-question-title">Master Question</h2>
             <div class="dataset-info" id="dynamicDatasetInfo">
-                <strong>Dataset:</strong> <span id="datasetName">Loading...</span><br>
-                <strong>Target Audience:</strong> <span id="targetAudience">Loading...</span>
+                <strong>Dataset:</strong> <span id="datasetName">Loading...</span>
             </div>
-            <p class="master-question-text" id="dynamicMasterQuestion">
-                <strong>Loading question...</strong>
-            </p>
-            <div class="curator-context" id="dynamicCuratorContext">
-                <em>Loading context...</em>
+            <!-- Information Links Section -->
+            <div class="info-links-section" style="margin-top: 10px; margin-bottom: 10px; display: flex; gap: 10px; flex-wrap: wrap;">
+                <button class="info-link-btn" onclick="showModal('contextModal')" style="
+                    background: none;
+                    border: 1px solid #007bff;
+                    color: #007bff;
+                    padding: 6px 10px;
+                    border-radius: 15px;
+                    cursor: pointer;
+                    font-size: 12px;
+                    font-weight: 500;
+                    transition: all 0.3s ease;
+                    display: flex;
+                    align-items: center;
+                    gap: 3px;
+                " onmouseover="this.style.background='#007bff'; this.style.color='white'" onmouseout="this.style.background='none'; this.style.color='#007bff'">
+                    📄 Context
+                </button>
+                <button class="info-link-btn" onclick="showModal('datasetModal')" style="
+                    background: none;
+                    border: 1px solid #28a745;
+                    color: #28a745;
+                    padding: 6px 10px;
+                    border-radius: 15px;
+                    cursor: pointer;
+                    font-size: 12px;
+                    font-weight: 500;
+                    transition: all 0.3s ease;
+                    display: flex;
+                    align-items: center;
+                    gap: 3px;
+                " onmouseover="this.style.background='#28a745'; this.style.color='white'" onmouseout="this.style.background='none'; this.style.color='#28a745'">
+                    📊 Dataset Sample
+                </button>
             </div>
             <div class="assumption-note">
                 <strong>Important:</strong> Both charts show visualizations of the same underlying dataset; only the visual design elements differ.
             </div>
             
-            <!-- Dataset Sample Section -->
-            <div class="dataset-sample-section" id="datasetSampleSection" style="margin-top: 20px; padding: 15px; background-color: #f8f9fa; border-radius: 8px; border-left: 4px solid #007bff;">
-                <h3 style="margin-top: 0; color: #495057; font-size: 1.1em;">Dataset Sample</h3>
-                <p style="margin-bottom: 15px; color: #6c757d; font-size: 0.9em;">
-                    Below is a preview of the underlying data that both charts visualize:
-                </p>
-                <div class="data-table-container" id="dataTableContainer">
-                    <div class="loading-message" style="text-align: center; padding: 20px; color: #6c757d;">
-                        <div class="spinner" style="display: inline-block; width: 20px; height: 20px; border: 3px solid #f3f3f3; border-top: 3px solid #007bff; border-radius: 50%; animation: spin 1s linear infinite; margin-right: 10px;"></div>
-                        Loading dataset sample...
-                    </div>
-                </div>
-                <div class="dataset-stats" id="datasetStats" style="margin-top: 10px; font-size: 0.85em; color: #6c757d;">
-                    <!-- Dataset statistics will be populated here -->
+            <!-- Evaluation Guidelines -->
+            <div class="evaluation-instructions compact">
+                <div class="instruction-bullets">
+                    <ul>
+                        <li><strong>Readability:</strong> Is it chart easy to perceive for you, and whether you can decode the encoded information unambiguously?</li>
+                        <li><strong>Precision:</strong> Given the question, are you able to identify and extract all the relevant information from the chart encodings/annotations/etc., process it accurately to reach a reliable conclusion/answer?</li>
+                        <li><strong>Overall Preference:</strong> Which chart is better?</li>
+                    </ul>
                 </div>
             </div>
         </div>
-
-        <!-- Visual Clutter Guidelines -->
-        <div class="guidelines-section" id="clutterGuidelines">
-            <h3>User Guidelines for Visual Clutter</h3>
-            <div class="guidelines-content">
-                <div class="instruction-summary">
-                    <h4>What to do:</h4>
-                    <ul>
-                        <li>Imagine seeing this chart for the first time for just 1–2 seconds, with some initial impressions to gauge the purpose of the visualization.</li>
-                        <li>Focus on <strong>Purely Visual</strong> perceptions. Is it a chart you would make an effort to parse in more detail?</li>
-                        <li>For this question, <strong>Do NOT</strong> try to decode the specific data values plotted, nor any underlying patterns/insights.</li>
-                        <li>Look only at the visible elements on the chart surface, their arrangement, and how they interact with each other.</li>
-                    </ul>
-                </div>
-                
-                <div class="what-to-focus">
-                    <h4>What to focus on:</h4>
-                    <ul>
-                        <li>Dense labels, overlapping text, or crowded annotations</li>
-                        <li>Heavy gridlines, excessive visual elements, or visually impeding decorative components</li>
-                        <li>Overall visual noise and element density at first glance</li>
-                        <li>Whether the chart feels overwhelming or calm to look at initially</li>
-                    </ul>
-                </div>
-                
-                <div class="what-to-ignore">
-                    <h4>What to ignore:</h4>
-                    <ul>
-                        <li>The actual data values or trends shown in the chart</li>
-                        <li>Your ability to understand the chart's message</li>
-                        <li>Whether the chart is "good" or "bad" from an analytical perspective</li>
-                        <li>The complexity of the underlying data or domain</li>
-                    </ul>
-                </div>
-                
-                <div class="decision-heuristic">
-                    <h4>Decision Heuristic:</h4>
-                    <p><strong>Pick the chart that looks cleaner and less overwhelming at first glance, regardless of the data it shows.</strong></p>
-                </div>
-                
-                <div class="design-flaws">
-                    <h4>Possible Design Flaw Tags You May Look For:</h4>
-                    <div class="flaw-category">
-                        <strong>Dense Text/Labels:</strong> Overlapping labels, cramped annotations, excessive text density
-                    </div>
-                    <div class="flaw-category">
-                        <strong>Heavy Visual Elements:</strong> Thick gridlines, excessive borders, heavy chart junk
-                    </div>
-                    <div class="flaw-category">
-                        <strong>Decorative Overload:</strong> Unnecessary visual embellishments, distracting design elements
-                    </div>
-                    <div class="flaw-category">
-                        <strong>Color/Pattern Noise:</strong> Too many colors, conflicting patterns, visual interference
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Cognitive Load Guidelines -->
-        <div class="guidelines-section" id="cognitiveGuidelines" style="display: none;">
-            <h3>User Guidelines for Cognitive Load (Extraneous)</h3>
-            <div class="guidelines-content">
-                <div class="instruction-summary">
-                    <h4>What to do:</h4>
-                    <ul>
-                        <li>Assume both charts show the same data; focus only on which design makes comprehension easier or harder.</li>
-                        <li>Answer based on the mental effort needed to identify key values/trends/comparisons—NOT on which chart you personally find prettier.</li>
-                        <li>Consider how quickly you can locate the legend/labels, understand encodings, and interpret scales.</li>
-                    </ul>
-                </div>
-                
-                <div class="what-to-focus">
-                    <h4>What to focus on:</h4>
-                    <ul>
-                        <li>How many distinct visual cues you must track at once (color, size, shape, annotations, multiple legends).</li>
-                        <li>Whether you need to repeatedly switch attention between legend, labels, and marks to decode meaning.</li>
-                        <li>Whether the chart feels visually crowded or forces slow scanning.</li>
-                        <li>Scale complexity (dual y-axes, non-uniform spacing, multiple scales requiring constant checking)</li>
-                        <li>Legend/decoding overhead - how much back-and-forth eye movement is needed</li>
-                    </ul>
-                </div>
-                
-                <div class="what-to-ignore">
-                    <h4>What to ignore:</h4>
-                    <ul>
-                        <li>Your familiarity with the topic/domain of the data (assume neutral).</li>
-                        <li>Whether you like the style aesthetically (unless it directly increases confusion or effort).</li>
-                        <li>Whether the data itself is complex (judge the design's added burden).</li>
-                    </ul>
-                </div>
-                
-                <div class="decision-heuristic">
-                    <h4>Decision Heuristic:</h4>
-                    <p><strong>Pick the chart that you believe a typical viewer could understand faster with fewer back-and-forth eye movements.</strong></p>
-                </div>
-                
-                <div class="design-flaws">
-                    <h4>Possible Design Flaw Tags You May Look For:</h4>
-                    <div class="flaw-category">
-                        <strong>Multiple Visual Channels:</strong> Too many encodings to track (color + size + shape + pattern)
-                    </div>
-                    <div class="flaw-category">
-                        <strong>Legend/Decoding Overhead:</strong> Complex legends requiring constant reference
-                    </div>
-                    <div class="flaw-category">
-                        <strong>Scale Complexity:</strong> Dual axes, non-uniform spacing, multiple scales
-                    </div>
-                    <div class="flaw-category">
-                        <strong>Attention Switching:</strong> Frequent eye movement between elements needed for comprehension
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Interpretability Guidelines -->
-        <div class="guidelines-section" id="interpretabilityGuidelines" style="display: none;">
-            <h3>User Guidelines for Interpretability (Confusion / Ambiguity)</h3>
-            <div class="guidelines-content">
-                <div class="instruction-summary">
-                    <h4>What to do:</h4>
-                    <ul>
-                        <li>Try to understand what the chart is communicating, using given context and knowledge.</li>
-                        <li>Decoding is allowed and expected (axes, legends, colors). First, try to comprehend each element (such as axes scales, legends, annotations etc.) and their properties (underlying data type, size, color, etc.) independently.</li>
-                        <li>Try performing retrieval of data values, such as exact numbers or trends.</li>
-                        <li>Judge whether the any individual element, or a combination of elements on the chart leads to a clear or ambiguous understanding.</li>
-                    </ul>
-                </div>
-                
-                <div class="what-to-focus">
-                    <h4>What to focus on:</h4>
-                    <ul>
-                        <li>Whether you can clearly tell what each visual element represents without confusion.</li>
-                        <li>Whether relationships, comparisons, or trends are unambiguous.</li>
-                        <li>Whether multiple plausible interpretations exist (in which case, it would decrease interpretability and lead to confusion).</li>
-                        <li>Ambiguous visual encodings (same color for multiple categories, unclear legends, inconsistent use of symbols).</li>
-                        <li>Missing or unclear axis labels, units, or scales.</li>
-                        <li>Using your own knowledge and information about underlying data (data types, semantic meanings etc.), check if the used encodings or scales make sense. </li> 
-                    </ul>
-                </div>
-                
-                <div class="what-to-ignore">
-                    <h4>What to ignore:</h4>
-                    <ul>
-                        <li>Judging based on visual crowdedness alone (that is clutter).</li>
-                        <li>Judging based on how effortful decoding felt (that is cognitive load or data domain complexity).</li>
-                        <li>Aesthetic preferences unrelated to clarity.</li>
-                    </ul>
-                </div>
-                
-                <div class="decision-heuristic">
-                    <h4>Decision Heuristic:</h4>
-                    <p><strong>If two reasonable people could walk away with different understandings, the chart is less interpretable.</strong></p>
-                    <p><strong>Pick the chart that is both "unambiguous" and "useful" in what it is conveying. </strong></p>
-                </div>
-                
-                <div class="design-flaws">
-                    <h4>Possible Design Flaw Tags You May Look For:</h4>
-                    <div class="flaw-category">
-                        <strong>Ambiguous/Confusing Visual Encoding:</strong> Same color for multiple categories, unclear symbol meanings, continuous color encoding for discrete variables etc.
-                    </div>
-                    <div class="flaw-category">
-                        <strong>Missing/Unclear Labels:</strong> Unlabeled axes, missing units, ambiguous legends
-                    </div>
-                    <div class="flaw-category">
-                        <strong>Misleading/Confusing Scales:</strong> Non-zero baselines, inconsistent intervals, truncated ranges, or logarithmic scales/transformations without clear indication OR utility.
-                    </div>
-                    <div class="flaw-category">
-                        <strong>Inconsistent Mapping:</strong> Same visual element representing different data types
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Style Guidelines -->
-        <div class="guidelines-section" id="styleGuidelines" style="display: none;">
-            <h3>User Guidelines for Style (Aesthetic Appeal)</h3>
-            <div class="guidelines-content">
-                <div class="instruction-summary">
-                    <h4>What to do:</h4>
-                    <ul>
-                        <li>Focus purely on visual aesthetics and design appeal (choice of font, color and other design attributes etc.).</li>
-                        <li>Judge the rationality of spatial layout, element positioning, size proportions and spacing from a design perspective for the particular type of chart presented (bar chart, line chart, etc.).</li>
-                        <li>Consider which chart you find to be better, more professionally designed for the given intent.</li>
-                        <li>Judge based on overall visual harmony, color choices, and design quality.</li>
-                    </ul>
-                </div>
-                
-                <div class="what-to-focus">
-                    <h4>What to focus on:</h4>
-                    <ul>
-                        <li>Color harmony and visual appeal of the palette.</li>
-                        <li>Typography quality and readability.</li>
-                        <li>Overall design professionalism and polish.</li>
-                        <li>Visual balance and composition.</li>
-                        <li>Modern vs. outdated design elements.</li>
-                    </ul>
-                </div>
-                
-                <div class="what-to-ignore">
-                    <h4>What to ignore:</h4>
-                    <ul>
-                        <li>Functional aspects like data clarity or ease of interpretation.</li>
-                        <li>How cluttered or clean the chart appears functionally.</li>
-                        <li>How easy it is to understand the data, the problem domain, its technicality etc.</li>
-                    </ul>
-                </div>
-                
-                <div class="decision-heuristic">
-                    <h4>Decision Heuristic:</h4>
-                    <p><strong>Pick the chart that you would be more proud to include in a professional presentation based purely on visual appeal.</strong></p>
-                </div>
-                
-                <div class="design-flaws">
-                    <h4>Possible Design Flaw Tags You May Look For:</h4>
-                    <div class="flaw-category">
-                        <strong>Poor Color Harmony:</strong> Clashing colors, inappropriate palette choices, poor contrast
-                    </div>
-                    <div class="flaw-category">
-                        <strong>Typography Issues:</strong> Poor font choices, inconsistent sizing, readability problems
-                    </div>
-                    <div class="flaw-category">
-                        <strong>Layout Problems:</strong> Poor spacing, unbalanced composition, misaligned elements
-                    </div>
-                    <div class="flaw-category">
-                        <strong>Outdated Design:</strong> Old-fashioned styling, dated visual elements, unprofessional appearance
-                    </div>
-                </div>
-            </div>
-        </div>
-
         <div class="images-section">
             <div class="charts-row">
                 <div class="image-container">
@@ -389,469 +437,115 @@
             </div>
             
             <!-- Navigation controls will be inserted here by JavaScript -->
-            <div id="pairNavigationContainer"></div>
+
         </div>
 
-        <!-- Visual Clutter Evaluation Form -->
-        <div class="question-form" id="clutterForm">
-            <div class="primary-question">
-                <h3>Which chart looks more cluttered or visually messy?</h3>
-                <p class="clarifying-subtitle">Focus on visual crowding and noise, not data complexity</p>
-                
-                <div class="forced-choice">
-                    <label><input type="radio" name="primary_clutter" value="Chart A"> Chart A looks more cluttered</label>
-                    <label><input type="radio" name="primary_clutter" value="Chart B"> Chart B looks more cluttered</label>
-                    <label><input type="radio" name="primary_clutter" value="About the same"> About the same</label>
-                </div>
-            </div>
-
-            <div class="likert-questions">
-                <h4>Rate each chart's visual clutter level:</h4>
-                
-                <div class="likert-group">
-                    <label class="likert-label">Chart A visual clutter:</label>
-                    <div class="descriptive-scale">
-                        <div class="scale-options">
-                            <label class="descriptive-option">
-                                <input type="radio" name="chart_a_clutter" value="1">
-                                <div class="option-content">
-                                    <strong>1. Minimal Clutter</strong>
-                                    <span>Clean design with excellent visual hierarchy</span>
-                                </div>
-                            </label>
-                            <label class="descriptive-option">
-                                <input type="radio" name="chart_a_clutter" value="2">
-                                <div class="option-content">
-                                    <strong>2. Isolated Issues</strong>
-                                    <span>One or two clutter elements, but message comes through</span>
-                                </div>
-                            </label>
-                            <label class="descriptive-option">
-                                <input type="radio" name="chart_a_clutter" value="3">
-                                <div class="option-content">
-                                    <strong>3. Multiple Issues</strong>
-                                    <span>Several clutter elements creating visual noise, objective hard to track</span>
-                                </div>
-                            </label>
-                            <label class="descriptive-option">
-                                <input type="radio" name="chart_a_clutter" value="4">
-                                <div class="option-content">
-                                    <strong>4. Severely Cluttered</strong>
-                                    <span>Chart should be discarded due to excessive visual noise</span>
-                                </div>
-                            </label>
+        <!-- Simple Checkbox Evaluation Form -->
+        <div class="simple-evaluation-form">
+            <div class="chart-evaluation-sections">
+                <!-- Chart A Evaluation -->
+                <div class="chart-section">
+                    <h3>Answer the following for Chart A:</h3>
+                    <div class="question-group">
+                        <div class="question-item">
+                            <div class="question-number">1.) Readability: Ability to perceive, identify and decode information effortlessly</div>
+                            <div class="checkbox-group horizontal">
+                                <label class="checkbox-item">
+                                    <input type="checkbox" id="chart_a_readable_yes" name="chart_a_readable_yes">
+                                    <span class="checkmark"></span>
+                                    Yes
+                                </label>
+                                <label class="checkbox-item">
+                                    <input type="checkbox" id="chart_a_readable_no" name="chart_a_readable_no">
+                                    <span class="checkmark"></span>
+                                    No
+                                </label>
+                            </div>
+                        </div>
+                        <div class="question-item">
+                            <div class="question-number">2.) Precision: Ability to answer the provided question completely and unambiguously</div>
+                            <div class="checkbox-group horizontal">
+                                <label class="checkbox-item">
+                                    <input type="checkbox" id="chart_a_precision_yes" name="chart_a_precision_yes">
+                                    <span class="checkmark"></span>
+                                    Yes
+                                </label>
+                                <label class="checkbox-item">
+                                    <input type="checkbox" id="chart_a_precision_no" name="chart_a_precision_no">
+                                    <span class="checkmark"></span>
+                                    No
+                                </label>
+                            </div>
                         </div>
                     </div>
                 </div>
 
-                <div class="likert-group">
-                    <label class="likert-label">Chart B visual clutter:</label>
-                    <div class="descriptive-scale">
-                        <div class="scale-options">
-                            <label class="descriptive-option">
-                                <input type="radio" name="chart_b_clutter" value="1">
-                                <div class="option-content">
-                                    <strong>1. Minimal Clutter</strong>
-                                    <span>Clean design with excellent visual hierarchy</span>
-                                </div>
-                            </label>
-                            <label class="descriptive-option">
-                                <input type="radio" name="chart_b_clutter" value="2">
-                                <div class="option-content">
-                                    <strong>2. Isolated Issues</strong>
-                                    <span>One or two clutter elements, but message comes through</span>
-                                </div>
-                            </label>
-                            <label class="descriptive-option">
-                                <input type="radio" name="chart_b_clutter" value="3">
-                                <div class="option-content">
-                                    <strong>3. Multiple Issues</strong>
-                                    <span>Several clutter elements creating visual noise, objective hard to track</span>
-                                </div>
-                            </label>
-                            <label class="descriptive-option">
-                                <input type="radio" name="chart_b_clutter" value="4">
-                                <div class="option-content">
-                                    <strong>4. Severely Cluttered</strong>
-                                    <span>Chart should be discarded due to excessive visual noise</span>
-                                </div>
-                            </label>
+                <!-- Chart B Evaluation -->
+                <div class="chart-section">
+                    <h3>Answer the following for Chart B:</h3>
+                    <div class="question-group">
+                        <div class="question-item">
+                            <div class="question-number">1.) Readability: Ability to perceive, identify and decode information effortlessly</div>
+                            <div class="checkbox-group horizontal">
+                                <label class="checkbox-item">
+                                    <input type="checkbox" id="chart_b_readable_yes" name="chart_b_readable_yes">
+                                    <span class="checkmark"></span>
+                                    Yes
+                                </label>
+                                <label class="checkbox-item">
+                                    <input type="checkbox" id="chart_b_readable_no" name="chart_b_readable_no">
+                                    <span class="checkmark"></span>
+                                    No
+                                </label>
+                            </div>
+                        </div>
+                        <div class="question-item">
+                            <div class="question-number">2.) Precision: Ability to answer the provided question completely and unambiguously</div>
+                            <div class="checkbox-group horizontal">
+                                <label class="checkbox-item">
+                                    <input type="checkbox" id="chart_b_precision_yes" name="chart_b_precision_yes">
+                                    <span class="checkmark"></span>
+                                    Yes
+                                </label>
+                                <label class="checkbox-item">
+                                    <input type="checkbox" id="chart_b_precision_no" name="chart_b_precision_no">
+                                    <span class="checkmark"></span>
+                                    No
+                                </label>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
 
-            <div class="confidence-question">
-                <h4>How confident are you in your choice?</h4>
-                <div class="likert-scale confidence-scale">
-                    <span class="scale-label">Not confident<br>(1)</span>
-                    <div class="radio-group">
-                        <label><input type="radio" name="confidence_clutter" value="1"><span>1</span></label>
-                        <label><input type="radio" name="confidence_clutter" value="2"><span>2</span></label>
-                        <label><input type="radio" name="confidence_clutter" value="3"><span>3</span></label>
-                        <label><input type="radio" name="confidence_clutter" value="4"><span>4</span></label>
-                        <label><input type="radio" name="confidence_clutter" value="5"><span>5</span></label>
+                <!-- Overall Preference -->
+                <div class="preference-section">
+                    <h3>Preference: Which is overall good?</h3>
+                    <div class="radio-group horizontal">
+                        <label class="radio-item">
+                            <input type="radio" name="overall_preference" value="Chart A">
+                            <span class="radio-button"></span>
+                            Chart A
+                        </label>
+                        <label class="radio-item">
+                            <input type="radio" name="overall_preference" value="Chart B">
+                            <span class="radio-button"></span>
+                            Chart B
+                        </label>
+                        <label class="radio-item">
+                            <input type="radio" name="overall_preference" value="Both similar">
+                            <span class="radio-button"></span>
+                            Both similar
+                        </label>
                     </div>
-                    <span class="scale-label">Very confident<br>(5)</span>
                 </div>
             </div>
 
-            <div class="rationale-question">
-                <h4>Briefly explain what made your chosen chart look more/less cluttered (optional):</h4>
-                <textarea id="rationale_clutter" rows="3" placeholder="E.g., 'Chart A has overlapping labels and heavy gridlines...'" maxlength="500"></textarea>
-            </div>
-            
+            <!-- Form Actions -->
             <div class="form-actions">
-                <button type="button" class="save-btn" onclick="saveClutterResponses()">💾 Save Clutter Responses</button>
-                <button type="button" class="submit-btn" onclick="submitEvaluation('clutter')">Submit Clutter Evaluation</button>
+                <button type="button" class="save-btn" onclick="saveSimpleEvaluation()">💾 Save Evaluation</button>
+                <button type="button" class="submit-btn" onclick="submitSimpleEvaluation()">Submit Evaluation</button>
             </div>
         </div>
-
-        <!-- Cognitive Load Evaluation Form -->
-        <div class="question-form" id="cognitiveForm" style="display: none;">
-            <div class="primary-question">
-                <h3>Which chart feels less mentally heavy to understand at a glance?</h3>
-                <p class="clarifying-subtitle">Focus on design-induced mental effort, not data complexity</p>
-                
-                <div class="forced-choice">
-                    <label><input type="radio" name="primary_cognitive_load" value="Chart A"> Chart A requires less mental effort</label>
-                    <label><input type="radio" name="primary_cognitive_load" value="Chart B"> Chart B requires less mental effort</label>
-                    <label><input type="radio" name="primary_cognitive_load" value="About the same"> About the same</label>
-                </div>
-            </div>
-
-            <div class="likert-questions">
-                <h4>Rate each chart's cognitive load level:</h4>
-                
-                <div class="likert-group">
-                    <label class="likert-label">Chart A cognitive load:</label>
-                    <div class="descriptive-scale">
-                        <div class="scale-options">
-                            <label class="descriptive-option">
-                                <input type="radio" name="chart_a_cognitive" value="1">
-                                <div class="option-content">
-                                    <strong>1. Minimal Cognitive Load</strong>
-                                    <span>Very easy to process, excellent parsing efficiency</span>
-                                </div>
-                            </label>
-                            <label class="descriptive-option">
-                                <input type="radio" name="chart_a_cognitive" value="2">
-                                <div class="option-content">
-                                    <strong>2. Isolated Complexity</strong>
-                                    <span>One or two demanding elements, but comprehensible</span>
-                                </div>
-                            </label>
-                            <label class="descriptive-option">
-                                <input type="radio" name="chart_a_cognitive" value="3">
-                                <div class="option-content">
-                                    <strong>3. Multiple Demanding Elements</strong>
-                                    <span>Several features requiring significant mental effort, not easily digestible</span>
-                                </div>
-                            </label>
-                            <label class="descriptive-option">
-                                <input type="radio" name="chart_a_cognitive" value="4">
-                                <div class="option-content">
-                                    <strong>4. Excessive Cognitive Burden</strong>
-                                    <span>Chart should be discarded due to overwhelming complexity</span>
-                                </div>
-                            </label>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="likert-group">
-                    <label class="likert-label">Chart B cognitive load:</label>
-                    <div class="descriptive-scale">
-                        <div class="scale-options">
-                            <label class="descriptive-option">
-                                <input type="radio" name="chart_b_cognitive" value="1">
-                                <div class="option-content">
-                                    <strong>1. Minimal Cognitive Load</strong>
-                                    <span>Very easy to process, excellent design efficiency</span>
-                                </div>
-                            </label>
-                            <label class="descriptive-option">
-                                <input type="radio" name="chart_b_cognitive" value="2">
-                                <div class="option-content">
-                                    <strong>2. Isolated Complexity</strong>
-                                    <span>One or two demanding elements, but comprehensible</span>
-                                </div>
-                            </label>
-                            <label class="descriptive-option">
-                                <input type="radio" name="chart_b_cognitive" value="3">
-                                <div class="option-content">
-                                    <strong>3. Multiple Demanding Elements</strong>
-                                    <span>Several features requiring significant mental effort, not easily digestible</span>
-                                </div>
-                            </label>
-                            <label class="descriptive-option">
-                                <input type="radio" name="chart_b_cognitive" value="4">
-                                <div class="option-content">
-                                    <strong>4. Excessive Cognitive Burden</strong>
-                                    <span>Chart should be discarded due to overwhelming complexity</span>
-                                </div>
-                            </label>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="confidence-question">
-                <h4>How confident are you in your choice?</h4>
-                <div class="likert-scale confidence-scale">
-                    <span class="scale-label">Not confident<br>(1)</span>
-                    <div class="radio-group">
-                        <label><input type="radio" name="confidence_cognitive" value="1"><span>1</span></label>
-                        <label><input type="radio" name="confidence_cognitive" value="2"><span>2</span></label>
-                        <label><input type="radio" name="confidence_cognitive" value="3"><span>3</span></label>
-                        <label><input type="radio" name="confidence_cognitive" value="4"><span>4</span></label>
-                        <label><input type="radio" name="confidence_cognitive" value="5"><span>5</span></label>
-                    </div>
-                    <span class="scale-label">Very confident<br>(5)</span>
-                </div>
-            </div>
-
-            <div class="rationale-question">
-                <h4>Briefly explain what made your chosen chart feel easier/harder to parse (optional):</h4>
-                <textarea id="rationale_cognitive" rows="3" placeholder="E.g., 'Chart A has too many visual channels to track simultaneously...'" maxlength="500"></textarea>
-            </div>
-            
-            <div class="form-actions">
-                <button type="button" class="save-btn" onclick="saveCognitiveResponses()">💾 Save Cognitive Load Responses</button>
-                <button type="button" class="submit-btn" onclick="submitEvaluation('cognitive_load')">Submit Cognitive Load Evaluation</button>
-            </div>
-        </div>
-
-        <!-- Interpretability Evaluation Form -->
-        <div class="question-form" id="interpretabilityForm" style="display: none;">
-            <div class="primary-question">
-                <h3>Which chart is easier to understand correctly and unambiguously?</h3>
-                <p class="clarifying-subtitle">Assume you are trying to understand what the chart is telling you</p>
-                
-                <div class="forced-choice">
-                    <label><input type="radio" name="primary_interpretability" value="Chart A"> Chart A is more interpretable</label>
-                    <label><input type="radio" name="primary_interpretability" value="Chart B"> Chart B is more interpretable</label>
-                    <label><input type="radio" name="primary_interpretability" value="About the same"> About the same</label>
-                </div>
-            </div>
-
-            <div class="likert-questions">
-                <h4>Rate each chart's interpretability level:</h4>
-                
-                <div class="likert-group">
-                    <label class="likert-label">Chart A interpretability:</label>
-                    <div class="descriptive-scale">
-                        <div class="scale-options">
-                            <label class="descriptive-option">
-                                <input type="radio" name="chart_a_interpretability" value="1">
-                                <div class="option-content">
-                                    <strong>1. Highly Interpretable</strong>
-                                    <span>Crystal clear meaning, no ambiguity or confusion from any element</span>
-                                </div>
-                            </label>
-                            <label class="descriptive-option">
-                                <input type="radio" name="chart_a_interpretability" value="2">
-                                <div class="option-content">
-                                    <strong>2. Minor Ambiguity</strong>
-                                    <span>Some ambiguous elements identified, but overall message clear</span>
-                                </div>
-                            </label>
-                            <label class="descriptive-option">
-                                <input type="radio" name="chart_a_interpretability" value="3">
-                                <div class="option-content">
-                                    <strong>3. Multiple Confusing Elements</strong>
-                                    <span>Combination of several aspects create confusion or misinterpretation risk</span>
-                                </div>
-                            </label>
-                            <label class="descriptive-option">
-                                <input type="radio" name="chart_a_interpretability" value="4">
-                                <div class="option-content">
-                                    <strong>4. Severely Ambiguous</strong>
-                                    <span>Chart should be discarded due to unclear interpretation</span>
-                                </div>
-                            </label>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="likert-group">
-                    <label class="likert-label">Chart B interpretability:</label>
-                    <div class="descriptive-scale">
-                        <div class="scale-options">
-                            <label class="descriptive-option">
-                                <input type="radio" name="chart_b_interpretability" value="1">
-                                <div class="option-content">
-                                    <strong>1. Highly Interpretable</strong>
-                                    <span>Crystal clear meaning, no ambiguity or confusion</span>
-                                </div>
-                            </label>
-                            <label class="descriptive-option">
-                                <input type="radio" name="chart_b_interpretability" value="2">
-                                <div class="option-content">
-                                    <strong>2. Minor Ambiguity</strong>
-                                    <span>Some ambiguous elements identified, but overall message clear</span>
-                                </div>
-                            </label>
-                            <label class="descriptive-option">
-                                <input type="radio" name="chart_b_interpretability" value="3">
-                                <div class="option-content">
-                                    <strong>3. Multiple Confusing Elements</strong>
-                                    <span>Combination of several aspects create confusion or misinterpretation risk</span>
-                                </div>
-                            </label>
-                            <label class="descriptive-option">
-                                <input type="radio" name="chart_b_interpretability" value="4">
-                                <div class="option-content">
-                                    <strong>4. Severely Ambiguous</strong>
-                                    <span>Chart should be discarded due to unclear interpretation</span>
-                                </div>
-                            </label>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="confidence-question">
-                <h4>How confident are you that your understanding is correct?</h4>
-                <div class="likert-scale confidence-scale">
-                    <span class="scale-label">Not confident<br>(1)</span>
-                    <div class="radio-group">
-                        <label><input type="radio" name="confidence_interpretability" value="1"><span>1</span></label>
-                        <label><input type="radio" name="confidence_interpretability" value="2"><span>2</span></label>
-                        <label><input type="radio" name="confidence_interpretability" value="3"><span>3</span></label>
-                        <label><input type="radio" name="confidence_interpretability" value="4"><span>4</span></label>
-                        <label><input type="radio" name="confidence_interpretability" value="5"><span>5</span></label>
-                    </div>
-                    <span class="scale-label">Very confident<br>(5)</span>
-                </div>
-            </div>
-
-            <div class="rationale-question">
-                <h4>Briefly explain what made the chart clear or confusing (optional):</h4>
-                <textarea id="rationale_interpretability" rows="3" placeholder="E.g., 'Chart A has ambiguous color mapping and unclear axes...'" maxlength="500"></textarea>
-            </div>
-            
-            <div class="form-actions">
-                <button type="button" class="save-btn" onclick="saveInterpretabilityResponses()">💾 Save Interpretability Responses</button>
-                <button type="button" class="submit-btn" onclick="submitEvaluation('interpretability')">Submit Interpretability Evaluation</button>
-            </div>
-        </div>
-
-        <!-- Style Evaluation Form -->
-        <div class="question-form" id="styleForm" style="display: none;">
-            <div class="primary-question">
-                <h3>Which chart is more visually appealing and professionally designed?</h3>
-                <p class="clarifying-subtitle">Focus purely on aesthetic appeal and design quality</p>
-                
-                <div class="forced-choice">
-                    <label><input type="radio" name="primary_style" value="Chart A"> Chart A looks better designed</label>
-                    <label><input type="radio" name="primary_style" value="Chart B"> Chart B looks better designed</label>
-                    <label><input type="radio" name="primary_style" value="About the same"> About the same</label>
-                </div>
-            </div>
-
-            <div class="likert-questions">
-                <h4>Rate each chart's aesthetic appeal and design quality:</h4>
-                
-                <div class="likert-group">
-                    <label class="likert-label">Chart A style quality:</label>
-                    <div class="descriptive-scale">
-                        <div class="scale-options">
-                            <label class="descriptive-option">
-                                <input type="radio" name="chart_a_style" value="1">
-                                <div class="option-content">
-                                    <strong>1. Excellent Design</strong>
-                                    <span>Professional, polished, and visually compelling</span>
-                                </div>
-                            </label>
-                            <label class="descriptive-option">
-                                <input type="radio" name="chart_a_style" value="2">
-                                <div class="option-content">
-                                    <strong>2. Minor Design Issues</strong>
-                                    <span>Generally good with a few identifiable style problems</span>
-                                </div>
-                            </label>
-                            <label class="descriptive-option">
-                                <input type="radio" name="chart_a_style" value="3">
-                                <div class="option-content">
-                                    <strong>3. Multiple Style Problems</strong>
-                                    <span>Several aesthetic issues affecting visual appeal, not easily digestible</span>
-                                </div>
-                            </label>
-                            <label class="descriptive-option">
-                                <input type="radio" name="chart_a_style" value="4">
-                                <div class="option-content">
-                                    <strong>4. Poor Design Quality</strong>
-                                    <span>Chart should be discarded due to unprofessional appearance</span>
-                                </div>
-                            </label>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="likert-group">
-                    <label class="likert-label">Chart B style quality:</label>
-                    <div class="descriptive-scale">
-                        <div class="scale-options">
-                            <label class="descriptive-option">
-                                <input type="radio" name="chart_b_style" value="1">
-                                <div class="option-content">
-                                    <strong>1. Excellent Design</strong>
-                                    <span>Professional, polished, and visually compelling</span>
-                                </div>
-                            </label>
-                            <label class="descriptive-option">
-                                <input type="radio" name="chart_b_style" value="2">
-                                <div class="option-content">
-                                    <strong>2. Minor Design Issues</strong>
-                                    <span>Generally good with a few identifiable style problems</span>
-                                </div>
-                            </label>
-                            <label class="descriptive-option">
-                                <input type="radio" name="chart_b_style" value="3">
-                                <div class="option-content">
-                                    <strong>3. Multiple Style Problems</strong>
-                                    <span>Several aesthetic issues affecting visual appeal, not easily digestible</span>
-                                </div>
-                            </label>
-                            <label class="descriptive-option">
-                                <input type="radio" name="chart_b_style" value="4">
-                                <div class="option-content">
-                                    <strong>4. Poor Design Quality</strong>
-                                    <span>Chart should be discarded due to unprofessional appearance</span>
-                                </div>
-                            </label>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="confidence-question">
-                <h4>How confident are you in your aesthetic judgment?</h4>
-                <div class="likert-scale confidence-scale">
-                    <span class="scale-label">Not confident<br>(1)</span>
-                    <div class="radio-group">
-                        <label><input type="radio" name="confidence_style" value="1"><span>1</span></label>
-                        <label><input type="radio" name="confidence_style" value="2"><span>2</span></label>
-                        <label><input type="radio" name="confidence_style" value="3"><span>3</span></label>
-                        <label><input type="radio" name="confidence_style" value="4"><span>4</span></label>
-                        <label><input type="radio" name="confidence_style" value="5"><span>5</span></label>
-                    </div>
-                    <span class="scale-label">Very confident<br>(5)</span>
-                </div>
-            </div>
-
-            <div class="rationale-question">
-                <h4>Briefly explain what makes one chart more visually appealing (optional):</h4>
-                <textarea id="rationale_style" rows="3" placeholder="E.g., 'Chart A has better color harmony and typography...'" maxlength="500"></textarea>
-            </div>
-            
-            <div class="form-actions">
-                <button type="button" class="save-btn" onclick="saveStyleResponses()">💾 Save Style Responses</button>
-                <button type="button" class="submit-btn" onclick="submitEvaluation('style')">Submit Style Evaluation</button>
-            </div>
-        </div>
-
 
     </div>
 
@@ -861,19 +555,17 @@
         <img id="modalImage" src="" alt="Enlarged view">
     </div>
 
-    <script src="script_static_updated.js"></script>
-    <script src="pair_processor_simple.js"></script>
+    <!-- New annotation-based data loading system -->
+    <script src="annotation_data_loader.js"></script>
+    <script src="annotation_ui_controller.js"></script>
+    
+    <!-- Legacy scripts for evaluation functionality -->
+    <script src="simple_evaluation.js"></script>
+    <script src="pair_slider.js"></script>
     <script>
-        // Integrated Pair Loading System
-        let currentPairProcessor = null;
-        let currentPairIndex = 0;
-
-        // CSV loading and display functionality
-        const csvFilenames = {
-            'ATP_rendered_charts': 'atp_number_1.csv',
-            'fifa18_rendered_charts': 'fifa18_clean.csv', 
-            'Inc500Charts': 'Data Set- Inc5000 Company List_2014.csv'
-        };
+        // Annotation-based data loading system
+        // Data loading is now handled by annotation_data_loader.js and annotation_ui_controller.js
+        // All CSV and pair processing logic has been moved to the annotation system
 
         const fallbackCSVData = {
             'Inc500Charts': "rank,workers,company,revenue,growth,industry,state_l,city,metro,yrs_on_list\n1,227,Fuhu,195640000,158956.91,Consumer Products & Services,California,El Segundo,Los Angeles,2\n2,191,Quest Nutrition,82640563,57347.92,Food & Beverage,California,El Segundo,Los Angeles,1\n3,108,Vacasa,51869307,52059.52,Travel & Hospitality,Oregon,Portland,Portland,1\n4,62,Active Wellness,43158688,41977.23,Health,California,San Diego,San Diego,1\n5,750,Lumos Networks,42082811,41093.89,Telecommunications,Virginia,Richmond,Richmond,3\n6,150,FIGS,40975692,40018.11,Consumer Products & Services,California,Santa Monica,Los Angeles,1\n7,51,iHeartMedia,39846336,38975.12,Media,Texas,San Antonio,San Antonio,2\n8,290,Shopify,38951447,38095.45,Software,Canada,Ottawa,Ottawa,2\n9,125,Rocket Internet,37962558,37154.78,Software,Germany,Berlin,Berlin,1\n10,88,ThoughtSpot,36954669,36104.11,Software,California,Palo Alto,San Francisco,1",
@@ -891,7 +583,7 @@
             }
             
             try {
-                const response = await fetch('csv/' + filename);
+                const response = await fetch('csv_c_squared/' + filename);
                 if (!response.ok) {
                     throw new Error(`Failed to load CSV file: ${filename} (Status: ${response.status})`);
                 }
@@ -990,8 +682,8 @@
 
         // Load and display CSV data
         async function loadAndDisplayCSVData(dataset, datasetName) {
-            const tableContainer = document.getElementById('dataTableContainer');
-            const statsContainer = document.getElementById('datasetStats');
+            const tableContainer = document.getElementById('modalDataTableContainer');
+            const statsContainer = document.getElementById('modalDatasetStats');
             
             if (!tableContainer) {
                 console.warn('Data table container not found');
@@ -1041,127 +733,57 @@
         }
 
         // Load dynamic master question based on URL parameters
+        // Load generic master question content
         async function loadMasterQuestion() {
             try {
-                const urlParams = new URLSearchParams(window.location.search);
-                const dataset = urlParams.get('dataset');
-                const summary = urlParams.get('summary');
-                const question = urlParams.get('question');
+                console.log('Loading generic master question content...');
                 
-                console.log('Loading master question for:', { dataset, summary, question });
+                // Set generic content for simplified evaluation
+                document.getElementById('datasetName').textContent = 'Multiple Datasets';
+                document.getElementById('questionText').textContent = 'Compare these two chart visualizations and evaluate their effectiveness.';
                 
-                // Dataset mapping
-                const datasetMap = {
-                    'Inc500Charts': {
-                        name: 'Inc5000 Company List 2014',
-                        file: 'Data Set- Inc5000 Company List_2014_summaries'
-                    },
-                    'fifa18_rendered_charts': {
-                        name: 'FIFA 18 Dataset',
-                        file: 'fifa18_clean_summaries'
-                    },
-                    'ATP_rendered_charts': {
-                        name: 'ATP Number 1 Rankings',
-                        file: 'atp_number_1_summaries'
-                    }
-                };
+                // Update both modal context (since main context section was removed)
+                document.getElementById('modalCuratorContext').innerHTML = '<em>Context: Please assess each chart for precision and readability, then indicate your overall preference.</em>';
                 
-                const datasetInfo = datasetMap[dataset];
-                if (!datasetInfo) {
-                    console.warn('Unknown dataset:', dataset);
-                    return;
-                }
+                // Load generic CSV data sample (using any available dataset)
+                await loadAndDisplayCSVData('Inc500Charts', 'Inc5000 Company List 2014');
                 
-                // Load questions JSON file with cache busting
-                const questionsFile = `./questions_output/${datasetInfo.file}/generation_001/questions_generation_001.json?v=${Date.now()}`;
-                const response = await fetch(questionsFile);
-                
-                if (!response.ok) {
-                    throw new Error(`Failed to load questions: ${response.status}`);
-                }
-                
-                const questionsData = await response.json();
-                console.log('Loaded questions data:', questionsData);
-                
-                // Find the right question based on summary and question parameters
-                const summaryIdx = parseInt(summary) || 1;
-                const questionIdx = parseInt(question) || 1;
-                
-                console.log('Looking for summaryIdx:', summaryIdx, 'questionIdx:', questionIdx);
-                console.log('Available summaries:', questionsData.questions.map(q => ({ summary_idx: q.summary_idx, num_questions: q.questions.length })));
-                
-                const summaryData = questionsData.questions.find(q => q.summary_idx === summaryIdx);
-                if (!summaryData) {
-                    console.warn('Summary not found:', summaryIdx);
-                    console.warn('Available summaries:', questionsData.questions.map(q => q.summary_idx));
-                    return;
-                }
-                
-                console.log('Found summary data:', { summary_idx: summaryData.summary_idx, questions_count: summaryData.questions.length });
-                
-                const questionText = summaryData.questions[questionIdx - 1]; // Convert to 0-based index
-                if (!questionText) {
-                    console.warn('Question not found at index:', questionIdx - 1, 'in summary:', summaryIdx);
-                    console.warn('Available questions:', summaryData.questions);
-                    return;
-                }
-                
-                console.log('Selected question:', questionText);
-                
-                // Update the UI elements
-                document.getElementById('datasetName').textContent = datasetInfo.name;
-                document.getElementById('targetAudience').textContent = summaryData.target_audience;
-                document.getElementById('dynamicMasterQuestion').innerHTML = `<strong>${questionText}</strong>`;
-                document.getElementById('dynamicCuratorContext').innerHTML = `<em>Context: ${summaryData.metadata.curator_intention}</em>`;
-                
-                // Load and display CSV data sample
-                await loadAndDisplayCSVData(dataset, datasetInfo.name);
-                
-                console.log('Master question loaded successfully:', {
-                    dataset: datasetInfo.name,
-                    summary: summaryIdx,
-                    question: questionIdx,
-                    questionText: questionText.substring(0, 50) + '...'
-                });
+                console.log('Generic master question loaded successfully');
                 
             } catch (error) {
                 console.error('Error loading master question:', error);
-                console.error('Failed for parameters:', { dataset, summary, question });
                 
-                // More specific error handling
-                if (error.message.includes('Failed to load questions')) {
-                    console.error('Questions file not found or inaccessible');
-                } else if (error.message.includes('Summary not found') || error.message.includes('Question not found')) {
-                    console.error('Invalid summary/question combination');
-                }
+                // Fallback content
+                document.getElementById('datasetName').textContent = 'Chart Evaluation';
+                document.getElementById('questionText').textContent = 'Compare these two chart visualizations';
                 
-                // Fallback content with error indication
-                document.getElementById('datasetName').textContent = `Error loading dataset (${dataset || 'unknown'})`;
-                document.getElementById('targetAudience').textContent = 'General users';
-                document.getElementById('dynamicMasterQuestion').innerHTML = '<strong style="color: red;">Error loading question - Please check console for details</strong>';
-                document.getElementById('dynamicCuratorContext').innerHTML = '<em style="color: red;">Context: Error occurred while loading question data</em>';
+                // Update modal context (since main context section was removed)
+                document.getElementById('modalCuratorContext').innerHTML = '<em>Context: Evaluate each chart for precision and readability</em>';
             }
         }
         
         // Initialize pair loading on page load
         async function initializeIntegratedPairs() {
             try {
-                console.log('Initializing integrated pair system...');
-                const urlParams = new URLSearchParams(window.location.search);
+                console.log('Initializing simplified pair system...');
                 
-                // Load master question first
+                // Load master question first (will use default/fallback data)
                 await loadMasterQuestion();
                 
                 currentPairProcessor = new PairProcessor();
-                await currentPairProcessor.initialize(urlParams);
+                await currentPairProcessor.initialize(); // No URL params needed
                 
                 if (currentPairProcessor.allPairs.length > 0) {
-                    console.log(`Found ${currentPairProcessor.allPairs.length} pairs`);
+                    console.log(`Found ${currentPairProcessor.allPairs.length} pairs from all datasets`);
                     loadCurrentPair();
-                    addNavigationControls();
                     addReturnToWelcomeButton();
+                    
+                    // Initialize the pair slider
+                    if (typeof onPairsLoaded === 'function') {
+                        onPairsLoaded();
+                    }
                 } else {
-                    console.log('No pairs found for the selected criteria');
+                    console.log('No pairs found');
                     showNoPairsMessage();
                 }
             } catch (error) {
@@ -1172,25 +794,128 @@
 
         // Load current pair into Chart A and Chart B
         function loadCurrentPair() {
-            const currentPair = currentPairProcessor.allPairs[currentPairIndex];
-            if (!currentPair || currentPair.images.length < 2) {
-                console.warn('Current pair does not have enough images');
-                return;
-            }
-
+            console.log('Loading current pair...');
+            
             const chartA = document.getElementById('chartA');
             const chartB = document.getElementById('chartB');
             const placeholderA = document.getElementById('placeholderA');
             const placeholderB = document.getElementById('placeholderB');
             
+            // Reset charts first
+            chartA.style.display = 'none';
+            chartB.style.display = 'none';
+            placeholderA.style.display = 'block';
+            placeholderB.style.display = 'block';
+            placeholderA.textContent = 'Loading Chart A...';
+            placeholderB.textContent = 'Loading Chart B...';
+            
+            // First try to load from annotation system
+            if (window.annotationUI && typeof window.annotationUI.getCurrentAnnotation === 'function') {
+                const currentAnnotation = window.annotationUI.getCurrentAnnotation();
+                console.log('Current annotation:', currentAnnotation);
+                
+                if (currentAnnotation && currentAnnotation.variants && currentAnnotation.variants.length >= 2) {
+                    console.log('Loading images from annotation variants:', currentAnnotation.variants);
+                    console.log('Table:', currentAnnotation.table);
+                    
+                    // Load Chart A from first variant - ensure table prefix is included
+                    let variant1 = currentAnnotation.variants[0];
+                    console.log('Original variant 1 from JSON:', variant1);
+                    
+                    // Check if table prefix is missing and add it if needed
+                    if (currentAnnotation.table && !variant1.startsWith(currentAnnotation.table + '/')) {
+                        variant1 = currentAnnotation.table + '/' + variant1;
+                        console.log('Added table prefix to variant 1:', variant1);
+                    }
+                    
+                    const chartAPath = 'run2_variants_parallel_organized/' + variant1;
+                    console.log('Final Chart A path:', chartAPath);
+                    
+                    chartA.src = chartAPath;
+                    chartA.onload = function() {
+                        console.log('Chart A loaded successfully');
+                        chartA.style.display = 'block';
+                        placeholderA.style.display = 'none';
+                    };
+                    chartA.onerror = function() {
+                        console.error('Chart A failed to load from:', chartAPath);
+                        console.error('Original variant from JSON:', currentAnnotation.variants[0]);
+                        placeholderA.textContent = 'Chart A - Image not found: ' + chartAPath;
+                    };
+                    
+                    // Load Chart B from second variant - ensure table prefix is included
+                    let variant2 = currentAnnotation.variants[1];
+                    console.log('Original variant 2 from JSON:', variant2);
+                    
+                    // Check if table prefix is missing and add it if needed
+                    if (currentAnnotation.table && !variant2.startsWith(currentAnnotation.table + '/')) {
+                        variant2 = currentAnnotation.table + '/' + variant2;
+                        console.log('Added table prefix to variant 2:', variant2);
+                    }
+                    
+                    const chartBPath = 'run2_variants_parallel_organized/' + variant2;
+                    console.log('Final Chart B path:', chartBPath);
+                    
+                    chartB.src = chartBPath;
+                    chartB.onload = function() {
+                        console.log('Chart B loaded successfully');
+                        chartB.style.display = 'block';
+                        placeholderB.style.display = 'none';
+                    };
+                    chartB.onerror = function() {
+                        console.error('Chart B failed to load from:', chartBPath);
+                        console.error('Original variant from JSON:', currentAnnotation.variants[1]);
+                        placeholderB.textContent = 'Chart B - Image not found: ' + chartBPath;
+                    };
+                    
+                    // Update dataset info from annotation
+                    const datasetInfo = document.querySelector('.dataset-info');
+                    if (datasetInfo) {
+                        const datasetName = currentAnnotation.table ? `Table ${currentAnnotation.table}` : 'Unknown Dataset';
+                        datasetInfo.innerHTML = `<strong>Dataset:</strong> <span id="datasetName">${datasetName}</span>`;
+                    }
+                    
+                    // Clear previous form responses when switching pairs
+                    if (typeof clearFormResponses === 'function') {
+                        clearFormResponses();
+                    }
+                    
+                    return;
+                } else {
+                    console.log('No annotation or insufficient variants, waiting for data...');
+                    // Try again after a short delay if annotation system is still loading
+                    setTimeout(() => {
+                        const retryAnnotation = window.annotationUI.getCurrentAnnotation();
+                        if (retryAnnotation && retryAnnotation.variants && retryAnnotation.variants.length >= 2) {
+                            loadCurrentPair();
+                        }
+                    }, 1000);
+                }
+            }
+            
+            // Fallback to legacy pair processor system
+            console.log('Annotation system not available or no variants, trying legacy system...');
+            const currentPair = currentPairProcessor && currentPairProcessor.allPairs ? currentPairProcessor.allPairs[currentPairIndex] : null;
+            
+            if (!currentPair || !currentPair.images || currentPair.images.length < 2) {
+                console.warn('No current pair or insufficient images available');
+                placeholderA.textContent = 'Chart A - No data available';
+                placeholderB.textContent = 'Chart B - No data available';
+                return;
+            }
+
             // Update dataset info
             updateDatasetInfo(currentPair);
             
             // Initialize pair evaluation system
-            initializePairEvaluation(currentPair.id, currentPair.metadata);
+            if (typeof initializePairEvaluation === 'function') {
+                initializePairEvaluation(currentPair.id, currentPair.metadata);
+            }
             
             // Clear previous form responses when switching pairs
-            clearFormResponses();
+            if (typeof clearFormResponses === 'function') {
+                clearFormResponses();
+            }
             
             // Load first image as Chart A
             if (currentPair.images[0]) {
@@ -1217,10 +942,14 @@
             }
             
             // Update descriptions
-            updatePairInfo(currentPair);
+            if (typeof updatePairInfo === 'function') {
+                updatePairInfo(currentPair);
+            }
             
             // Load saved responses for current category
-            loadSavedResponsesForCurrentPair(currentCategory);
+            if (typeof loadSavedResponsesForCurrentPair === 'function') {
+                loadSavedResponsesForCurrentPair(currentCategory);
+            }
         }
         
         // Update dataset information
@@ -1228,9 +957,7 @@
             const datasetInfo = document.querySelector('.dataset-info');
             if (datasetInfo) {
                 datasetInfo.innerHTML = `
-                    <strong>Dataset:</strong> ${pair.metadata.dataset}<br>
-                    <strong>Summary/Question:</strong> ${pair.metadata.summary} - ${pair.metadata.question}<br>
-                    <strong>Pair:</strong> ${pair.pairDir}
+                    <strong>Dataset:</strong> ${pair.metadata.dataset}
                 `;
             }
         }
@@ -1239,6 +966,7 @@
         function updatePairInfo(pair) {
             const description1 = document.getElementById('description1');
             const description2 = document.getElementById('description2');
+            const questionText = document.getElementById('questionText');
             
             if (description1) {
                 description1.textContent = `Chart A from ${pair.metadata.dataset} - ${pair.images[0]?.name || 'Image 1'}`;
@@ -1246,6 +974,10 @@
             
             if (description2) {
                 description2.textContent = `Chart B from ${pair.metadata.dataset} - ${pair.images[1]?.name || 'Image 2'}`;
+            }
+            
+            if (questionText) {
+                questionText.textContent = `Compare these two visualizations of ${pair.metadata.dataset} data and evaluate their effectiveness.`;
             }
         }
 
@@ -1288,147 +1020,11 @@
             }
         }
         
-        // Add navigation controls to the page
-        function addNavigationControls() {
-            // Always add navigation controls, even for single pairs to show context
-            
-            const navContainer = document.getElementById('pairNavigationContainer');
-            if (navContainer) {
-                const navControls = document.createElement('div');
-                navControls.className = 'pair-navigation-controls';
-                navControls.style.cssText = `
-                    display: flex;
-                    justify-content: center;
-                    align-items: center;
-                    gap: 20px;
-                    margin: 20px 0 0 0;
-                    padding: 15px;
-                    background: #f8f9fa;
-                    border-radius: 8px;
-                    border: 1px solid #e9ecef;
-                `;
-                
-                const totalPairs = currentPairProcessor.allPairs.length;
-                const completedPairs = Object.keys(allPairEvaluations).filter(pairId => {
-                    const evaluation = allPairEvaluations[pairId];
-                    return evaluation.completionStatus.clutter && evaluation.completionStatus.cognitive_load && 
-                           evaluation.completionStatus.interpretability && evaluation.completionStatus.style;
-                }).length;
-                
-                navControls.innerHTML = `
-                    <button id="prevPair" onclick="navigatePair(-1)" style="
-                        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-                        color: white;
-                        border: none;
-                        padding: 10px 20px;
-                        border-radius: 25px;
-                        cursor: pointer;
-                        font-weight: 600;
-                        transition: all 0.3s ease;
-                    ">← Previous Pair</button>
-                    
-                    <div style="display: flex; flex-direction: column; align-items: center; gap: 5px;">
-                        <span id="pairCounter" style="
-                            background: #fff;
-                            padding: 8px 16px;
-                            border-radius: 20px;
-                            font-weight: 600;
-                            color: #2c3e50;
-                            border: 2px solid #e9ecef;
-                        ">Pair ${currentPairIndex + 1} of ${totalPairs}</span>
-                        <small style="color: #6c757d; font-size: 11px;">Completed: ${completedPairs}/${totalPairs}</small>
-                    </div>
-                    
-                    <button id="nextPair" onclick="navigatePair(1)" style="
-                        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-                        color: white;
-                        border: none;
-                        padding: 10px 20px;
-                        border-radius: 25px;
-                        cursor: pointer;
-                        font-weight: 600;
-                        transition: all 0.3s ease;
-                    ">Next Pair →</button>
-                    
-                    <button onclick="exportCurrentPairEvaluations()" style="
-                        background: #28a745;
-                        color: white;
-                        border: none;
-                        padding: 10px 15px;
-                        border-radius: 20px;
-                        cursor: pointer;
-                        font-weight: 600;
-                        font-size: 12px;
-                        transition: all 0.3s ease;
-                    ">📤 Export This Pair</button>
-                    
-                    <button onclick="exportAllPairEvaluations()" style="
-                        background: #17a2b8;
-                        color: white;
-                        border: none;
-                        padding: 10px 15px;
-                        border-radius: 20px;
-                        cursor: pointer;
-                        font-weight: 600;
-                        font-size: 12px;
-                        transition: all 0.3s ease;
-                    ">📦 Export All Pairs</button>
-                `;
-                
-                navContainer.appendChild(navControls);
-                updateNavigationButtons();
-            }
-        }
+
         
-        // Navigate between pairs
-        function navigatePair(direction) {
-            const newIndex = currentPairIndex + direction;
-            if (newIndex >= 0 && newIndex < currentPairProcessor.allPairs.length) {
-                currentPairIndex = newIndex;
-                loadCurrentPair();
-                updateNavigationButtons();
-            }
-        }
+
         
-        // Update navigation button states
-        function updateNavigationButtons() {
-            const prevBtn = document.getElementById('prevPair');
-            const nextBtn = document.getElementById('nextPair');
-            const counter = document.getElementById('pairCounter');
-            
-            if (prevBtn) {
-                prevBtn.disabled = currentPairIndex === 0;
-                prevBtn.style.opacity = prevBtn.disabled ? '0.5' : '1';
-                prevBtn.style.cursor = prevBtn.disabled ? 'not-allowed' : 'pointer';
-            }
-            
-            if (nextBtn) {
-                nextBtn.disabled = currentPairIndex === currentPairProcessor.allPairs.length - 1;
-                nextBtn.style.opacity = nextBtn.disabled ? '0.5' : '1';
-                nextBtn.style.cursor = nextBtn.disabled ? 'not-allowed' : 'pointer';
-            }
-            
-            if (counter) {
-                const totalPairs = currentPairProcessor.allPairs.length;
-                const completedPairs = Object.keys(allPairEvaluations).filter(pairId => {
-                    const evaluation = allPairEvaluations[pairId];
-                    return evaluation.completionStatus.clutter && evaluation.completionStatus.cognitive_load && 
-                           evaluation.completionStatus.interpretability && evaluation.completionStatus.style;
-                }).length;
-                
-                counter.innerHTML = `
-                    <span>Pair ${currentPairIndex + 1} of ${totalPairs}</span>
-                    <small style="color: #6c757d; font-size: 11px; display: block;">Completed: ${completedPairs}/${totalPairs}</small>
-                `;
-                
-                // Update counter styling based on completion
-                if (completedPairs === totalPairs && totalPairs > 0) {
-                    counter.style.background = '#d4edda';
-                    counter.style.borderColor = '#28a745';
-                    counter.style.color = '#155724';
-                }
-            }
-        }
+
 
         // Show message when no pairs are found
         function showNoPairsMessage() {
@@ -1472,29 +1068,277 @@
             }
         }
 
-        // Initialize when DOM is ready - but only if accessed via proper navigation
-        function conditionalInitialize() {
-            const urlParams = new URLSearchParams(window.location.search);
-            const hasDatasetParam = urlParams.get('dataset');
-            const hasQuestionParam = urlParams.get('question');
-            const referrer = document.referrer;
+        // Navigation functions are now handled by annotation_ui_controller.js
+        // The functions navigatePrevious() and navigateNext() are defined there for backwards compatibility
+
+        // Initialize when DOM is ready - NOW USES ANNOTATION SYSTEM
+        console.log('Evaluation page loaded - annotation system will initialize automatically via annotation_ui_controller.js');
+        
+        // Add navigation event listeners to trigger image loading
+        function initializeNavigationListeners() {
+            // Listen for slider changes
+            const pairSlider = document.getElementById('pairSlider');
+            if (pairSlider) {
+                pairSlider.addEventListener('input', function() {
+                    console.log('Slider changed to:', this.value);
+                    setTimeout(() => {
+                        loadCurrentPair();
+                        updateStickyQuestionDisplay();
+                    }, 100); // Small delay to ensure annotation system updates
+                });
+                
+                pairSlider.addEventListener('change', function() {
+                    console.log('Slider final value:', this.value);
+                    loadCurrentPair();
+                    updateStickyQuestionDisplay();
+                });
+            }
             
-            // Only auto-initialize if we have proper URL parameters or came from dataset selector
-            if (hasDatasetParam || hasQuestionParam || referrer.includes('dataset_selector.html')) {
-                console.log('Valid navigation detected, initializing pairs...');
-                initializeIntegratedPairs();
+            // Listen for prev/next button clicks
+            const prevBtn = document.getElementById('prevBtn');
+            const nextBtn = document.getElementById('nextBtn');
+            
+            if (prevBtn) {
+                prevBtn.addEventListener('click', function() {
+                    console.log('Previous button clicked');
+                    setTimeout(() => {
+                        loadCurrentPair();
+                        updateStickyQuestionDisplay();
+                    }, 150);
+                });
+            }
+            
+            if (nextBtn) {
+                nextBtn.addEventListener('click', function() {
+                    console.log('Next button clicked');
+                    setTimeout(() => {
+                        loadCurrentPair();
+                        updateStickyQuestionDisplay();
+                    }, 150);
+                });
+            }
+            
+            // Also listen for any programmatic navigation
+            document.addEventListener('annotationChanged', function() {
+                console.log('Annotation changed event detected');
+                loadCurrentPair();
+                updateStickyQuestionDisplay();
+            });
+        }
+        
+        // Enhanced sticky header with scroll effect
+        function initializeStickyHeader() {
+            const header = document.querySelector('.compact-header');
+            let lastScrollTop = 0;
+            
+            window.addEventListener('scroll', function() {
+                const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+                
+                // Add shadow when scrolled down
+                if (scrollTop > 10) {
+                    header.classList.add('scrolled');
+                } else {
+                    header.classList.remove('scrolled');
+                }
+                
+                lastScrollTop = scrollTop;
+            }, { passive: true });
+        }
+        
+        // Initialize sticky header effects
+        document.addEventListener('DOMContentLoaded', initializeStickyHeader);
+        
+        // Function to update sticky question display
+        function updateStickyQuestionDisplay(questionText = null) {
+            const stickyQuestionText = document.getElementById('stickyQuestionText');
+            
+            if (questionText) {
+                stickyQuestionText.textContent = questionText;
+                console.log('Updated sticky question:', questionText);
+            } else if (window.annotationUI && typeof window.annotationUI.getCurrentAnnotation === 'function') {
+                // Try to get question_string from annotation system
+                const currentAnnotation = window.annotationUI.getCurrentAnnotation();
+                if (currentAnnotation && currentAnnotation.question_string) {
+                    stickyQuestionText.textContent = currentAnnotation.question_string;
+                    console.log('Updated from annotation question_string:', currentAnnotation.question_string);
+                } else if (currentAnnotation && currentAnnotation.question) {
+                    stickyQuestionText.textContent = currentAnnotation.question;
+                    console.log('Updated from annotation question:', currentAnnotation.question);
+                }
             } else {
-                console.log('Direct access detected, redirecting to welcome page...');
-                // Redirect to welcome page for proper navigation flow
-                window.location.href = 'index.html';
+                // Fallback - try to find question text in page
+                const questionElements = [
+                    document.getElementById('questionText'),
+                    document.querySelector('[data-question]'),
+                    document.querySelector('.question-text'),
+                    document.querySelector('.master-question-section .question'),
+                    document.querySelector('.question-string')
+                ];
+                
+                for (const element of questionElements) {
+                    if (element && element.textContent.trim()) {
+                        stickyQuestionText.textContent = element.textContent.trim();
+                        console.log('Updated from fallback element:', element.textContent.trim());
+                        break;
+                    }
+                }
             }
         }
         
-        if (document.readyState === 'loading') {
-            document.addEventListener('DOMContentLoaded', conditionalInitialize);
-        } else {
-            conditionalInitialize();
+        // Update sticky question when annotation changes
+        function observeQuestionChanges() {
+            // Watch for changes in potential question containers
+            const questionObserver = new MutationObserver((mutations) => {
+                mutations.forEach((mutation) => {
+                    if (mutation.type === 'childList' || mutation.type === 'characterData') {
+                        updateStickyQuestionDisplay();
+                    }
+                });
+            });
+            
+            // Observe changes to question text areas
+            const questionContainers = [
+                document.getElementById('questionText'),
+                document.querySelector('.master-question-section'),
+                document.querySelector('[data-question]')
+            ];
+            
+            questionContainers.forEach(container => {
+                if (container) {
+                    questionObserver.observe(container, {
+                        childList: true,
+                        subtree: true,
+                        characterData: true
+                    });
+                }
+            });
         }
+        
+        // Initialize question display system
+        document.addEventListener('DOMContentLoaded', function() {
+            updateStickyQuestionDisplay();
+            observeQuestionChanges();
+            initializeNavigationListeners(); // Add navigation listeners
+            
+            // Update every 2 seconds as backup
+            setInterval(() => {
+                updateStickyQuestionDisplay();
+            }, 2000);
+        });
+        
+        // Hook into annotation system if available
+        if (typeof window !== 'undefined') {
+            window.updateStickyQuestion = updateStickyQuestionDisplay;
+            
+            // Add a global function to force reload current pair (for debugging)
+            window.forceReloadPair = function() {
+                console.log('Force reloading current pair...');
+                loadCurrentPair();
+                updateStickyQuestionDisplay();
+            };
+            
+            // Add hook for when annotation data changes
+            window.onAnnotationChanged = function(annotation) {
+                console.log('Annotation changed, reloading images...', annotation);
+                loadCurrentPair();
+                updateStickyQuestionDisplay();
+                
+                // Trigger custom event for other listeners
+                document.dispatchEvent(new CustomEvent('annotationChanged', { detail: annotation }));
+            };
+            
+            // Also trigger load when annotation system becomes available
+            const checkAnnotationSystem = () => {
+                if (window.annotationUI && typeof window.annotationUI.getCurrentAnnotation === 'function') {
+                    const annotation = window.annotationUI.getCurrentAnnotation();
+                    if (annotation) {
+                        console.log('Annotation system ready, loading initial pair...');
+                        loadCurrentPair();
+                        updateStickyQuestionDisplay();
+                        return; // Stop checking once loaded
+                    }
+                }
+                // Keep checking every 500ms until annotation system is ready
+                setTimeout(checkAnnotationSystem, 500);
+            };
+            
+            // Start checking for annotation system
+            setTimeout(checkAnnotationSystem, 100);
+        }
+    </script>
+
+    <!-- Modal Overlays -->
+    <div id="contextModal" class="modal-overlay" onclick="hideModal('contextModal')">
+        <div class="modal-content" onclick="event.stopPropagation()">
+            <div class="modal-header">
+                <h3>Context Information</h3>
+                <button class="modal-close" onclick="hideModal('contextModal')">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div id="contextContent">
+                    <em>Loading context...</em>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="datasetModal" class="modal-overlay" onclick="hideModal('datasetModal')">
+        <div class="modal-content" onclick="event.stopPropagation()">
+            <div class="modal-header">
+                <h3>Dataset Sample</h3>
+                <button class="modal-close" onclick="hideModal('datasetModal')">&times;</button>
+            </div>
+            <div class="modal-body">
+                <p style="margin-bottom: 15px; color: #6c757d; font-size: 0.9em;">
+                    Below is a preview of the underlying data that both charts visualize:
+                </p>
+                <div class="data-table-container" id="modalDataTableContainer">
+                    <div class="loading-message" style="text-align: center; padding: 20px; color: #6c757d;">
+                        <div class="spinner" style="display: inline-block; width: 20px; height: 20px; border: 3px solid #f3f3f3; border-top: 3px solid #007bff; border-radius: 50%; animation: spin 1s linear infinite; margin-right: 10px;"></div>
+                        Loading dataset sample...
+                    </div>
+                </div>
+                <div class="dataset-stats" id="modalDatasetStats" style="margin-top: 10px; font-size: 0.85em; color: #6c757d;">
+                    <!-- Dataset statistics will be populated here -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Modal functionality - Updated for annotation system
+        function showModal(modalId) {
+            const modal = document.getElementById(modalId);
+            if (modal) {
+                modal.style.display = 'flex';
+                document.body.style.overflow = 'hidden';
+                
+                // Load data when dataset modal is opened
+                if (modalId === 'datasetModal' && window.annotationUI) {
+                    const currentAnnotation = window.annotationUI.getCurrentAnnotation();
+                    if (currentAnnotation) {
+                        // Dataset content is updated by annotation_ui_controller.js
+                        console.log('Dataset modal opened for:', currentAnnotation.dataset_info.dataset_name);
+                    }
+                }
+            }
+        }
+
+        function hideModal(modalId) {
+            document.getElementById(modalId).style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+
+        // Close modal with Escape key
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                const openModals = document.querySelectorAll('.modal-overlay[style*="flex"]');
+                openModals.forEach(modal => {
+                    modal.style.display = 'none';
+                });
+                document.body.style.overflow = 'auto';
+            }
+        });
     </script>
 </body>
 </html>

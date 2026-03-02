@@ -1,0 +1,87 @@
+{
+  "table_name": "Traveler Trip Dataset ",
+  "generation_dir": "c2_summaries\\Traveler_Trip_Dataset__summaries\\generation_001",
+  "total_summaries_processed": 2,
+  "questions_per_summary": 4,
+  "schema_context": "## Table 1: Traveler_Trip_Dataset_ (139 rows × 13 columns)\n\n### Description\nData loaded from CSV file: 221.csv (Dataset: Traveler Trip Dataset )\n\n### Schema (13 fields)\n  - Trip ID -- type: int64, values: 1, 2, 3, 4, 5, ..., 135, 136, 137, 138, 139\n  - Destination -- type: object, values: \"Berlin, Germany\", Hawaii, Rio de Janeiro, Cape Town, \"Paris, France\", ..., \"Sydney, AUS\", Thailand, Greece, \"Phuket, Thailand\", Amsterdam\n  - Start date -- type: object, values: 3/5/2023, 5/10/2022, 6/20/2023, 3/10/2024, 9/20/2022, ..., 10/5/2022, 2/5/2022, 7/12/2022, 10/20/2023, 9/1/2021\n  - End date -- type: object, values: 3/20/2022, 9/8/2023, 5/10/2022, 4/22/2023, 2/19/2023, ..., 5/18/2022, 10/20/2023, 1/24/2024, 7/10/2021, 5/14/2023\n  - Duration (days) -- type: float64, values: 5.0, 6.0, 7.0, 8.0, 9.0, ..., nan, 11.0, 13.0, 14.0, nan\n  - Traveler name -- type: object, values: Amanda Chen, Frank Li, Emily Johnson, Charlie Lee, Carlos Garcia, ..., Olivia Green, Olivia Kim, Michael Davis, Ana Hernandez, Lily Nguyen\n  - Traveler age -- type: float64, values: nan, 20.0, 23.0, 24.0, 25.0, ..., 48.0, 50.0, 55.0, 60.0, nan\n  - Traveler gender -- type: object, values: Male, Female, nan\n  - Traveler nationality -- type: object, values: Taiwan, Germany, Cambodia, Moroccan, nan, ..., French, USA, Canadian, Scottish, South Korean\n  - Accommodation type -- type: object, values: Villa, Resort, Airbnb, Vacation rental, nan, Hotel, Guesthouse, Hostel, Riad\n  - Accommodation cost -- type: object, values: \"$1,400 \", $350 , $700 , 1500 USD, nan, ..., $150 , 600 USD, 100, 200 USD, 400\n  - Transportation type -- type: object, values: Car, Plane, Train, Ferry, Bus, Car rental, Airplane, nan, Flight, Subway\n  - Transportation cost -- type: object, values: $250 , $20 , $700 , nan, 3000, ..., $100 , 100, 600 USD, 200 USD, 400\n\n### Sample Data (first 5 rows)\n```\n   Trip ID       Destination Start date   End date  Duration (days)  Traveler name  Traveler age Traveler gender Traveler nationality Accommodation type Accommodation cost Transportation type Transportation cost\n0        1        London, UK   5/1/2023   5/8/2023              7.0     John Smith          35.0            Male             American              Hotel               1200              Flight                 600\n1        2  Phuket, Thailand  6/15/2023  6/20/2023              5.0       Jane Doe          28.0          Female             Canadian             Resort                800              Flight                 500\n2        3   Bali, Indonesia   7/1/2023   7/8/2023              7.0      David Lee          45.0            Male               Korean              Villa               1000              Flight                 700\n3        4     New York, USA  8/15/2023  8/29/2023             14.0  Sarah Johnson          29.0          Female              British              Hotel               2000              Flight                1000\n4        5      Tokyo, Japan  9/10/2023  9/17/2023              7.0     Kim Nguyen          26.0          Female           Vietnamese             Airbnb                700               Train                 200\n```\n",
+  "table_metadata": {
+    "total_rows": 139,
+    "total_columns": 13,
+    "source_file": "csv_c_squared\\221.csv",
+    "sheet_name": ""
+  },
+  "questions": [
+    {
+      "table_name": "Traveler_Trip_Dataset_",
+      "summary_idx": 1,
+      "column_combination": [
+        "Trip ID",
+        "Destination",
+        "Start date",
+        "End date",
+        "Duration (days)",
+        "Traveler name",
+        "Traveler age",
+        "Traveler gender",
+        "Traveler nationality",
+        "Accommodation type",
+        "Accommodation cost",
+        "Transportation type",
+        "Transportation cost"
+      ],
+      "questions": [
+        "How do average accommodation costs vary across different destinations in the dataset?",
+        "Is there a noticeable trend between traveler age and their chosen accommodation type?",
+        "What is the relationship between transportation type and transportation cost among trips?",
+        "How does trip duration differ based on accommodation type?"
+      ],
+      "metadata": {
+        "schema_based": true,
+        "table_metadata": {
+          "total_rows": 139,
+          "total_columns": 13,
+          "source_file": "csv_c_squared\\221.csv",
+          "sheet_name": ""
+        },
+        "num_questions_requested": 4,
+        "num_questions_generated": 4
+      }
+    },
+    {
+      "table_name": "Traveler_Trip_Dataset_",
+      "summary_idx": 2,
+      "column_combination": [
+        "Trip ID",
+        "Destination",
+        "Start date",
+        "End date",
+        "Duration (days)",
+        "Traveler name",
+        "Traveler age",
+        "Traveler gender",
+        "Traveler nationality",
+        "Accommodation type",
+        "Accommodation cost",
+        "Transportation type",
+        "Transportation cost"
+      ],
+      "questions": [
+        "How does the average trip duration vary across different traveler age groups?",
+        "What patterns exist between traveler nationality and preferred accommodation type?",
+        "How do accommodation costs differ by destination among trips taken by male and female travelers?",
+        "Are there any noticeable differences in transportation type usage based on traveler age?"
+      ],
+      "metadata": {
+        "schema_based": true,
+        "table_metadata": {
+          "total_rows": 139,
+          "total_columns": 13,
+          "source_file": "csv_c_squared\\221.csv",
+          "sheet_name": ""
+        },
+        "num_questions_requested": 4,
+        "num_questions_generated": 4
+      }
+    }
+  ]
+}

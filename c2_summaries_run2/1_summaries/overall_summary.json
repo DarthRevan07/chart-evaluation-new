@@ -1,0 +1,39 @@
+{
+  "table_name": "List of Countries by GDP Sector Composition",
+  "file_index": "1",
+  "original_filename": "1.csv",
+  "total_rows": 230,
+  "total_columns": 15,
+  "column_names": [
+    "Index Number ",
+    "Rank",
+    "Country/Economy",
+    "GDP (millions of $)",
+    "Agriculture GDP",
+    "Agriculture Sector GDP Rank",
+    "Agriculture Sector GDP of % Contribution",
+    "IndustryGDP",
+    "IndustryRank",
+    "Industry%ofGDP",
+    "ServicesGDP",
+    "ServicesRank",
+    "Services%ofGDP",
+    "Year GDP ",
+    "Year Sector"
+  ],
+  "summaries_per_generation": 4,
+  "num_generations": 1,
+  "successful_generations": 1,
+  "failed_generations": 0,
+  "output_directory": "summariesDir\\c2_summaries_table1_only\\1_summaries",
+  "source_file": "csv_c_squared\\1.csv",
+  "sheet_name": "",
+  "generations": {
+    "generation_001": {
+      "status": "success",
+      "output_file": "summariesDir\\c2_summaries_table1_only\\1_summaries\\generation_001\\summaries_gen_001.json",
+      "summaries_count": 4,
+      "generation_number": 1
+    }
+  }
+}

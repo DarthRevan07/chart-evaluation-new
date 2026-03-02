@@ -7,7 +7,7 @@ class PairProcessor {
     constructor() {
         // Simple path construction based on environment
         const isGitHubPages = window.location.hostname.includes('github.io');
-        this.basePath = isGitHubPages ? 'pairs' : './pairs';
+        this.basePath = isGitHubPages ? 'run1_variants' : './run1_variants';
         
         console.log('Environment:', { isGitHubPages, basePath: this.basePath });
         
@@ -17,82 +17,77 @@ class PairProcessor {
     }
 
     /**
-     * Initialize the processor by scanning only actual pair directories
-     * @param {Object} urlParams - URL parameters for filtering
+     * Initialize the processor by scanning all pair directories
      */
-    async initialize(urlParams = null) {
+    async initialize() {
         console.log('Initializing Simplified Pair Processor...');
-        await this.scanPairDirectories(urlParams);
+        await this.scanAllPairDirectories();
         this.isInitialized = true;
-        console.log(`Found ${this.allPairs.length} actual pairs`);
+        console.log(`Found ${this.allPairs.length} total pairs`);
     }
 
     /**
-     * Scan only for actual pair directories (pair1, pair2, etc.)
-     * @param {Object} urlParams - URL parameters for filtering
+     * Scan all pair directories from all datasets
      */
-    async scanPairDirectories(urlParams = null) {
-        console.log('Scanning pair directories...');
+    async scanAllPairDirectories() {
+        console.log('Scanning all pair directories...');
         
-        const datasets = ['Inc500Charts', 'fifa18_rendered_charts', 'ATP_rendered_charts'];
-        let targetDatasets = datasets;
+        const datasets = ['3', '2', '1']; // All datasets: Inc500Charts, fifa18_rendered_charts, ATP_rendered_charts
         
-        if (urlParams && urlParams.get('dataset')) {
-            const selectedDataset = urlParams.get('dataset');
-            targetDatasets = datasets.filter(dataset => dataset === selectedDataset);
+        for (const dataset of datasets) {
+            await this.processDataset(dataset);
         }
         
-        for (const dataset of targetDatasets) {
-            await this.processDataset(dataset, urlParams);
-        }
-        
-        console.log(`Found ${this.allPairs.length} total pairs`);
+        console.log(`Found ${this.allPairs.length} total pairs from all datasets`);
     }
 
     /**
      * Process a single dataset
      */
-    async processDataset(dataset, urlParams) {
-        const summaryDirs = ['sum1_ques1', 'sum1_ques2', 'sum1_ques3', 'sum3_ques1', 'sum3_ques2', 'sum3_ques3'];
+    async processDataset(dataset) {
+        const summaryDirs = ['sum_1_ques_3', 'sum_1_ques_4', 'sum_2_ques_3', 'sum_2_ques_4'];
         
         for (const summaryDir of summaryDirs) {
-            if (!this.matchesUrlParams(summaryDir, urlParams)) continue;
+            // Load images directly from the summary directory
+            const pairData = await this.processSummaryDirectory(dataset, summaryDir);
             
-            // Check for pair directories (pair1, pair2, etc.)
-            for (let i = 1; i <= 10; i++) {
-                const pairDir = `pair${i}`;
-                const pairData = await this.processPairDirectory(dataset, summaryDir, pairDir);
-                
-                if (pairData && pairData.images.length >= 2) {
-                    this.allPairs.push(pairData);
-                }
+            if (pairData && pairData.images.length >= 2) {
+                this.allPairs.push(pairData);
             }
         }
     }
 
     /**
-     * Check if summary directory matches URL parameters
+     * Process a summary directory and load its images directly
      */
-    matchesUrlParams(summaryDir, urlParams) {
-        if (!urlParams) return true;
+    async processSummaryDirectory(dataset, summaryDir) {
+        const summaryPath = `${this.basePath}/${dataset}/${summaryDir}`;
         
-        const summary = urlParams.get('summary');
-        const question = urlParams.get('question');
-        
-        if (summary && !summaryDir.includes(`sum${summary}_`)) {
-            return false;
+        try {
+            const images = await this.loadImagesFromDirectory(summaryPath);
+            
+            if (images.length < 2) {
+                return null;
+            }
+            
+            return {
+                id: `${dataset}_${summaryDir}`,
+                dataset: dataset,
+                summaryDir: summaryDir,
+                pairDir: '', // No pair subdirectory in new structure
+                pairPath: summaryPath,
+                images: images,
+                metadata: {
+                    dataset: this.getDatasetName(dataset),
+                    summary: summaryDir,
+                    question: this.extractQuestion(summaryDir),
+                    pairNumber: 1 // Single pair per summary directory
+                }
+            };
+        } catch (error) {
+            return null;
         }
-        
-        if (question && !summaryDir.includes(`_ques${question}`)) {
-            return false;
-        }
-        
-        return true;
     }
-
-
-
-
 
     /**
      * Process a pair directory and load its images
@@ -131,12 +126,11 @@ class PairProcessor {
      */
     async loadImagesFromDirectory(dirPath) {
         const images = [];
-        const imageExtensions = ['.png', '.jpg', '.jpeg'];
         
-        // Test common image names
+        // Test for variant image names (var1.png, var2.png, etc.)
         const testFiles = [];
-        for (let i = 1; i <= 25; i++) {
-            testFiles.push(`${i}.png`);
+        for (let i = 1; i <= 10; i++) {
+            testFiles.push(`var${i}.png`);
         }
         
         for (const filename of testFiles) {
@@ -183,9 +177,9 @@ class PairProcessor {
      */
     getDatasetName(dataset) {
         const datasetMap = {
-            'ATP_rendered_charts': 'ATP Number 1 Rankings',
-            'fifa18_rendered_charts': 'FIFA 18 Dataset',
-            'Inc500Charts': 'Inc5000 Company List 2014'
+            '1': 'ATP Number 1 Rankings',
+            '2': 'FIFA 18 Dataset',
+            '3': 'Inc5000 Company List 2014'
         };
         return datasetMap[dataset] || dataset;
     }
@@ -194,7 +188,7 @@ class PairProcessor {
      * Extract question number from summary directory name
      */
     extractQuestion(summaryDir) {
-        const match = summaryDir.match(/ques(\d+)/);
+        const match = summaryDir.match(/ques_(\d+)/);
         return match ? match[1] : '1';
     }
 

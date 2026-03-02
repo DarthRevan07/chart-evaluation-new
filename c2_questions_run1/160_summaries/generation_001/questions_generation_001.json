@@ -1,0 +1,75 @@
+{
+  "table_name": "wwc_outcomes",
+  "generation_dir": "c2_summaries\\wwc_outcomes_summaries\\generation_001",
+  "total_summaries_processed": 2,
+  "questions_per_summary": 4,
+  "schema_context": "## Table 1: wwc_outcomes (568 rows × 7 columns)\n\n### Description\nData loaded from CSV file: 160.csv (Dataset: wwc_outcomes)\n\n### Schema (7 fields)\n  - year -- type: int64, values: 1991, 1995, 1999, 2003, 2007, 2011, 2015, 2019\n  - team -- type: object, values: ARG, AUS, BRA, CAN, CHI, ..., SUI, SWE, THA, TPE, USA\n  - score -- type: int64, values: 0, 1, 2, 3, 4, ..., 7, 8, 10, 11, 13\n  - round -- type: object, values: Final, Group, Quarter Final, Round of 16, Semi Final, Third Place Playoff\n  - yearly_game_id -- type: int64, values: 1, 2, 3, 4, 5, ..., 48, 49, 50, 51, 52\n  - team_num -- type: int64, values: 1, 2\n  - win_status -- type: object, values: Lost, Tie, Won\n\n### Sample Data (first 5 rows)\n```\n   year team  score  round  yearly_game_id  team_num win_status\n0  1991  CHN      4  Group               1         1        Won\n1  1991  NOR      0  Group               1         2       Lost\n2  1991  DEN      3  Group               2         1        Won\n3  1991  NZL      0  Group               2         2       Lost\n4  1991  JPN      0  Group               3         1       Lost\n```\n",
+  "table_metadata": {
+    "total_rows": 568,
+    "total_columns": 7,
+    "source_file": "csv_c_squared\\160.csv",
+    "sheet_name": ""
+  },
+  "questions": [
+    {
+      "table_name": "wwc_outcomes",
+      "summary_idx": 1,
+      "column_combination": [
+        "year",
+        "team",
+        "score",
+        "round",
+        "yearly_game_id",
+        "team_num",
+        "win_status"
+      ],
+      "questions": [
+        "How has the average score for each team changed across different years?",
+        "What is the distribution of win_status outcomes within each round type?",
+        "Are there specific rounds in which ties occur more frequently across all years?",
+        "How does the score achieved by teams vary between winning and losing outcomes?"
+      ],
+      "metadata": {
+        "schema_based": true,
+        "table_metadata": {
+          "total_rows": 568,
+          "total_columns": 7,
+          "source_file": "csv_c_squared\\160.csv",
+          "sheet_name": ""
+        },
+        "num_questions_requested": 4,
+        "num_questions_generated": 4
+      }
+    },
+    {
+      "table_name": "wwc_outcomes",
+      "summary_idx": 2,
+      "column_combination": [
+        "year",
+        "team",
+        "score",
+        "round",
+        "yearly_game_id",
+        "team_num",
+        "win_status"
+      ],
+      "questions": [
+        "How does the average score vary across different tournament rounds?",
+        "What trends in win_status can be observed for specific teams over the years?",
+        "Are there notable differences in score distribution between team_num 1 and team_num 2?",
+        "Which teams have the highest win rates in Final rounds compared to other rounds?"
+      ],
+      "metadata": {
+        "schema_based": true,
+        "table_metadata": {
+          "total_rows": 568,
+          "total_columns": 7,
+          "source_file": "csv_c_squared\\160.csv",
+          "sheet_name": ""
+        },
+        "num_questions_requested": 4,
+        "num_questions_generated": 4
+      }
+    }
+  ]
+}

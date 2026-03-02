@@ -1,0 +1,75 @@
+{
+  "table_name": "Star dataset to predict star types",
+  "generation_dir": "c2_summaries\\Star_dataset_to_predict_star_types_summaries\\generation_001",
+  "total_summaries_processed": 2,
+  "questions_per_summary": 4,
+  "schema_context": "## Table 1: Star_dataset_to_predict_star_types (240 rows × 7 columns)\n\n### Description\nData loaded from CSV file: 192.csv (Dataset: Star dataset to predict star types)\n\n### Schema (7 fields)\n  - Temperature (K) -- type: int64, values: 1939, 2600, 2621, 2637, 2650, ..., 37882, 38234, 38940, 39000, 40000\n  - Luminosity(L/Lo) -- type: float64, values: 8e-05, 8.5e-05, 0.00011, 0.000138, 0.00014, ..., 748890.0, 783930.0, 813000.0, 834042.0, 849420.0\n  - Radius(R/Ro) -- type: float64, values: 0.0084, 0.0087, 0.00878, 0.00879, 0.0089, ..., 1673.0, 1679.0, 1779.0, 1783.0, 1948.5\n  - Absolute magnitude(Mv) -- type: float64, values: -11.92, -11.75, -11.39, -11.36, -11.33, ..., 19.56, 19.63, 19.94, 20.02, 20.06\n  - Star type -- type: int64, values: 0, 1, 2, 3, 4, 5\n  - Star color -- type: object, values: Blue, Blue , Blue White, Blue white, Blue white , ..., Yellowish, Yellowish White, white, yellow-white, yellowish\n  - Spectral Class -- type: object, values: A, B, F, G, K, M, O\n\n### Sample Data (first 5 rows)\n```\n   Temperature (K)  Luminosity(L/Lo)  Radius(R/Ro)  Absolute magnitude(Mv)  Star type Star color Spectral Class\n0             3068          0.002400        0.1700                   16.12          0        Red              M\n1             3042          0.000500        0.1542                   16.60          0        Red              M\n2             2600          0.000300        0.1020                   18.70          0        Red              M\n3             2800          0.000200        0.1600                   16.65          0        Red              M\n4             1939          0.000138        0.1030                   20.06          0        Red              M\n```\n",
+  "table_metadata": {
+    "total_rows": 240,
+    "total_columns": 7,
+    "source_file": "csv_c_squared\\192.csv",
+    "sheet_name": ""
+  },
+  "questions": [
+    {
+      "table_name": "Star_dataset_to_predict_star_types",
+      "summary_idx": 1,
+      "column_combination": [
+        "Temperature (K)",
+        "Luminosity(L/Lo)",
+        "Radius(R/Ro)",
+        "Absolute magnitude(Mv)",
+        "Star type",
+        "Star color",
+        "Spectral Class"
+      ],
+      "questions": [
+        "How does Temperature (K) vary across different Star types, and which temperature ranges best distinguish these types?",
+        "What is the relationship between Luminosity(L/Lo) and Absolute magnitude(Mv), and does this relationship differ by Spectral Class?",
+        "How is Radius(R/Ro) distributed within each Star color category, and are there any notable outliers?",
+        "Do certain Spectral Classes tend to have higher or lower Luminosity(L/Lo) values compared to others?"
+      ],
+      "metadata": {
+        "schema_based": true,
+        "table_metadata": {
+          "total_rows": 240,
+          "total_columns": 7,
+          "source_file": "csv_c_squared\\192.csv",
+          "sheet_name": ""
+        },
+        "num_questions_requested": 4,
+        "num_questions_generated": 4
+      }
+    },
+    {
+      "table_name": "Star_dataset_to_predict_star_types",
+      "summary_idx": 2,
+      "column_combination": [
+        "Temperature (K)",
+        "Luminosity(L/Lo)",
+        "Radius(R/Ro)",
+        "Absolute magnitude(Mv)",
+        "Star type",
+        "Star color",
+        "Spectral Class"
+      ],
+      "questions": [
+        "How does the distribution of Temperature (K) vary across different Star types?",
+        "What relationship can be observed between Luminosity(L/Lo) and Radius(R/Ro) within different Spectral Classes?",
+        "How does Absolute magnitude(Mv) differ among the various Star colors?",
+        "Are certain Spectral Classes associated with higher or lower Star type labels in the dataset?"
+      ],
+      "metadata": {
+        "schema_based": true,
+        "table_metadata": {
+          "total_rows": 240,
+          "total_columns": 7,
+          "source_file": "csv_c_squared\\192.csv",
+          "sheet_name": ""
+        },
+        "num_questions_requested": 4,
+        "num_questions_generated": 4
+      }
+    }
+  ]
+}

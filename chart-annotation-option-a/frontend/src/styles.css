@@ -1,0 +1,115 @@
+/* Minimal dark UI with tooltips + segmented discrete sliders */
+:root{
+  --bg:#0b0f19;
+  --card:#121a2a;
+  --muted:#8ea0bd;
+  --text:#e8eefb;
+  --border:#26324b;
+  --accent:#7c5cff;
+  --accent2:#2dd4bf;
+}
+
+*{ box-sizing:border-box; }
+body{ margin:0; font-family: ui-sans-serif, system-ui; background:var(--bg); color:var(--text); }
+.container{ max-width:1100px; margin:24px auto; padding:0 16px; }
+
+.topBar{ display:flex; align-items:flex-start; justify-content:space-between; gap:16px; margin-bottom:16px; }
+.title{ margin:0; font-size:20px; }
+.subtle{ color:var(--muted); font-size:12px; margin-top:6px; }
+
+.promptCard{
+  background:var(--card); border:1px solid var(--border);
+  border-radius:12px; padding:14px 16px; margin-bottom:14px;
+}
+.promptTitle{ font-size:12px; color:var(--muted); margin-bottom:6px; }
+.promptText{ font-size:16px; line-height:1.25; }
+
+.pair{
+  display:grid; grid-template-columns:1fr 1fr; gap:12px;
+  margin: 12px 0 18px;
+}
+.chartCard{
+  background:var(--card); border:1px solid var(--border);
+  border-radius:12px; padding:10px; cursor:pointer;
+}
+.chartLabel{ font-size:12px; color:var(--muted); margin-bottom:8px; }
+.chartImg{ width:100%; height:360px; object-fit:contain; background:#0a0f1a; border-radius:10px; }
+.hintSmall{ margin-top:8px; font-size:11px; color:var(--muted); }
+
+.qBox{ background:var(--card); border:1px solid var(--border); border-radius:12px; padding:12px; }
+.qItem{ padding:10px; border-top:1px solid var(--border); }
+.qItem:first-child{ border-top:none; }
+.qPrompt{ font-weight:600; margin-bottom:8px; }
+
+.checks{ display:flex; flex-direction:column; gap:8px; }
+.checkRow{ display:flex; align-items:center; gap:10px; color:var(--text); }
+
+.discreteSlider{
+  display:flex; gap:8px; flex-wrap:wrap;
+}
+.seg{
+  position:relative;
+  display:flex; align-items:center; gap:8px;
+  border:1px solid var(--border);
+  background:#0f1626;
+  padding:8px 10px; border-radius:10px;
+  cursor:pointer;
+}
+.seg input{ display:none; }
+.segActive{ border-color: var(--accent); box-shadow: 0 0 0 2px rgba(124,92,255,.18); }
+.segLabel{ font-size:13px; }
+
+.hoverHint{ position:relative; display:inline-block; }
+.hoverHintBox{
+  position:absolute; left:0; top:calc(100% + 8px);
+  min-width:240px; max-width:320px;
+  background:#0a1020; border:1px solid var(--border);
+  color:var(--text);
+  padding:10px; border-radius:10px;
+  font-size:12px; line-height:1.2;
+  opacity:0; pointer-events:none; transform: translateY(-2px);
+  transition:opacity .12s ease, transform .12s ease;
+  z-index:10;
+}
+.hoverHint:hover .hoverHintBox{ opacity:1; transform: translateY(0); }
+
+.navRow{ display:flex; justify-content:space-between; margin-top:14px; }
+.btn, .btnPrimary{
+  border-radius:10px; padding:10px 14px;
+  border:1px solid var(--border);
+  background:#0f1626; color:var(--text);
+  cursor:pointer;
+}
+.btnPrimary{
+  background:linear-gradient(135deg, var(--accent), #4f46e5);
+  border-color:rgba(124,92,255,.5);
+}
+.btn:disabled, .btnPrimary:disabled{ opacity:.45; cursor:not-allowed; }
+
+.progressWrap{ min-width:260px; }
+.progressMeta{ font-size:12px; color:var(--muted); margin-bottom:8px; text-align:right; }
+.progressBar{ height:10px; background:#0f1626; border:1px solid var(--border); border-radius:999px; overflow:hidden; }
+.progressFill{ height:100%; background:linear-gradient(90deg, var(--accent2), var(--accent)); }
+
+.modalBackdrop{
+  position:fixed; inset:0; background:rgba(0,0,0,.65);
+  display:flex; align-items:center; justify-content:center; padding:16px;
+}
+.modal{
+  width:min(1100px, 96vw); background:var(--card); border:1px solid var(--border);
+  border-radius:14px; padding:12px;
+}
+.modalHeader{ display:flex; justify-content:space-between; align-items:center; margin-bottom:10px; }
+.modalTitle{ font-weight:700; }
+.modalImg{ width:100%; height:min(78vh, 820px); object-fit:contain; background:#0a0f1a; border-radius:12px; }
+
+.error{
+  margin-top:12px; padding:10px 12px; border-radius:10px;
+  border:1px solid #7f1d1d; background:#2a1212; color:#fecaca;
+}
+
+@media (max-width: 860px){
+  .pair{ grid-template-columns:1fr; }
+  .chartImg{ height:320px; }
+  .progressWrap{ min-width:180px; }
+}

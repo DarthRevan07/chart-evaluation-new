@@ -1,0 +1,87 @@
+{
+  "table_name": "Housing Prices Dataset",
+  "generation_dir": "c2_summaries\\Housing_Prices_Dataset_summaries\\generation_001",
+  "total_summaries_processed": 2,
+  "questions_per_summary": 4,
+  "schema_context": "## Table 1: Housing_Prices_Dataset (545 rows × 13 columns)\n\n### Description\nData loaded from CSV file: 206.csv (Dataset: Housing Prices Dataset)\n\n### Schema (13 fields)\n  - price -- type: int64, values: 1750000, 1767150, 1820000, 1855000, 1890000, ..., 10850000, 11410000, 12215000, 12250000, 13300000\n  - area -- type: int64, values: 1650, 1700, 1836, 1905, 1950, ..., 12900, 12944, 13200, 15600, 16200\n  - bedrooms -- type: int64, values: 1, 2, 3, 4, 5, 6\n  - bathrooms -- type: int64, values: 1, 2, 3, 4\n  - stories -- type: int64, values: 1, 2, 3, 4\n  - mainroad -- type: object, values: no, yes\n  - guestroom -- type: object, values: no, yes\n  - basement -- type: object, values: no, yes\n  - hotwaterheating -- type: object, values: no, yes\n  - airconditioning -- type: object, values: no, yes\n  - parking -- type: int64, values: 0, 1, 2, 3\n  - prefarea -- type: object, values: no, yes\n  - furnishingstatus -- type: object, values: furnished, semi-furnished, unfurnished\n\n### Sample Data (first 5 rows)\n```\n      price  area  bedrooms  bathrooms  stories mainroad guestroom basement hotwaterheating airconditioning  parking prefarea furnishingstatus\n0  13300000  7420         4          2        3      yes        no       no              no             yes        2      yes        furnished\n1  12250000  8960         4          4        4      yes        no       no              no             yes        3       no        furnished\n2  12250000  9960         3          2        2      yes        no      yes              no              no        2      yes   semi-furnished\n3  12215000  7500         4          2        2      yes        no      yes              no             yes        3      yes        furnished\n4  11410000  7420         4          1        2      yes       yes      yes              no             yes        2       no        furnished\n```\n",
+  "table_metadata": {
+    "total_rows": 545,
+    "total_columns": 13,
+    "source_file": "csv_c_squared\\206.csv",
+    "sheet_name": ""
+  },
+  "questions": [
+    {
+      "table_name": "Housing_Prices_Dataset",
+      "summary_idx": 1,
+      "column_combination": [
+        "price",
+        "area",
+        "bedrooms",
+        "bathrooms",
+        "stories",
+        "mainroad",
+        "guestroom",
+        "basement",
+        "hotwaterheating",
+        "airconditioning",
+        "parking",
+        "prefarea",
+        "furnishingstatus"
+      ],
+      "questions": [
+        "How does housing price vary with the area of the property, and what patterns are observed in their relationship?",
+        "Is there a difference in average housing price between properties located on a main road and those that are not?",
+        "What is the relationship between the number of bedrooms and parking spaces available in determining housing price?",
+        "How does the presence or absence of air conditioning correlate with property prices across different furnishing statuses?"
+      ],
+      "metadata": {
+        "schema_based": true,
+        "table_metadata": {
+          "total_rows": 545,
+          "total_columns": 13,
+          "source_file": "csv_c_squared\\206.csv",
+          "sheet_name": ""
+        },
+        "num_questions_requested": 4,
+        "num_questions_generated": 4
+      }
+    },
+    {
+      "table_name": "Housing_Prices_Dataset",
+      "summary_idx": 2,
+      "column_combination": [
+        "price",
+        "area",
+        "bedrooms",
+        "bathrooms",
+        "stories",
+        "mainroad",
+        "guestroom",
+        "basement",
+        "hotwaterheating",
+        "airconditioning",
+        "parking",
+        "prefarea",
+        "furnishingstatus"
+      ],
+      "questions": [
+        "How does the presence of air conditioning or hot water heating relate to differences in housing prices?",
+        "What trends can be observed in the distribution of housing area across different furnishing statuses?",
+        "Is there a noticeable difference in the average price of houses near a main road compared to those further away, considering also the number of stories?",
+        "How does the number of parking spots vary among homes with and without basements?"
+      ],
+      "metadata": {
+        "schema_based": true,
+        "table_metadata": {
+          "total_rows": 545,
+          "total_columns": 13,
+          "source_file": "csv_c_squared\\206.csv",
+          "sheet_name": ""
+        },
+        "num_questions_requested": 4,
+        "num_questions_generated": 4
+      }
+    }
+  ]
+}

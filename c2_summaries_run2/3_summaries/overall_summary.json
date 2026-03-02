@@ -1,0 +1,33 @@
+{
+  "table_name": "Global Rice Production Statistics Dataset",
+  "file_index": "3",
+  "original_filename": "3.csv",
+  "total_rows": 119,
+  "total_columns": 9,
+  "column_names": [
+    "Country",
+    "Rice Production (Tons)",
+    "Rank of Rice Production",
+    "Rice Production Per Person (Kg)",
+    "Rank of Rice Production Per Person",
+    "Rice Acreage (Hectare)",
+    "Rank of Rice Acreage",
+    "Rice Yield (Kg / Hectare)",
+    "Rank of Rice Yield"
+  ],
+  "summaries_per_generation": 4,
+  "num_generations": 1,
+  "successful_generations": 1,
+  "failed_generations": 0,
+  "output_directory": "c2_summaries_run2\\3_summaries",
+  "source_file": "csv_c_squared\\3.csv",
+  "sheet_name": "",
+  "generations": {
+    "generation_001": {
+      "status": "success",
+      "output_file": "c2_summaries_run2\\3_summaries\\generation_001\\summaries_gen_001.json",
+      "summaries_count": 4,
+      "generation_number": 1
+    }
+  }
+}

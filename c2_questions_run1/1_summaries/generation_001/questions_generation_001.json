@@ -1,0 +1,91 @@
+{
+  "table_name": "List of Countries by GDP Sector Composition",
+  "generation_dir": "c2_summaries\\List_of_Countries_by_GDP_Sector_Composition_summaries\\generation_001",
+  "total_summaries_processed": 2,
+  "questions_per_summary": 4,
+  "schema_context": "## Table 1: List_of_Countries_by_GDP_Sector_Composition (230 rows × 15 columns)\n\n### Description\nData loaded from CSV file: 1.csv (Dataset: List of Countries by GDP Sector Composition)\n\n### Schema (15 fields)\n  - Index Number  -- type: int64, values: 0, 1, 2, 3, 4, ..., 225, 226, 227, 228, 229\n  - Rank -- type: object, values: -, 1, 10, 100, 101, ..., 95, 96, 97, 98, 99\n  - Country/Economy -- type: object, values: Afghanistan, Albania, Algeria, American Samoa, Andorra, ..., West Bank, Western Sahara, Yemen, Zambia, Zimbabwe\n  - GDP (millions of $) -- type: object, values: -, 10, 10070, 100900, 1028, ..., 9410, 95000, 9740, 9770, 9828\n  - Agriculture GDP -- type: object, values: -, 1, 10, 101, 1010, ..., 9635, 966, 99, 991020, 992\n  - Agriculture Sector GDP Rank -- type: object, values: -, 1, 10, 100, 101, ..., 95, 96, 97, 98, 99\n  - Agriculture Sector GDP of % Contribution -- type: object, values: -, 0, 0.1, 0.2, 0.3, ..., 9.4, 9.6, 9.7, 9.8, 9.9\n  - IndustryGDP -- type: object, values: -, 10209, 102198, 1036, 107191, ..., 96248, 97, 989, 99, 9906\n  - IndustryRank -- type: object, values: -, 1, 10, 100, 101, ..., 95, 96, 97, 98, 99\n  - Industry%ofGDP -- type: object, values: -, 0, 10, 10.1, 10.5, ..., 7.6, 7.7, 8.9, 9.1, 9.9\n  - ServicesGDP -- type: object, values: -, 10082, 10186, 10312, 10369, ..., 94970, 968, 969794, 977170, 991\n  - ServicesRank -- type: object, values: -, 1, 10, 100, 101, ..., 95, 96, 97, 98, 99\n  - Services%ofGDP -- type: object, values: -, 100, 27, 28.4, 32.5, ..., 91.3, 92.7, 93.3, 93.8, 96\n  - Year GDP  -- type: object, values: -, 2003, 2005, 2008, 2009, ..., 2013, 2014, 2015, 2016, 2017\n  - Year Sector -- type: object, values: -, 2000, 2002, 2003, 2006, ..., 2014, 2015, 2016, 2017, FY12/13\n\n### Sample Data (first 5 rows)\n```\n   Index Number  Rank Country/Economy GDP (millions of $) Agriculture GDP Agriculture Sector GDP Rank Agriculture Sector GDP of % Contribution IndustryGDP IndustryRank Industry%ofGDP ServicesGDP ServicesRank Services%ofGDP Year GDP  Year Sector\n0              0    1   United States            19360000          174240                           3                                      0.9     3659040            2           18.9    15526720            1           80.2      2017        2017\n1              1    2           China            11940000          991020                           1                                      8.3     4716300            1           39.5     6232680            2           52.2      2017        2017\n2              2    3           Japan             4884000           48840                          13                                        1     1450548            3           29.7     3384612            3           69.3      2017        2017\n3              3    4         Germany             3652000           21912                          31                                      0.6     1099252            4           30.1     2530836            4           69.3      2016        2017\n4              4    5          France             2575000           51500                          11                                        2      517575            7           20.1     2005925            6           77.9      2017        2017\n```\n",
+  "table_metadata": {
+    "total_rows": 230,
+    "total_columns": 15,
+    "source_file": "csv_c_squared\\1.csv",
+    "sheet_name": ""
+  },
+  "questions": [
+    {
+      "table_name": "List_of_Countries_by_GDP_Sector_Composition",
+      "summary_idx": 1,
+      "column_combination": [
+        "Index Number ",
+        "Rank",
+        "Country/Economy",
+        "GDP (millions of $)",
+        "Agriculture GDP",
+        "Agriculture Sector GDP Rank",
+        "Agriculture Sector GDP of % Contribution",
+        "IndustryGDP",
+        "IndustryRank",
+        "Industry%ofGDP",
+        "ServicesGDP",
+        "ServicesRank",
+        "Services%ofGDP",
+        "Year GDP ",
+        "Year Sector"
+      ],
+      "questions": [
+        "How does the percentage contribution of the agriculture sector to GDP vary among countries with the highest and lowest total GDP?",
+        "What is the relationship between the Industry%ofGDP and Services%ofGDP within countries, and are there notable imbalances between these two sectors?",
+        "Which countries have the highest agriculture sector GDP, and how do their Agriculture Sector GDP Ranks compare to their overall GDP Rank?",
+        "How does Services%ofGDP differ across countries that have similar total GDP values?"
+      ],
+      "metadata": {
+        "schema_based": true,
+        "table_metadata": {
+          "total_rows": 230,
+          "total_columns": 15,
+          "source_file": "csv_c_squared\\1.csv",
+          "sheet_name": ""
+        },
+        "num_questions_requested": 4,
+        "num_questions_generated": 4
+      }
+    },
+    {
+      "table_name": "List_of_Countries_by_GDP_Sector_Composition",
+      "summary_idx": 2,
+      "column_combination": [
+        "Index Number ",
+        "Rank",
+        "Country/Economy",
+        "GDP (millions of $)",
+        "Agriculture GDP",
+        "Agriculture Sector GDP Rank",
+        "Agriculture Sector GDP of % Contribution",
+        "IndustryGDP",
+        "IndustryRank",
+        "Industry%ofGDP",
+        "ServicesGDP",
+        "ServicesRank",
+        "Services%ofGDP",
+        "Year GDP ",
+        "Year Sector"
+      ],
+      "questions": [
+        "Which countries have the highest dependence on the agriculture sector as measured by Agriculture Sector GDP of % Contribution, and how do their overall GDPs compare?",
+        "How do the rankings of the industry sector (IndustryRank) relate to the percentage of GDP from industry (Industry%ofGDP) across different countries?",
+        "What trends are observable in Services%ofGDP for selected countries over different years (Year GDP)?",
+        "Are there countries where one sector significantly dominates the GDP composition compared to the other two sectors, and how is this reflected in their sectoral ranks?"
+      ],
+      "metadata": {
+        "schema_based": true,
+        "table_metadata": {
+          "total_rows": 230,
+          "total_columns": 15,
+          "source_file": "csv_c_squared\\1.csv",
+          "sheet_name": ""
+        },
+        "num_questions_requested": 4,
+        "num_questions_generated": 4
+      }
+    }
+  ]
+}

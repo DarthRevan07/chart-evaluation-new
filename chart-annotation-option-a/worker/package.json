@@ -1,0 +1,15 @@
+{
+  "name": "chart-annotation-worker",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "dev": "wrangler dev --local --persist",
+    "deploy": "wrangler deploy"
+  },
+  "devDependencies": {
+    "@cloudflare/workers-types": "^4.20260229.0",
+    "typescript": "^5.6.3",
+    "wrangler": "^3.99.0"
+  }
+}

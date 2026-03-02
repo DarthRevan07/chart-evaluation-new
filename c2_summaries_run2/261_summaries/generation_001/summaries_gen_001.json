@@ -1,0 +1,69 @@
+{
+  "generation_number": 1,
+  "table_name": "NASA Astronauts, 1959-Present",
+  "total_rows": 357,
+  "total_columns": 19,
+  "column_names": [
+    "Name",
+    "Year",
+    "Group",
+    "Status",
+    "Birth Date",
+    "Birth Place",
+    "Gender",
+    "Alma Mater",
+    "Undergraduate Major",
+    "Graduate Major",
+    "Military Rank",
+    "Military Branch",
+    "Space Flights",
+    "Space Flight (hr)",
+    "Space Walks",
+    "Space Walks (hr)",
+    "Missions",
+    "Death Date",
+    "Death Mission"
+  ],
+  "summaries_per_generation": 4,
+  "schema_context": "## Table 1: NASA_Astronauts__1959_Present (357 rows × 19 columns)\n\n### Description\nData loaded from CSV file: 261.csv (Dataset: NASA Astronauts, 1959-Present)\n\n### Schema (19 fields)\n  - Name -- type: object, values: Alan B. Shepard Jr. , Alan G. Poindexter, Alan L. Bean, Albert Sacco Jr., Alfred M. Worden, ..., William M. Shepherd, William R. Pogue, William S. McArthur Jr. , Winston E. Scott, Yvonne D. Cagle\n  - Year -- type: float64, values: nan, nan, nan, nan, nan, ..., nan, nan, nan, nan, nan\n  - Group -- type: float64, values: 1.0, 2.0, 3.0, 4.0, 5.0, ..., nan, nan, nan, nan, nan\n  - Status -- type: object, values: Active, Deceased, Management, Retired\n  - Birth Date -- type: object, values: 1/14/1943, 1/16/1946, 1/16/1952, 1/16/1955, 1/17/1943, ..., 9/30/1961, 9/6/1946, 9/6/1955, 9/7/1939, 9/9/1952\n  - Birth Place -- type: object, values: \"Abington, PA\", \"Adelaide, Australia\", \"Akron, OH\", \"Albany, GA\", \"Albany, NY\", ..., \"Wichita Falls, TX\", \"Wilmington, DE\", \"Winona, MS\", \"Yanktown, SD\", \"Yonkers, NY\"\n  - Gender -- type: object, values: Female, Male\n  - Alma Mater -- type: object, values: University of Utah, University of Michigan, University of Sydney, University of Colorado; Rensselaer Polytechnic Institute; University of Hartford, Harvard University; MIT, ..., University of Colorado; University of California Los Angeles, Ohio State University; University of Southern California; University of Houston, US Naval Academy; Harvard University, Framingham State College; Bowie State College, University of New Hampshire; Ohio State University; Harvard University\n  - Undergraduate Major -- type: object, values: Physics & Engineering, Electrical Science, Aeronautical Engineering, Physics & Astronomy, Zoology, ..., Systems Engineering, Geology, Mechanical & Aeronautical Engineering, Mathematics & Physics, Civil Engineering\n  - Graduate Major -- type: object, values: Medicine, Chemical Engineering; Medicine, Nuclear Physics, Materials Science Engineering, Aeronautical Engineering, ..., Astronomy, Systems Engineering, Geology, Aeronautics & Astronautics; Physical Sciences, Chemistry; Medicine\n  - Military Rank -- type: object, values: Lieutenant Colonel, Rear Admiral, Chief Warrant Officer, Commander, Captain, ..., Major General, Brigadier General, Lieutenant Commander, Vice Admiral, Major\n  - Military Branch -- type: object, values: US Marine Corps (Retired), US Navy (Retired), US Marine Corps, US Coast Guard (Retired), nan, ..., US Navy, US Naval Reserves (Retired), US Air Force (Retired), US Marine Corps Reserves, US Air Force\n  - Space Flights -- type: int64, values: 0, 1, 2, 3, 4, 5, 6, 7\n  - Space Flight (hr) -- type: int64, values: 0, 4, 5, 73, 97, ..., 8970, 9159, 11698, 12490, 12818\n  - Space Walks -- type: int64, values: 0, 1, 2, 3, 4, ..., 6, 7, 8, 9, 10\n  - Space Walks (hr) -- type: float64, values: 0.0, 0.5, 1.0, 2.0, 3.0, ..., 49.0, 50.0, 53.0, 58.0, 67.0\n  - Missions -- type: object, values: \"STS-73 (Columbia), STS-92 (Discovery), STS-113 (Endeavor), ISS-14 (Soyuz)\", \"STS-116/117 (Discovery/Atlantis), ISS-32/33 (Soyuz)\", STS 51-B (Challenger), Apollo 16, \"STS-111 (Endeavor), STS-113 (Endeavor)\", ..., \"STS-123 (Endeavor), STS-129 (Atlantis)\", \"Mercury 8, Gemini 6, Apollo 7\", \"Mercury 9, Gemini 5\", \"STS-70 (Discovery), STS-101 (Atlantis)\", \"STS-56 (Discovery), STS-66 (Atlantis), STS-96 (Discovery), STS-110 (Atlantis)\"\n  - Death Date -- type: object, values: 10/5/1967, 2/28/1966, 10/31/1964, nan, 1/27/1967, ..., 5/24/1986, 8/11/2008, 4/6/1990, 2/1/2003, 12/12/1994\n  - Death Mission -- type: object, values: STS 51-L (Challenger), Apollo 1, STS-107 (Columbia), nan\n\n### Sample Data (first 5 rows)\n```\n               Name    Year  Group   Status Birth Date    Birth Place Gender                                                     Alma Mater     Undergraduate Major         Graduate Major Military Rank         Military Branch  Space Flights  Space Flight (hr)  Space Walks  Space Walks (hr)                                                                     Missions  Death Date  Death Mission\n0   Joseph M. Acaba  2004.0   19.0   Active  5/17/1967  Inglewood, CA   Male  University of California-Santa Barbara; University of Arizona                 Geology                Geology           NaN                     NaN              2               3307            2              13.0                                       STS-119 (Discovery), ISS-31/32 (Soyuz)         NaN            NaN\n1    Loren W. Acton     NaN    NaN  Retired   3/7/1936   Lewiston, MT   Male               Montana State University; University of Colorado     Engineering Physics          Solar Physics           NaN                     NaN              1                190            0               0.0                                                        STS 51-F (Challenger)         NaN            NaN\n2  James C. Adamson  1984.0   10.0  Retired   3/3/1946     Warsaw, NY   Male                      US Military Academy; Princeton University             Engineering  Aerospace Engineering       Colonel       US Army (Retired)              2                334            0               0.0                                         STS-28 (Columbia), STS-43 (Atlantis)         NaN            NaN\n3   Thomas D. Akers  1987.0   12.0  Retired  5/20/1951  St. Louis, MO   Male                                   University of Missouri-Rolla     Applied Mathematics    Applied Mathematics       Colonel  US Air Force (Retired)              4                814            4              29.0  STS-41 (Discovery), STS-49 (Endeavor), STS-61 (Endeavor), STS-79 (Atlantis)         NaN            NaN\n4       Buzz Aldrin  1963.0    3.0  Retired  1/20/1930  Montclair, NJ   Male                                       US Military Academy; MIT  Mechanical Engineering           Astronautics       Colonel  US Air Force (Retired)              2                289            2               8.0                                                         Gemini 12, Apollo 11         NaN            NaN\n```\n",
+  "source_file": "csv_c_squared\\261.csv",
+  "sheet_name": "",
+  "summaries": [
+    {
+      "idx": 1,
+      "chain_of_thought": {
+        "target_audience": "STEM education policymakers and diversity advocates",
+        "curator_intention": "Highlight demographic representation and academic backgrounds in space exploration to inform educational resource allocation and diversity outreach initiatives",
+        "common_ground": "Both curator and policymakers seek to establish evidence-based pathways for broadening participation in STEM fields and identifying historical gaps or progress in astronaut selection"
+      },
+      "narrative_summary": "This schema enables a comprehensive examination of the demographic, academic, and gender composition of NASA astronauts over time. By leveraging fields such as Gender, Alma Mater, Undergraduate Major, Birth Place, and Year, stakeholders can visualize trends in diversity and the academic origins of astronauts. This narrative supports actionable insights into which educational institutions contributed to NASA's talent pool and the evolution of gender representation, informing future outreach, recruitment, and curriculum development strategies in STEM education."
+    },
+    {
+      "idx": 2,
+      "chain_of_thought": {
+        "target_audience": "Space operations strategists and mission planners",
+        "curator_intention": "Guide analysis of astronaut operational experience, mission participation, and risk factors to optimize crew assignment and mission design",
+        "common_ground": "Both curator and strategists are invested in understanding how individual astronaut attributes correlate with mission outcomes and performance metrics"
+      },
+      "narrative_summary": "The schema offers rich possibilities to visualize operational profiles by combining fields such as Space Flights, Space Flight (hr), Space Walks, Space Walks (hr), Missions, and Status. Analysts can identify patterns and distributions in career longevity, mission frequency, and roles taken by astronauts. Such analysis supports mission planners in forecasting crew experience requirements, evaluating risk exposure, and optimizing future crew selection processes based on historical operational data."
+    },
+    {
+      "idx": 3,
+      "chain_of_thought": {
+        "target_audience": "Military and government recruitment researchers",
+        "curator_intention": "Facilitate exploration of military backgrounds and branch representation among astronauts to inform recruitment strategies and cross-agency collaboration",
+        "common_ground": "Both curator and recruitment researchers aim to establish understanding of how military service and branch affiliation relate to astronaut selection and outcomes"
+      },
+      "narrative_summary": "By focusing on Military Rank, Military Branch, Group, and Status fields, researchers can visualize the military profile distribution within NASA's astronaut corps. This enables analysis of which branches and ranks most frequently transition into astronaut roles, and how military experience may influence career progression. The narrative drives actionable outcomes in recruitment policy, targeted outreach, and inter-organizational partnerships to optimize candidate selection and preparation for space missions."
+    },
+    {
+      "idx": 4,
+      "chain_of_thought": {
+        "target_audience": "Historical researchers and science communicators",
+        "curator_intention": "Encourage the exploration of temporal and mission-related patterns in astronaut status and outcomes to illuminate narratives for public education",
+        "common_ground": "Curator and communicators share an interest in uncovering and illustrating significant events and patterns in space program history for accessible storytelling"
+      },
+      "narrative_summary": "Using fields such as Year, Missions, Status, Death Date, and Death Mission, the schema supports temporal analyses of astronaut participation, mission milestones, and significant events such as retirements or fatalities. This strategic narrative enables science communicators to create engaging historical timelines, highlight major program shifts, and foster public understanding of space exploration's challenges and achievements, turning raw data into actionable storytelling and educational resources."
+    }
+  ]
+}

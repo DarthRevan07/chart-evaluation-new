@@ -1,0 +1,964 @@
+{
+  "dataset": "fifa18_rendered_charts",
+  "questionnaires": [
+    {
+      "questions": [
+        {
+          "question_id": 1,
+          "question_text": "Which chart makes it easier and quicker to spot differences in average player wage and average overall rating across clubs, without searching through multiple legends or labels?"
+        },
+        {
+          "question_id": 2,
+          "question_text": "Looking at both charts, which one presents the relationship between club wage and performance in a way that is least visually crowded or overwhelming?"
+        },
+        {
+          "question_id": 3,
+          "question_text": "Which chart allows you to clearly and unambiguously identify whether higher-wage clubs are consistently performing better, with no confusion about what the marks or colors stand for?"
+        },
+        {
+          "question_id": 4,
+          "question_text": "When you view both charts, which one requires less mental effort to connect club names, values, and trends for the purpose of roster planning decisions?"
+        },
+        {
+          "question_id": 5,
+          "question_text": "Which chart has labels, axis titles, and legends that are more readable and logically positioned, making it easier to interpret the comparison between wage and rating?"
+        },
+        {
+          "question_id": 6,
+          "question_text": "Which chart avoids ambiguous use of colors, shapes, or scales that could lead football club executives to misunderstand club performance or wage data?"
+        },
+        {
+          "question_id": 7,
+          "question_text": "Which chart has a visually appealing style—colors, fonts, spacing, professional layout—that you would prefer to include in a presentation to club decision-makers?"
+        },
+        {
+          "question_id": 8,
+          "question_text": "Overall, which chart best communicates the answer to whether higher wage clubs are consistently achieving better performance, in a way that would be clear and useful for football executives?"
+        }
+      ],
+      "metadata": {
+        "dataset": "FIFA 18 Dataset",
+        "summary_id": 1,
+        "question_id": 1,
+        "master_question": "How does the average player wage compare to average overall rating across clubs, and are higher wage clubs consistently achieving better performance?",
+        "target_audience": "Football club executives and talent acquisition managers",
+        "curator_intention": "Encourage decision makers to assess player value and performance in the context of club roster planning",
+        "num_questions_requested": 8,
+        "num_questions_generated": 8,
+        "evaluation_constructs": [
+          "cognitive_load",
+          "interpretability",
+          "style"
+        ]
+      },
+      "summary_id": 1,
+      "question_id": 1
+    },
+    {
+      "questions": [
+        {
+          "question_id": 1,
+          "question_text": "Which chart allows you to identify clubs with the biggest differences between player value and wage most quickly, without having to refer back and forth between legends or labels?"
+        },
+        {
+          "question_id": 2,
+          "question_text": "Looking at all elements on each chart (marks, labels, legends, and gridlines), which chart feels less crowded or visually busy when trying to answer the master question?"
+        },
+        {
+          "question_id": 3,
+          "question_text": "Which chart helps you clearly and confidently interpret what each visual encoding (color, shape, position) represents, with minimum risk of misunderstanding the disparities between player value and wage for each club?"
+        },
+        {
+          "question_id": 4,
+          "question_text": "Which chart displays axis labels, scales, and units in a way that makes it easiest to compare player value and wage across clubs, with little chance for ambiguity?"
+        },
+        {
+          "question_id": 5,
+          "question_text": "Which chart's design (fonts, colors, and overall layout) appears most professional and visually appealing for a presentation to football club executives and talent managers?"
+        },
+        {
+          "question_id": 6,
+          "question_text": "Considering both visual style and clarity, which chart better balances attractiveness with the ability to clearly reveal insights for cost-effective squad building?"
+        },
+        {
+          "question_id": 7,
+          "question_text": "Which chart is less likely to contain elements that distract or mislead you from correctly identifying the clubs with the greatest player value-wage disparity?"
+        },
+        {
+          "question_id": 8,
+          "question_text": "For your target audience, which chart would likely be easier for them to quickly extract actionable insights for roster planning without excessive effort or confusion?"
+        }
+      ],
+      "metadata": {
+        "dataset": "FIFA 18 Dataset",
+        "summary_id": 1,
+        "question_id": 2,
+        "master_question": "Which clubs have the greatest disparity between player value and wage, and what insights can this reveal for cost-effective squad building?",
+        "target_audience": "Football club executives and talent acquisition managers",
+        "curator_intention": "Encourage decision makers to assess player value and performance in the context of club roster planning",
+        "num_questions_requested": 8,
+        "num_questions_generated": 8,
+        "evaluation_constructs": [
+          "cognitive_load",
+          "interpretability",
+          "style"
+        ]
+      },
+      "summary_id": 1,
+      "question_id": 2
+    },
+    {
+      "questions": [
+        {
+          "question_id": 1,
+          "question_text": "Comparing both charts, which one allows you to more quickly find and compare the age ranges of players with the highest potential across clubs, with minimal effort or eye movement?"
+        },
+        {
+          "question_id": 2,
+          "question_text": "Which chart presents the differences in age profiles between clubs with less visual clutter (fewer unnecessary elements or distractions) when answering the master question?"
+        },
+        {
+          "question_id": 3,
+          "question_text": "Judging by how legends, labels, and axes are designed, which chart makes it easier to understand what each visual element means and what club or age group it refers to?"
+        },
+        {
+          "question_id": 4,
+          "question_text": "Which chart provides clearer and less ambiguous information about how long-term squad planning relates to the age and potential of each club’s players?"
+        },
+        {
+          "question_id": 5,
+          "question_text": "Focusing on the layout and organization of elements, which chart feels more balanced, professionally designed, and visually appealing for football club decision makers?"
+        },
+        {
+          "question_id": 6,
+          "question_text": "Which chart makes it easier to trace trends or patterns in the age distribution of high-potential players across clubs, without confusion or misinterpretation?"
+        },
+        {
+          "question_id": 7,
+          "question_text": "Which chart’s use of colors, shapes, and fonts helps distinguish clubs and age groups more clearly, enhancing both visual appeal and interpretability?"
+        },
+        {
+          "question_id": 8,
+          "question_text": "Looking at both charts, which one avoids misleading design choices, such as unclear groupings or overlapping symbols, that could distort your understanding of key differences in player age profiles?"
+        }
+      ],
+      "metadata": {
+        "dataset": "FIFA 18 Dataset",
+        "summary_id": 1,
+        "question_id": 3,
+        "master_question": "How does the age profile of players with the highest potential differ between clubs, and what does this indicate about long-term squad planning?",
+        "target_audience": "Football club executives and talent acquisition managers",
+        "curator_intention": "Encourage decision makers to assess player value and performance in the context of club roster planning",
+        "num_questions_requested": 8,
+        "num_questions_generated": 8,
+        "evaluation_constructs": [
+          "cognitive_load",
+          "interpretability",
+          "style"
+        ]
+      },
+      "summary_id": 1,
+      "question_id": 3
+    },
+    {
+      "questions": [
+        {
+          "question_id": 1,
+          "question_text": "Which chart allows you to quickly spot if certain nationalities are grouped within high-value clubs, without needing to scan back and forth between legends, labels, or different chart sections?"
+        },
+        {
+          "question_id": 2,
+          "question_text": "Looking only at the way colors, shapes, or sizes are used, which chart makes it easier for you to tell apart different nationalities and value levels, despite having multiple categories shown?"
+        },
+        {
+          "question_id": 3,
+          "question_text": "Which chart presents the information about nationalities and club values with clearer, well-labeled axes, legends, and units, so that there is no confusion about what each element represents?"
+        },
+        {
+          "question_id": 4,
+          "question_text": "Considering only visual appeal and design quality, which chart comes across as more professional and suitable for presenting recruitment strategy insights to football club executives?"
+        },
+        {
+          "question_id": 5,
+          "question_text": "Which chart keeps the layout clean and avoids visual clutter, making it easier to focus on the main patterns of international recruitment, without distractions from unnecessary marks or crowded elements?"
+        },
+        {
+          "question_id": 6,
+          "question_text": "Which chart is less likely to be misinterpreted by decision makers, so that viewers clearly understand whether specific nationalities cluster within high-value clubs based on the chart’s design?"
+        },
+        {
+          "question_id": 7,
+          "question_text": "Comparing both charts, which one uses spacing, sizing, and font choices in a way that supports readability and visual comfort without sacrificing clarity about nationalities and club values?"
+        },
+        {
+          "question_id": 8,
+          "question_text": "Which chart makes it easier to find and use the legend or key, helping you efficiently decode what colors or symbols mean when answering the main question about recruitment patterns?"
+        }
+      ],
+      "metadata": {
+        "dataset": "FIFA 18 Dataset",
+        "summary_id": 1,
+        "question_id": 4,
+        "master_question": "Are there specific nationalities that cluster within high-value clubs, suggesting patterns in international recruitment strategies?",
+        "target_audience": "Football club executives and talent acquisition managers",
+        "curator_intention": "Encourage decision makers to assess player value and performance in the context of club roster planning",
+        "num_questions_requested": 8,
+        "num_questions_generated": 8,
+        "evaluation_constructs": [
+          "cognitive_load",
+          "interpretability",
+          "style"
+        ]
+      },
+      "summary_id": 1,
+      "question_id": 4
+    },
+    {
+      "questions": [
+        {
+          "question_id": 1,
+          "question_text": "Which chart makes it easier and faster to spot which clubs focus more on developing talent (higher average potential) versus relying on established players (higher overall rating)?"
+        },
+        {
+          "question_id": 2,
+          "question_text": "Which chart has clearer axis titles, labels, and legends, helping avoid confusion when comparing clubs’ potential and overall ratings?"
+        },
+        {
+          "question_id": 3,
+          "question_text": "Which chart feels less visually crowded and allows you to find key details without being distracted by unnecessary elements or overlap?"
+        },
+        {
+          "question_id": 4,
+          "question_text": "Which chart requires less mental effort to understand how average potential and overall rating relate to each club, with minimal back-and-forth between legend, axes, and data points?"
+        },
+        {
+          "question_id": 5,
+          "question_text": "Which chart most clearly shows differences and trends among clubs, reducing the chance of misinterpreting what the data is saying about their approaches to player development?"
+        },
+        {
+          "question_id": 6,
+          "question_text": "Which chart has colors, fonts, and layout that appear more professional and visually balanced, supporting a positive impression for executives and managers in a club setting?"
+        },
+        {
+          "question_id": 7,
+          "question_text": "Which chart avoids ambiguous use of colors, symbols, or scales—making it straightforward to tell which data belongs to potential and which to overall rating for each club?"
+        },
+        {
+          "question_id": 8,
+          "question_text": "Which chart provides a clearer big picture at a glance, helping club decision makers quickly answer the master question about team strategy regarding talent development versus reliance on established players?"
+        }
+      ],
+      "metadata": {
+        "dataset": "FIFA 18 Dataset",
+        "summary_id": 1,
+        "question_id": 5,
+        "master_question": "By plotting average potential and overall rating per club, which teams demonstrate a stronger focus on developing talent versus relying on established players?",
+        "target_audience": "Football club executives and talent acquisition managers",
+        "curator_intention": "Encourage decision makers to assess player value and performance in the context of club roster planning",
+        "num_questions_requested": 8,
+        "num_questions_generated": 8,
+        "evaluation_constructs": [
+          "cognitive_load",
+          "interpretability",
+          "style"
+        ]
+      },
+      "summary_id": 1,
+      "question_id": 5
+    },
+    {
+      "questions": [
+        {
+          "question_id": 1,
+          "question_text": "Which chart allows you to more easily and quickly see the relationship between the club’s total player value and their combined performance metrics, without needing to repeatedly look between legends, labels, and data points?"
+        },
+        {
+          "question_id": 2,
+          "question_text": "Looking at both charts, which one presents the main message and data trends more clearly and without ambiguous or confusing design elements, so that two viewers would likely interpret it the same way?"
+        },
+        {
+          "question_id": 3,
+          "question_text": "Which chart’s legend and labeling system makes it simpler to identify outliers that may indicate possible transfer market inefficiencies, with minimal extra effort?"
+        },
+        {
+          "question_id": 4,
+          "question_text": "Comparing both charts, which one feels less visually crowded or cluttered, making it easier to focus on the key relationships relevant to club roster planning?"
+        },
+        {
+          "question_id": 5,
+          "question_text": "Which chart uses design features (such as color, font, layout, and spacing) that appear more professional and visually appealing for an executive-level presentation?"
+        },
+        {
+          "question_id": 6,
+          "question_text": "Between the two charts, which one’s axes, units, and scale markings are clearer and less likely to cause misunderstandings about how player value relates to performance?"
+        },
+        {
+          "question_id": 7,
+          "question_text": "Which chart communicates the presence and significance of outlier clubs or players in a way that you can notice and interpret easily, without excessive scanning or decoding?"
+        },
+        {
+          "question_id": 8,
+          "question_text": "Thinking about the time and mental effort needed to answer the master question using each chart, which one would help a typical club executive reach confident decisions faster and with less confusion?"
+        }
+      ],
+      "metadata": {
+        "dataset": "FIFA 18 Dataset",
+        "summary_id": 1,
+        "question_id": 6,
+        "master_question": "What is the relationship between the club's aggregate player value and their combined performance metrics, and do outliers highlight possible transfer market inefficiencies?",
+        "target_audience": "Football club executives and talent acquisition managers",
+        "curator_intention": "Encourage decision makers to assess player value and performance in the context of club roster planning",
+        "num_questions_requested": 8,
+        "num_questions_generated": 8,
+        "evaluation_constructs": [
+          "cognitive_load",
+          "interpretability",
+          "style"
+        ]
+      },
+      "summary_id": 1,
+      "question_id": 6
+    },
+    {
+      "questions": [
+        {
+          "question_id": 1,
+          "question_text": "Which chart makes it easiest to clearly identify the young players who combine top acceleration, agility, and dribbling, and to quickly compare their finishing with older elite forwards?"
+        },
+        {
+          "question_id": 2,
+          "question_text": "Which chart uses colors, shapes, and other visuals in a way that helps you instantly distinguish between young talents and older elite forwards without confusion or extra effort?"
+        },
+        {
+          "question_id": 3,
+          "question_text": "Looking at the legends, labels, and axes, which chart allows you to find and understand the meaning of all visual elements (e.g., what each mark, axis, or color stands for) with the least back-and-forth eye movement?"
+        },
+        {
+          "question_id": 4,
+          "question_text": "Which chart is least visually crowded, avoiding excessive overlapping of lines, symbols, or text that could distract from finding the combined athletic and technical strengths of the players?"
+        },
+        {
+          "question_id": 5,
+          "question_text": "Which chart makes it easier to retrieve the exact finishing scores for both young prospects and older forwards, without any ambiguity or guesswork?"
+        },
+        {
+          "question_id": 6,
+          "question_text": "Which chart presents all required information for the master question (identifying top young talents and comparing them to elite players) in a way that leaves little room for misinterpretation or multiple possible meanings?"
+        },
+        {
+          "question_id": 7,
+          "question_text": "From a design standpoint, which chart appears more professional and visually appealing to football development coaches or academy directors—through better use of fonts, spacing, and overall layout?"
+        },
+        {
+          "question_id": 8,
+          "question_text": "Which chart is more likely to keep the viewer engaged and interested, thanks to effective visual design, color choices, and a layout that suits the audience and intent?"
+        }
+      ],
+      "metadata": {
+        "dataset": "FIFA 18 Dataset",
+        "summary_id": 2,
+        "question_id": 1,
+        "master_question": "Which young players combine top acceleration, agility, and dribbling scores, and how does their finishing compare to older elite forwards?",
+        "target_audience": "Football development coaches and youth academy directors",
+        "curator_intention": "Encourage closer examination of emerging technical talents who exhibit both strong base stats and athletic abilities",
+        "num_questions_requested": 8,
+        "num_questions_generated": 8,
+        "evaluation_constructs": [
+          "cognitive_load",
+          "interpretability",
+          "style"
+        ]
+      },
+      "summary_id": 2,
+      "question_id": 1
+    },
+    {
+      "questions": [
+        {
+          "question_id": 1,
+          "question_text": "Which chart makes it quicker and easier for football coaches to spot if certain nationalities or clubs consistently rank highest in young attacking technical attributes?"
+        },
+        {
+          "question_id": 2,
+          "question_text": "Which chart clearly shows, without confusion, which nationalities or clubs have multiple top-ranked players, ensuring that viewers can interpret this without ambiguity?"
+        },
+        {
+          "question_id": 3,
+          "question_text": "Which chart uses labels, legends, and axis markings in a way that reduces the effort needed to connect player names with their clubs or nationalities?"
+        },
+        {
+          "question_id": 4,
+          "question_text": "Which chart’s overall look—such as color choices, font, and spacing—feels more appealing and professionally suited for a presentation to youth academy directors?"
+        },
+        {
+          "question_id": 5,
+          "question_text": "Which chart avoids overwhelming the viewer with too many colors, shapes, or visual elements, making it easier to focus on identifying consistently high-ranked clubs or nationalities?"
+        },
+        {
+          "question_id": 6,
+          "question_text": "Which chart makes it less likely for a viewer to misinterpret or miss out on important trends related to player rankings by club or nationality?"
+        },
+        {
+          "question_id": 7,
+          "question_text": "Which chart’s legend and category labels are easier to locate and match to the relevant chart elements, minimizing back-and-forth scanning?"
+        },
+        {
+          "question_id": 8,
+          "question_text": "Looking at the chart as a whole, which version feels most organized and balanced in layout, making it inviting and clear for football development coaches to use in a team meeting?"
+        }
+      ],
+      "metadata": {
+        "dataset": "FIFA 18 Dataset",
+        "summary_id": 2,
+        "question_id": 2,
+        "master_question": "Are there nationalities or clubs consistently producing young players with outstanding attacking technical attributes based on this ranking?",
+        "target_audience": "Football development coaches and youth academy directors",
+        "curator_intention": "Encourage closer examination of emerging technical talents who exhibit both strong base stats and athletic abilities",
+        "num_questions_requested": 8,
+        "num_questions_generated": 8,
+        "evaluation_constructs": [
+          "cognitive_load",
+          "interpretability",
+          "style"
+        ]
+      },
+      "summary_id": 2,
+      "question_id": 2
+    },
+    {
+      "questions": [
+        {
+          "question_id": 1,
+          "question_text": "Which chart makes it easier and quicker for football coaches to spot younger players who have strong acceleration, agility, and dribbling but are rated lower than expected?"
+        },
+        {
+          "question_id": 2,
+          "question_text": "Which chart avoids unnecessary visual clutter, such as overlapping colors, marks, or excessive gridlines, making it simpler to focus on the main data about player ratings and athletic abilities?"
+        },
+        {
+          "question_id": 3,
+          "question_text": "Looking at the legends and labels, which chart requires less effort and fewer eye movements to understand and connect athletic stats (acceleration, agility, dribbling) to overall ratings for young players?"
+        },
+        {
+          "question_id": 4,
+          "question_text": "Which chart presents the information more clearly and unambiguously, so that viewers are unlikely to misinterpret which players may be underrated based on their athletic stats?"
+        },
+        {
+          "question_id": 5,
+          "question_text": "Comparing the charts, which one uses colors and symbols in a way that helps you instantly distinguish between high-performing and underrated young players?"
+        },
+        {
+          "question_id": 6,
+          "question_text": "Which chart has the most professional and visually appealing design (considering font, color choices, spacing, and layout), making it suitable for use in official academy coach meetings?"
+        },
+        {
+          "question_id": 7,
+          "question_text": "Which chart provides the necessary axis labels, legends, and scale information so viewers can confidently match specific players to their stats and ratings without confusion?"
+        },
+        {
+          "question_id": 8,
+          "question_text": "Overall, which chart best supports coaches in efficiently identifying whether high athletic averages consistently lead to high ratings, or if some talented young players are being overlooked?"
+        }
+      ],
+      "metadata": {
+        "dataset": "FIFA 18 Dataset",
+        "summary_id": 2,
+        "question_id": 3,
+        "master_question": "Does a high average of acceleration, agility, and dribbling always correlate with a higher overall rating for younger players, or are some underrated?",
+        "target_audience": "Football development coaches and youth academy directors",
+        "curator_intention": "Encourage closer examination of emerging technical talents who exhibit both strong base stats and athletic abilities",
+        "num_questions_requested": 8,
+        "num_questions_generated": 8,
+        "evaluation_constructs": [
+          "cognitive_load",
+          "interpretability",
+          "style"
+        ]
+      },
+      "summary_id": 2,
+      "question_id": 3
+    },
+    {
+      "questions": [
+        {
+          "question_id": 1,
+          "question_text": "Which chart allows you to more quickly and easily identify players under 25 who stand out for finishing compared to their technical athletic stats?"
+        },
+        {
+          "question_id": 2,
+          "question_text": "Which chart presents the essential information—like finishing and technical athletic stats—more clearly without requiring you to scan between different chart areas or legends repeatedly?"
+        },
+        {
+          "question_id": 3,
+          "question_text": "Looking at both charts, which one avoids excessive visual clutter (such as unnecessary colors, overlapping elements, or crowded labels) and helps you focus on the top emerging talents?"
+        },
+        {
+          "question_id": 4,
+          "question_text": "Which chart’s use of colors, labels, and legends makes it easier to unambiguously understand the relationship between finishing ability and athletic stats for each player?"
+        },
+        {
+          "question_id": 5,
+          "question_text": "Which chart’s layout, spacing, and element positioning create a more visually appealing and professional presentation for football coaches and academy directors?"
+        },
+        {
+          "question_id": 6,
+          "question_text": "Which chart is less likely to cause confusion or result in different viewers having different interpretations about which players exhibit exceptional finishing for their age group?"
+        },
+        {
+          "question_id": 7,
+          "question_text": "Considering both charts, which one avoids misleading or ambiguous visual features (like unclear axis labels, overlapping marks, or inconsistent use of colors or symbols)?"
+        },
+        {
+          "question_id": 8,
+          "question_text": "Overall, which chart feels better suited for sparking interest and closer examination of promising talents, based purely on its clarity and visual design?"
+        }
+      ],
+      "metadata": {
+        "dataset": "FIFA 18 Dataset",
+        "summary_id": 2,
+        "question_id": 4,
+        "master_question": "Among players aged below 25, who shows exceptional finishing relative to their technical athletic stats, and what might this reveal about their playing style?",
+        "target_audience": "Football development coaches and youth academy directors",
+        "curator_intention": "Encourage closer examination of emerging technical talents who exhibit both strong base stats and athletic abilities",
+        "num_questions_requested": 8,
+        "num_questions_generated": 8,
+        "evaluation_constructs": [
+          "cognitive_load",
+          "interpretability",
+          "style"
+        ]
+      },
+      "summary_id": 2,
+      "question_id": 4
+    },
+    {
+      "questions": [
+        {
+          "question_id": 1,
+          "question_text": "Which chart makes it easiest to visually compare how young talents ranked by technical attributes progress in overall rating versus those ranked by finishing ability, with minimal searching or confusion?"
+        },
+        {
+          "question_id": 2,
+          "question_text": "Which chart feels less crowded and cluttered, making it straightforward to focus on the main trends or comparisons relevant to the master question?"
+        },
+        {
+          "question_id": 3,
+          "question_text": "In which chart are the legends, labels, and scales easiest to locate and understand while answering how top technical talents progress compared to finishing specialists?"
+        },
+        {
+          "question_id": 4,
+          "question_text": "Which chart has clearer and more unambiguous visual elements (colors, lines, shapes) so you immediately understand what each group or data point represents?"
+        },
+        {
+          "question_id": 5,
+          "question_text": "Which chart’s use of colors, font styles, and overall design appears more visually appealing and professional for football development coaches and academy directors?"
+        },
+        {
+          "question_id": 6,
+          "question_text": "Which chart avoids design choices that could cause misleading interpretations or mix-ups between technical talents and finishing specialists when viewing their progress?"
+        },
+        {
+          "question_id": 7,
+          "question_text": "Which chart requires less effort in switching attention back and forth between the legend, labels, and data points when trying to answer the master question?"
+        },
+        {
+          "question_id": 8,
+          "question_text": "Which chart layout and spacing best supports a quick and clear understanding of the overall message, without unnecessary visual distractions?"
+        }
+      ],
+      "metadata": {
+        "dataset": "FIFA 18 Dataset",
+        "summary_id": 2,
+        "question_id": 5,
+        "master_question": "How do the top-ranked young talents by technical attributes progress in overall rating compared to those ranked solely by finishing ability?",
+        "target_audience": "Football development coaches and youth academy directors",
+        "curator_intention": "Encourage closer examination of emerging technical talents who exhibit both strong base stats and athletic abilities",
+        "num_questions_requested": 8,
+        "num_questions_generated": 8,
+        "evaluation_constructs": [
+          "cognitive_load",
+          "interpretability",
+          "style"
+        ]
+      },
+      "summary_id": 2,
+      "question_id": 5
+    },
+    {
+      "questions": [
+        {
+          "question_id": 1,
+          "question_text": "Comparing both charts, which one makes it easier for a football development coach to quickly spot clusters of emerging technical talent by age group?"
+        },
+        {
+          "question_id": 2,
+          "question_text": "Which chart uses legend and labels in a way that requires less back-and-forth searching to understand what Acceleration, Agility, and Dribbling represent for each age group?"
+        },
+        {
+          "question_id": 3,
+          "question_text": "Which chart avoids unnecessary visual clutter, such as crowded elements or overlapping marks, making it simpler to interpret patterns among youth academy groups?"
+        },
+        {
+          "question_id": 4,
+          "question_text": "Between the two charts, which one is clearer and less ambiguous when showing which players or age groups stand out in both base stats and athletic abilities?"
+        },
+        {
+          "question_id": 5,
+          "question_text": "Looking at the use of color and symbols across both charts, which one helps you more confidently distinguish key age groups and talents without confusion?"
+        },
+        {
+          "question_id": 6,
+          "question_text": "Which chart has missing, unclear, or misleading axis labels or legends that could cause misunderstanding of the data, especially regarding Acceleration, Agility, and Dribbling?"
+        },
+        {
+          "question_id": 7,
+          "question_text": "Which chart displays a more professional and visually appealing design—considering font, color harmony, spacing, and overall layout—without distracting from the message?"
+        },
+        {
+          "question_id": 8,
+          "question_text": "For someone new to youth academy data, which chart would involve less mental effort to answer whether clusters of emerging talent exist among the different age groups?"
+        }
+      ],
+      "metadata": {
+        "dataset": "FIFA 18 Dataset",
+        "summary_id": 2,
+        "question_id": 6,
+        "master_question": "If you map Acceleration, Agility, and Dribbling visually by age groups, are there clusters of emerging talent that stand out for targeted academy development?",
+        "target_audience": "Football development coaches and youth academy directors",
+        "curator_intention": "Encourage closer examination of emerging technical talents who exhibit both strong base stats and athletic abilities",
+        "num_questions_requested": 8,
+        "num_questions_generated": 8,
+        "evaluation_constructs": [
+          "cognitive_load",
+          "interpretability",
+          "style"
+        ]
+      },
+      "summary_id": 2,
+      "question_id": 6
+    },
+    {
+      "questions": [
+        {
+          "question_id": 1,
+          "question_text": "Which chart makes it quicker and easier to identify which defensive positions have the highest average Interceptions and Marking values across all clubs and nationalities?"
+        },
+        {
+          "question_id": 2,
+          "question_text": "For the intended audience, which chart’s layout and labeling (including axes, legends, and titles) reduces unnecessary mental effort when locating and comparing defensive positions?"
+        },
+        {
+          "question_id": 3,
+          "question_text": "Which chart’s use of colors, shapes, and symbols is more effective and less confusing in showing differences between positions for Interceptions and Marking?"
+        },
+        {
+          "question_id": 4,
+          "question_text": "Which chart presents information in a clearer and less visually cluttered manner, making it easier to focus on the defensive positions relevant to the master question?"
+        },
+        {
+          "question_id": 5,
+          "question_text": "Which chart makes it less likely for a viewer to misinterpret the values or relationships between defensive positions, Interceptions, and Marking—for example, by avoiding unclear legends, ambiguous labels, or misleading scales?"
+        },
+        {
+          "question_id": 6,
+          "question_text": "Which chart’s design would you consider more visually attractive, modern, and professional for use in a football consulting context, given the curator’s intent for benchmarking and knowledge transfer?"
+        },
+        {
+          "question_id": 7,
+          "question_text": "Looking at both charts, which one more effectively highlights the key comparisons the audience needs (i.e., which positions stand out for high averages) without distracting visual elements?"
+        },
+        {
+          "question_id": 8,
+          "question_text": "Which chart’s overall style, including font choice, color palette, and spacing, enhances readability and suits professional presentations aimed at football analytics consultants?"
+        }
+      ],
+      "metadata": {
+        "dataset": "FIFA 18 Dataset",
+        "summary_id": 3,
+        "question_id": 1,
+        "master_question": "Which preferred defensive positions show the highest average values for Interceptions and Marking across all clubs and nationalities?",
+        "target_audience": "Football analytics consultants specializing in defensive analysis and team structure",
+        "curator_intention": "Promote advanced defensive benchmarking and knowledge transfer across leagues and national teams",
+        "num_questions_requested": 8,
+        "num_questions_generated": 8,
+        "evaluation_constructs": [
+          "cognitive_load",
+          "interpretability",
+          "style"
+        ]
+      },
+      "summary_id": 3,
+      "question_id": 1
+    },
+    {
+      "questions": [
+        {
+          "question_id": 1,
+          "question_text": "Which chart makes it easier to quickly compare defensive player Strength and Stamina across clubs and positions without excessive searching or eye movement?"
+        },
+        {
+          "question_id": 2,
+          "question_text": "In which chart are the legends, axis labels, and position markers clearer and less ambiguous when identifying player attributes for defensive benchmarking?"
+        },
+        {
+          "question_id": 3,
+          "question_text": "Which chart presents the differences in defensive profiles among clubs in a way that avoids visual clutter and overlapping elements, making patterns more noticeable?"
+        },
+        {
+          "question_id": 4,
+          "question_text": "Looking at both charts, which design allows you to easily spot trends and patterns in Strength and Stamina by position, with less mental effort to understand how teams compare?"
+        },
+        {
+          "question_id": 5,
+          "question_text": "Which chart uses colors, fonts, and spacing in a way that feels modern, professional, and appealing for a presentation to football analytics consultants?"
+        },
+        {
+          "question_id": 6,
+          "question_text": "Between the two charts, which one would minimize the chance of someone making an error or misinterpreting what a player’s Strength or Stamina value means?"
+        },
+        {
+          "question_id": 7,
+          "question_text": "Which of the charts better balances the need to show detailed player data by position with keeping the display uncluttered and easy to scan for defensive analysis?"
+        },
+        {
+          "question_id": 8,
+          "question_text": "Considering the purpose of advanced knowledge transfer across leagues and national teams, which chart design communicates the intended message most clearly and confidently at a glance?"
+        }
+      ],
+      "metadata": {
+        "dataset": "FIFA 18 Dataset",
+        "summary_id": 3,
+        "question_id": 2,
+        "master_question": "How do defensive profiles differ between clubs in terms of player Strength and Stamina by position, and what patterns emerge?",
+        "target_audience": "Football analytics consultants specializing in defensive analysis and team structure",
+        "curator_intention": "Promote advanced defensive benchmarking and knowledge transfer across leagues and national teams",
+        "num_questions_requested": 8,
+        "num_questions_generated": 8,
+        "evaluation_constructs": [
+          "cognitive_load",
+          "interpretability",
+          "style"
+        ]
+      },
+      "summary_id": 3,
+      "question_id": 2
+    },
+    {
+      "questions": [
+        {
+          "question_id": 1,
+          "question_text": "Which chart makes it easier to quickly identify which nationalities consistently have players with the highest standing tackle metrics, without unnecessary distraction from unrelated details?"
+        },
+        {
+          "question_id": 2,
+          "question_text": "Comparing both charts, in which one is the legend, colors, and labels more straightforward to locate and understand, with less effort required to decode what each nationality and defensive metric represents?"
+        },
+        {
+          "question_id": 3,
+          "question_text": "Between the two charts, which design makes it clearer and less confusing to tell what each visual element (such as marks, colors, or axes) specifically represents, so there is no ambiguity about the defensive metrics shown for each nationality?"
+        },
+        {
+          "question_id": 4,
+          "question_text": "Which chart has less visual clutter or unnecessary graphical elements (e.g., excess gridlines, overlapping labels, busy backgrounds) that could distract from accurately answering the master question about defensive benchmarking by nationality?"
+        },
+        {
+          "question_id": 5,
+          "question_text": "Looking at both charts, which one provides a clearer overall message as to whether certain nationalities consistently produce players with superior standing tackle performance, minimizing the risk of misinterpretation or ambiguous comparisons?"
+        },
+        {
+          "question_id": 6,
+          "question_text": "Considering color schemes, typography, and general design professionalism, which chart would you consider more visually appealing and suitable for a presentation to football analytics consultants?"
+        },
+        {
+          "question_id": 7,
+          "question_text": "Which chart offers a more rational and balanced spatial layout (e.g., spacing, element positioning, size proportion) that helps you visually compare nationalities in standing tackle metrics efficiently?"
+        },
+        {
+          "question_id": 8,
+          "question_text": "Between the two charts, which one reduces the need for constant back-and-forth eye movement between legends, axes, and chart marks, resulting in a smoother and less mentally taxing viewing experience when answering the master question?"
+        }
+      ],
+      "metadata": {
+        "dataset": "FIFA 18 Dataset",
+        "summary_id": 3,
+        "question_id": 3,
+        "master_question": "Are there nationalities that consistently produce players with superior defensive metrics in Standing tackle compared to others?",
+        "target_audience": "Football analytics consultants specializing in defensive analysis and team structure",
+        "curator_intention": "Promote advanced defensive benchmarking and knowledge transfer across leagues and national teams",
+        "num_questions_requested": 8,
+        "num_questions_generated": 8,
+        "evaluation_constructs": [
+          "cognitive_load",
+          "interpretability",
+          "style"
+        ]
+      },
+      "summary_id": 3,
+      "question_id": 3
+    },
+    {
+      "questions": [
+        {
+          "question_id": 1,
+          "question_text": "Which chart allows you to more quickly and clearly spot the relationship between player Strength and Interceptions for different defensive positions?"
+        },
+        {
+          "question_id": 2,
+          "question_text": "Comparing both charts, which one has less visual clutter—meaning it feels less crowded with unnecessary elements or overlapping marks when you try to focus on the key comparison?"
+        },
+        {
+          "question_id": 3,
+          "question_text": "When trying to decode legends, axes, or labels, which chart makes it easier to understand exactly what each color, symbol, or section represents in the context of Strength and Interceptions?"
+        },
+        {
+          "question_id": 4,
+          "question_text": "If you needed to retrieve or compare specific player metrics (Strength and Interceptions) within their defensive positions, which chart makes it less mentally tiring or confusing?"
+        },
+        {
+          "question_id": 5,
+          "question_text": "Which chart's style—including font choice, color palette, and overall design—looks more professional and visually appealing for a football analytics presentation?"
+        },
+        {
+          "question_id": 6,
+          "question_text": "Looking at both charts, which one leaves less room for misinterpretation or ambiguity when understanding the connection between Strength and Interceptions in defensive positions?"
+        },
+        {
+          "question_id": 7,
+          "question_text": "Which chart presents player data (positions, Strength, Interceptions) in a way that avoids unnecessary distractions or excessive design elements that could pull attention away from answering the master question?"
+        },
+        {
+          "question_id": 8,
+          "question_text": "Considering the intended audience of defensive specialists, which chart is better designed to help them easily transfer insights or benchmarking knowledge across different teams and leagues?"
+        }
+      ],
+      "metadata": {
+        "dataset": "FIFA 18 Dataset",
+        "summary_id": 3,
+        "question_id": 4,
+        "master_question": "What correlations exist between a player's Strength and their effectiveness in Interceptions within specific defensive positions?",
+        "target_audience": "Football analytics consultants specializing in defensive analysis and team structure",
+        "curator_intention": "Promote advanced defensive benchmarking and knowledge transfer across leagues and national teams",
+        "num_questions_requested": 8,
+        "num_questions_generated": 8,
+        "evaluation_constructs": [
+          "cognitive_load",
+          "interpretability",
+          "style"
+        ]
+      },
+      "summary_id": 3,
+      "question_id": 4
+    },
+    {
+      "questions": [
+        {
+          "question_id": 1,
+          "question_text": "Which chart makes it easier and quicker to spot how different clubs contribute players with high Marking and Standing tackle scores toward the team's defensive balance, without forcing you to repeatedly check legends or labels?"
+        },
+        {
+          "question_id": 2,
+          "question_text": "Between the charts, which one avoids visual clutter such as excessive overlapping elements, unnecessary gridlines, or confusing color choices, so that the key answer to the master question stands out clearly?"
+        },
+        {
+          "question_id": 3,
+          "question_text": "Comparing both charts, which uses legends, axis labels, and annotations in a way that minimizes the effort needed to decode club distribution and player defensive metrics?"
+        },
+        {
+          "question_id": 4,
+          "question_text": "Which chart presents the relationships between club distribution and overall team defensive balance with less possibility for confusion or misinterpretation about what each visual element represents?"
+        },
+        {
+          "question_id": 5,
+          "question_text": "Looking at the color palettes and typography, which chart appears more visually professional, balanced, and suitable for a presentation to football analytics consultants?"
+        },
+        {
+          "question_id": 6,
+          "question_text": "Which of the two charts better supports accurate retrieval of values or trends—such as identifying which clubs have the highest number of players with strong defensive scores—without uncertainty?"
+        },
+        {
+          "question_id": 7,
+          "question_text": "Considering the density and arrangement of visual elements, which chart provides a clearer and more focused view of how player club affiliation impacts defensive balance, with minimal distraction?"
+        },
+        {
+          "question_id": 8,
+          "question_text": "Overall, which chart gives a clearer and more immediate understanding of the club distribution’s influence on team defensive balance, while still maintaining an appealing and readable style?"
+        }
+      ],
+      "metadata": {
+        "dataset": "FIFA 18 Dataset",
+        "summary_id": 3,
+        "question_id": 5,
+        "master_question": "How does the club distribution of players with high Marking and Standing tackle scores influence overall team defensive balance?",
+        "target_audience": "Football analytics consultants specializing in defensive analysis and team structure",
+        "curator_intention": "Promote advanced defensive benchmarking and knowledge transfer across leagues and national teams",
+        "num_questions_requested": 8,
+        "num_questions_generated": 8,
+        "evaluation_constructs": [
+          "cognitive_load",
+          "interpretability",
+          "style"
+        ]
+      },
+      "summary_id": 3,
+      "question_id": 5
+    },
+    {
+      "questions": [
+        {
+          "question_id": 1,
+          "question_text": "Which chart makes it easier to quickly spot which positions have the most variation in defensive skills, without needing to repeatedly check legends or labels?"
+        },
+        {
+          "question_id": 2,
+          "question_text": "Which chart provides clearer and less ambiguous representations of defensive skills for each position, so that two viewers would likely reach the same conclusions about skill variation?"
+        },
+        {
+          "question_id": 3,
+          "question_text": "Comparing both charts, which one uses visual elements (such as color, size, and symbols) in a way that reduces the feeling of visual clutter when answering the master question?"
+        },
+        {
+          "question_id": 4,
+          "question_text": "Looking at both charts, which one has legends, labels, and scales that are easier to read and understand without excessive scanning or eye movement?"
+        },
+        {
+          "question_id": 5,
+          "question_text": "Which chart’s overall visual style (fonts, colors, layout) appears more professional and appealing for a football analytics presentation focused on defensive benchmarking?"
+        },
+        {
+          "question_id": 6,
+          "question_text": "When trying to compare defensive skill variation across positions, which chart avoids confusing overlaps or misleading encodings that could result in misunderstanding?"
+        },
+        {
+          "question_id": 7,
+          "question_text": "Which chart better supports the master question’s goal of informing recruitment strategies by making differences and trends between position groups visually clear?"
+        },
+        {
+          "question_id": 8,
+          "question_text": "Comparing both charts, which one logically organizes information (such as grouping, spacing, or hierarchy) to make it easier for consultants to transfer insights across leagues and teams?"
+        }
+      ],
+      "metadata": {
+        "dataset": "FIFA 18 Dataset",
+        "summary_id": 3,
+        "question_id": 6,
+        "master_question": "Which positions exhibit the greatest variation in defensive skills (Strength, Stamina, Interceptions, Standing tackle, Marking), and what might this suggest about recruitment strategies for those roles?",
+        "target_audience": "Football analytics consultants specializing in defensive analysis and team structure",
+        "curator_intention": "Promote advanced defensive benchmarking and knowledge transfer across leagues and national teams",
+        "num_questions_requested": 8,
+        "num_questions_generated": 8,
+        "evaluation_constructs": [
+          "cognitive_load",
+          "interpretability",
+          "style"
+        ]
+      },
+      "summary_id": 3,
+      "question_id": 6
+    }
+  ],
+  "summary": {
+    "total_processed": 18,
+    "successful": 18,
+    "failed": 0
+  }
+}

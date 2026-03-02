@@ -16,7 +16,7 @@
       "narrative_summary": "The schema permits policy makers to visualize and analyze the relative strength and development stage of agriculture, industry, and services sectors across various economies. Fields like Agriculture Sector GDP Rank, IndustryRank, ServicesRank, and sectoral % contribution support comparative analysis for policy formulation, allowing agencies to benchmark progress, identify underdeveloped sectors, and inform resource allocation decisions. Visualization of ranks and contributions over time fosters evidence-based policy design.",
       "question_idx": 4,
       "question_string": "Are there countries where the Agriculture Sector GDP Rank is significantly better than their overall Rank?",
-      "variants": ["sum_2_ques_4/var2.png", "sum_2_ques_4/var3.png"]
+      "variants": ["1/sum_2_ques_4/var2.png", "1/sum_2_ques_4/var3.png"]
     },
     {
       "table": "192",
@@ -24,7 +24,7 @@
       "narrative_summary": "This dataset offers a rich basis for visually demonstrating the principles behind stellar classification. For educational purposes, combining Temperature, Luminosity, Radius, and Spectral Class enables instructors to showcase the structure and rationale of the HR diagram, aiding learners in grasping how different physical attributes and spectral classes are used to differentiate star types. Visualizations of these attributes collectively support the narrative of how stars are scientifically categorized, making stellar classification more approachable and relevant for instructional design and classroom engagement.",
       "question_idx": 4,
       "question_string": "How does the distribution of Star types relate to their Luminosity levels?",
-      "variants": ["sum_1_ques_4/var1.png", "sum_1_ques_4/var2.png"]
+      "variants": ["192/sum_1_ques_4/var1.png", "192/sum_1_ques_4/var2.png"]
     },
     {
       "table": "2",
@@ -32,7 +32,7 @@
       "narrative_summary": "This dataset enables policymakers to visualize the evolution of methane emissions by country and sector from 1990 to 2018, uncovering which nations and sectors contribute most and how patterns have shifted. Audiences can identify where emission mitigation policies have succeeded or failed, compare sector performance between countries, and prioritize areas for intervention based on historical data. The schema's structure supports trend analysis, comparative country-sector profiling, and benchmarking for international agreements.",
       "question_idx": 1,
       "question_string": "Which countries had the highest total methane emissions in 2018, and how does this compare to their values in 1990?",
-      "variants": ["sum_1_ques_1/var3.png", "sum_1_ques_1/var5.png"]
+      "variants": ["2/sum_1_ques_1/var3.png", "2/sum_1_ques_1/var5.png"]
     },
     {
       "table": "206",
@@ -40,7 +40,7 @@
       "narrative_summary": "The schema enables real estate developers and property investors to analyze how key property characteristics, such as area size, number of bedrooms, and furnishing status, contribute to price variations across the dataset. By visualizing the relationships between these fields, stakeholders can identify trends in premium pricing, assess which features are most influential in value appreciation, and detect potential outliers that reveal high-value or undervalued properties. This field combination supports strategic decision-making for investment portfolios and resource allocation by uncovering market-driven price determinants.",
       "question_idx": 3,
       "question_string": "Do properties with more bedrooms tend to have higher prices compared to those with fewer bedrooms?",
-      "variants": ["sum_1_ques_3/var4.png", "sum_1_ques_3/var3.png"]
+      "variants": ["206/sum_1_ques_3/var4.png", "206/sum_1_ques_3/var3.png"]
     },
     {
       "table": "206",
@@ -48,7 +48,7 @@
       "narrative_summary": "The schema enables real estate developers and property investors to analyze how key property characteristics, such as area size, number of bedrooms, and furnishing status, contribute to price variations across the dataset. By visualizing the relationships between these fields, stakeholders can identify trends in premium pricing, assess which features are most influential in value appreciation, and detect potential outliers that reveal high-value or undervalued properties. This field combination supports strategic decision-making for investment portfolios and resource allocation by uncovering market-driven price determinants.",
       "question_idx": 6,
       "question_string": "Is there a noticeable trend in property prices based on the number of stories?",
-      "variants": ["sum_1_ques_6/var1.png", "sum_1_ques_6/var4.png"]
+      "variants": ["206/sum_1_ques_6/var1.png", "206/sum_1_ques_6/var4.png"]
     },
     {
       "table": "22",
@@ -56,7 +56,7 @@
       "narrative_summary": "The schema provides a rich foundation for pricing strategists to identify which vehicle features most strongly impact car prices. Through visualization of carbody, enginetype, and enginesize against price, viewers can detect patterns and understand which combinations create higher perceived value. This supports segment-level trend identification and strategic adjustments in offering or marketing, empowering business actions aligned with data-backed feature-to-value relationships.",
       "question_idx": 4,
       "question_string": "Among different enginetypes, which are associated with higher average prices?",
-      "variants": ["sum_1_ques_4/var1.png", "sum_1_ques4/var3.png"]
+      "variants": ["22/sum_1_ques_4/var1.png", "22/sum_1_ques_4/var3.png"]
     },
     {
       "table": "243",
@@ -64,7 +64,7 @@
       "narrative_summary": "This dataset enables urban planners to visually compare weather variability across multiple metropolitan areas, helping them accept the reality of climate diversity and establish baseline risk profiles. By exploring patterns between temperature, humidity, wind speed, and weather conditions at different observation times, planners can identify potential challenges for infrastructure or public safety, such as extreme weather moments or persistent trends. The rich granularity of location and time supports actionable geographic and temporal insights, stimulating strategic city-wide adaptation and investment decisions.",
       "question_idx": 3,
       "question_string": "How does the 'feels like' temperature compare to the actual temperature in each city?",
-      "variants": ["sum_1_ques_3/var2.png", "sum_1_ques_3/var3.png"]
+      "variants": ["243/sum_1_ques_3/var2.png", "243/sum_1_ques_3/var3.png"]
     },
     {
       "table": "261",
@@ -72,7 +72,7 @@
       "narrative_summary": "This schema enables a comprehensive examination of the demographic, academic, and gender composition of NASA astronauts over time. By leveraging fields such as Gender, Alma Mater, Undergraduate Major, Birth Place, and Year, stakeholders can visualize trends in diversity and the academic origins of astronauts. This narrative supports actionable insights into which educational institutions contributed to NASA's talent pool and the evolution of gender representation, informing future outreach, recruitment, and curriculum development strategies in STEM education.",
       "question_idx": 2,
       "question_string": "Which undergraduate majors are most common among astronauts, and how does this distribution differ by gender?",
-      "variants": ["sum_1_ques_2/var4.png", "sum_1_ques_2/var1.png"]
+      "variants": ["261/sum_1_ques_2/var4.png", "261/sum_1_ques_2/var1.png"]
     },
     {
       "table": "261",
@@ -80,7 +80,7 @@
       "narrative_summary": "The schema offers rich possibilities to visualize operational profiles by combining fields such as Space Flights, Space Flight (hr), Space Walks, Space Walks (hr), Missions, and Status. Analysts can identify patterns and distributions in career longevity, mission frequency, and roles taken by astronauts. Such analysis supports mission planners in forecasting crew experience requirements, evaluating risk exposure, and optimizing future crew selection processes based on historical operational data.",
       "question_idx": 4,
       "question_string": "How does Space Walks (hr) vary between male and female astronauts?",
-      "variants": ["sum_2_ques_4/var1.png", "sum_2_ques_4/var2.png"]
+      "variants": ["261/sum_2_ques_4/var1.png", "261/sum_2_ques_4/var2.png"]
     },
     {
       "table": "269",
@@ -88,7 +88,7 @@
       "narrative_summary": "This schema allows policy makers to visualize the interplay between country population size, continent, growth rate, and world percentage. By comparing these fields, leaders can identify high-impact geographic areas for targeted interventions, track how regional population dynamics shift over time, and allocate international development resources more effectively. The curated structural focus encourages insights into where rapid growth may create future needs, ensuring responsive policy planning aligned with major demographic trends.",
       "question_idx": 4,
       "question_string": "What is the relationship between a country's area (km²) and its 2023 population?",
-      "variants": ["sum_1_ques_4/var1.png", "sum_1_ques_4/var4.png"]
+      "variants": ["269/sum_1_ques_4/var1.png", "269/sum_1_ques_4/var4.png"]
     },
     {
       "table": "269",
@@ -96,7 +96,7 @@
       "narrative_summary": "With fields detailing area, density, and multi-year population counts, this data structure empowers planners to visualize how countries differ in crowding and land resources relative to their population. Analysts can detect where increases in density may be straining infrastructure, or where land resources are abundant but underutilized. The schema encourages analyses that map density hotspots, monitor the spatial dynamics of growth, and support decision making for sustainable infrastructure investment based on evolving population-physical geography relationships.",
       "question_idx": 7,
       "question_string": "Among the top-ranked countries by 2023 population, how do their population densities compare?",
-      "variants": ["sum_4_ques_7/var1.png", "sum_4_ques_7/var4.png"]
+      "variants": ["269/sum_4_ques_7/var1.png", "269/sum_4_ques_7/var4.png"]
     },
     {
       "table": "28",
@@ -104,7 +104,7 @@
       "narrative_summary": "Leveraging the linkage between airbags, leather interior, price, and manufacturer, the schema enables analysis of how safety and comfort are valued in the marketplace. This can reveal whether vehicles with higher safety equipment command premium prices or if some manufacturers offer advanced safety at no price markup. Insights from these field combinations facilitate data-driven recommendations for safety regulations, market incentives, and public awareness initiatives.",
       "question_idx": 5,
       "question_string": "What trend can be observed in the Price of cars with advanced safety features (more Airbags) across different Production years?",
-      "variants": ["sum_2_ques_5/var2.png", "sum_2_ques_5/var3.png"]
+      "variants": ["28/sum_2_ques_5/var2.png", "28/sum_2_ques_5/var3.png"]
     },
     {
       "table": "3",
@@ -112,7 +112,7 @@
       "narrative_summary": "Leveraging the ranking and quantitative production data, supply chain managers and executives can assess the relative market position of countries within the global rice trade. The dataset enables identification of high-output producers with efficient land use, as well as nations whose low ranking may indicate emerging opportunities or supply risk. Visualization of these relationships provides actionable intelligence for business planning, sourcing strategy, and competitive benchmarking in the rice industry.",
       "question_idx": 8,
       "question_string": "Which countries show emerging opportunities in the global rice trade based on low production rank but high yield per hectare?",
-      "variants": ["sum_4_ques_8/var4.png", "sum_4_ques_8/var2.png"]
+      "variants": ["3/sum_4_ques_8/var4.png", "3/sum_4_ques_8/var2.png"]
     },
     {
       "table": "429",
@@ -120,7 +120,7 @@
       "narrative_summary": "This schema provides policymakers an opportunity to visualize import and export volumes of dogs across US states and international locations. By examining the combination of location, exported, imported, and inUS fields, stakeholders can identify regions with significant cross-border activity and assess implications for animal health regulation. Visualizations can help reveal distribution patterns, highlight states or countries with extreme activity, and support risk or policy prioritization, aligning with the curator's intent for scenario-based regulation and informed decision-making.",
       "question_idx": 3,
       "question_string": "Are there any states or countries where the total volume of dogs is significantly higher or lower than the average?",
-      "variants": ["sum_1_ques_3/var1.png", "sum_1_ques_3/var3.png"]
+      "variants": ["429/sum_1_ques_3/var1.png", "429/sum_1_ques_3/var3.png"]
     }
   ]
 }

@@ -254,7 +254,7 @@
       "narrative_summary": "The schema provides a rich foundation for pricing strategists to identify which vehicle features most strongly impact car prices. Through visualization of carbody, enginetype, and enginesize against price, viewers can detect patterns and understand which combinations create higher perceived value. This supports segment-level trend identification and strategic adjustments in offering or marketing, empowering business actions aligned with data-backed feature-to-value relationships.",
       "question_idx": 4,
       "question_string": "Among different enginetypes, which are associated with higher average prices?",
-      "variants": ["sum_1_ques_4/var1.png", "sum_1_ques4/var3.png"]
+      "variants": ["sum_1_ques_4/var1.png", "sum_1_ques_4/var3.png"]
     },
     {
       "table": "22",

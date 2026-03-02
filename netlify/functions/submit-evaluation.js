@@ -28,13 +28,78 @@ exports.handler = async (event, context) => {
   try {
     const data = JSON.parse(event.body);
     
-    // Log the submission
-    console.log('Evaluation submission received:', JSON.stringify(data, null, 2));
+    // Log the submission with image information
+    console.log('Evaluation submission received:', {
+      pairId: data.pairId,
+      timestamp: data.timestamp,
+      sessionId: data.sessionId,
+      overallPreference: data.evaluation?.overallPreference,
+      imageInfo: data.imageInfo
+    });
     
     // Optional: Send to Discord webhook (replace with your webhook URL)
     if (process.env.DISCORD_WEBHOOK_URL) {
       const hook = new Webhook(process.env.DISCORD_WEBHOOK_URL);
-      await hook.send(`New evaluation submitted:\n\`\`\`json\n${JSON.stringify(data, null, 2)}\n\`\`\``);
+      
+      const discordMessage = {
+        embeds: [{
+          title: "📊 New Chart Evaluation Submitted",
+          color: 0x00ff00,
+          fields: [
+            {
+              name: "Pair ID",
+              value: data.pairId || "Not specified",
+              inline: true
+            },
+            {
+              name: "Overall Preference", 
+              value: data.evaluation?.overallPreference || "Not specified",
+              inline: true
+            },
+            {
+              name: "Session ID",
+              value: data.sessionId || "Unknown",
+              inline: true
+            },
+            {
+              name: "Chart A Image",
+              value: data.imageInfo?.chartA?.filename || "Unknown",
+              inline: true
+            },
+            {
+              name: "Chart B Image", 
+              value: data.imageInfo?.chartB?.filename || "Unknown",
+              inline: true
+            },
+            {
+              name: "Chart A Readable",
+              value: data.evaluation?.chartA?.readable?.yes ? "✅ Yes" : "❌ No",
+              inline: true
+            },
+            {
+              name: "Chart A Precise",
+              value: data.evaluation?.chartA?.precision?.yes ? "✅ Yes" : "❌ No", 
+              inline: true
+            },
+            {
+              name: "Chart B Readable",
+              value: data.evaluation?.chartB?.readable?.yes ? "✅ Yes" : "❌ No",
+              inline: true
+            },
+            {
+              name: "Chart B Precise",
+              value: data.evaluation?.chartB?.precision?.yes ? "✅ Yes" : "❌ No",
+              inline: true
+            }
+          ],
+          timestamp: new Date().toISOString(),
+          footer: {
+            text: `From: ${data.url || 'Unknown URL'}`
+          }
+        }]
+      };
+      
+      await hook.send(discordMessage);
     }
     
     // Optional: Send email via EmailJS or similar service

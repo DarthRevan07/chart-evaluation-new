@@ -13,16 +13,22 @@ function initializeSimpleEvaluation(pairId, pairMetadata) {
             pairId: pairId,
             metadata: pairMetadata,
             chartA: {
-                precision: false,
-                readable: false
+                precision: { yes: false, no: false },
+                readable: { yes: false, no: false },
+                imagePath: null
             },
             chartB: {
-                precision: false,
-                readable: false
+                precision: { yes: false, no: false },
+                readable: { yes: false, no: false },
+                imagePath: null
             },
             overallPreference: null,
             completed: false,
-            timestamp: null
+            timestamp: null,
+            displayedImages: {
+                chartA: null,
+                chartB: null
+            }
         };
     }
     
@@ -45,11 +51,36 @@ function saveSimpleEvaluation() {
         return;
     }
     
-    // Collect form data
-    evaluation.chartA.precision = document.getElementById('chart_a_precision').checked;
-    evaluation.chartA.readable = document.getElementById('chart_a_readable').checked;
-    evaluation.chartB.precision = document.getElementById('chart_b_precision').checked;
-    evaluation.chartB.readable = document.getElementById('chart_b_readable').checked;
+    // Collect form data - handle both yes and no checkboxes
+    evaluation.chartA.readable = {
+        yes: document.getElementById('chart_a_readable_yes') ? document.getElementById('chart_a_readable_yes').checked : false,
+        no: document.getElementById('chart_a_readable_no') ? document.getElementById('chart_a_readable_no').checked : false
+    };
+    evaluation.chartA.precision = {
+        yes: document.getElementById('chart_a_precision_yes') ? document.getElementById('chart_a_precision_yes').checked : false,
+        no: document.getElementById('chart_a_precision_no') ? document.getElementById('chart_a_precision_no').checked : false
+    };
+    evaluation.chartB.readable = {
+        yes: document.getElementById('chart_b_readable_yes') ? document.getElementById('chart_b_readable_yes').checked : false,
+        no: document.getElementById('chart_b_readable_no') ? document.getElementById('chart_b_readable_no').checked : false
+    };
+    evaluation.chartB.precision = {
+        yes: document.getElementById('chart_b_precision_yes') ? document.getElementById('chart_b_precision_yes').checked : false,
+        no: document.getElementById('chart_b_precision_no') ? document.getElementById('chart_b_precision_no').checked : false
+    };
+    
+    // Capture actual displayed image paths
+    const chartAImg = document.getElementById('chartA');
+    const chartBImg = document.getElementById('chartB');
+    
+    evaluation.chartA.imagePath = chartAImg ? chartAImg.src : null;
+    evaluation.chartB.imagePath = chartBImg ? chartBImg.src : null;
+    
+    // Also store in displayedImages for backward compatibility
+    evaluation.displayedImages = {
+        chartA: evaluation.chartA.imagePath,
+        chartB: evaluation.chartB.imagePath
+    };
     
     // Get overall preference
     const preferenceRadios = document.querySelectorAll('input[name="overall_preference"]');
@@ -110,7 +141,18 @@ async function submitSimpleEvaluation() {
             userAgent: navigator.userAgent,
             timestamp: new Date().toISOString(),
             sessionId: getOrCreateSessionId(),
-            url: window.location.href
+            url: window.location.href,
+            imageInfo: {
+                chartA: {
+                    src: evaluation.chartA.imagePath,
+                    filename: evaluation.chartA.imagePath ? evaluation.chartA.imagePath.split('/').pop() : null
+                },
+                chartB: {
+                    src: evaluation.chartB.imagePath,
+                    filename: evaluation.chartB.imagePath ? evaluation.chartB.imagePath.split('/').pop() : null
+                },
+                baseUrl: window.location.origin + window.location.pathname.replace(/\/[^/]*$/, '')
+            }
         };
         
         // Determine the API endpoint based on environment
@@ -173,16 +215,32 @@ function loadSimpleEvaluation(pairId) {
         return;
     }
     
-    // Load checkbox states
-    const chartAPrecision = document.getElementById('chart_a_precision');
-    const chartAReadable = document.getElementById('chart_a_readable');
-    const chartBPrecision = document.getElementById('chart_b_precision');
-    const chartBReadable = document.getElementById('chart_b_readable');
+    // Load checkbox states - handle both old and new formats
+    const chartAReadableYes = document.getElementById('chart_a_readable_yes');
+    const chartAReadableNo = document.getElementById('chart_a_readable_no');
+    const chartAPrecisionYes = document.getElementById('chart_a_precision_yes');
+    const chartAPrecisionNo = document.getElementById('chart_a_precision_no');
+    const chartBReadableYes = document.getElementById('chart_b_readable_yes');
+    const chartBReadableNo = document.getElementById('chart_b_readable_no');
+    const chartBPrecisionYes = document.getElementById('chart_b_precision_yes');
+    const chartBPrecisionNo = document.getElementById('chart_b_precision_no');
     
-    if (chartAPrecision) chartAPrecision.checked = evaluation.chartA.precision;
-    if (chartAReadable) chartAReadable.checked = evaluation.chartA.readable;
-    if (chartBPrecision) chartBPrecision.checked = evaluation.chartB.precision;
-    if (chartBReadable) chartBReadable.checked = evaluation.chartB.readable;
+    if (evaluation.chartA.readable && typeof evaluation.chartA.readable === 'object') {
+        if (chartAReadableYes) chartAReadableYes.checked = evaluation.chartA.readable.yes;
+        if (chartAReadableNo) chartAReadableNo.checked = evaluation.chartA.readable.no;
+    }
+    if (evaluation.chartA.precision && typeof evaluation.chartA.precision === 'object') {
+        if (chartAPrecisionYes) chartAPrecisionYes.checked = evaluation.chartA.precision.yes;
+        if (chartAPrecisionNo) chartAPrecisionNo.checked = evaluation.chartA.precision.no;
+    }
+    if (evaluation.chartB.readable && typeof evaluation.chartB.readable === 'object') {
+        if (chartBReadableYes) chartBReadableYes.checked = evaluation.chartB.readable.yes;
+        if (chartBReadableNo) chartBReadableNo.checked = evaluation.chartB.readable.no;
+    }
+    if (evaluation.chartB.precision && typeof evaluation.chartB.precision === 'object') {
+        if (chartBPrecisionYes) chartBPrecisionYes.checked = evaluation.chartB.precision.yes;
+        if (chartBPrecisionNo) chartBPrecisionNo.checked = evaluation.chartB.precision.no;
+    }
     
     // Load overall preference
     if (evaluation.overallPreference) {
@@ -304,4 +362,146 @@ function addNotificationStyles() {
     document.head.appendChild(style);
 }
 
-// Na
+// Navigation helper functions
+function goToNextPair() {
+    // Use the enhanced slider navigation if available
+    if (typeof goToNextPairWithSlider === 'function') {
+        goToNextPairWithSlider();
+    } else if (typeof currentPairProcessor !== 'undefined' && currentPairProcessor) {
+        if (currentPairIndex < currentPairProcessor.allPairs.length - 1) {
+            currentPairIndex++;
+            if (typeof loadCurrentPair === 'function') {
+                loadCurrentPair();
+            }
+        }
+    }
+}
+
+function goToPreviousPair() {
+    // Use the enhanced slider navigation if available
+    if (typeof goToPreviousPairWithSlider === 'function') {
+        goToPreviousPairWithSlider();
+    } else if (typeof currentPairProcessor !== 'undefined' && currentPairProcessor) {
+        if (currentPairIndex > 0) {
+            currentPairIndex--;
+            if (typeof loadCurrentPair === 'function') {
+                loadCurrentPair();
+            }
+        }
+    }
+}
+
+// Load saved evaluations from localStorage on page load
+function loadSavedSimpleEvaluations() {
+    const saved = localStorage.getItem('simpleEvaluations');
+    if (saved) {
+        try {
+            simpleEvaluations = JSON.parse(saved);
+            console.log('Loaded saved evaluations:', Object.keys(simpleEvaluations).length, 'pairs');
+        } catch (error) {
+            console.error('Error loading saved evaluations:', error);
+            simpleEvaluations = {};
+        }
+    }
+}
+
+// Update image paths for current evaluation
+function updateEvaluationImagePaths(pairId) {
+    if (!pairId || !simpleEvaluations[pairId]) return;
+    
+    const chartAImg = document.getElementById('chartA');
+    const chartBImg = document.getElementById('chartB');
+    
+    if (chartAImg && chartAImg.src) {
+        simpleEvaluations[pairId].chartA.imagePath = chartAImg.src;
+        simpleEvaluations[pairId].displayedImages.chartA = chartAImg.src;
+        console.log('Updated Chart A path:', chartAImg.src);
+    }
+    
+    if (chartBImg && chartBImg.src) {
+        simpleEvaluations[pairId].chartB.imagePath = chartBImg.src;
+        simpleEvaluations[pairId].displayedImages.chartB = chartBImg.src;
+        console.log('Updated Chart B path:', chartBImg.src);
+    }
+    
+    // Save updated paths
+    localStorage.setItem('simpleEvaluations', JSON.stringify(simpleEvaluations));
+}
+
+// Global function to be called when images are loaded
+window.updateCurrentEvaluationImages = function() {
+    if (currentPair && currentPair.id) {
+        updateEvaluationImagePaths(currentPair.id);
+    }
+};
+
+// Initialize on page load
+document.addEventListener('DOMContentLoaded', function() {
+    addNotificationStyles();
+    loadSavedSimpleEvaluations();
+    
+    // Add event listeners for checkbox and radio changes to auto-save
+    document.addEventListener('change', function(e) {
+        if (e.target.closest('.simple-evaluation-form')) {
+            // Auto-save when form changes
+            setTimeout(saveSimpleEvaluation, 100);
+        }
+    });
+    
+    // Try to submit any pending submissions
+    retryFailedSubmissions();
+});
+
+// Get or create a session ID
+function getOrCreateSessionId() {
+    let sessionId = localStorage.getItem('evaluationSessionId');
+    if (!sessionId) {
+        sessionId = 'session_' + Date.now() + '_' + Math.random().toString(36).substr(2, 9);
+        localStorage.setItem('evaluationSessionId', sessionId);
+    }
+    return sessionId;
+}
+
+// Retry failed submissions
+async function retryFailedSubmissions() {
+    const evaluations = Object.values(simpleEvaluations).filter(eval => eval.needsServerSubmission);
+    
+    for (const evaluation of evaluations) {
+        try {
+            const submitData = {
+                pairId: evaluation.pairId,
+                evaluation: evaluation,
+                userAgent: navigator.userAgent,
+                timestamp: new Date().toISOString(),
+                sessionId: getOrCreateSessionId(),
+                url: window.location.href,
+                retryAttempt: true
+            };
+            
+            const apiEndpoint = window.location.hostname.includes('netlify.app') || window.location.hostname.includes('netlify.com') 
+                ? '/.netlify/functions/submit-evaluation'
+                : window.location.hostname.includes('vercel.app') 
+                ? '/api/submit-evaluation'
+                : window.location.hostname.includes('github.io')
+                ? 'https://your-netlify-site.netlify.app/.netlify/functions/submit-evaluation'
+                : '/api/submit-evaluation';
+            
+            const response = await fetch(apiEndpoint, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(submitData)
+            });
+            
+            if (response.ok) {
+                // Remove retry flag
+                delete evaluation.needsServerSubmission;
+                localStorage.setItem('simpleEvaluations', JSON.stringify(simpleEvaluations));
+                console.log('Retry submission successful for:', evaluation.pairId);
+            }
+        } catch (error) {
+            console.log('Retry failed for:', evaluation.pairId, error);
+        }
+    }
+}

@@ -836,6 +836,10 @@
                         console.log('Chart A loaded successfully');
                         chartA.style.display = 'block';
                         placeholderA.style.display = 'none';
+                        // Update image path in evaluation data
+                        if (window.updateCurrentEvaluationImages) {
+                            window.updateCurrentEvaluationImages();
+                        }
                     };
                     chartA.onerror = function() {
                         console.error('Chart A failed to load from:', chartAPath);
@@ -861,6 +865,10 @@
                         console.log('Chart B loaded successfully');
                         chartB.style.display = 'block';
                         placeholderB.style.display = 'none';
+                        // Update image path in evaluation data
+                        if (window.updateCurrentEvaluationImages) {
+                            window.updateCurrentEvaluationImages();
+                        }
                     };
                     chartB.onerror = function() {
                         console.error('Chart B failed to load from:', chartBPath);
@@ -923,6 +931,10 @@
                 chartA.onload = function() {
                     chartA.style.display = 'block';
                     placeholderA.style.display = 'none';
+                    // Update image path in evaluation data
+                    if (window.updateCurrentEvaluationImages) {
+                        window.updateCurrentEvaluationImages(); 
+                    }
                 };
                 chartA.onerror = function() {
                     placeholderA.textContent = 'Chart A - Image not found';
@@ -935,6 +947,10 @@
                 chartB.onload = function() {
                     chartB.style.display = 'block';
                     placeholderB.style.display = 'none';
+                    // Update image path in evaluation data
+                    if (window.updateCurrentEvaluationImages) {
+                        window.updateCurrentEvaluationImages();
+                    }
                 };
                 chartB.onerror = function() {
                     placeholderB.textContent = 'Chart B - Image not found';

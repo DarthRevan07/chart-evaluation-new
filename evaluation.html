@@ -597,12 +597,12 @@
                     }
                 }
                 
-                // // Fallback if dataset_name not found
-                // return `Table ${tableNumber}`;
+                // Return null if dataset_name not found
+                return null;
                 
             } catch (error) {
                 console.error('Error loading dataset name from YAML:', error);
-                return `Table ${tableNumber}`;
+                return null;
             }
         }
 
@@ -615,9 +615,14 @@
                 
                 // Load actual dataset name
                 const datasetName = await loadDatasetNameFromYAML(tableNumber);
-                datasetInfo.innerHTML = `<strong>Dataset:</strong> <span id="datasetName">${datasetName}</span>`;
+                if (datasetName) {
+                    datasetInfo.innerHTML = `<strong>Dataset:</strong> <span id="datasetName">${datasetName}</span>`;
+                    console.log(`Loaded dataset name from YAML: ${datasetName}`);
+                } else {
+                    datasetInfo.innerHTML = `<strong>Dataset:</strong> <span id="datasetName">Dataset name not found</span>`;
+                    console.warn(`Failed to load dataset name from YAML for table: ${tableNumber}`);
+                }
                 
-                console.log(`Loaded dataset name from YAML: ${datasetName}`);
                 return datasetName;
             }
             return null;
@@ -922,11 +927,9 @@
                         placeholderB.textContent = 'Chart B - Image not found: ' + chartBPath;
                     };
                     
-                    // Update dataset info from annotation
-                    const datasetInfo = document.querySelector('.dataset-info');
-                    if (datasetInfo) {
-                        const datasetName = currentAnnotation.table ? `Table ${currentAnnotation.table}` : 'Unknown Dataset';
-                        datasetInfo.innerHTML = `<strong>Dataset:</strong> <span id="datasetName">${datasetName}</span>`;
+                    // Update dataset info from annotation with YAML data
+                    if (currentAnnotation.table) {
+                        updateDatasetInfoFromYAML(currentAnnotation.table);
                     }
                     
                     // Clear previous form responses when switching pairs
@@ -937,12 +940,16 @@
                     // Initialize evaluation for this pair
                     if (window.initializePairEvaluation && currentAnnotation.table) {
                         const pairId = `${currentAnnotation.table}_${currentAnnotation.variants[0]}_vs_${currentAnnotation.variants[1]}`;
-                        const pairMetadata = {
-                            table: currentAnnotation.table,
-                            dataset: currentAnnotation.dataset_info?.dataset_name || 'Unknown Dataset',
-                            variants: currentAnnotation.variants,
-                            question: currentAnnotation.question_string || currentAnnotation.question
-                        };
+                        // Load dataset name asynchronously for metadata
+                        loadDatasetNameFromYAML(currentAnnotation.table).then(datasetName => {
+                            const pairMetadata = {
+                                table: currentAnnotation.table,
+                                dataset: datasetName,
+                                variants: currentAnnotation.variants,
+                                question: currentAnnotation.question_string || currentAnnotation.question
+                            };
+                            window.initializePairEvaluation(pairId, pairMetadata);
+                        });
                         window.initializePairEvaluation(pairId, pairMetadata);
                     }
                     

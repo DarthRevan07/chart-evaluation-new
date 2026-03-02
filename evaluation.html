@@ -382,7 +382,7 @@
                     <ul>
                         <li><strong>Readability:</strong> Is it chart easy to perceive for you, and whether you can decode the encoded information unambiguously?</li>
                         <li><strong>Precision:</strong> Given the question, are you able to identify and extract all the relevant information from the chart encodings/annotations/etc., process it accurately to reach a reliable conclusion/answer?</li>
-                        <li><strong>Overall Preference:</strong> Which chart is better?</li>
+                        <li><strong>Overall Preference:</strong> Given the previous considerations about presence of important information to answer the question, your ability to easily identify and decode it, and the overall design scheme used (colors, spatial layout etc.) which chart would you prefer? </li>
                     </ul>
                 </div>
             </div>
@@ -448,7 +448,7 @@
                     <h3>Answer the following for Chart A:</h3>
                     <div class="question-group">
                         <div class="question-item">
-                            <div class="question-number">1.) Readability: Ability to perceive, identify and decode information effortlessly</div>
+                            <div class="question-number">1.) Readability: I was able to perceive and decode the encoded information without much effort</div>
                             <div class="checkbox-group horizontal">
                                 <label class="checkbox-item">
                                     <input type="checkbox" id="chart_a_readable_yes" name="chart_a_readable_yes">
@@ -463,7 +463,7 @@
                             </div>
                         </div>
                         <div class="question-item">
-                            <div class="question-number">2.) Precision: Ability to answer the provided question completely and unambiguously</div>
+                            <div class="question-number">2.) Precision: I was able to use this chart to answer the provided question completely and unambiguously</div>
                             <div class="checkbox-group horizontal">
                                 <label class="checkbox-item">
                                     <input type="checkbox" id="chart_a_precision_yes" name="chart_a_precision_yes">
@@ -485,7 +485,7 @@
                     <h3>Answer the following for Chart B:</h3>
                     <div class="question-group">
                         <div class="question-item">
-                            <div class="question-number">1.) Readability: Ability to perceive, identify and decode information effortlessly</div>
+                            <div class="question-number">1.) Readability: I was able to perceive and decode the encoded information without much effort</div>
                             <div class="checkbox-group horizontal">
                                 <label class="checkbox-item">
                                     <input type="checkbox" id="chart_b_readable_yes" name="chart_b_readable_yes">
@@ -500,7 +500,7 @@
                             </div>
                         </div>
                         <div class="question-item">
-                            <div class="question-number">2.) Precision: Ability to answer the provided question completely and unambiguously</div>
+                            <div class="question-number">2.) Precision: I was able to use this chart to answer the provided question completely and unambiguously</div>
                             <div class="checkbox-group horizontal">
                                 <label class="checkbox-item">
                                     <input type="checkbox" id="chart_b_precision_yes" name="chart_b_precision_yes">
@@ -519,7 +519,7 @@
 
                 <!-- Overall Preference -->
                 <div class="preference-section">
-                    <h3>Preference: Which is overall good?</h3>
+                    <h3>Preference: Overall, I would prefer to see this chart : </h3>
                     <div class="radio-group horizontal">
                         <label class="radio-item">
                             <input type="radio" name="overall_preference" value="Chart A">
@@ -534,7 +534,7 @@
                         <label class="radio-item">
                             <input type="radio" name="overall_preference" value="Both similar">
                             <span class="radio-button"></span>
-                            Both similar
+                            Same preference for both / No strong preference
                         </label>
                     </div>
                 </div>
@@ -922,9 +922,11 @@
                         placeholderB.textContent = 'Chart B - Image not found: ' + chartBPath;
                     };
                     
-                    // Update dataset info from annotation with YAML data
-                    if (currentAnnotation.table) {
-                        updateDatasetInfoFromYAML(currentAnnotation.table);
+                    // Update dataset info from annotation
+                    const datasetInfo = document.querySelector('.dataset-info');
+                    if (datasetInfo) {
+                        const datasetName = currentAnnotation.table ? `Table ${currentAnnotation.table}` : 'Unknown Dataset';
+                        datasetInfo.innerHTML = `<strong>Dataset:</strong> <span id="datasetName">${datasetName}</span>`;
                     }
                     
                     // Clear previous form responses when switching pairs
@@ -935,17 +937,13 @@
                     // Initialize evaluation for this pair
                     if (window.initializePairEvaluation && currentAnnotation.table) {
                         const pairId = `${currentAnnotation.table}_${currentAnnotation.variants[0]}_vs_${currentAnnotation.variants[1]}`;
-                        
-                        // Load dataset name asynchronously for metadata
-                        loadDatasetNameFromYAML(currentAnnotation.table).then(datasetName => {
-                            const pairMetadata = {
-                                table: currentAnnotation.table,
-                                dataset: datasetName,
-                                variants: currentAnnotation.variants,
-                                question: currentAnnotation.question_string || currentAnnotation.question
-                            };
-                            window.initializePairEvaluation(pairId, pairMetadata);
-                        });
+                        const pairMetadata = {
+                            table: currentAnnotation.table,
+                            dataset: currentAnnotation.dataset_info?.dataset_name || 'Unknown Dataset',
+                            variants: currentAnnotation.variants,
+                            question: currentAnnotation.question_string || currentAnnotation.question
+                        };
+                        window.initializePairEvaluation(pairId, pairMetadata);
                     }
                     
                     return;

@@ -41,31 +41,6 @@
             border-radius: 4px;
         }
         
-        /* Evaluation Instructions */
-        .evaluation-instructions.compact {
-            background: #e3f2fd;
-            border: 1px solid #90caf9;
-            border-radius: 15px;
-            padding: 15px;
-            margin: 15px 0;
-        }
-        
-        .instruction-bullets ul {
-            margin: 0;
-            padding-left: 20px;
-            font-size: 0.9em;
-            color: #1565c0;
-            line-height: 1.5;
-        }
-        
-        .instruction-bullets li {
-            margin-bottom: 5px;
-        }
-        
-        .instruction-bullets li:last-child {
-            margin-bottom: 0;
-        }
-        
         /* Combined Fixed Header with Question and Controls */
         .question-display-sticky {
             position: fixed !important;
@@ -75,22 +50,180 @@
             background: linear-gradient(135deg, #f8f9fa, #e9ecef) !important;
             border-bottom: 3px solid #007bff !important;
             z-index: 9999 !important;
-            padding: 15px 20px !important;
+            padding: 10px 15px !important;
             box-shadow: 0 2px 12px rgba(0,0,0,0.15) !important;
             box-sizing: border-box !important;
+        }
+        
+        /* Horizontal Navigation Styles */
+        .horizontal-nav-container {
+            background-color: white;
+            min-height: calc(100vh - 140px);
+        }
+        
+        .slide-nav-controls {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+            padding: 15px 0;
+            background: #f8f9fa;
+            border-bottom: 1px solid #dee2e6;
+            position: sticky;
+            top: 120px;
+            z-index: 100;
+        }
+        
+        .slide-nav-btn {
+            background: #007bff;
+            color: white;
+            border: none;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 18px;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+        
+        .slide-nav-btn:hover {
+            background: #0056b3;
+            transform: scale(1.1);
+        }
+        
+        .slide-nav-btn:disabled {
+            background: #e9ecef;
+            color: #6c757d;
+            cursor: not-allowed;
+            transform: none;
+        }
+        
+        .slide-indicators {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+        }
+        
+        .slide-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #dee2e6;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .slide-dot.active {
+            background: #007bff;
+            transform: scale(1.2);
+        }
+        
+        .slides-wrapper {
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .slides-container {
+            display: flex;
+            transition: transform 0.4s ease-in-out;
+            width: 300%;
+        }
+        
+        .slide {
+            width: 33.333%;
+            flex-shrink: 0;
+            padding: 20px;
+        }
+        
+        .both-charts-container {
+            display: flex;
+            gap: 20px;
+            align-items: flex-start;
+        }
+        
+        .charts-comparison {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            flex: 1;
+            min-width: 0;
+        }
+        
+        .chart-container {
+            margin-bottom: 15px;
+        }
+        
+        .chart-title {
+            font-size: 16px;
+            font-weight: 600;
+            color: #495057;
+            margin: 0 0 8px 0;
+            text-align: left;
+        }
+        
+        .chart-image-container {
+            position: relative;
+            min-height: 100px;
+        }
+        
+        .simple-placeholder {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 280px;
+            width: 100%;
+            max-width: 400px;
+            background-color: #f8f9fa;
+            border: 1px solid #dee2e6;
+            border-radius: 4px;
+            color: #6c757d;
+            font-size: 14px;
+            font-style: italic;
+            margin: 5px auto;
+            padding: 5px;
+        }
+        
+        .chart-image {
+            max-width: 400px;
+            max-height: 280px;
+            width: auto;
+            height: auto;
+            object-fit: contain;
+        }
+        
+        .preference-questions-container {
+            flex: 1;
+            min-width: 0;
+            padding-left: 20px;
+            border-left: 2px solid #e9ecef;
+        }
+        
+        .charts-comparison .image-placeholder {
+            height: 150px;
+        }
+        
+        .preference-questions-container {
+            flex: 1;
+            min-width: 0;
+            padding-left: 20px;
+            border-left: 2px solid #e9ecef;
         }
         
         .sticky-header-content {
             display: flex !important;
             flex-direction: column !important;
-            gap: 10px !important;
+            gap: 8px !important;
             max-width: 100% !important;
         }
         
         /* Question text styling */
         .question-section {
             background: white !important;
-            padding: 12px 15px !important;
+            padding: 8px 12px !important;
             border-radius: 8px !important;
             border-left: 4px solid #007bff !important;
             box-shadow: 0 1px 3px rgba(0,0,0,0.1) !important;
@@ -119,7 +252,7 @@
             align-items: center !important;
             justify-content: space-between !important;
             background: rgba(255,255,255,0.9) !important;
-            padding: 8px 15px !important;
+            padding: 6px 12px !important;
             border-radius: 6px !important;
             border: 1px solid #dee2e6 !important;
         }
@@ -141,7 +274,7 @@
         /* Adjust body padding for combined header */
         body {
             margin: 0 !important;
-            padding-top: 160px !important; /* Increased for combined header */
+            padding-top: 120px !important; /* Reduced for tighter layout */
         }
         
         .container {
@@ -185,31 +318,32 @@
         .question-group {
             display: flex;
             flex-direction: column;
-            gap: 20px;
+            gap: 12px;
         }
         
         .question-item {
             background: #f8f9fa;
             border: 1px solid #e9ecef;
-            border-radius: 8px;
-            padding: 15px;
+            border-radius: 6px;
+            padding: 10px;
             border-left: 4px solid #007bff;
         }
         
         .question-number {
-            font-weight: 600;
-            margin-bottom: 10px;
+            font-weight: 500;
+            margin-bottom: 6px;
             color: #495057;
-            font-size: 1em;
-            line-height: 1.4;
+            font-size: 0.85em;
+            line-height: 1.3;
         }
         
         .checkbox-group.horizontal {
-            display: flex;
-            gap: 20px;
+            display: flex !important;
+            flex-direction: row !important;
+            gap: 12px;
             align-items: flex-start;
             justify-content: flex-start;
-            margin-top: 8px;
+            margin-top: 3px;
             margin-left: 0;
             text-align: left;
             width: 100%;
@@ -218,8 +352,8 @@
         /* Smaller checkbox and radio button styling */
         .checkbox-item, .radio-item {
             position: relative;
-            padding-left: 25px;
-            font-size: 0.95em;
+            padding-left: 22px;
+            font-size: 0.85em;
             margin-left: 0;
             display: inline-flex;
             align-items: center;
@@ -237,8 +371,8 @@
             position: absolute;
             top: 2px;
             left: 0;
-            height: 14px;
-            width: 14px;
+            height: 12px;
+            width: 12px;
             background-color: #fff;
             border: 2px solid #ddd;
             cursor: pointer;
@@ -278,12 +412,12 @@
         }
         
         .checkbox-item .checkmark:after {
-            left: 3px;
-            top: 0px;
-            width: 4px;
-            height: 8px;
+            left: 2px;
+            top: -1px;
+            width: 3px;
+            height: 6px;
             border: solid white;
-            border-width: 0 2px 2px 0;
+            border-width: 0 1.5px 1.5px 0;
             transform: rotate(45deg);
         }
         
@@ -304,6 +438,70 @@
             height: 6px;
             border-radius: 50%;
             background: white;
+        }
+        
+        /* Clickable chart selection styles */
+        .selectable-chart {
+            cursor: pointer;
+            border: 3px solid transparent;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            padding: 5px;
+            margin: 5px;
+            background-color: #f8f9fa;
+        }
+        
+        .selectable-chart:hover {
+            border-color: #007bff;
+            box-shadow: 0 2px 8px rgba(0, 123, 255, 0.3);
+            transform: translateY(-2px);
+        }
+        
+        .selectable-chart.selected {
+            border-color: #28a745;
+            background-color: #e8f5e8;
+            box-shadow: 0 4px 12px rgba(40, 167, 69, 0.4);
+        }
+        
+        .charts-for-selection {
+            display: flex;
+            gap: 30px;
+            align-items: flex-start;
+            justify-content: center;
+            margin: 20px 0;
+        }
+        
+        .selection-equal-option {
+            text-align: center;
+            padding: 20px;
+            border: 3px solid transparent;
+            border-radius: 8px;
+            cursor: pointer;
+            background-color: #f8f9fa;
+            transition: all 0.3s ease;
+            min-width: 200px;
+        }
+        
+        .selection-equal-option:hover {
+            border-color: #007bff;
+            background-color: #e3f2fd;
+            transform: translateY(-2px);
+        }
+        
+        .selection-equal-option.selected {
+            border-color: #28a745;
+            background-color: #e8f5e8;
+        }
+        
+        .selection-equal-option h4 {
+            margin-bottom: 10px;
+            color: #495057;
+        }
+        
+        .selection-equal-option p {
+            margin: 0;
+            color: #6c757d;
+            font-size: 14px;
         }
     </style>
 </head>
@@ -338,7 +536,7 @@
                 <strong>Dataset:</strong> <span id="datasetName">Loading...</span>
             </div>
             <!-- Information Links Section -->
-            <div class="info-links-section" style="margin-top: 10px; margin-bottom: 10px; display: flex; gap: 10px; flex-wrap: wrap;">
+            <div class="info-links-section" style="margin-top: 5px; margin-bottom: 8px; display: flex; gap: 8px; flex-wrap: wrap;">
                 <button class="info-link-btn" onclick="showModal('contextModal')" style="
                     background: none;
                     border: 1px solid #007bff;
@@ -371,204 +569,260 @@
                 " onmouseover="this.style.background='#28a745'; this.style.color='white'" onmouseout="this.style.background='none'; this.style.color='#28a745'">
                     📊 Dataset Sample
                 </button>
-            </div>
-            <div class="assumption-note">
-                <strong>Important:</strong> Both charts show visualizations of the same underlying dataset; only the visual design elements differ.
-            </div>
-            
-            <!-- Evaluation Guidelines -->
-            <div class="evaluation-instructions compact">
-                <div class="instruction-bullets">
-                    <ul>
-                        <li><strong>Readability:</strong> Is it chart easy to perceive for you, and whether you can decode the encoded information unambiguously?</li>
-                        <li><strong>Precision:</strong> Given the question, are you able to identify and extract all the relevant information from the chart encodings/annotations/etc., process it accurately to reach a reliable conclusion/answer?</li>
-                        <li><strong>Overall Preference:</strong> Given the previous considerations about presence of important information to answer the question, your ability to easily identify and decode it, and the overall design scheme used (colors, spatial layout etc.) which chart would you prefer? </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-        <div class="images-section">
-            <!-- Chart A Section: Image and Questions Side by Side -->
-            <div class="chart-evaluation-row">
-                <div class="image-container">
-                    <div class="image-card" id="imageCard1">
-                        <div class="image-header">
-                            <h3 id="imageTitle1">Chart A</h3>
-                            <div class="score" id="imageScore1"></div>
-                        </div>
-                        <div class="image-placeholder" id="image1">
-                            <img id="chartA" src="" alt="Chart A" class="chart-image" style="display: none; max-width: 100%; height: auto;">
-                            <div class="placeholder-text" id="placeholderA">Loading Chart A...</div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="questions-container">
-                    <div class="chart-section">
-                        <h3>Answer the following for Chart A:</h3>
-                        <div class="question-group">
-                            <div class="question-item">
-                                <div class="question-number">1.) Readability: I was able to perceive and decode the encoded information without much effort</div>
-                                <div class="checkbox-group horizontal">
-                                    <label class="checkbox-item">
-                                        <input type="checkbox" id="chart_a_readable_yes" name="chart_a_readable_yes">
-                                        <span class="checkmark"></span>
-                                        Yes
-                                    </label>
-                                    <label class="checkbox-item">
-                                        <input type="checkbox" id="chart_a_readable_no" name="chart_a_readable_no">
-                                        <span class="checkmark"></span>
-                                        No
-                                    </label>
-                                </div>
-                            </div>
-                            <div class="question-item">
-                                <div class="question-number">2.) Precision: I was able to use this chart to answer the provided question completely and unambiguously</div>
-                                <div class="checkbox-group horizontal">
-                                    <label class="checkbox-item">
-                                        <input type="checkbox" id="chart_a_precision_yes" name="chart_a_precision_yes">
-                                        <span class="checkmark"></span>
-                                        Yes
-                                    </label>
-                                    <label class="checkbox-item">
-                                        <input type="checkbox" id="chart_a_precision_no" name="chart_a_precision_no">
-                                        <span class="checkmark"></span>
-                                        No
-                                    </label>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Chart B Section: Image and Questions Side by Side -->
-            <div class="chart-evaluation-row">
-                <div class="image-container">
-                    <div class="image-card" id="imageCard2">
-                        <div class="image-header">
-                            <h3 id="imageTitle2">Chart B</h3>
-                            <div class="score" id="imageScore2"></div>
-                        </div>
-                        <div class="image-placeholder" id="image2">
-                            <img id="chartB" src="" alt="Chart B" class="chart-image" style="display: none; max-width: 100%; height: auto;">
-                            <div class="placeholder-text" id="placeholderB">Loading Chart B...</div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="questions-container">
-                    <div class="chart-section">
-                        <h3>Answer the following for Chart B:</h3>
-                        <div class="question-group">
-                            <div class="question-item">
-                                <div class="question-number">1.) Readability: I was able to perceive and decode the encoded information without much effort</div>
-                                <div class="checkbox-group horizontal">
-                                    <label class="checkbox-item">
-                                        <input type="checkbox" id="chart_b_readable_yes" name="chart_b_readable_yes">
-                                        <span class="checkmark"></span>
-                                        Yes
-                                    </label>
-                                    <label class="checkbox-item">
-                                        <input type="checkbox" id="chart_b_readable_no" name="chart_b_readable_no">
-                                        <span class="checkmark"></span>
-                                        No
-                                    </label>
-                                </div>
-                            </div>
-                            <div class="question-item">
-                                <div class="question-number">2.) Precision: I was able to use this chart to answer the provided question completely and unambiguously</div>
-                                <div class="checkbox-group horizontal">
-                                    <label class="checkbox-item">
-                                        <input type="checkbox" id="chart_b_precision_yes" name="chart_b_precision_yes">
-                                        <span class="checkmark"></span>
-                                        Yes
-                                    </label>
-                                    <label class="checkbox-item">
-                                        <input type="checkbox" id="chart_b_precision_no" name="chart_b_precision_no">
-                                        <span class="checkmark"></span>
-                                        No
-                                    </label>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Simple Checkbox Evaluation Form -->
-        <div class="simple-evaluation-form">
-            <div class="chart-evaluation-sections">
-                <!-- Overall Preference -->
-                <div class="preference-section">
-                    <h3>Preference: Overall, I would prefer to see this chart : </h3>
-                    <div class="radio-group horizontal">
-                        <label class="radio-item">
-                            <input type="radio" name="overall_preference" value="Chart A">
-                            <span class="radio-button"></span>
-                            Chart A
-                        </label>
-                        <label class="radio-item">
-                            <input type="radio" name="overall_preference" value="Chart B">
-                            <span class="radio-button"></span>
-                            Chart B
-                        </label>
-                        <label class="radio-item">
-                            <input type="radio" name="overall_preference" value="Both similar">
-                            <span class="radio-button"></span>
-                            Same preference for both / No strong preference
-                        </label>
-                    </div>
-                </div>
-
-                <!-- Comments Section -->
-                <div class="comments-section">
-                    <h3>Comments (Optional)</h3>
-                    <textarea 
-                        id="evaluation_comments" 
-                        placeholder="Share any additional thoughts, observations, or feedback about these charts..."
-                        rows="4"
-                        style="width: 100%; resize: vertical; padding: 10px; border: 2px solid #ddd; border-radius: 8px; font-family: inherit;"></textarea>
-                </div>
-            </div>
-
-            <!-- Form Actions -->
-            <div class="form-actions">
-                <button type="button" class="save-btn" onclick="saveSimpleEvaluation()">💾 Save Evaluation</button>
-                <button type="button" class="submit-btn" onclick="submitSimpleEvaluation()">Submit Evaluation</button>
-            </div>
-            
-            <!-- Alternative Evaluation Interface -->
-            <div class="alternative-interface" style="
-                margin-top: 20px;
-                padding: 15px;
-                background: linear-gradient(135deg, #e3f2fd, #f3e5f5);
-                border: 1px solid #90caf9;
-                border-radius: 8px;
-                text-align: center;
-            ">
-                <h4 style="margin: 0 0 10px 0; color: #1976d2; font-size: 14px; font-weight: 600;">Try Our Enhanced Evaluation Interface</h4>
-                <p style="margin: 0 0 15px 0; font-size: 13px; color: #424242; line-height: 1.4;">Experience more nuanced evaluation with our slider-based interface that allows for precise rating between positions.</p>
-                <a href="evaluation_slider.html" style="
-                    display: inline-flex;
-                    align-items: center;
-                    gap: 8px;
-                    background: linear-gradient(135deg, #1976d2, #303f9f);
-                    color: white;
-                    text-decoration: none;
-                    padding: 10px 20px;
-                    border-radius: 25px;
-                    font-size: 14px;
-                    font-weight: 500;
+                <button class="info-link-btn" onclick="showInstructionsModal()" style="
+                    background: none;
+                    border: 1px solid #6c757d;
+                    color: #6c757d;
+                    padding: 6px 8px;
+                    border-radius: 50%;
+                    cursor: pointer;
+                    font-size: 12px;
+                    font-weight: 600;
                     transition: all 0.3s ease;
-                    box-shadow: 0 2px 8px rgba(25, 118, 210, 0.3);
-                " onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 4px 16px rgba(25, 118, 210, 0.4)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 2px 8px rgba(25, 118, 210, 0.3)'">
-                    🎛️ Switch to Slider Interface
-                </a>
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    width: 24px;
+                    height: 24px;
+                " onmouseover="this.style.background='#6c757d'; this.style.color='white'" onmouseout="this.style.background='none'; this.style.color='#6c757d'" title="View Instructions">
+                    i
+                </button>
+            </div>
+        </div>
+        
+        <!-- Horizontal Navigation Container -->
+        <div class="horizontal-nav-container">
+            <!-- Navigation Controls -->
+            <div class="slide-nav-controls">
+                <button class="slide-nav-btn prev-btn" onclick="previousSlide()" id="prevSlideBtn">‹</button>
+                <div class="slide-indicators">
+                    <span class="slide-dot active" onclick="goToSlide(0)"></span>
+                    <span class="slide-dot" onclick="goToSlide(1)"></span>
+                    <span class="slide-dot" onclick="goToSlide(2)"></span>
+                </div>
+                <button class="slide-nav-btn next-btn" onclick="nextSlide()" id="nextSlideBtn">›</button>
+            </div>
+            
+            <!-- Slides Container -->
+            <div class="slides-wrapper">
+                <div class="slides-container" id="slidesContainer">
+                    <!-- Slide 1: Chart A + Questions -->
+                    <div class="slide active">
+                        <div class="chart-evaluation-row">
+                            <div class="image-container">
+                                <div class="chart-container">
+                                    <h3 class="chart-title">Chart A</h3>
+                                    <div class="chart-image-container">
+                                        <img id="chartA" src="" alt="Chart A" class="chart-image" style="display: none; max-width: 100%; height: auto; border: 1px solid #dee2e6; border-radius: 4px;">
+                                        <div class="simple-placeholder" id="placeholderA">Loading Chart A...</div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="questions-container">
+                                <div class="chart-section">
+                                    <h3>Answer the following for Chart A:</h3>
+                                    <div class="question-group">
+                                        <div class="question-item">
+                                            <div class="question-number">1.) Readability: I was able to perceive and decode the encoded information without much effort</div>
+                                            <div class="checkbox-group horizontal">
+                                                <label class="checkbox-item">
+                                                    <input type="checkbox" id="chart_a_readable_yes" name="chart_a_readable_yes">
+                                                    <span class="checkmark"></span>
+                                                    Yes
+                                                </label>
+                                                <label class="checkbox-item">
+                                                    <input type="checkbox" id="chart_a_readable_no" name="chart_a_readable_no">
+                                                    <span class="checkmark"></span>
+                                                    No
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <div class="question-item">
+                                            <div class="question-number">2.) Precision: I was able to use this chart to answer the provided question completely and unambiguously</div>
+                                            <div class="checkbox-group horizontal">
+                                                <label class="checkbox-item">
+                                                    <input type="checkbox" id="chart_a_precision_yes" name="chart_a_precision_yes">
+                                                    <span class="checkmark"></span>
+                                                    Yes
+                                                </label>
+                                                <label class="checkbox-item">
+                                                    <input type="checkbox" id="chart_a_precision_no" name="chart_a_precision_no">
+                                                    <span class="checkmark"></span>
+                                                    No
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Slide 2: Chart B + Questions -->
+                    <div class="slide">
+                        <div class="chart-evaluation-row">
+                            <div class="image-container">
+                                <div class="chart-container">
+                                    <h3 class="chart-title">Chart B</h3>
+                                    <div class="chart-image-container">
+                                        <img id="chartB" src="" alt="Chart B" class="chart-image" style="display: none; max-width: 100%; height: auto; border: 1px solid #dee2e6; border-radius: 4px;">
+                                        <div class="simple-placeholder" id="placeholderB">Loading Chart B...</div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="questions-container">
+                                <div class="chart-section">
+                                    <h3>Answer the following for Chart B:</h3>
+                                    <div class="question-group">
+                                        <div class="question-item">
+                                            <div class="question-number">1.) Readability: I was able to perceive and decode the encoded information without much effort</div>
+                                            <div class="checkbox-group horizontal">
+                                                <label class="checkbox-item">
+                                                    <input type="checkbox" id="chart_b_readable_yes" name="chart_b_readable_yes">
+                                                    <span class="checkmark"></span>
+                                                    Yes
+                                                </label>
+                                                <label class="checkbox-item">
+                                                    <input type="checkbox" id="chart_b_readable_no" name="chart_b_readable_no">
+                                                    <span class="checkmark"></span>
+                                                    No
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <div class="question-item">
+                                            <div class="question-number">2.) Precision: I was able to use this chart to answer the provided question completely and unambiguously</div>
+                                            <div class="checkbox-group horizontal">
+                                                <label class="checkbox-item">
+                                                    <input type="checkbox" id="chart_b_precision_yes" name="chart_b_precision_yes">
+                                                    <span class="checkmark"></span>
+                                                    Yes
+                                                </label>
+                                                <label class="checkbox-item">
+                                                    <input type="checkbox" id="chart_b_precision_no" name="chart_b_precision_no">
+                                                    <span class="checkmark"></span>
+                                                    No
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Slide 3: Both Charts + Preference Question -->
+                    <div class="slide">
+                        <div class="both-charts-container">
+                            <!-- Charts Selection Row -->
+                            <div class="charts-selection-row">
+                                <h3 style="text-align: center; margin-bottom: 20px; color: #495057;">Preference: Choose the chart you would prefer to see</h3>
+                                
+                                <!-- Clickable Charts Side by Side -->
+                                <div class="charts-for-selection">
+                                    <div class="selectable-chart" id="selectableChartA" onclick="selectChart('Chart A')">
+                                        <h4 class="selection-chart-title">Chart A</h4>
+                                        <div class="selection-chart-container">
+                                            <img id="chartACompare" src="" alt="Chart A" class="chart-image selection-image" style="display: none; max-width: 100%; height: auto;">
+                                            <div class="simple-placeholder" id="placeholderACompare">Loading Chart A...</div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="selectable-chart" id="selectableChartB" onclick="selectChart('Chart B')">
+                                        <h4 class="selection-chart-title">Chart B</h4>
+                                        <div class="selection-chart-container">
+                                            <img id="chartBCompare" src="" alt="Chart B" class="chart-image selection-image" style="display: none; max-width: 100%; height: auto;">
+                                            <div class="simple-placeholder" id="placeholderBCompare">Loading Chart B...</div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="selectable-chart" id="selectableEqual" onclick="selectChart('Both similar')">
+                                        <h4 class="selection-chart-title">No Strong Preference</h4>
+                                        <div class="selection-equal-option">
+                                            <div class="equal-icon">≈</div>
+                                            <p>Same preference for both charts</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Hidden input to store selection -->
+                            <input type="hidden" id="overall_preference_hidden" name="overall_preference" value="">
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
 
+    </div>
+
+    <!-- Bottom Actions Section (Below Scrollable Area) -->
+    <div class="bottom-actions-section" style="
+        background: white;
+        border-top: 2px solid #e9ecef;
+        padding: 20px;
+        margin-top: 20px;
+        box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
+    ">
+        <div style="max-width: 1200px; margin: 0 auto;">
+            <!-- Comments Section Above Buttons -->
+            <div class="comments-section" style="margin-bottom: 15px;">
+                <label for="evaluation_comments" style="font-weight: 600; font-size: 14px; color: #495057; margin-bottom: 5px; display: block;">Comments (Optional):</label>
+                <textarea 
+                    id="evaluation_comments" 
+                    placeholder="Share any additional thoughts, observations, or feedback about these charts..."
+                    rows="3"
+                    style="width: 100%; resize: vertical; padding: 8px; border: 2px solid #ddd; border-radius: 8px; font-family: inherit; font-size: 13px;"></textarea>
+            </div>
+
+            <!-- Action Buttons Row -->
+            <div style="display: flex; gap: 15px; align-items: center; justify-content: space-between;">
+                <!-- Form Actions -->
+                <div class="form-actions" style="display: flex; gap: 8px;">
+                    <button type="button" class="save-btn" onclick="saveSimpleEvaluation()" style="
+                        background: #28a745;
+                        color: white;
+                        border: none;
+                        padding: 8px 16px;
+                        border-radius: 4px;
+                        font-size: 13px;
+                        font-weight: 500;
+                        cursor: pointer;
+                        transition: background 0.3s ease;
+                    ">💾 Save</button>
+                    <button type="button" class="submit-btn" onclick="submitSimpleEvaluation()" style="
+                        background: #007bff;
+                        color: white;
+                        border: none;
+                        padding: 8px 16px;
+                        border-radius: 4px;
+                        font-size: 13px;
+                        font-weight: 500;
+                        cursor: pointer;
+                        transition: background 0.3s ease;
+                    ">Submit</button>
+                </div>
+                
+                <!-- Alternative Interface Link -->
+                <div class="alternative-interface">
+                    <a href="evaluation_slider.html" style="
+                        display: inline-flex;
+                        align-items: center;
+                        gap: 6px;
+                        background: linear-gradient(135deg, #1976d2, #303f9f);
+                        color: white;
+                        text-decoration: none;
+                        padding: 6px 12px;
+                        border-radius: 15px;
+                        font-size: 12px;
+                        font-weight: 500;
+                        transition: all 0.3s ease;
+                        box-shadow: 0 1px 4px rgba(25, 118, 210, 0.3);
+                    " onmouseover="this.style.transform='translateY(-1px)'; this.style.boxShadow='0 2px 8px rgba(25, 118, 210, 0.4)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 1px 4px rgba(25, 118, 210, 0.3)'">🎛️ Slider Interface</a>
+                </div>
+            </div>
+        </div>
     </div>
 
     <!-- Image Modal for Enlarged View -->
@@ -1442,7 +1696,247 @@
         </div>
     </div>
 
+    <!-- Initial Instructions Modal -->
+    <div id="instructionsModal" class="modal-overlay" style="display: flex;" onclick="hideInstructionsModal(false)">
+        <div class="modal-content" onclick="event.stopPropagation()">
+            <div class="modal-header">
+                <h3>📊 Chart Evaluation Instructions</h3>
+                <button class="modal-close" onclick="hideInstructionsModal(false)">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div style="background: #e3f2fd; padding: 15px; border-radius: 8px; margin-bottom: 20px; border-left: 4px solid #007bff;">
+                    <p style="margin: 0; font-weight: 500; color: #1565c0;">
+                        <strong>Important:</strong> Both charts in each evaluation show visualizations of the same underlying dataset; only the visual design elements differ.
+                    </p>
+                </div>
+                
+                <h4 style="margin-bottom: 15px; color: #495057;">Evaluation Criteria:</h4>
+                
+                <div style="margin-bottom: 20px;">
+                    <h5 style="color: #007bff; margin-bottom: 8px;">🔍 Readability</h5>
+                    <p style="margin: 0; line-height: 1.5;">Is the chart easy to perceive for you, and can you decode the encoded information unambiguously? Consider visual clarity, legibility of text, and ease of understanding the chart elements.</p>
+                </div>
+                
+                <div style="margin-bottom: 20px;">
+                    <h5 style="color: #007bff; margin-bottom: 8px;">🎯 Precision</h5>
+                    <p style="margin: 0; line-height: 1.5;">Given the question, are you able to identify and extract all the relevant information from the chart encodings/annotations/etc., and process it accurately to reach a reliable conclusion/answer?</p>
+                </div>
+                
+                <div style="margin-bottom: 25px;">
+                    <h5 style="color: #007bff; margin-bottom: 8px;">⭐ Overall Preference</h5>
+                    <p style="margin: 0; line-height: 1.5;">Given the previous considerations about presence of important information to answer the question, your ability to easily identify and decode it, and the overall design scheme used (colors, spatial layout etc.) which chart would you prefer?</p>
+                </div>
+                
+                <div style="text-align: center; padding-top: 15px; border-top: 1px solid #dee2e6;">
+                    <button onclick="hideInstructionsModal(true)" style="
+                        background: linear-gradient(135deg, #007bff, #0056b3);
+                        color: white;
+                        border: none;
+                        padding: 12px 24px;
+                        border-radius: 25px;
+                        font-weight: 600;
+                        cursor: pointer;
+                        font-size: 14px;
+                        transition: all 0.3s ease;
+                    " onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 4px 12px rgba(0,123,255,0.3)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none'">
+                        ✅ Got it! Start Evaluating
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <script>
+        // Chart Selection Functionality
+        function selectChart(choice) {
+            // Remove previous selection
+            document.querySelectorAll('.selectable-chart').forEach(chart => {
+                chart.classList.remove('selected');
+            });
+            
+            // Add selection to clicked chart
+            if (choice === 'Chart A') {
+                document.getElementById('selectableChartA').classList.add('selected');
+            } else if (choice === 'Chart B') {
+                document.getElementById('selectableChartB').classList.add('selected');
+            } else if (choice === 'Both similar') {
+                document.getElementById('selectableEqual').classList.add('selected');
+            }
+            
+            // Update hidden input for form submission
+            const hiddenInput = document.getElementById('overall_preference_hidden');
+            if (hiddenInput) {
+                hiddenInput.value = choice;
+            }
+        }
+        
+        // Horizontal Slider Navigation
+        let currentSlide = 0;
+        const totalSlides = 3;
+        
+        function updateSlideNavigation() {
+            const slidesContainer = document.getElementById('slidesContainer');
+            const dots = document.querySelectorAll('.slide-dot');
+            const prevBtn = document.getElementById('prevSlideBtn');
+            const nextBtn = document.getElementById('nextSlideBtn');
+            
+            // Update slider position
+            const translateX = -(currentSlide * (100 / totalSlides));
+            slidesContainer.style.transform = `translateX(${translateX}%)`;
+            
+            // Update dots
+            dots.forEach((dot, index) => {
+                dot.classList.toggle('active', index === currentSlide);
+            });
+            
+            // Update navigation buttons
+            prevBtn.disabled = currentSlide === 0;
+            nextBtn.disabled = currentSlide === totalSlides - 1;
+            
+            // Sync chart images for comparison slide
+            if (currentSlide === 2) {
+                syncComparisonCharts();
+            }
+        }
+        
+        function nextSlide() {
+            if (currentSlide < totalSlides - 1) {
+                currentSlide++;
+                updateSlideNavigation();
+            }
+        }
+        
+        function previousSlide() {
+            if (currentSlide > 0) {
+                currentSlide--;
+                updateSlideNavigation();
+            }
+        }
+        
+        function goToSlide(slideIndex) {
+            if (slideIndex >= 0 && slideIndex < totalSlides) {
+                currentSlide = slideIndex;
+                updateSlideNavigation();
+            }
+        }
+        
+        function syncComparisonCharts() {
+            // Sync Chart A
+            const chartA = document.getElementById('chartA');
+            const chartACompare = document.getElementById('chartACompare');
+            const placeholderACompare = document.getElementById('placeholderACompare');
+            
+            if (chartA.src && chartA.style.display !== 'none') {
+                chartACompare.src = chartA.src;
+                chartACompare.style.display = 'block';
+                placeholderACompare.style.display = 'none';
+            } else {
+                chartACompare.style.display = 'none';
+                placeholderACompare.style.display = 'flex';
+                const placeholderA = document.getElementById('placeholderA');
+                if (placeholderA) {
+                    placeholderACompare.textContent = placeholderA.textContent;
+                }
+            }
+            
+            // Sync Chart B
+            const chartB = document.getElementById('chartB');
+            const chartBCompare = document.getElementById('chartBCompare');
+            const placeholderBCompare = document.getElementById('placeholderBCompare');
+            
+            if (chartB.src && chartB.style.display !== 'none') {
+                chartBCompare.src = chartB.src;
+                chartBCompare.style.display = 'block';
+                placeholderBCompare.style.display = 'none';
+            } else {
+                chartBCompare.style.display = 'none';
+                placeholderBCompare.style.display = 'flex';
+                const placeholderB = document.getElementById('placeholderB');
+                if (placeholderB) {
+                    placeholderBCompare.textContent = placeholderB.textContent;
+                }
+            }
+        }
+        
+        // Initialize slider on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            updateSlideNavigation();
+            
+            // Set up mutation observers to sync images when they load
+            const chartA = document.getElementById('chartA');
+            const chartB = document.getElementById('chartB');
+            
+            const observer = new MutationObserver(function(mutations) {
+                mutations.forEach(function(mutation) {
+                    if (mutation.type === 'attributes' && mutation.attributeName === 'src') {
+                        if (currentSlide === 2) {
+                            syncComparisonCharts();
+                        }
+                    }
+                });
+            });
+            
+            observer.observe(chartA, { attributes: true });
+            observer.observe(chartB, { attributes: true });
+        });
+        
+        // Keyboard navigation
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'ArrowLeft') {
+                previousSlide();
+                event.preventDefault();
+            } else if (event.key === 'ArrowRight') {
+                nextSlide();
+                event.preventDefault();
+            }
+        });
+
+        // Instructions Modal functionality
+        function hideInstructionsModal(savePreference = true) {
+            const modal = document.getElementById('instructionsModal');
+            if (modal) {
+                modal.style.display = 'none';
+                document.body.style.overflow = 'auto';
+                // Only store preference if this is the initial viewing
+                if (savePreference) {
+                    localStorage.setItem('chartEvaluationInstructionsSeen', 'true');
+                }
+            }
+        }
+
+        function showInstructionsModal() {
+            const modal = document.getElementById('instructionsModal');
+            if (modal) {
+                modal.style.display = 'flex';
+                document.body.style.overflow = 'hidden';
+            }
+        }
+
+        // Check if user has seen instructions before
+        document.addEventListener('DOMContentLoaded', function() {
+            const hasSeenInstructions = localStorage.getItem('chartEvaluationInstructionsSeen');
+            const modal = document.getElementById('instructionsModal');
+            
+            if (!hasSeenInstructions && modal) {
+                // Show instructions modal on first visit
+                modal.style.display = 'flex';
+                document.body.style.overflow = 'hidden';
+            } else if (modal) {
+                // Hide modal if user has seen it before
+                modal.style.display = 'none';
+            }
+        });
+
+        // Allow closing modal with Escape key
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                const instructionsModal = document.getElementById('instructionsModal');
+                if (instructionsModal && instructionsModal.style.display === 'flex') {
+                    hideInstructionsModal(false);
+                }
+            }
+        });
+
         // Modal functionality - Updated for annotation system
         function showModal(modalId) {
             const modal = document.getElementById(modalId);

@@ -90,6 +90,13 @@ exports.handler = async (event, context) => {
               name: "Chart B Precise",
               value: data.evaluation?.chartB?.precision?.yes ? "✅ Yes" : "❌ No",
               inline: true
+            },
+            {
+              name: "Comments",
+              value: data.evaluation?.comments && data.evaluation.comments.trim() 
+                ? data.evaluation.comments.substring(0, 1000) + (data.evaluation.comments.length > 1000 ? '...' : '')
+                : "No comments provided",
+              inline: false
             }
           ],
           timestamp: new Date().toISOString(),
@@ -120,6 +127,7 @@ exports.handler = async (event, context) => {
             chartA_precise: data.evaluation?.chartA?.precision?.yes ? 'Yes' : 'No',
             chartB_readable: data.evaluation?.chartB?.readable?.yes ? 'Yes' : 'No',
             chartB_precise: data.evaluation?.chartB?.precision?.yes ? 'Yes' : 'No',
+            comments: data.evaluation?.comments || '',
             chartA_image: data.imageInfo?.chartA?.filename,
             chartB_image: data.imageInfo?.chartB?.filename,
             full_data: JSON.stringify(data)
@@ -163,6 +171,7 @@ exports.handler = async (event, context) => {
               'Chart A Precise': data.evaluation?.chartA?.precision?.yes ? 'Yes' : 'No',
               'Chart B Readable': data.evaluation?.chartB?.readable?.yes ? 'Yes' : 'No',
               'Chart B Precise': data.evaluation?.chartB?.precision?.yes ? 'Yes' : 'No',
+              'Comments': data.evaluation?.comments || '',
               'Chart A Image': data.imageInfo?.chartA?.filename,
               'Chart B Image': data.imageInfo?.chartB?.filename,
               'Full JSON': JSON.stringify(data, null, 2)

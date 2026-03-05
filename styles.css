@@ -399,6 +399,37 @@ body {
     background-color: white;
 }
 
+/* Chart evaluation rows with side-by-side image and questions */
+.chart-evaluation-row {
+    display: flex;
+    gap: 25px;
+    margin-bottom: 35px;
+    align-items: flex-start;
+    width: 100%;
+}
+
+.chart-evaluation-row .image-container {
+    flex: 1;
+    min-width: 0; /* Allows flex item to shrink below its content size */
+}
+
+.questions-container {
+    flex: 1;
+    min-width: 0; /* Allows flex item to shrink below its content size */
+    display: flex;
+    flex-direction: column;
+}
+
+.questions-container .chart-section {
+    background: #f8f9fa;
+    border: 1px solid #e9ecef;
+    border-radius: 8px;
+    padding: 20px;
+    margin: 0;
+    height: 100%;
+}
+
+/* Legacy charts-row for backward compatibility */
 .charts-row {
     display: flex;
     gap: 20px;
@@ -1785,5 +1816,26 @@ body {
     
     .compact-pair-selector .pair-slider {
         width: 150px;
+    }
+}
+
+/* Chart evaluation row responsive design */
+@media (max-width: 768px) {
+    .chart-evaluation-row {
+        flex-direction: column;
+        gap: 15px;
+        margin-bottom: 25px;
+    }
+    
+    .chart-evaluation-row .image-container {
+        flex: none;
+    }
+    
+    .questions-container {
+        flex: none;
+    }
+    
+    .questions-container .chart-section {
+        padding: 15px;
     }
 }

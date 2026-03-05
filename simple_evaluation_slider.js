@@ -1,6 +1,6 @@
-// Simple Evaluation Form Functions
+// Simple Evaluation Form Functions - SLIDER VERSION
 
-// Storage for evaluations
+// Storage for evaluations  
 let simpleEvaluations = {};
 let currentPair = null;
 
@@ -16,13 +16,13 @@ function initializeSimpleEvaluation(pairId, pairMetadata) {
             pairId: pairId,
             metadata: pairMetadata,
             chartA: {
-                precision: { yes: false, no: false },
-                readable: { yes: false, no: false },
+                precision: 1, // discrete value 0-3, default to 1 (Disagree)
+                readable: 1,  // discrete value 0-3, default to 1 (Disagree) 
                 imagePath: null
             },
             chartB: {
-                precision: { yes: false, no: false },
-                readable: { yes: false, no: false },
+                precision: 1, // discrete value 0-3, default to 1 (Disagree)
+                readable: 1,  // discrete value 0-3, default to 1 (Disagree)
                 imagePath: null
             },
             overallPreference: null,
@@ -57,23 +57,16 @@ function saveSimpleEvaluation() {
         return;
     }
     
-    // Collect form data - handle both yes and no checkboxes
-    evaluation.chartA.readable = {
-        yes: document.getElementById('chart_a_readable_yes') ? document.getElementById('chart_a_readable_yes').checked : false,
-        no: document.getElementById('chart_a_readable_no') ? document.getElementById('chart_a_readable_no').checked : false
-    };
-    evaluation.chartA.precision = {
-        yes: document.getElementById('chart_a_precision_yes') ? document.getElementById('chart_a_precision_yes').checked : false,
-        no: document.getElementById('chart_a_precision_no') ? document.getElementById('chart_a_precision_no').checked : false
-    };
-    evaluation.chartB.readable = {
-        yes: document.getElementById('chart_b_readable_yes') ? document.getElementById('chart_b_readable_yes').checked : false,
-        no: document.getElementById('chart_b_readable_no') ? document.getElementById('chart_b_readable_no').checked : false
-    };
-    evaluation.chartB.precision = {
-        yes: document.getElementById('chart_b_precision_yes') ? document.getElementById('chart_b_precision_yes').checked : false,
-        no: document.getElementById('chart_b_precision_no') ? document.getElementById('chart_b_precision_no').checked : false
-    };
+    // Collect slider form data
+    const chartAReadableSlider = document.getElementById('chart_a_readable');
+    const chartAPrecisionSlider = document.getElementById('chart_a_precision');
+    const chartBReadableSlider = document.getElementById('chart_b_readable');
+    const chartBPrecisionSlider = document.getElementById('chart_b_precision');
+    
+    evaluation.chartA.readable = chartAReadableSlider ? parseInt(chartAReadableSlider.value) : 1;
+    evaluation.chartA.precision = chartAPrecisionSlider ? parseInt(chartAPrecisionSlider.value) : 1;
+    evaluation.chartB.readable = chartBReadableSlider ? parseInt(chartBReadableSlider.value) : 1;
+    evaluation.chartB.precision = chartBPrecisionSlider ? parseInt(chartBPrecisionSlider.value) : 1;
     
     // Capture actual displayed image paths
     const chartAImg = document.getElementById('chartA');
@@ -127,7 +120,7 @@ async function submitSimpleEvaluation() {
     
     const evaluation = simpleEvaluations[pairId];
     
-    // Check if all required fields are filled
+    // Check if all required fields are filled  
     if (!evaluation.overallPreference) {
         showNotification('❗ Please select an overall preference before submitting.', 'warning');
         return;
@@ -176,12 +169,12 @@ async function submitSimpleEvaluation() {
         // Debug: Log the complete submit data
         console.log('Complete submit data:', JSON.stringify(submitData, null, 2));
         const apiEndpoint = window.location.hostname.includes('netlify.app') || window.location.hostname.includes('netlify.com') 
-            ? '/.netlify/functions/submit-evaluation'  // Netlify
+            ? '/.netlify/functions/submit-evaluation-slider'  // Different endpoint for slider version
             : window.location.hostname.includes('vercel.app') 
-            ? '/api/submit-evaluation'  // Vercel
+            ? '/api/submit-evaluation-slider'  // Vercel slider endpoint
             : window.location.hostname.includes('github.io')
-            ? 'https://chart-evaluation-checkbox.netlify.app/.netlify/functions/submit-evaluation'  // GitHub Pages to Netlify - UPDATE THIS
-            : '/api/submit-evaluation';  // Local or other
+            ? 'https://chart-evaluation-slider.netlify.app/.netlify/functions/submit-evaluation-slider'  // GitHub Pages to Netlify
+            : '/api/submit-evaluation-slider';  // Local or other
         
         const response = await fetch(apiEndpoint, {
             method: 'POST',
@@ -234,31 +227,27 @@ function loadSimpleEvaluation(pairId) {
         return;
     }
     
-    // Load checkbox states - handle both old and new formats
-    const chartAReadableYes = document.getElementById('chart_a_readable_yes');
-    const chartAReadableNo = document.getElementById('chart_a_readable_no');
-    const chartAPrecisionYes = document.getElementById('chart_a_precision_yes');
-    const chartAPrecisionNo = document.getElementById('chart_a_precision_no');
-    const chartBReadableYes = document.getElementById('chart_b_readable_yes');
-    const chartBReadableNo = document.getElementById('chart_b_readable_no');
-    const chartBPrecisionYes = document.getElementById('chart_b_precision_yes');
-    const chartBPrecisionNo = document.getElementById('chart_b_precision_no');
+    // Load slider states
+    const chartAReadableSlider = document.getElementById('chart_a_readable');
+    const chartAPrecisionSlider = document.getElementById('chart_a_precision');
+    const chartBReadableSlider = document.getElementById('chart_b_readable');
+    const chartBPrecisionSlider = document.getElementById('chart_b_precision');
     
-    if (evaluation.chartA.readable && typeof evaluation.chartA.readable === 'object') {
-        if (chartAReadableYes) chartAReadableYes.checked = evaluation.chartA.readable.yes;
-        if (chartAReadableNo) chartAReadableNo.checked = evaluation.chartA.readable.no;
+    if (chartAReadableSlider && evaluation.chartA.readable !== undefined) {
+        chartAReadableSlider.value = evaluation.chartA.readable;
+        updateSliderDisplay(chartAReadableSlider, document.getElementById('chart_a_readable_value'));
     }
-    if (evaluation.chartA.precision && typeof evaluation.chartA.precision === 'object') {
-        if (chartAPrecisionYes) chartAPrecisionYes.checked = evaluation.chartA.precision.yes;
-        if (chartAPrecisionNo) chartAPrecisionNo.checked = evaluation.chartA.precision.no;
+    if (chartAPrecisionSlider && evaluation.chartA.precision !== undefined) {
+        chartAPrecisionSlider.value = evaluation.chartA.precision;
+        updateSliderDisplay(chartAPrecisionSlider, document.getElementById('chart_a_precision_value'));
     }
-    if (evaluation.chartB.readable && typeof evaluation.chartB.readable === 'object') {
-        if (chartBReadableYes) chartBReadableYes.checked = evaluation.chartB.readable.yes;
-        if (chartBReadableNo) chartBReadableNo.checked = evaluation.chartB.readable.no;
+    if (chartBReadableSlider && evaluation.chartB.readable !== undefined) {
+        chartBReadableSlider.value = evaluation.chartB.readable;
+        updateSliderDisplay(chartBReadableSlider, document.getElementById('chart_b_readable_value'));
     }
-    if (evaluation.chartB.precision && typeof evaluation.chartB.precision === 'object') {
-        if (chartBPrecisionYes) chartBPrecisionYes.checked = evaluation.chartB.precision.yes;
-        if (chartBPrecisionNo) chartBPrecisionNo.checked = evaluation.chartB.precision.no;
+    if (chartBPrecisionSlider && evaluation.chartB.precision !== undefined) {
+        chartBPrecisionSlider.value = evaluation.chartB.precision;
+        updateSliderDisplay(chartBPrecisionSlider, document.getElementById('chart_b_precision_value'));
     }
     
     // Load overall preference
@@ -280,10 +269,16 @@ function loadSimpleEvaluation(pairId) {
 
 // Clear form responses
 function clearSimpleEvaluationForm() {
-    // Clear checkboxes
-    const checkboxes = document.querySelectorAll('.simple-evaluation-form input[type="checkbox"]');
-    checkboxes.forEach(checkbox => {
-        checkbox.checked = false;
+    // Reset sliders to position 1 (Disagree)
+    const sliders = document.querySelectorAll('.simple-evaluation-form input[type="range"]');
+    sliders.forEach(slider => {
+        slider.value = 1; // Default to "Disagree" position
+        const valueDisplay = document.getElementById(slider.id + '_value');
+        if (valueDisplay) {
+            updateSliderDisplay(slider, valueDisplay);
+        }
+        // Update tooltip display
+        updateTooltipDisplay(slider);
     });
     
     // Clear radio buttons
@@ -316,6 +311,115 @@ function loadSavedResponsesForCurrentPair(pairId) {
     }
 }
 
+// Update slider display text
+function updateSliderDisplay(slider, valueDisplay) {
+    if (!valueDisplay) return;
+    
+    const value = parseInt(slider.value);
+    let displayText;
+    
+    switch(value) {
+        case 0:
+            displayText = 'Strongly Disagree';
+            valueDisplay.style.color = '#dc3545';
+            break;
+        case 1:
+            displayText = 'Disagree';
+            valueDisplay.style.color = '#fd7e14';
+            break;
+        case 2:
+            displayText = 'Agree';
+            valueDisplay.style.color = '#17a2b8';
+            break;
+        case 3:
+            displayText = 'Strongly Agree';
+            valueDisplay.style.color = '#28a745';
+            break;
+        default:
+            displayText = 'Disagree';
+            valueDisplay.style.color = '#fd7e14';
+    }
+    
+    valueDisplay.textContent = displayText;
+}
+
+// Update tooltip display based on current slider value
+function updateTooltipDisplay(slider) {
+    const sliderWrapper = slider.closest('.slider-wrapper');
+    if (!sliderWrapper) return;
+    
+    const tooltips = sliderWrapper.querySelectorAll('.slider-tooltip');
+    const currentValue = parseInt(slider.value);
+    
+    tooltips.forEach(tooltip => {
+        const position = parseInt(tooltip.getAttribute('data-position'));
+        tooltip.classList.remove('active');
+        if (position === currentValue) {
+            tooltip.classList.add('active');
+        }
+    });
+}
+
+// Initialize slider displays and event listeners
+function initializeSliderDisplays() {
+    const sliders = document.querySelectorAll('.evaluation-slider');
+    sliders.forEach(slider => {
+        const valueDisplay = document.getElementById(slider.id + '_value');
+        if (valueDisplay) {
+            // Set initial display
+            updateSliderDisplay(slider, valueDisplay);
+            updateTooltipDisplay(slider);
+            
+            // Add input event listener for real-time updates
+            slider.addEventListener('input', function() {
+                updateSliderDisplay(this, valueDisplay);
+                updateTooltipDisplay(this);
+            });
+            
+            // Add change event for auto-save
+            slider.addEventListener('change', function() {
+                updateSliderDisplay(this, valueDisplay);
+                updateTooltipDisplay(this);
+                if (currentPair && currentPair.id) {
+                    setTimeout(() => {
+                        saveSimpleEvaluation();
+                        console.log('Auto-saved slider change for pair:', currentPair.id);
+                    }, 100);
+                }
+            });
+            
+            // Add mouse enter/leave for enhanced tooltip visibility
+            const sliderWrapper = slider.closest('.slider-wrapper');
+            if (sliderWrapper) {
+                sliderWrapper.addEventListener('mouseenter', function() {
+                    const tooltips = sliderWrapper.querySelectorAll('.slider-tooltip');
+                    const currentValue = parseInt(slider.value);
+                    
+                    tooltips.forEach(tooltip => {
+                        const position = parseInt(tooltip.getAttribute('data-position'));
+                        if (position === currentValue) {
+                            tooltip.classList.add('active');
+                        } else {
+                            tooltip.style.opacity = '0.6';
+                            tooltip.style.visibility = 'visible';
+                        }
+                    });
+                });
+                
+                sliderWrapper.addEventListener('mouseleave', function() {
+                    const tooltips = sliderWrapper.querySelectorAll('.slider-tooltip');
+                    tooltips.forEach(tooltip => {
+                        if (!tooltip.classList.contains('active')) {
+                            tooltip.style.opacity = '0';
+                            tooltip.style.visibility = 'hidden';
+                        }
+                    });
+                });
+            }
+        }
+    });
+}
+
 // Get evaluation statistics
 function getSimpleEvaluationStats() {
     const totalEvaluations = Object.keys(simpleEvaluations).length;
@@ -334,7 +438,7 @@ function exportSimpleEvaluations() {
     const dataStr = JSON.stringify(evaluations, null, 2);
     const dataUri = 'data:application/json;charset=utf-8,'+ encodeURIComponent(dataStr);
     
-    const exportFileDefaultName = 'chart-evaluations-' + new Date().toISOString().slice(0, 10) + '.json';
+    const exportFileDefaultName = 'chart-evaluations-slider-' + new Date().toISOString().slice(0, 10) + '.json';
     
     const linkElement = document.createElement('a');
     linkElement.setAttribute('href', dataUri);
@@ -344,7 +448,7 @@ function exportSimpleEvaluations() {
     showNotification('📁 Evaluations exported successfully!', 'success');
 }
 
-// Export all evaluations in CSV format for analysis
+// Export all evaluations in CSV format for analysis (slider version)
 function exportEvaluationsCSV() {
     const evaluations = JSON.parse(localStorage.getItem('simpleEvaluations') || '{}');
     
@@ -353,12 +457,24 @@ function exportEvaluationsCSV() {
         return;
     }
     
-    // Create CSV headers
+    // Create CSV headers for slider version
     const headers = [
         'Timestamp', 'Pair ID', 'Session ID', 'Overall Preference',
-        'Chart A Readable', 'Chart A Precise', 'Chart B Readable', 'Chart B Precise',
-        'Chart A Image', 'Chart B Image', 'Completed'
+        'Chart A Readable Score', 'Chart A Precise Score', 
+        'Chart B Readable Score', 'Chart B Precise Score',
+        'Chart A Image', 'Chart B Image', 'Comments', 'Completed'
     ];
+    
+    // Helper function to convert slider value to text
+    function sliderValueToText(value) {
+        switch(value) {
+            case 0: return 'Strongly Disagree';
+            case 1: return 'Disagree';
+            case 2: return 'Agree';
+            case 3: return 'Strongly Agree';
+            default: return 'Disagree';
+        }
+    }
     
     // Create CSV rows
     const rows = Object.values(evaluations).map(eval => [
@@ -366,12 +482,13 @@ function exportEvaluationsCSV() {
         eval.pairId || '',
         'Local Session',
         eval.overallPreference || '',
-        eval.chartA?.readable?.yes ? 'Yes' : eval.chartA?.readable?.no ? 'No' : '',
-        eval.chartA?.precision?.yes ? 'Yes' : eval.chartA?.precision?.no ? 'No' : '',
-        eval.chartB?.readable?.yes ? 'Yes' : eval.chartB?.readable?.no ? 'No' : '',
-        eval.chartB?.precision?.yes ? 'Yes' : eval.chartB?.precision?.no ? 'No' : '',
+        eval.chartA?.readable !== undefined ? `${eval.chartA.readable} (${sliderValueToText(eval.chartA.readable)})` : '',
+        eval.chartA?.precision !== undefined ? `${eval.chartA.precision} (${sliderValueToText(eval.chartA.precision)})` : '',
+        eval.chartB?.readable !== undefined ? `${eval.chartB.readable} (${sliderValueToText(eval.chartB.readable)})` : '',
+        eval.chartB?.precision !== undefined ? `${eval.chartB.precision} (${sliderValueToText(eval.chartB.precision)})` : '',
         eval.chartA?.imagePath?.split('/').pop() || '',
         eval.chartB?.imagePath?.split('/').pop() || '',
+        eval.comments || '',
         eval.completed ? 'Yes' : 'No'
     ]);
     
@@ -382,7 +499,7 @@ function exportEvaluationsCSV() {
     
     // Download CSV
     const dataUri = 'data:text/csv;charset=utf-8,' + encodeURIComponent(csvContent);
-    const exportFileDefaultName = 'chart-evaluations-' + new Date().toISOString().slice(0, 10) + '.csv';
+    const exportFileDefaultName = 'chart-evaluations-slider-' + new Date().toISOString().slice(0, 10) + '.csv';
     
     const linkElement = document.createElement('a');
     linkElement.setAttribute('href', dataUri);
@@ -489,7 +606,7 @@ function addExportButtons() {
     
     // Add description text
     const description = document.createElement('p');
-    description.textContent = 'Download your evaluation data for analysis. JSON contains full details, CSV is ready for spreadsheet programs.';
+    description.textContent = 'Download your slider-based evaluation data for analysis. JSON contains full details, CSV is ready for spreadsheet programs.';
     description.style.cssText = `
         margin: 15px 0 0 0;
         font-size: 12px;
@@ -652,16 +769,17 @@ window.updateCurrentEvaluationImages = function() {
 document.addEventListener('DOMContentLoaded', function() {
     addNotificationStyles();
     loadSavedSimpleEvaluations();
-    addExportButtons(); // Add export functionality
+    addExportButtons();
+    initializeSliderDisplays(); // Initialize slider-specific functionality
     
-    // Add event listeners for checkbox and radio changes to auto-save
+    // Add event listeners for radio button changes to auto-save
     document.addEventListener('change', function(e) {
-        if (e.target.closest('.simple-evaluation-form')) {
-            // Auto-save when form changes, but only if we have a current pair
+        if (e.target.closest('.simple-evaluation-form') && e.target.type === 'radio') {
+            // Auto-save when radio button changes, but only if we have a current pair
             if (currentPair && currentPair.id) {
                 setTimeout(() => {
                     saveSimpleEvaluation();
-                    console.log('Auto-saved for pair:', currentPair.id);
+                    console.log('Auto-saved radio change for pair:', currentPair.id);
                 }, 100);
             }
         }
@@ -673,7 +791,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 // Enhanced pair initialization that properly handles form state
 function initializePairEvaluation(pairId, pairMetadata) {
-    console.log('Initializing evaluation for pair:', pairId);
+    console.log('Initializing slider evaluation for pair:', pairId);
     
     // Initialize the evaluation data structure
     initializeSimpleEvaluation(pairId, pairMetadata);
@@ -714,12 +832,12 @@ async function retryFailedSubmissions() {
             };
             
             const apiEndpoint = window.location.hostname.includes('netlify.app') || window.location.hostname.includes('netlify.com') 
-                ? '/.netlify/functions/submit-evaluation'
+                ? '/.netlify/functions/submit-evaluation-slider'
                 : window.location.hostname.includes('vercel.app') 
-                ? '/api/submit-evaluation'
+                ? '/api/submit-evaluation-slider'
                 : window.location.hostname.includes('github.io')
-                ? 'https://your-netlify-site.netlify.app/.netlify/functions/submit-evaluation'
-                : '/api/submit-evaluation';
+                ? 'https://chart-evaluation-slider.netlify.app/.netlify/functions/submit-evaluation-slider'
+                : '/api/submit-evaluation-slider';
             
             const response = await fetch(apiEndpoint, {
                 method: 'POST',

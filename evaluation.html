@@ -388,7 +388,8 @@
             </div>
         </div>
         <div class="images-section">
-            <div class="charts-row">
+            <!-- Chart A Section: Image and Questions Side by Side -->
+            <div class="chart-evaluation-row">
                 <div class="image-container">
                     <div class="image-card" id="imageCard1">
                         <div class="image-header">
@@ -399,19 +400,50 @@
                             <img id="chartA" src="" alt="Chart A" class="chart-image" style="display: none; max-width: 100%; height: auto;">
                             <div class="placeholder-text" id="placeholderA">Loading Chart A...</div>
                         </div>
-                        <!-- <div class="metrics">
-                            <div class="metric-row">
-                                <span>Dense labels</span>
-                                <span>Heavy gridlines</span>
-                                <span>Decorative elements</span>
-                            </div>
-                        </div>
-                        <p class="description" id="description1">
-                            [Chart A - Contains various visual elements that may contribute to clutter]
-                        </p> -->
                     </div>
                 </div>
-
+                
+                <div class="questions-container">
+                    <div class="chart-section">
+                        <h3>Answer the following for Chart A:</h3>
+                        <div class="question-group">
+                            <div class="question-item">
+                                <div class="question-number">1.) Readability: I was able to perceive and decode the encoded information without much effort</div>
+                                <div class="checkbox-group horizontal">
+                                    <label class="checkbox-item">
+                                        <input type="checkbox" id="chart_a_readable_yes" name="chart_a_readable_yes">
+                                        <span class="checkmark"></span>
+                                        Yes
+                                    </label>
+                                    <label class="checkbox-item">
+                                        <input type="checkbox" id="chart_a_readable_no" name="chart_a_readable_no">
+                                        <span class="checkmark"></span>
+                                        No
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="question-item">
+                                <div class="question-number">2.) Precision: I was able to use this chart to answer the provided question completely and unambiguously</div>
+                                <div class="checkbox-group horizontal">
+                                    <label class="checkbox-item">
+                                        <input type="checkbox" id="chart_a_precision_yes" name="chart_a_precision_yes">
+                                        <span class="checkmark"></span>
+                                        Yes
+                                    </label>
+                                    <label class="checkbox-item">
+                                        <input type="checkbox" id="chart_a_precision_no" name="chart_a_precision_no">
+                                        <span class="checkmark"></span>
+                                        No
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Chart B Section: Image and Questions Side by Side -->
+            <div class="chart-evaluation-row">
                 <div class="image-container">
                     <div class="image-card" id="imageCard2">
                         <div class="image-header">
@@ -422,101 +454,52 @@
                             <img id="chartB" src="" alt="Chart B" class="chart-image" style="display: none; max-width: 100%; height: auto;">
                             <div class="placeholder-text" id="placeholderB">Loading Chart B...</div>
                         </div>
-                        <!-- <div class="metrics">
-                            <div class="metric-row">
-                                <span>Minimal labels</span>
-                                <span>Reduced ink</span>
-                                <span>Clean design</span>
+                    </div>
+                </div>
+                
+                <div class="questions-container">
+                    <div class="chart-section">
+                        <h3>Answer the following for Chart B:</h3>
+                        <div class="question-group">
+                            <div class="question-item">
+                                <div class="question-number">1.) Readability: I was able to perceive and decode the encoded information without much effort</div>
+                                <div class="checkbox-group horizontal">
+                                    <label class="checkbox-item">
+                                        <input type="checkbox" id="chart_b_readable_yes" name="chart_b_readable_yes">
+                                        <span class="checkmark"></span>
+                                        Yes
+                                    </label>
+                                    <label class="checkbox-item">
+                                        <input type="checkbox" id="chart_b_readable_no" name="chart_b_readable_no">
+                                        <span class="checkmark"></span>
+                                        No
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="question-item">
+                                <div class="question-number">2.) Precision: I was able to use this chart to answer the provided question completely and unambiguously</div>
+                                <div class="checkbox-group horizontal">
+                                    <label class="checkbox-item">
+                                        <input type="checkbox" id="chart_b_precision_yes" name="chart_b_precision_yes">
+                                        <span class="checkmark"></span>
+                                        Yes
+                                    </label>
+                                    <label class="checkbox-item">
+                                        <input type="checkbox" id="chart_b_precision_no" name="chart_b_precision_no">
+                                        <span class="checkmark"></span>
+                                        No
+                                    </label>
+                                </div>
                             </div>
                         </div>
-                        <p class="description" id="description2">
-                            [Chart B - Features simplified visual design with fewer elements]
-                        </p> -->
                     </div>
                 </div>
             </div>
-            
-            <!-- Navigation controls will be inserted here by JavaScript -->
-
         </div>
 
         <!-- Simple Checkbox Evaluation Form -->
         <div class="simple-evaluation-form">
             <div class="chart-evaluation-sections">
-                <!-- Chart A Evaluation -->
-                <div class="chart-section">
-                    <h3>Answer the following for Chart A:</h3>
-                    <div class="question-group">
-                        <div class="question-item">
-                            <div class="question-number">1.) Readability: I was able to perceive and decode the encoded information without much effort</div>
-                            <div class="checkbox-group horizontal">
-                                <label class="checkbox-item">
-                                    <input type="checkbox" id="chart_a_readable_yes" name="chart_a_readable_yes">
-                                    <span class="checkmark"></span>
-                                    Yes
-                                </label>
-                                <label class="checkbox-item">
-                                    <input type="checkbox" id="chart_a_readable_no" name="chart_a_readable_no">
-                                    <span class="checkmark"></span>
-                                    No
-                                </label>
-                            </div>
-                        </div>
-                        <div class="question-item">
-                            <div class="question-number">2.) Precision: I was able to use this chart to answer the provided question completely and unambiguously</div>
-                            <div class="checkbox-group horizontal">
-                                <label class="checkbox-item">
-                                    <input type="checkbox" id="chart_a_precision_yes" name="chart_a_precision_yes">
-                                    <span class="checkmark"></span>
-                                    Yes
-                                </label>
-                                <label class="checkbox-item">
-                                    <input type="checkbox" id="chart_a_precision_no" name="chart_a_precision_no">
-                                    <span class="checkmark"></span>
-                                    No
-                                </label>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Chart B Evaluation -->
-                <div class="chart-section">
-                    <h3>Answer the following for Chart B:</h3>
-                    <div class="question-group">
-                        <div class="question-item">
-                            <div class="question-number">1.) Readability: I was able to perceive and decode the encoded information without much effort</div>
-                            <div class="checkbox-group horizontal">
-                                <label class="checkbox-item">
-                                    <input type="checkbox" id="chart_b_readable_yes" name="chart_b_readable_yes">
-                                    <span class="checkmark"></span>
-                                    Yes
-                                </label>
-                                <label class="checkbox-item">
-                                    <input type="checkbox" id="chart_b_readable_no" name="chart_b_readable_no">
-                                    <span class="checkmark"></span>
-                                    No
-                                </label>
-                            </div>
-                        </div>
-                        <div class="question-item">
-                            <div class="question-number">2.) Precision: I was able to use this chart to answer the provided question completely and unambiguously</div>
-                            <div class="checkbox-group horizontal">
-                                <label class="checkbox-item">
-                                    <input type="checkbox" id="chart_b_precision_yes" name="chart_b_precision_yes">
-                                    <span class="checkmark"></span>
-                                    Yes
-                                </label>
-                                <label class="checkbox-item">
-                                    <input type="checkbox" id="chart_b_precision_no" name="chart_b_precision_no">
-                                    <span class="checkmark"></span>
-                                    No
-                                </label>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
                 <!-- Overall Preference -->
                 <div class="preference-section">
                     <h3>Preference: Overall, I would prefer to see this chart : </h3>
@@ -554,6 +537,35 @@
             <div class="form-actions">
                 <button type="button" class="save-btn" onclick="saveSimpleEvaluation()">💾 Save Evaluation</button>
                 <button type="button" class="submit-btn" onclick="submitSimpleEvaluation()">Submit Evaluation</button>
+            </div>
+            
+            <!-- Alternative Evaluation Interface -->
+            <div class="alternative-interface" style="
+                margin-top: 20px;
+                padding: 15px;
+                background: linear-gradient(135deg, #e3f2fd, #f3e5f5);
+                border: 1px solid #90caf9;
+                border-radius: 8px;
+                text-align: center;
+            ">
+                <h4 style="margin: 0 0 10px 0; color: #1976d2; font-size: 14px; font-weight: 600;">Try Our Enhanced Evaluation Interface</h4>
+                <p style="margin: 0 0 15px 0; font-size: 13px; color: #424242; line-height: 1.4;">Experience more nuanced evaluation with our slider-based interface that allows for precise rating between positions.</p>
+                <a href="evaluation_slider.html" style="
+                    display: inline-flex;
+                    align-items: center;
+                    gap: 8px;
+                    background: linear-gradient(135deg, #1976d2, #303f9f);
+                    color: white;
+                    text-decoration: none;
+                    padding: 10px 20px;
+                    border-radius: 25px;
+                    font-size: 14px;
+                    font-weight: 500;
+                    transition: all 0.3s ease;
+                    box-shadow: 0 2px 8px rgba(25, 118, 210, 0.3);
+                " onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 4px 16px rgba(25, 118, 210, 0.4)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 2px 8px rgba(25, 118, 210, 0.3)'">
+                    🎛️ Switch to Slider Interface
+                </a>
             </div>
         </div>
 

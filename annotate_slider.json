@@ -262,7 +262,7 @@
       "narrative_summary": "The schema provides a rich foundation for pricing strategists to identify which vehicle features most strongly impact car prices. Through visualization of carbody, enginetype, and enginesize against price, viewers can detect patterns and understand which combinations create higher perceived value. This supports segment-level trend identification and strategic adjustments in offering or marketing, empowering business actions aligned with data-backed feature-to-value relationships.",
       "question_idx": 5,
       "question_string": "Are there noticeable differences in price between fuel types (gas vs diesel)?",
-      "variants": ["sum_1_ques_5/var3.png", "sum_1_ques_5/var2.png"]
+      "variants": []
     },
     {
       "table": "22",
@@ -302,7 +302,7 @@
       "narrative_summary": "Combining CarName, symboling, and price sets the stage for market researchers to uncover the landscape of brand offerings, observe perceived risk or value, and benchmark against competitors. Through segmentation and trend visualizations, the audience identifies how brands align with different price ranges or symboling scores, guiding strategic positioning and differentiation opportunities in the automotive marketplace.",
       "question_idx": 1,
       "question_string": "How do car prices vary between different CarName brands, and are certain brands consistently in higher or lower price ranges?",
-      "variants": ["sum_4_ques_1/var4.png", "sum_4_ques_1/var3.png"]
+      "variants": []
     },
     {
       "table": "221",
@@ -438,7 +438,7 @@
       "narrative_summary": "This dataset empowers business leaders to visualize and compare multi-period stock performance, identifying both short-term momentum and long-term stability across NIFTY 50 stocks. By integrating change percentages for 365-day and 30-day periods with high/low price bounds, executives can efficiently pinpoint outperformers, underperformers, and highlight strategic investment opportunities or risks. These field combinations lay the foundation for high-level dashboards that guide capital allocation decisions and risk management strategies.",
       "question_idx": 1,
       "question_string": "Which stocks have demonstrated the largest positive or negative percentage changes over the past 30 days, and how do these changes compare to their 365-day percentage changes?",
-      "variants": ["sum_1_ques_1/var2.png", "sum_1_ques_1/var3.png"]
+      "variants": []
     },
     {
       "table": "25",
@@ -446,7 +446,7 @@
       "narrative_summary": "This dataset empowers business leaders to visualize and compare multi-period stock performance, identifying both short-term momentum and long-term stability across NIFTY 50 stocks. By integrating change percentages for 365-day and 30-day periods with high/low price bounds, executives can efficiently pinpoint outperformers, underperformers, and highlight strategic investment opportunities or risks. These field combinations lay the foundation for high-level dashboards that guide capital allocation decisions and risk management strategies.",
       "question_idx": 4,
       "question_string": "Which stocks have the highest turnover (crs.) and do they show significant price movement as indicated by % Chng?",
-      "variants": ["sum_1_ques_4/var3.png", "sum_1_ques_4/var4.png"]
+      "variants": []
     },
     {
       "table": "25",
@@ -630,7 +630,7 @@
       "narrative_summary": "By coupling fuel type, engine volume, mileage, and drive wheels, the schema enables exploration of patterns relevant to transportation sustainability. Researchers can analyze the prevalence and market value of hybrids versus traditional fuels, engine size distributions, and real-world usage via mileage. Planners can use this data to identify trends in city-friendly vehicles and formulate policies for environmental improvement, such as promoting low-emission vehicle adoption.",
       "question_idx": 7,
       "question_string": "Do vehicles with higher mileage tend to have lower prices regardless of fuel type?",
-      "variants": ["sum_3_ques_7/var2.png", "sum_3_ques_7/var4.png"]
+      "variants": []
     },
     {
       "table": "28",
@@ -710,7 +710,7 @@
       "narrative_summary": "The dataset's inclusion of rice production per person and its rank enables agencies to assess how well countries meet their population's nutritional needs through domestic rice production. By visualizing per capita production alongside acreage and output, stakeholders can identify vulnerable countries where rice supply may fall short of basic requirements, supporting the design of cross-border food aid strategies and sustainable agricultural development plans.",
       "question_idx": 7,
       "question_string": "Are there outliers where a country’s rank in rice production per person differs greatly from its rank in rice production?",
-      "variants": ["3/sum_2_ques_7/var1.png", "3/sum_2_ques_7/var4.png"]
+      "variants": []
     },
     {
       "table": "3",
@@ -734,15 +734,7 @@
       "narrative_summary": "This dataset enables policy makers to visualize how medical charges vary across regions, considering demographic factors like age and smoking status. By examining field combinations such as region, smoker, and age alongside charges, users can identify patterns that highlight communities at higher risk of elevated medical costs. Analytical tools could be used to spot regional outliers, uncover demographic-driven disparities, and support strategies for targeted intervention, thereby informing public health allocation and preventative programs.",
       "question_idx": 1,
       "question_string": "How do average medical charges differ between smokers and non-smokers across various regions?",
-      "variants": ["sum_1_ques_1/var4.png", "sum_1_ques_1/var3.png"]
-    },
-    {
-      "table": "32",
-      "summary_idx": 1,
-      "narrative_summary": "This dataset enables policy makers to visualize how medical charges vary across regions, considering demographic factors like age and smoking status. By examining field combinations such as region, smoker, and age alongside charges, users can identify patterns that highlight communities at higher risk of elevated medical costs. Analytical tools could be used to spot regional outliers, uncover demographic-driven disparities, and support strategies for targeted intervention, thereby informing public health allocation and preventative programs.",
-      "question_idx": 1,
-      "question_string": "How do average medical charges differ between smokers and non-smokers across various regions?",
-      "variants": ["sum_1_ques_1/var1.png", "sum_1_ques_1/var3.png"]
+      "variants": []
     },
     {
       "table": "32",

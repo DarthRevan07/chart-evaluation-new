@@ -1150,6 +1150,17 @@
                     console.log('Loading images from annotation variants:', currentAnnotation.variants);
                     console.log('Table:', currentAnnotation.table);
                     
+                    // Track loaded images for syncing to page 3
+                    let annotationChartALoaded = false;
+                    let annotationChartBLoaded = false;
+                    
+                    function checkAndSyncAnnotationCharts() {
+                        if (annotationChartALoaded && annotationChartBLoaded) {
+                            // Both images loaded, sync to comparison page
+                            setTimeout(syncComparisonCharts, 100);
+                        }
+                    }
+                    
                     // Load Chart A from first variant - ensure table prefix is included
                     let variant1 = currentAnnotation.variants[0];
                     console.log('Original variant 1 from JSON:', variant1);
@@ -1172,11 +1183,15 @@
                         if (window.updateCurrentEvaluationImages) {
                             window.updateCurrentEvaluationImages();
                         }
+                        annotationChartALoaded = true;
+                        checkAndSyncAnnotationCharts();
                     };
                     chartA.onerror = function() {
                         console.error('Chart A failed to load from:', chartAPath);
                         console.error('Original variant from JSON:', currentAnnotation.variants[0]);
                         placeholderA.textContent = 'Chart A - Image not found: ' + chartAPath;
+                        annotationChartALoaded = true;
+                        checkAndSyncAnnotationCharts();
                     };
                     
                     // Load Chart B from second variant - ensure table prefix is included
@@ -1201,11 +1216,15 @@
                         if (window.updateCurrentEvaluationImages) {
                             window.updateCurrentEvaluationImages();
                         }
+                        annotationChartBLoaded = true;
+                        checkAndSyncAnnotationCharts();
                     };
                     chartB.onerror = function() {
                         console.error('Chart B failed to load from:', chartBPath);
                         console.error('Original variant from JSON:', currentAnnotation.variants[1]);
                         placeholderB.textContent = 'Chart B - Image not found: ' + chartBPath;
+                        annotationChartBLoaded = true;
+                        checkAndSyncAnnotationCharts();
                     };
                     
                     // Update dataset info from annotation with YAML data
@@ -1278,6 +1297,17 @@
                 clearFormResponses();
             }
             
+            // Track loaded images for syncing to page 3
+            let chartALoaded = false;
+            let chartBLoaded = false;
+            
+            function checkAndSyncCharts() {
+                if (chartALoaded && chartBLoaded) {
+                    // Both images loaded, sync to comparison page
+                    setTimeout(syncComparisonCharts, 100);
+                }
+            }
+            
             // Load first image as Chart A
             if (currentPair.images[0]) {
                 chartA.src = currentPair.images[0].fullUrl;
@@ -1288,9 +1318,13 @@
                     if (window.updateCurrentEvaluationImages) {
                         window.updateCurrentEvaluationImages(); 
                     }
+                    chartALoaded = true;
+                    checkAndSyncCharts();
                 };
                 chartA.onerror = function() {
                     placeholderA.textContent = 'Chart A - Image not found';
+                    chartALoaded = true;
+                    checkAndSyncCharts();
                 };
             }
             
@@ -1304,9 +1338,13 @@
                     if (window.updateCurrentEvaluationImages) {
                         window.updateCurrentEvaluationImages();
                     }
+                    chartBLoaded = true;
+                    checkAndSyncCharts();
                 };
                 chartB.onerror = function() {
                     placeholderB.textContent = 'Chart B - Image not found';
+                    chartBLoaded = true;
+                    checkAndSyncCharts();
                 };
             }
             

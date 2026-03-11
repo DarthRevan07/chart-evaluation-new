@@ -1,8 +1,23 @@
 // Simple Evaluation Form Functions - SLIDER VERSION
 
-// Storage for evaluations  
+// Storage for evaluations
 let simpleEvaluations = {};
 let currentPair = null;
+
+// Label maps for each slider dimension
+const SLIDER_LABELS = {
+    information: ['Too little/useless', 'Minimal/Adequate', 'Addition, but Useful', 'Too much or Distracting'],
+    decoding:    ['Very Difficult/Useless', 'Difficult', 'Neutral', 'Good'],
+    aesthetics:  ['Poor', 'Fair', 'Good', 'Excellent']
+};
+const SLIDER_COLORS = ['#dc3545', '#fd7e14', '#17a2b8', '#28a745'];
+
+// Given a slider element ID and a numeric score, return { score, label }
+function makeSliderValue(sliderId, score) {
+    const dimension = Object.keys(SLIDER_LABELS).find(k => sliderId.endsWith(k));
+    const label = dimension ? (SLIDER_LABELS[dimension][score] ?? '') : String(score);
+    return { score, label };
+}
 
 // Initialize simple evaluation for a pair
 function initializeSimpleEvaluation(pairId, pairMetadata) {
@@ -16,13 +31,15 @@ function initializeSimpleEvaluation(pairId, pairMetadata) {
             pairId: pairId,
             metadata: pairMetadata,
             chartA: {
-                precision: 1, // discrete value 0-3, default to 1 (Disagree)
-                readable: 1,  // discrete value 0-3, default to 1 (Disagree) 
+                information: makeSliderValue('chart_a_information', 1),
+                decoding:    makeSliderValue('chart_a_decoding', 1),
+                aesthetics:  makeSliderValue('chart_a_aesthetics', 1),
                 imagePath: null
             },
             chartB: {
-                precision: 1, // discrete value 0-3, default to 1 (Disagree)
-                readable: 1,  // discrete value 0-3, default to 1 (Disagree)
+                information: makeSliderValue('chart_b_information', 1),
+                decoding:    makeSliderValue('chart_b_decoding', 1),
+                aesthetics:  makeSliderValue('chart_b_aesthetics', 1),
                 imagePath: null
             },
             overallPreference: null,
@@ -57,16 +74,18 @@ function saveSimpleEvaluation() {
         return;
     }
     
-    // Collect slider form data
-    const chartAReadableSlider = document.getElementById('chart_a_readable');
-    const chartAPrecisionSlider = document.getElementById('chart_a_precision');
-    const chartBReadableSlider = document.getElementById('chart_b_readable');
-    const chartBPrecisionSlider = document.getElementById('chart_b_precision');
-    
-    evaluation.chartA.readable = chartAReadableSlider ? parseInt(chartAReadableSlider.value) : 1;
-    evaluation.chartA.precision = chartAPrecisionSlider ? parseInt(chartAPrecisionSlider.value) : 1;
-    evaluation.chartB.readable = chartBReadableSlider ? parseInt(chartBReadableSlider.value) : 1;
-    evaluation.chartB.precision = chartBPrecisionSlider ? parseInt(chartBPrecisionSlider.value) : 1;
+    // Read slider values into { score, label } objects
+    const readSlider = (id) => {
+        const el = document.getElementById(id);
+        const score = el ? parseInt(el.value) : 1;
+        return makeSliderValue(id, score);
+    };
+    evaluation.chartA.information = readSlider('chart_a_information');
+    evaluation.chartA.decoding    = readSlider('chart_a_decoding');
+    evaluation.chartA.aesthetics  = readSlider('chart_a_aesthetics');
+    evaluation.chartB.information = readSlider('chart_b_information');
+    evaluation.chartB.decoding    = readSlider('chart_b_decoding');
+    evaluation.chartB.aesthetics  = readSlider('chart_b_aesthetics');
     
     // Capture actual displayed image paths
     const chartAImg = document.getElementById('chartA');
@@ -81,13 +100,20 @@ function saveSimpleEvaluation() {
         chartB: evaluation.chartB.imagePath
     };
     
-    // Get overall preference
-    const preferenceRadios = document.querySelectorAll('input[name="overall_preference"]');
-    evaluation.overallPreference = null;
-    for (const radio of preferenceRadios) {
-        if (radio.checked) {
-            evaluation.overallPreference = radio.value;
-            break;
+    // Get overall preference — prefer the hidden input set by selectChart() on slide 3,
+    // fall back to radio buttons in the preference section below the slides
+    const hiddenPref = document.getElementById('overall_preference_hidden');
+    const hiddenPrefValue = hiddenPref ? hiddenPref.value : '';
+    if (hiddenPrefValue) {
+        evaluation.overallPreference = hiddenPrefValue;
+    } else {
+        evaluation.overallPreference = null;
+        const preferenceRadios = document.querySelectorAll('input[name="overall_preference"]');
+        for (const radio of preferenceRadios) {
+            if (radio.checked) {
+                evaluation.overallPreference = radio.value;
+                break;
+            }
         }
     }
     
@@ -227,28 +253,22 @@ function loadSimpleEvaluation(pairId) {
         return;
     }
     
-    // Load slider states
-    const chartAReadableSlider = document.getElementById('chart_a_readable');
-    const chartAPrecisionSlider = document.getElementById('chart_a_precision');
-    const chartBReadableSlider = document.getElementById('chart_b_readable');
-    const chartBPrecisionSlider = document.getElementById('chart_b_precision');
-    
-    if (chartAReadableSlider && evaluation.chartA.readable !== undefined) {
-        chartAReadableSlider.value = evaluation.chartA.readable;
-        updateSliderDisplay(chartAReadableSlider, document.getElementById('chart_a_readable_value'));
-    }
-    if (chartAPrecisionSlider && evaluation.chartA.precision !== undefined) {
-        chartAPrecisionSlider.value = evaluation.chartA.precision;
-        updateSliderDisplay(chartAPrecisionSlider, document.getElementById('chart_a_precision_value'));
-    }
-    if (chartBReadableSlider && evaluation.chartB.readable !== undefined) {
-        chartBReadableSlider.value = evaluation.chartB.readable;
-        updateSliderDisplay(chartBReadableSlider, document.getElementById('chart_b_readable_value'));
-    }
-    if (chartBPrecisionSlider && evaluation.chartB.precision !== undefined) {
-        chartBPrecisionSlider.value = evaluation.chartB.precision;
-        updateSliderDisplay(chartBPrecisionSlider, document.getElementById('chart_b_precision_value'));
-    }
+    // Restore slider states
+    const restoreSlider = (id, storedValue) => {
+        const slider = document.getElementById(id);
+        const valueDisplay = document.getElementById(id + '_value');
+        if (!slider) return;
+        const score = storedValue && typeof storedValue === 'object' ? storedValue.score : (storedValue ?? 1);
+        slider.value = score;
+        updateSliderDisplay(slider, valueDisplay);
+        updateTooltipDisplay(slider);
+    };
+    restoreSlider('chart_a_information', evaluation.chartA.information);
+    restoreSlider('chart_a_decoding',    evaluation.chartA.decoding);
+    restoreSlider('chart_a_aesthetics',  evaluation.chartA.aesthetics);
+    restoreSlider('chart_b_information', evaluation.chartB.information);
+    restoreSlider('chart_b_decoding',    evaluation.chartB.decoding);
+    restoreSlider('chart_b_aesthetics',  evaluation.chartB.aesthetics);
     
     // Load overall preference
     if (evaluation.overallPreference) {
@@ -256,6 +276,23 @@ function loadSimpleEvaluation(pairId) {
         if (preferenceRadio) {
             preferenceRadio.checked = true;
         }
+
+        // Restore hidden input so saveSimpleEvaluation() reads it correctly
+        const hiddenPref = document.getElementById('overall_preference_hidden');
+        if (hiddenPref) hiddenPref.value = evaluation.overallPreference;
+
+        // Restore visual card selection on slide 3
+        document.querySelectorAll('.selectable-chart').forEach(chart => chart.classList.remove('selected'));
+        const cardIdMap = { 'Chart A': 'selectableChartA', 'Chart B': 'selectableChartB', 'Both similar': 'selectableEqual' };
+        const cardId = cardIdMap[evaluation.overallPreference];
+        if (cardId) {
+            const card = document.getElementById(cardId);
+            if (card) card.classList.add('selected');
+        }
+    } else {
+        // Clear hidden input when there's no saved preference
+        const hiddenPref = document.getElementById('overall_preference_hidden');
+        if (hiddenPref) hiddenPref.value = '';
     }
     
     // Load comments
@@ -286,6 +323,13 @@ function clearSimpleEvaluationForm() {
     radioButtons.forEach(radio => {
         radio.checked = false;
     });
+
+    // Clear the hidden preference input used by slide 3 card selection
+    const hiddenPref = document.getElementById('overall_preference_hidden');
+    if (hiddenPref) hiddenPref.value = '';
+
+    // Clear slide 3 visual card selection
+    document.querySelectorAll('.selectable-chart').forEach(chart => chart.classList.remove('selected'));
     
     // Clear comments textarea
     const commentsTextarea = document.getElementById('evaluation_comments');
@@ -311,36 +355,16 @@ function loadSavedResponsesForCurrentPair(pairId) {
     }
 }
 
-// Update slider display text
+// Update slider display text — context-aware per dimension
 function updateSliderDisplay(slider, valueDisplay) {
     if (!valueDisplay) return;
-    
-    const value = parseInt(slider.value);
-    let displayText;
-    
-    switch(value) {
-        case 0:
-            displayText = 'Strongly Disagree';
-            valueDisplay.style.color = '#dc3545';
-            break;
-        case 1:
-            displayText = 'Disagree';
-            valueDisplay.style.color = '#fd7e14';
-            break;
-        case 2:
-            displayText = 'Agree';
-            valueDisplay.style.color = '#17a2b8';
-            break;
-        case 3:
-            displayText = 'Strongly Agree';
-            valueDisplay.style.color = '#28a745';
-            break;
-        default:
-            displayText = 'Disagree';
-            valueDisplay.style.color = '#fd7e14';
-    }
-    
-    valueDisplay.textContent = displayText;
+
+    const score = parseInt(slider.value);
+    const dimension = Object.keys(SLIDER_LABELS).find(k => slider.id.endsWith(k));
+    const labels = dimension ? SLIDER_LABELS[dimension] : null;
+
+    valueDisplay.textContent = labels ? (labels[score] ?? score) : score;
+    valueDisplay.style.color = SLIDER_COLORS[score] ?? '#6c757d';
 }
 
 // Update tooltip display based on current slider value
@@ -434,7 +458,39 @@ function getSimpleEvaluationStats() {
 
 // Export evaluations as JSON
 function exportSimpleEvaluations() {
-    const evaluations = JSON.parse(localStorage.getItem('simpleEvaluations') || '{}');
+    // Flush current form state to in-memory store before exporting
+    if (currentPair && currentPair.id) {
+        const pairId = currentPair.id;
+        const evaluation = simpleEvaluations[pairId];
+        if (evaluation) {
+            const readSlider = (id) => {
+                const el = document.getElementById(id);
+                const score = el ? parseInt(el.value) : 1;
+                return makeSliderValue(id, score);
+            };
+            evaluation.chartA.information = readSlider('chart_a_information');
+            evaluation.chartA.decoding    = readSlider('chart_a_decoding');
+            evaluation.chartA.aesthetics  = readSlider('chart_a_aesthetics');
+            evaluation.chartB.information = readSlider('chart_b_information');
+            evaluation.chartB.decoding    = readSlider('chart_b_decoding');
+            evaluation.chartB.aesthetics  = readSlider('chart_b_aesthetics');
+            const hiddenPref = document.getElementById('overall_preference_hidden');
+            const hiddenPrefValue = hiddenPref ? hiddenPref.value : '';
+            if (hiddenPrefValue) {
+                evaluation.overallPreference = hiddenPrefValue;
+            } else {
+                const preferenceRadios = document.querySelectorAll('input[name="overall_preference"]');
+                for (const radio of preferenceRadios) {
+                    if (radio.checked) { evaluation.overallPreference = radio.value; break; }
+                }
+            }
+            const commentsTextarea = document.getElementById('evaluation_comments');
+            evaluation.comments = commentsTextarea ? commentsTextarea.value.trim() : '';
+            evaluation.timestamp = new Date().toISOString();
+        }
+    }
+    localStorage.setItem('simpleEvaluations', JSON.stringify(simpleEvaluations));
+    const evaluations = simpleEvaluations;
     const dataStr = JSON.stringify(evaluations, null, 2);
     const dataUri = 'data:application/json;charset=utf-8,'+ encodeURIComponent(dataStr);
     
@@ -450,7 +506,7 @@ function exportSimpleEvaluations() {
 
 // Export all evaluations in CSV format for analysis (slider version)
 function exportEvaluationsCSV() {
-    const evaluations = JSON.parse(localStorage.getItem('simpleEvaluations') || '{}');
+    const evaluations = simpleEvaluations;
     
     if (Object.keys(evaluations).length === 0) {
         showNotification('❗ No evaluations to export', 'warning');
@@ -459,37 +515,31 @@ function exportEvaluationsCSV() {
     
     // Create CSV headers for slider version
     const headers = [
-        'Timestamp', 'Pair ID', 'Session ID', 'Overall Preference',
-        'Chart A Readable Score', 'Chart A Precise Score', 
-        'Chart B Readable Score', 'Chart B Precise Score',
+        'Timestamp', 'Pair ID', 'Overall Preference',
+        'Chart A - Information (Score)', 'Chart A - Information (Label)',
+        'Chart A - Cognition/Decoding (Score)', 'Chart A - Cognition/Decoding (Label)',
+        'Chart A - Aesthetics (Score)', 'Chart A - Aesthetics (Label)',
+        'Chart B - Information (Score)', 'Chart B - Information (Label)',
+        'Chart B - Cognition/Decoding (Score)', 'Chart B - Cognition/Decoding (Label)',
+        'Chart B - Aesthetics (Score)', 'Chart B - Aesthetics (Label)',
         'Chart A Image', 'Chart B Image', 'Comments', 'Completed'
     ];
-    
-    // Helper function to convert slider value to text
-    function sliderValueToText(value) {
-        switch(value) {
-            case 0: return 'Strongly Disagree';
-            case 1: return 'Disagree';
-            case 2: return 'Agree';
-            case 3: return 'Strongly Agree';
-            default: return 'Disagree';
-        }
-    }
-    
+
     // Create CSV rows
-    const rows = Object.values(evaluations).map(eval => [
-        eval.timestamp || '',
-        eval.pairId || '',
-        'Local Session',
-        eval.overallPreference || '',
-        eval.chartA?.readable !== undefined ? `${eval.chartA.readable} (${sliderValueToText(eval.chartA.readable)})` : '',
-        eval.chartA?.precision !== undefined ? `${eval.chartA.precision} (${sliderValueToText(eval.chartA.precision)})` : '',
-        eval.chartB?.readable !== undefined ? `${eval.chartB.readable} (${sliderValueToText(eval.chartB.readable)})` : '',
-        eval.chartB?.precision !== undefined ? `${eval.chartB.precision} (${sliderValueToText(eval.chartB.precision)})` : '',
-        eval.chartA?.imagePath?.split('/').pop() || '',
-        eval.chartB?.imagePath?.split('/').pop() || '',
-        eval.comments || '',
-        eval.completed ? 'Yes' : 'No'
+    const rows = Object.values(evaluations).map(ev => [
+        ev.timestamp || '',
+        ev.pairId || '',
+        ev.overallPreference || '',
+        ev.chartA?.information?.score ?? '', ev.chartA?.information?.label ?? '',
+        ev.chartA?.decoding?.score ?? '',    ev.chartA?.decoding?.label ?? '',
+        ev.chartA?.aesthetics?.score ?? '',  ev.chartA?.aesthetics?.label ?? '',
+        ev.chartB?.information?.score ?? '', ev.chartB?.information?.label ?? '',
+        ev.chartB?.decoding?.score ?? '',    ev.chartB?.decoding?.label ?? '',
+        ev.chartB?.aesthetics?.score ?? '',  ev.chartB?.aesthetics?.label ?? '',
+        ev.chartA?.imagePath?.split('/').pop() || '',
+        ev.chartB?.imagePath?.split('/').pop() || '',
+        ev.comments || '',
+        ev.completed ? 'Yes' : 'No'
     ]);
     
     // Combine headers and rows
@@ -768,7 +818,9 @@ window.updateCurrentEvaluationImages = function() {
 // Initialize on page load
 document.addEventListener('DOMContentLoaded', function() {
     addNotificationStyles();
-    loadSavedSimpleEvaluations();
+    // Always start fresh — clear any persisted evaluations from previous sessions
+    simpleEvaluations = {};
+    localStorage.removeItem('simpleEvaluations');
     addExportButtons();
     initializeSliderDisplays(); // Initialize slider-specific functionality
     

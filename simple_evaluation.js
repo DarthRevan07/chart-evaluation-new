@@ -88,13 +88,20 @@ function saveSimpleEvaluation() {
         chartB: evaluation.chartB.imagePath
     };
     
-    // Get overall preference
-    const preferenceRadios = document.querySelectorAll('input[name="overall_preference"]');
-    evaluation.overallPreference = null;
-    for (const radio of preferenceRadios) {
-        if (radio.checked) {
-            evaluation.overallPreference = radio.value;
-            break;
+    // Get overall preference — prefer the hidden input set by selectChart(),
+    // fall back to radio buttons
+    const hiddenPref = document.getElementById('overall_preference_hidden');
+    const hiddenPrefValue = hiddenPref ? hiddenPref.value : '';
+    if (hiddenPrefValue) {
+        evaluation.overallPreference = hiddenPrefValue;
+    } else {
+        evaluation.overallPreference = null;
+        const preferenceRadios = document.querySelectorAll('input[name="overall_preference"]');
+        for (const radio of preferenceRadios) {
+            if (radio.checked) {
+                evaluation.overallPreference = radio.value;
+                break;
+            }
         }
     }
     
@@ -267,6 +274,22 @@ function loadSimpleEvaluation(pairId) {
         if (preferenceRadio) {
             preferenceRadio.checked = true;
         }
+
+        // Restore hidden input so saveSimpleEvaluation() reads it correctly
+        const hiddenPref = document.getElementById('overall_preference_hidden');
+        if (hiddenPref) hiddenPref.value = evaluation.overallPreference;
+
+        // Restore visual card selection
+        document.querySelectorAll('.selectable-chart').forEach(chart => chart.classList.remove('selected'));
+        const cardIdMap = { 'Chart A': 'selectableChartA', 'Chart B': 'selectableChartB', 'Both similar': 'selectableEqual' };
+        const cardId = cardIdMap[evaluation.overallPreference];
+        if (cardId) {
+            const card = document.getElementById(cardId);
+            if (card) card.classList.add('selected');
+        }
+    } else {
+        const hiddenPref = document.getElementById('overall_preference_hidden');
+        if (hiddenPref) hiddenPref.value = '';
     }
     
     // Load comments
@@ -291,6 +314,11 @@ function clearSimpleEvaluationForm() {
     radioButtons.forEach(radio => {
         radio.checked = false;
     });
+
+    // Clear the hidden preference input and visual card selection
+    const hiddenPref = document.getElementById('overall_preference_hidden');
+    if (hiddenPref) hiddenPref.value = '';
+    document.querySelectorAll('.selectable-chart').forEach(chart => chart.classList.remove('selected'));
     
     // Clear comments textarea
     const commentsTextarea = document.getElementById('evaluation_comments');
@@ -330,7 +358,44 @@ function getSimpleEvaluationStats() {
 
 // Export evaluations as JSON
 function exportSimpleEvaluations() {
-    const evaluations = JSON.parse(localStorage.getItem('simpleEvaluations') || '{}');
+    // Flush current form state to in-memory store before exporting
+    if (currentPair && currentPair.id) {
+        const pairId = currentPair.id;
+        const evaluation = simpleEvaluations[pairId];
+        if (evaluation) {
+            evaluation.chartA.readable = {
+                yes: document.getElementById('chart_a_readable_yes') ? document.getElementById('chart_a_readable_yes').checked : false,
+                no: document.getElementById('chart_a_readable_no') ? document.getElementById('chart_a_readable_no').checked : false
+            };
+            evaluation.chartA.precision = {
+                yes: document.getElementById('chart_a_precision_yes') ? document.getElementById('chart_a_precision_yes').checked : false,
+                no: document.getElementById('chart_a_precision_no') ? document.getElementById('chart_a_precision_no').checked : false
+            };
+            evaluation.chartB.readable = {
+                yes: document.getElementById('chart_b_readable_yes') ? document.getElementById('chart_b_readable_yes').checked : false,
+                no: document.getElementById('chart_b_readable_no') ? document.getElementById('chart_b_readable_no').checked : false
+            };
+            evaluation.chartB.precision = {
+                yes: document.getElementById('chart_b_precision_yes') ? document.getElementById('chart_b_precision_yes').checked : false,
+                no: document.getElementById('chart_b_precision_no') ? document.getElementById('chart_b_precision_no').checked : false
+            };
+            const hiddenPref = document.getElementById('overall_preference_hidden');
+            const hiddenPrefValue = hiddenPref ? hiddenPref.value : '';
+            if (hiddenPrefValue) {
+                evaluation.overallPreference = hiddenPrefValue;
+            } else {
+                const preferenceRadios = document.querySelectorAll('input[name="overall_preference"]');
+                for (const radio of preferenceRadios) {
+                    if (radio.checked) { evaluation.overallPreference = radio.value; break; }
+                }
+            }
+            const commentsTextarea = document.getElementById('evaluation_comments');
+            evaluation.comments = commentsTextarea ? commentsTextarea.value.trim() : '';
+            evaluation.timestamp = new Date().toISOString();
+        }
+    }
+    localStorage.setItem('simpleEvaluations', JSON.stringify(simpleEvaluations));
+    const evaluations = simpleEvaluations;
     const dataStr = JSON.stringify(evaluations, null, 2);
     const dataUri = 'data:application/json;charset=utf-8,'+ encodeURIComponent(dataStr);
     
@@ -346,7 +411,7 @@ function exportSimpleEvaluations() {
 
 // Export all evaluations in CSV format for analysis
 function exportEvaluationsCSV() {
-    const evaluations = JSON.parse(localStorage.getItem('simpleEvaluations') || '{}');
+    const evaluations = simpleEvaluations;
     
     if (Object.keys(evaluations).length === 0) {
         showNotification('❗ No evaluations to export', 'warning');
@@ -651,7 +716,9 @@ window.updateCurrentEvaluationImages = function() {
 // Initialize on page load
 document.addEventListener('DOMContentLoaded', function() {
     addNotificationStyles();
-    loadSavedSimpleEvaluations();
+    // Always start fresh — clear any persisted evaluations from previous sessions
+    simpleEvaluations = {};
+    localStorage.removeItem('simpleEvaluations');
     addExportButtons(); // Add export functionality
     
     // Add event listeners for checkbox and radio changes to auto-save

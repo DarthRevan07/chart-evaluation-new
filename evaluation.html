@@ -721,18 +721,18 @@
                                 
                                 <!-- Clickable Charts Side by Side -->
                                 <div class="charts-for-selection">
-                                    <div class="selectable-chart" id="selectableChartA" onclick="selectChart('Chart A')">
+                                    <div class="selectable-chart" id="selectableChartA" onclick="selectChart('Chart A')" ondblclick="openChartModal()">
                                         <h4 class="selection-chart-title">Chart A</h4>
                                         <div class="selection-chart-container">
-                                            <img id="chartACompare" src="" alt="Chart A" class="chart-image selection-image" style="display: none; max-width: 100%; height: auto;">
+                                            <img id="chartACompare" src="" alt="Chart A" class="chart-image selection-image" style="display: none; max-width: 100%; height: auto; cursor: pointer;" ondblclick="openChartModal()">
                                             <div class="simple-placeholder" id="placeholderACompare">Loading Chart A...</div>
                                         </div>
                                     </div>
                                     
-                                    <div class="selectable-chart" id="selectableChartB" onclick="selectChart('Chart B')">
+                                    <div class="selectable-chart" id="selectableChartB" onclick="selectChart('Chart B')" ondblclick="openChartModal()">
                                         <h4 class="selection-chart-title">Chart B</h4>
                                         <div class="selection-chart-container">
-                                            <img id="chartBCompare" src="" alt="Chart B" class="chart-image selection-image" style="display: none; max-width: 100%; height: auto;">
+                                            <img id="chartBCompare" src="" alt="Chart B" class="chart-image selection-image" style="display: none; max-width: 100%; height: auto; cursor: pointer;" ondblclick="openChartModal()">
                                             <div class="simple-placeholder" id="placeholderBCompare">Loading Chart B...</div>
                                         </div>
                                     </div>
@@ -1250,7 +1250,6 @@
                             };
                             window.initializePairEvaluation(pairId, pairMetadata);
                         });
-                        window.initializePairEvaluation(pairId, pairMetadata);
                     }
                     
                     return;
@@ -1424,13 +1423,6 @@
                 document.body.appendChild(returnBtn);
             }
         }
-        
-
-        
-
-        
-
-
         // Show message when no pairs are found
         function showNoPairsMessage() {
             const placeholderA = document.getElementById('placeholderA');
@@ -1791,7 +1783,7 @@
             document.querySelectorAll('.selectable-chart').forEach(chart => {
                 chart.classList.remove('selected');
             });
-            
+
             // Add selection to clicked chart
             if (choice === 'Chart A') {
                 document.getElementById('selectableChartA').classList.add('selected');
@@ -1800,11 +1792,25 @@
             } else if (choice === 'Both similar') {
                 document.getElementById('selectableEqual').classList.add('selected');
             }
-            
+
             // Update hidden input for form submission
             const hiddenInput = document.getElementById('overall_preference_hidden');
             if (hiddenInput) {
                 hiddenInput.value = choice;
+            }
+
+            // Sync radio button
+            const radioToCheck = document.querySelector(`input[name="overall_preference"][value="${choice}"]`);
+            if (radioToCheck) {
+                radioToCheck.checked = true;
+            }
+
+            // Write directly into the data store so the value is never lost
+            if (typeof simpleEvaluations !== 'undefined' && typeof currentPair !== 'undefined' && currentPair && currentPair.id) {
+                if (simpleEvaluations[currentPair.id]) {
+                    simpleEvaluations[currentPair.id].overallPreference = choice;
+                    localStorage.setItem('simpleEvaluations', JSON.stringify(simpleEvaluations));
+                }
             }
         }
         
@@ -1993,6 +1999,74 @@
             }
         }
 
+        // Chart Modal Functions
+        function openChartModal() {
+            const modal = document.getElementById('chartModal');
+            const modalChartA = document.getElementById('modalChartA');
+            const modalChartB = document.getElementById('modalChartB');
+            
+            // Copy chart sources to modal
+            const chartA = document.getElementById('chartACompare');
+            const chartB = document.getElementById('chartBCompare');
+            
+            if (chartA && chartA.src) {
+                modalChartA.src = chartA.src;
+            }
+            if (chartB && chartB.src) {
+                modalChartB.src = chartB.src;
+            }
+            
+            modal.style.display = 'block';
+            document.body.style.overflow = 'hidden';
+        }
+        
+        function closeChartModal() {
+            const modal = document.getElementById('chartModal');
+            modal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+        
+        // Close modal when clicking outside the modal content
+        document.getElementById('chartModal').onclick = function(event) {
+            if (event.target === this) {
+                closeChartModal();
+            }
+        };
+        
+        // Chart Modal Functions
+        function openChartModal() {
+            const modal = document.getElementById('chartModal');
+            const modalChartA = document.getElementById('modalChartA');
+            const modalChartB = document.getElementById('modalChartB');
+            
+            // Copy chart sources to modal
+            const chartA = document.getElementById('chartACompare');
+            const chartB = document.getElementById('chartBCompare');
+            
+            if (chartA && chartA.src) {
+                modalChartA.src = chartA.src;
+            }
+            if (chartB && chartB.src) {
+                modalChartB.src = chartB.src;
+            }
+            
+            modal.style.display = 'block';
+            document.body.style.overflow = 'hidden';
+        }
+        
+        function closeChartModal() {
+            const modal = document.getElementById('chartModal');
+            modal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+        
+        // Close modal when clicking outside the modal content
+        document.getElementById('chartModal').onclick = function(event) {
+            if (event.target === this) {
+                closeChartModal();
+            }
+        };
+        
         function hideModal(modalId) {
             document.getElementById(modalId).style.display = 'none';
             document.body.style.overflow = 'auto';
@@ -2001,6 +2075,14 @@
         // Close modal with Escape key
         document.addEventListener('keydown', function(event) {
             if (event.key === 'Escape') {
+                // Close chart modal first
+                const chartModal = document.getElementById('chartModal');
+                if (chartModal && chartModal.style.display === 'block') {
+                    closeChartModal();
+                    return;
+                }
+                
+                // Then close other modals
                 const openModals = document.querySelectorAll('.modal-overlay[style*="flex"]');
                 openModals.forEach(modal => {
                     modal.style.display = 'none';

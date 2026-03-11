@@ -471,8 +471,8 @@
         }
         
         .chart-image {
-            max-width: 400px;
-            max-height: 280px;
+            max-width: 500px;
+            max-height: 380px;
             width: auto;
             height: auto;
             object-fit: contain;
@@ -1299,7 +1299,7 @@
     </div>
 
     <!-- New annotation-based data loading system -->
-    <script src="annotation_data_loader.js"></script>
+    <script src="annotation_data_loader_slider.js"></script>
     <script src="annotation_ui_controller.js"></script>
     
     <!-- Modified scripts for slider evaluation functionality -->
@@ -1569,32 +1569,40 @@
             }
         }
         
+        // Annotations loaded from annotate_slider.json
+        let sliderAnnotations = [];
+
         // Initialize pair loading on page load
         async function initializeIntegratedPairs() {
             try {
-                console.log('Initializing simplified pair system...');
-                
-                // Load master question first (will use default/fallback data)
-                await loadMasterQuestion();
-                
-                currentPairProcessor = new PairProcessor();
-                await currentPairProcessor.initialize(); // No URL params needed
-                
-                if (currentPairProcessor.allPairs.length > 0) {
-                    console.log(`Found ${currentPairProcessor.allPairs.length} pairs from all datasets`);
-                    loadCurrentPair();
-                    addReturnToWelcomeButton();
-                    
-                    // Initialize the pair slider
-                    if (typeof onPairsLoaded === 'function') {
-                        onPairsLoaded();
-                    }
-                } else {
-                    console.log('No pairs found');
+                console.log('Loading pairs from annotate_slider.json...');
+                const response = await fetch('annotate_slider.json');
+                if (!response.ok) throw new Error(`HTTP ${response.status}`);
+                const data = await response.json();
+                sliderAnnotations = data.annotations || [];
+
+                if (sliderAnnotations.length === 0) {
                     showNoPairsMessage();
+                    return;
                 }
+
+                console.log(`Loaded ${sliderAnnotations.length} annotations`);
+
+                // Set pair slider range
+                const pairSlider = document.getElementById('pairSlider');
+                if (pairSlider) {
+                    pairSlider.min   = 0;
+                    pairSlider.max   = sliderAnnotations.length - 1;
+                    pairSlider.value = 0;
+                }
+
+                loadCurrentPair();
+                addReturnToWelcomeButton();
+
+                if (typeof onPairsLoaded === 'function') onPairsLoaded();
+
             } catch (error) {
-                console.error('Failed to initialize pairs:', error);
+                console.error('Failed to load annotate_slider.json:', error);
                 showErrorMessage();
             }
         }
@@ -1908,40 +1916,52 @@
         
         // Enhanced chart loading with complete annotation system integration
         function loadCurrentPair() {
-            console.log('Loading current pair...');
-            
+            console.log('Loading current pair from annotate_slider.json...');
+
             const chartA = document.getElementById('chartA');
             const chartB = document.getElementById('chartB');
             const placeholderA = document.getElementById('placeholderA');
             const placeholderB = document.getElementById('placeholderB');
-            
-            // Reset charts first
+
+            // Reset charts
             chartA.style.display = 'none';
             chartB.style.display = 'none';
             placeholderA.style.display = 'block';
             placeholderB.style.display = 'block';
             placeholderA.textContent = 'Loading Chart A...';
             placeholderB.textContent = 'Loading Chart B...';
-            
-            // Track loaded images for syncing to page 3
+
+            const idx = parseInt(document.getElementById('pairSlider')?.value || '0');
+            const annotation = sliderAnnotations[idx];
+
+            if (!annotation) {
+                placeholderA.textContent = 'No annotation found';
+                placeholderB.textContent = 'No annotation found';
+                return;
+            }
+
+            // Update question text
+            const questionText = document.getElementById('questionText');
+            if (questionText) questionText.textContent = annotation.question_string;
+            const stickyQuestionText = document.getElementById('stickyQuestionText');
+            if (stickyQuestionText) stickyQuestionText.textContent = annotation.question_string;
+
+            // Initialize evaluation tracking for this pair
+            const pairId = `${annotation.table}_${annotation.variants[0]}_vs_${annotation.variants[1]}`;
+            const pairMetadata = {
+                table: annotation.table,
+                question: annotation.question_string,
+                variants: annotation.variants
+            };
+            if (window.initializePairEvaluation) {
+                window.initializePairEvaluation(pairId, pairMetadata);
+            }
+
             let chartALoaded = false;
             let chartBLoaded = false;
-            let currentPair = null;
-            
+
             function checkAndSyncCharts() {
                 if (chartALoaded && chartBLoaded) {
-                    // Both images loaded, update dataset info if we have pair data
-                    if (currentPair && currentPair.metadata) {
-                        updateDatasetInfo(currentPair);
-                        updatePairInfo(currentPair);
-                        
-                        // Load dataset YAML info if available
-                        const tableNumber = currentPair.metadata.table_number || currentPair.metadata.tableNumber;
-                        if (tableNumber && typeof window.updateDatasetInfoFromYAML === 'function') {
-                            window.updateDatasetInfoFromYAML(tableNumber);
-                        }
-                    }
-                    // Sync chart images for comparison slide
                     setTimeout(() => {
                         if (typeof window.syncComparisonCharts === 'function') {
                             window.syncComparisonCharts();
@@ -1949,168 +1969,46 @@
                     }, 100);
                 }
             }
-            
-            // First try to load from annotation system
-            if (window.annotationUI && typeof window.annotationUI.getCurrentAnnotation === 'function') {
-                const currentAnnotation = window.annotationUI.getCurrentAnnotation();
-                console.log('Current annotation:', currentAnnotation);
-                
-                if (currentAnnotation && currentAnnotation.variants && currentAnnotation.variants.length >= 2) {
-                    console.log('Loading images from annotation variants:', currentAnnotation.variants);
-                    console.log('Table:', currentAnnotation.table);
-                    
-                    // Store current pair data for metadata updates
-                    currentPair = {
-                        metadata: {
-                            dataset: currentAnnotation.dataset || 'Unknown Dataset',
-                            table_number: currentAnnotation.table || currentAnnotation.tableNumber,
-                            tableNumber: currentAnnotation.table || currentAnnotation.tableNumber
-                        },
-                        variants: currentAnnotation.variants,
-                        question: currentAnnotation.question_string || currentAnnotation.question
-                    };
 
-                    // Initialize evaluation tracking for this pair
-                    if (window.initializePairEvaluation && currentAnnotation.table) {
-                        const pairId = `${currentAnnotation.table}_${currentAnnotation.variants[0]}_vs_${currentAnnotation.variants[1]}`;
-                        const pairMetadata = {
-                            table: currentAnnotation.table,
-                            dataset: currentAnnotation.dataset || 'Unknown Dataset',
-                            variants: currentAnnotation.variants,
-                            question: currentAnnotation.question_string || currentAnnotation.question
-                        };
-                        window.initializePairEvaluation(pairId, pairMetadata);
-                    }
-
-                    // Load Chart A from first variant
-                    let variant1 = currentAnnotation.variants[0];
-                    if (currentAnnotation.table && !variant1.startsWith(currentAnnotation.table + '/')) {
-                        variant1 = currentAnnotation.table + '/' + variant1;
-                    }
-                    
-                    const chartAPath = 'run2_variants_parallel_organized/' + variant1;
-                    console.log('Loading Chart A from:', chartAPath);
-                    chartA.src = chartAPath;
-                    chartA.onload = function() {
-                        console.log('Chart A loaded successfully');
-                        chartA.style.display = 'block';
-                        placeholderA.style.display = 'none';
-                        chartALoaded = true;
-                        checkAndSyncCharts();
-                    };
-                    chartA.onerror = function() {
-                        console.error('Chart A failed to load:', chartAPath);
-                        placeholderA.textContent = 'Chart A - Image not found';
-                        placeholderA.style.color = '#dc3545';
-                        chartALoaded = true;
-                        checkAndSyncCharts();
-                    };
-                    
-                    // Load Chart B from second variant
-                    let variant2 = currentAnnotation.variants[1];
-                    if (currentAnnotation.table && !variant2.startsWith(currentAnnotation.table + '/')) {
-                        variant2 = currentAnnotation.table + '/' + variant2;
-                    }
-                    
-                    const chartBPath = 'run2_variants_parallel_organized/' + variant2;
-                    console.log('Loading Chart B from:', chartBPath);
-                    chartB.src = chartBPath;
-                    chartB.onload = function() {
-                        console.log('Chart B loaded successfully');
-                        chartB.style.display = 'block';
-                        placeholderB.style.display = 'none';
-                        chartBLoaded = true;
-                        checkAndSyncCharts();
-                    };
-                    chartB.onerror = function() {
-                        console.error('Chart B failed to load:', chartBPath);
-                        placeholderB.textContent = 'Chart B - Image not found';
-                        placeholderB.style.color = '#dc3545';
-                        chartBLoaded = true;
-                        checkAndSyncCharts();
-                    };
-                    
-                    // Update question text if available
-                    const questionText = document.getElementById('questionText');
-                    const stickyQuestionText = document.getElementById('stickyQuestionText');
-                    const displayQuestion = currentAnnotation.question_string || currentAnnotation.question || 'Compare these two chart visualizations.';
-                    
-                    if (questionText) {
-                        questionText.textContent = displayQuestion;
-                    }
-                    
-                    if (stickyQuestionText) {
-                        stickyQuestionText.textContent = displayQuestion;
-                    }
-                    
-                    return;
-                }
+            // Build path: prepend table/ if not already present
+            function buildPath(variant) {
+                const prefixed = variant.startsWith(annotation.table + '/') ? variant : annotation.table + '/' + variant;
+                return 'run2_variants_parallel_organized/' + prefixed;
             }
-            
-            // Fallback: Try to use PairProcessor if available
-            if (currentPairProcessor && currentPairProcessor.allPairs && currentPairProcessor.allPairs.length > 0) {
-                const currentIndex = parseInt(document.getElementById('pairSlider')?.value || '0');
-                if (currentIndex >= 0 && currentIndex < currentPairProcessor.allPairs.length) {
-                    const pair = currentPairProcessor.allPairs[currentIndex];
-                    console.log('Loading pair from PairProcessor:', pair);
-                    
-                    currentPair = pair;
 
-                    // Initialize evaluation tracking for this pair
-                    if (window.initializePairEvaluation && pair.id) {
-                        window.initializePairEvaluation(pair.id, pair.metadata);
-                    }
+            const chartAPath = buildPath(annotation.variants[0]);
+            chartA.src = chartAPath;
+            chartA.onload = function() {
+                chartA.style.display = 'block';
+                placeholderA.style.display = 'none';
+                chartALoaded = true;
+                checkAndSyncCharts();
+            };
+            chartA.onerror = function() {
+                console.error('Chart A failed to load:', chartAPath);
+                placeholderA.textContent = 'Chart A - Image not found';
+                placeholderA.style.color = '#dc3545';
+                chartALoaded = true;
+                checkAndSyncCharts();
+            };
 
-                    // Load Chart A
-                    const chartAPath = pair.chartA;
-                    console.log('Loading Chart A from processor:', chartAPath);
-                    chartA.src = chartAPath;
-                    chartA.onload = function() {
-                        console.log('Chart A loaded from processor');
-                        chartA.style.display = 'block';
-                        placeholderA.style.display = 'none';
-                        chartALoaded = true;
-                        checkAndSyncCharts();
-                    };
-                    chartA.onerror = function() {
-                        console.error('Chart A failed to load from processor:', chartAPath);
-                        placeholderA.textContent = 'Chart A - Image not found';
-                        placeholderA.style.color = '#dc3545';
-                        chartALoaded = true;
-                        checkAndSyncCharts();
-                    };
-                    
-                    // Load Chart B
-                    const chartBPath = pair.chartB;
-                    console.log('Loading Chart B from processor:', chartBPath);
-                    chartB.src = chartBPath;
-                    chartB.onload = function() {
-                        console.log('Chart B loaded from processor');
-                        chartB.style.display = 'block';
-                        placeholderB.style.display = 'none';
-                        chartBLoaded = true;
-                        checkAndSyncCharts();
-                    };
-                    chartB.onerror = function() {
-                        console.error('Chart B failed to load from processor:', chartBPath);
-                        placeholderB.textContent = 'Chart B - Image not found';
-                        placeholderB.style.color = '#dc3545';
-                        chartBLoaded = true;
-                        checkAndSyncCharts();
-                    };
-                    
-                    return;
-                }
-            }
-            
-            // Final fallback to show appropriate messages
-            console.warn('No annotation system or pair processor available');
-            placeholderA.textContent = 'Chart A - No data available';
-            placeholderB.textContent = 'Chart B - No data available';
-            placeholderA.style.color = '#6c757d';
-            placeholderB.style.color = '#6c757d';
+            const chartBPath = buildPath(annotation.variants[1]);
+            chartB.src = chartBPath;
+            chartB.onload = function() {
+                chartB.style.display = 'block';
+                placeholderB.style.display = 'none';
+                chartBLoaded = true;
+                checkAndSyncCharts();
+            };
+            chartB.onerror = function() {
+                console.error('Chart B failed to load:', chartBPath);
+                placeholderB.textContent = 'Chart B - Image not found';
+                placeholderB.style.color = '#dc3545';
+                chartBLoaded = true;
+                checkAndSyncCharts();
+            };
         }
-        
+
         // Initialize slider on page load
         document.addEventListener('DOMContentLoaded', function() {
             console.log('DOM loaded - starting initialization');

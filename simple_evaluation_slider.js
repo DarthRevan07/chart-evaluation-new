@@ -6,11 +6,22 @@ let currentPair = null;
 
 // Label maps for each slider dimension
 const SLIDER_LABELS = {
-    information: ['Too little/useless', 'Minimal/Adequate', 'Addition, but Useful', 'Too much or Distracting'],
-    decoding:    ['Very Difficult/Useless', 'Difficult', 'Neutral', 'Good'],
-    aesthetics:  ['Poor', 'Fair', 'Good', 'Excellent']
+    readability: ['Strongly Disagree', 'Disagree', 'Neutral', 'Agree', 'Strongly Agree'],
+    precision:   ['Strongly Disagree', 'Disagree', 'Neutral', 'Agree', 'Strongly Agree'],
+    aesthetics:  ['Strongly Disagree', 'Disagree', 'Neutral', 'Agree', 'Strongly Agree']
 };
-const SLIDER_COLORS = ['#dc3545', '#fd7e14', '#17a2b8', '#28a745'];
+const SLIDER_COLORS = ['#dc3545', '#fd7e14', '#ffc107', '#17a2b8', '#28a745'];
+
+// Description texts shown below slider per position
+const SLIDER_DESCRIPTIONS = {
+    readability: [
+        'I could not extract any meaningful information even after careful inspection',
+        'I had to look at the chart several times just to identify basic values/elements',
+        'I could identify the values, but it took effort to understand the overall message.',
+        'I could quickly understand the chart and determine overall message with little effort.',
+        'The chart was immediately clear and effortless to understand.'
+    ]
+};
 
 // Given a slider element ID and a numeric score, return { score, label }
 function makeSliderValue(sliderId, score) {
@@ -31,14 +42,14 @@ function initializeSimpleEvaluation(pairId, pairMetadata) {
             pairId: pairId,
             metadata: pairMetadata,
             chartA: {
-                information: makeSliderValue('chart_a_information', 1),
-                decoding:    makeSliderValue('chart_a_decoding', 1),
+                readability: makeSliderValue('chart_a_readability', 1),
+                precision:   makeSliderValue('chart_a_precision', 1),
                 aesthetics:  makeSliderValue('chart_a_aesthetics', 1),
                 imagePath: null
             },
             chartB: {
-                information: makeSliderValue('chart_b_information', 1),
-                decoding:    makeSliderValue('chart_b_decoding', 1),
+                readability: makeSliderValue('chart_b_readability', 1),
+                precision:   makeSliderValue('chart_b_precision', 1),
                 aesthetics:  makeSliderValue('chart_b_aesthetics', 1),
                 imagePath: null
             },
@@ -80,11 +91,11 @@ function saveSimpleEvaluation() {
         const score = el ? parseInt(el.value) : 1;
         return makeSliderValue(id, score);
     };
-    evaluation.chartA.information = readSlider('chart_a_information');
-    evaluation.chartA.decoding    = readSlider('chart_a_decoding');
+    evaluation.chartA.readability = readSlider('chart_a_readability');
+    evaluation.chartA.precision   = readSlider('chart_a_precision');
     evaluation.chartA.aesthetics  = readSlider('chart_a_aesthetics');
-    evaluation.chartB.information = readSlider('chart_b_information');
-    evaluation.chartB.decoding    = readSlider('chart_b_decoding');
+    evaluation.chartB.readability = readSlider('chart_b_readability');
+    evaluation.chartB.precision   = readSlider('chart_b_precision');
     evaluation.chartB.aesthetics  = readSlider('chart_b_aesthetics');
     
     // Capture actual displayed image paths
@@ -117,9 +128,11 @@ function saveSimpleEvaluation() {
         }
     }
     
-    // Get comments
-    const commentsTextarea = document.getElementById('evaluation_comments');
-    evaluation.comments = commentsTextarea ? commentsTextarea.value.trim() : '';
+    // Get comments from each slide
+    evaluation.comments_a    = document.getElementById('evaluation_comments_a')?.value.trim()    || '';
+    evaluation.comments_b    = document.getElementById('evaluation_comments_b')?.value.trim()    || '';
+    evaluation.comments_pref = document.getElementById('evaluation_comments_pref')?.value.trim() || '';
+    evaluation.comments = [evaluation.comments_a, evaluation.comments_b, evaluation.comments_pref].filter(Boolean).join('; ');
     
     evaluation.timestamp = new Date().toISOString();
     
@@ -263,11 +276,11 @@ function loadSimpleEvaluation(pairId) {
         updateSliderDisplay(slider, valueDisplay);
         updateTooltipDisplay(slider);
     };
-    restoreSlider('chart_a_information', evaluation.chartA.information);
-    restoreSlider('chart_a_decoding',    evaluation.chartA.decoding);
+    restoreSlider('chart_a_readability', evaluation.chartA.readability);
+    restoreSlider('chart_a_precision',   evaluation.chartA.precision);
     restoreSlider('chart_a_aesthetics',  evaluation.chartA.aesthetics);
-    restoreSlider('chart_b_information', evaluation.chartB.information);
-    restoreSlider('chart_b_decoding',    evaluation.chartB.decoding);
+    restoreSlider('chart_b_readability', evaluation.chartB.readability);
+    restoreSlider('chart_b_precision',   evaluation.chartB.precision);
     restoreSlider('chart_b_aesthetics',  evaluation.chartB.aesthetics);
     
     // Load overall preference
@@ -295,11 +308,13 @@ function loadSimpleEvaluation(pairId) {
         if (hiddenPref) hiddenPref.value = '';
     }
     
-    // Load comments
-    const commentsTextarea = document.getElementById('evaluation_comments');
-    if (commentsTextarea && evaluation.comments) {
-        commentsTextarea.value = evaluation.comments;
-    }
+    // Load comments into per-slide textareas
+    const ca = document.getElementById('evaluation_comments_a');
+    const cb = document.getElementById('evaluation_comments_b');
+    const cp = document.getElementById('evaluation_comments_pref');
+    if (ca) ca.value = evaluation.comments_a    || '';
+    if (cb) cb.value = evaluation.comments_b    || '';
+    if (cp) cp.value = evaluation.comments_pref || '';
     
     console.log('Loaded evaluation for pair:', pairId, evaluation);
 }
@@ -331,11 +346,11 @@ function clearSimpleEvaluationForm() {
     // Clear slide 3 visual card selection
     document.querySelectorAll('.selectable-chart').forEach(chart => chart.classList.remove('selected'));
     
-    // Clear comments textarea
-    const commentsTextarea = document.getElementById('evaluation_comments');
-    if (commentsTextarea) {
-        commentsTextarea.value = '';
-    }
+    // Clear per-slide comment textareas
+    ['evaluation_comments_a', 'evaluation_comments_b', 'evaluation_comments_pref'].forEach(id => {
+        const el = document.getElementById(id);
+        if (el) el.value = '';
+    });
     
     console.log('Form cleared for new pair');
 }
@@ -357,14 +372,20 @@ function loadSavedResponsesForCurrentPair(pairId) {
 
 // Update slider display text — context-aware per dimension
 function updateSliderDisplay(slider, valueDisplay) {
-    if (!valueDisplay) return;
-
     const score = parseInt(slider.value);
     const dimension = Object.keys(SLIDER_LABELS).find(k => slider.id.endsWith(k));
     const labels = dimension ? SLIDER_LABELS[dimension] : null;
 
-    valueDisplay.textContent = labels ? (labels[score] ?? score) : score;
-    valueDisplay.style.color = SLIDER_COLORS[score] ?? '#6c757d';
+    if (valueDisplay) {
+        valueDisplay.textContent = labels ? (labels[score] ?? score) : score;
+        valueDisplay.style.color = SLIDER_COLORS[score] ?? '#6c757d';
+    }
+
+    // Update the description text if available for this dimension
+    const descEl = document.getElementById(slider.id + '_desc');
+    if (descEl && dimension && SLIDER_DESCRIPTIONS[dimension]) {
+        descEl.textContent = SLIDER_DESCRIPTIONS[dimension][score] ?? '';
+    }
 }
 
 // Update tooltip display based on current slider value
@@ -468,11 +489,11 @@ function exportSimpleEvaluations() {
                 const score = el ? parseInt(el.value) : 1;
                 return makeSliderValue(id, score);
             };
-            evaluation.chartA.information = readSlider('chart_a_information');
-            evaluation.chartA.decoding    = readSlider('chart_a_decoding');
+            evaluation.chartA.readability = readSlider('chart_a_readability');
+            evaluation.chartA.precision   = readSlider('chart_a_precision');
             evaluation.chartA.aesthetics  = readSlider('chart_a_aesthetics');
-            evaluation.chartB.information = readSlider('chart_b_information');
-            evaluation.chartB.decoding    = readSlider('chart_b_decoding');
+            evaluation.chartB.readability = readSlider('chart_b_readability');
+            evaluation.chartB.precision   = readSlider('chart_b_precision');
             evaluation.chartB.aesthetics  = readSlider('chart_b_aesthetics');
             const hiddenPref = document.getElementById('overall_preference_hidden');
             const hiddenPrefValue = hiddenPref ? hiddenPref.value : '';
@@ -484,8 +505,10 @@ function exportSimpleEvaluations() {
                     if (radio.checked) { evaluation.overallPreference = radio.value; break; }
                 }
             }
-            const commentsTextarea = document.getElementById('evaluation_comments');
-            evaluation.comments = commentsTextarea ? commentsTextarea.value.trim() : '';
+            evaluation.comments_a    = document.getElementById('evaluation_comments_a')?.value.trim()    || '';
+            evaluation.comments_b    = document.getElementById('evaluation_comments_b')?.value.trim()    || '';
+            evaluation.comments_pref = document.getElementById('evaluation_comments_pref')?.value.trim() || '';
+            evaluation.comments = [evaluation.comments_a, evaluation.comments_b, evaluation.comments_pref].filter(Boolean).join('; ');
             evaluation.timestamp = new Date().toISOString();
         }
     }
@@ -516,11 +539,11 @@ function exportEvaluationsCSV() {
     // Create CSV headers for slider version
     const headers = [
         'Timestamp', 'Pair ID', 'Overall Preference',
-        'Chart A - Information (Score)', 'Chart A - Information (Label)',
-        'Chart A - Cognition/Decoding (Score)', 'Chart A - Cognition/Decoding (Label)',
+        'Chart A - Readability (Score)', 'Chart A - Readability (Label)',
+        'Chart A - Precision (Score)', 'Chart A - Precision (Label)',
         'Chart A - Aesthetics (Score)', 'Chart A - Aesthetics (Label)',
-        'Chart B - Information (Score)', 'Chart B - Information (Label)',
-        'Chart B - Cognition/Decoding (Score)', 'Chart B - Cognition/Decoding (Label)',
+        'Chart B - Readability (Score)', 'Chart B - Readability (Label)',
+        'Chart B - Precision (Score)', 'Chart B - Precision (Label)',
         'Chart B - Aesthetics (Score)', 'Chart B - Aesthetics (Label)',
         'Chart A Image', 'Chart B Image', 'Comments', 'Completed'
     ];
@@ -530,11 +553,11 @@ function exportEvaluationsCSV() {
         ev.timestamp || '',
         ev.pairId || '',
         ev.overallPreference || '',
-        ev.chartA?.information?.score ?? '', ev.chartA?.information?.label ?? '',
-        ev.chartA?.decoding?.score ?? '',    ev.chartA?.decoding?.label ?? '',
+        ev.chartA?.readability?.score ?? '', ev.chartA?.readability?.label ?? '',
+        ev.chartA?.precision?.score ?? '',   ev.chartA?.precision?.label ?? '',
         ev.chartA?.aesthetics?.score ?? '',  ev.chartA?.aesthetics?.label ?? '',
-        ev.chartB?.information?.score ?? '', ev.chartB?.information?.label ?? '',
-        ev.chartB?.decoding?.score ?? '',    ev.chartB?.decoding?.label ?? '',
+        ev.chartB?.readability?.score ?? '', ev.chartB?.readability?.label ?? '',
+        ev.chartB?.precision?.score ?? '',   ev.chartB?.precision?.label ?? '',
         ev.chartB?.aesthetics?.score ?? '',  ev.chartB?.aesthetics?.label ?? '',
         ev.chartA?.imagePath?.split('/').pop() || '',
         ev.chartB?.imagePath?.split('/').pop() || '',
@@ -633,30 +656,9 @@ function addExportButtons() {
         jsonBtn.style.backgroundColor = '#007bff';
     });
     
-    const csvBtn = document.createElement('button');
-    csvBtn.textContent = '📊 Export CSV';
-    csvBtn.onclick = exportEvaluationsCSV;
-    csvBtn.style.cssText = `
-        background: #28a745;
-        color: white;
-        border: none;
-        padding: 12px 24px;
-        border-radius: 6px;
-        cursor: pointer;
-        font-size: 14px;
-        font-weight: 500;
-        transition: background-color 0.3s ease;
-    `;
-    csvBtn.addEventListener('mouseenter', () => {
-        csvBtn.style.backgroundColor = '#1e7e34';
-    });
-    csvBtn.addEventListener('mouseleave', () => {
-        csvBtn.style.backgroundColor = '#28a745';
-    });
-    
     // Add description text
     const description = document.createElement('p');
-    description.textContent = 'Download your slider-based evaluation data for analysis. JSON contains full details, CSV is ready for spreadsheet programs.';
+    description.textContent = 'Download your slider-based evaluation data as JSON for analysis.';
     description.style.cssText = `
         margin: 15px 0 0 0;
         font-size: 12px;
@@ -669,7 +671,6 @@ function addExportButtons() {
         targetContainer.appendChild(exportHeader);
     }
     buttonsContainer.appendChild(jsonBtn);
-    buttonsContainer.appendChild(csvBtn);
     targetContainer.appendChild(buttonsContainer);
     if (!targetContainer.querySelector('p')) { // Don't add description if it already exists
         targetContainer.appendChild(description);

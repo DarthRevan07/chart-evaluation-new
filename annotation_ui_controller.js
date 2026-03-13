@@ -165,42 +165,17 @@ class AnnotationUIController {
 
     /**
      * Update question display
+     * (Question is shown in the sticky header — no secondary display needed)
      */
     updateQuestion(questionString) {
-        // Update the main question area
-        let questionElement = document.getElementById('currentQuestion');
-        if (!questionElement) {
-            // Create question element if it doesn't exist
-            const masterSection = document.getElementById('masterQuestionSection');
-            if (masterSection) {
-                const questionDiv = document.createElement('div');
-                questionDiv.id = 'currentQuestion';
-                questionDiv.className = 'current-question';
-                questionDiv.style.cssText = `
-                    background: #f8f9fa;
-                    border: 1px solid #dee2e6;
-                    border-radius: 8px;
-                    padding: 15px;
-                    margin: 10px 0;
-                    font-size: 16px;
-                    font-weight: 500;
-                    color: #495057;
-                `;
-                
-                // Insert after dataset info but before info links
-                const infoLinks = masterSection.querySelector('.info-links-section');
-                if (infoLinks) {
-                    masterSection.insertBefore(questionDiv, infoLinks);
-                } else {
-                    masterSection.appendChild(questionDiv);
-                }
-                
-                questionElement = questionDiv;
-            }
-        }
+        // Remove any legacy question display element above the buttons
+        const existing = document.getElementById('currentQuestion');
+        if (existing) existing.remove();
 
-        if (questionElement) {
-            questionElement.innerHTML = `<strong>Question:</strong> ${questionString}`;
+        // Update the sticky header at top of page
+        const stickyQuestionText = document.getElementById('stickyQuestionText');
+        if (stickyQuestionText && questionString) {
+            stickyQuestionText.textContent = questionString;
         }
     }
 
@@ -228,35 +203,10 @@ class AnnotationUIController {
 
     /**
      * Update dataset modal with table information
+     * (Content is now managed by showDatasetModal() in evaluation_slider.html)
      */
     updateDatasetModal(annotation) {
-        const datasetModal = document.getElementById('datasetModal');
-        const modalBody = datasetModal?.querySelector('.modal-body');
-        
-        if (modalBody) {
-            const datasetInfo = annotation.dataset_info;
-            const csvPath = `./csv_c_squared/${annotation.table}.csv`;
-            
-            modalBody.innerHTML = `
-                <div class="dataset-info-detail">
-                    <h5>${datasetInfo.dataset_name}</h5>
-                    <div class="info-grid">
-                        <div><strong>Table ID:</strong> ${annotation.table}</div>
-                        <div><strong>Category:</strong> ${datasetInfo.category || 'Unknown'}</div>
-                        <div><strong>License:</strong> ${datasetInfo.license || 'Not specified'}</div>
-                        ${datasetInfo.url ? `<div><strong>Source:</strong> <a href="${datasetInfo.url}" target="_blank">View Original</a></div>` : ''}
-                    </div>
-                    <div class="csv-preview">
-                        <h6>Dataset Preview</h6>
-                        <div id="csvPreviewContainer">
-                            <button onclick="annotationUI.loadCSVPreview('${annotation.table}')" class="btn btn-primary btn-sm">
-                                Load Data Sample
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            `;
-        }
+        // No-op: modal content is populated on demand by showDatasetModal()
     }
 
     /**

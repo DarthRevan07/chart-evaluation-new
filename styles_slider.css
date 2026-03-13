@@ -36,7 +36,7 @@ body {
     max-width: 1400px;
     margin: 0 auto;
     background-color: white;
-    min-height: 100vh;
+    min-height: calc(100vh - 180px);
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
 }
 
@@ -471,8 +471,8 @@ body {
 }
 
 .chart-section, .preference-section, .comments-section {
-    margin-bottom: 30px;
-    padding: 20px;
+    margin-bottom: 10px;
+    padding: 5px;
     border: 1px solid #e9ecef;
     border-radius: 8px;
     background: #f8f9fa;
@@ -840,10 +840,12 @@ body {
 
 /* Form actions */
 .form-actions {
-    padding: 15px 0;
-    border-top: 1px solid #e9ecef;
-    margin-top: 20px;
+    padding: 5px 0;
+    border-top: 1px solid #1e69b4;
+    margin-top: 5px;
     display: flex;
+    flex-direction: row-reverse;
+    flex-wrap: wrap;
     gap: 12px;
     justify-content: flex-end;
     align-items: center;
@@ -902,13 +904,9 @@ body {
 
 /* Dataset info styles */
 .dataset-info {
-    background: #e9f7ef;
-    border: 1px solid #c3e6cb;
-    border-left: 4px solid #28a745;
-    padding: 12px 16px;
-    border-radius: 6px;
-    margin-bottom: 15px;
     font-size: 0.9em;
+    margin-bottom: 8px;
+    color: #495057;
 }
 
 .assumption-note {
@@ -924,9 +922,14 @@ body {
 
 /* Master question section */
 .master-question-section {
-    padding: 20px 30px;
+    padding: 8px 15px;
     background: white;
     border-bottom: 1px solid #e9ecef;
+}
+
+/* Suppress any legacy question display above the info buttons */
+#currentQuestion {
+    display: none !important;
 }
 
 /* Responsive design */

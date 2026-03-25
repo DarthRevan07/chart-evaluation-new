@@ -39,7 +39,7 @@
         /* Horizontal Navigation Styles */
         .horizontal-nav-container {
             background-color: white;
-            min-height: calc(100vh - 300px);
+            min-height: calc(100vh - 440px);
         }
         
         .slide-nav-controls {
@@ -570,56 +570,28 @@
             font-weight: 500;
         }
         
+        /* Flanking endpoint labels */
+        .slider-endpoint-left,
+        .slider-endpoint-right {
+            font-weight: 600;
+            padding: 2px 4px;
+            box-sizing: border-box;
+            font-size: 12px;
+            margin-top: 5px;
+            line-height: 1.2;
+            white-space: nowrap;
+        }
+        .slider-endpoint-left { color: #dc3545; text-align: right; }
+        .slider-endpoint-right { color: #28a745; text-align: left; }
+
         /* Wrapper for slider and description */
         .slider-wrapper {
-            position: relative;
-            margin: 5px 0;
-            padding: 10px 0;
-        }
-        
-        /* Custom slider styling */
-        .evaluation-slider {
-            width: 100%;
-            height: 6px;
-            border-radius: 3px;
-            background: #007bff;
-            outline: none;
-            opacity: 0.8;
-            transition: all 0.1s ease;
-            -webkit-appearance: none;
-            cursor: pointer;
-        }
-        
-        .evaluation-slider:hover {
-            opacity: 1;
-        }
-        
-        .evaluation-slider::-webkit-slider-thumb {
-            -webkit-appearance: none;
-            appearance: none;
-            width: 16px;
-            height: 16px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, #007bff, #0056b3);
-            cursor: pointer;
-            border: 2px solid white;
-            box-shadow: 0 2px 6px rgba(0,0,0,0.3);
-            transition: all 0.2s ease;
-        }
-        
-        .evaluation-slider::-webkit-slider-thumb:hover {
-            transform: scale(1.1);
-            box-shadow: 0 3px 8px rgba(0,123,255,0.4);
-        }
-        
-        .evaluation-slider::-moz-range-thumb {
-            width: 16px;
-            height: 16px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, #007bff, #0056b3);
-            cursor: pointer;
-            border: 2px solid white;
-            box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            gap: 10px;
+            margin: 2px 0;
+            padding: 1px 0;
         }
         
         .slider-labels {
@@ -677,7 +649,7 @@
         <div class="sticky-header-content">
             <!-- Question Section -->
             <div class="question-section">
-                <div class="question-content" id="stickyQuestionText">Loading question...</div>
+                <div class="question-content" id="stickyDatasetText">Loading dataset...</div>
             </div>
             
         </div>
@@ -725,9 +697,9 @@
                     i
                 </button>
 
-                <!-- Center: Dataset name (absolutely centered in the bar) -->
-                <div class="dataset-info" id="dynamicDatasetInfo" style="position: absolute; left: 50%; transform: translateX(-50%); white-space: nowrap; font-size: 13px; color: #495057;">
-                    <strong>Dataset:</strong> <span id="datasetName">Loading...</span>
+                <!-- Center: Current question (absolutely centered in the bar) -->
+                <div id="dynamicQuestionText" style="position: absolute; left: 50%; transform: translateX(-50%); white-space: nowrap; max-width: 55%; overflow: hidden; text-overflow: ellipsis; font-size: 16px; font-weight: 700; color: #212529;">
+                    Loading question...
                 </div>
 
                 <!-- Right: Slide navigation -->
@@ -753,14 +725,13 @@
                     <div class="slide" id="slide1">
                         <div class="slide-content">
                             <div class="slide-title-section">
-                                <h3 style="color: #007bff; margin-bottom: 5px; text-align: center;">Chart A Evaluation</h3>
+                                <h6 style="color: #28a745; margin-bottom: 15px; text-align: center;">Kindly provide your feedback on the following assertions about Chart A</h6>
                             </div>
                             
                             <div class="both-charts-container">
                                 <!-- Chart Display -->
                                 <div class="charts-comparison" style="display: flex; flex-direction: column; gap: 8px;">
                                     <div class="chart-container">
-                                        <div class="chart-title">Chart A</div>
                                         <div class="chart-image-container">
                                             <img id="chartA" class="chart-image" alt="Chart A" style="display: none;">
                                             <div id="placeholderA" class="simple-placeholder">Loading Chart A...</div>
@@ -777,29 +748,24 @@
                                             <div class="question-number">1. I think the chart seems easy to understand at a glance</div>
                                             <div class="slider-group horizontal">
                                                 <div class="slider-container">
-                                                    <div class="slider-label-row">
-                                                        <span class="slider-current-value" id="chart_a_readability_value">Disagree</span>
-                                                    </div>
                                                     <div class="slider-wrapper">
-                                                        <input 
-                                                            type="range" 
-                                                            class="evaluation-slider" 
-                                                            id="chart_a_readability" 
-                                                            name="chart_a_readability" 
-                                                            min="0" 
-                                                            max="4" 
-                                                            value="1" 
+                                                        <span class="slider-endpoint-left">NO</span>
+                                                        <input
+                                                            type="range"
+                                                            class="evaluation-slider"
+                                                            id="chart_a_readability"
+                                                            name="chart_a_readability"
+                                                            min="0"
+                                                            max="4"
+                                                            value="1"
                                                             step="1"
                                                             oninput="updateSliderDisplay(this, document.getElementById('chart_a_readability_value'))"
                                                         >
-                                                        <div class="slider-description" id="chart_a_readability_desc">I had to look at the chart several times just to identify basic values/elements</div>
+                                                        <span class="slider-endpoint-right">YES</span>
                                                     </div>
-                                                    <div class="slider-labels">
-                                                        <span class="label-no">Strongly Disagree</span>
-                                                        <span>Disagree</span>
-                                                        <span>Neutral</span>
-                                                        <span>Agree</span>
-                                                        <span class="label-yes">Strongly Agree</span>
+                                                    <div class="slider-description">
+                                                        <span class="slider-current-value" id="chart_a_readability_value">Disagree</span>
+                                                        <span id="chart_a_readability_desc">I had to look at the chart several times just to identify basic values/elements</span>
                                                     </div>
                                                 </div>
                                             </div>
@@ -810,29 +776,24 @@
                                             <div class="question-number">2. I think that the chart answers the given question</div>
                                             <div class="slider-group horizontal">
                                                 <div class="slider-container">
-                                                    <div class="slider-label-row">
-                                                        <span class="slider-current-value" id="chart_a_precision_value">Disagree</span>
-                                                    </div>
                                                     <div class="slider-wrapper">
-                                                        <input 
-                                                            type="range" 
-                                                            class="evaluation-slider" 
-                                                            id="chart_a_precision" 
-                                                            name="chart_a_precision" 
-                                                            min="0" 
-                                                            max="4" 
-                                                            value="1" 
+                                                        <span class="slider-endpoint-left">NO</span>
+                                                        <input
+                                                            type="range"
+                                                            class="evaluation-slider"
+                                                            id="chart_a_precision"
+                                                            name="chart_a_precision"
+                                                            min="0"
+                                                            max="4"
+                                                            value="1"
                                                             step="1"
                                                             oninput="updateSliderDisplay(this, document.getElementById('chart_a_precision_value'))"
                                                         >
-                                                        <div class="slider-description" id="chart_a_precision_desc">Crucial pieces of information needed to answer the question are missing</div>
+                                                        <span class="slider-endpoint-right">YES</span>
                                                     </div>
-                                                    <div class="slider-labels">
-                                                        <span class="label-no">Strongly Disagree</span>
-                                                        <span>Disagree</span>
-                                                        <span>Neutral</span>
-                                                        <span>Agree</span>
-                                                        <span class="label-yes">Strongly Agree</span>
+                                                    <div class="slider-description">
+                                                        <span class="slider-current-value" id="chart_a_precision_value">Disagree</span>
+                                                        <span id="chart_a_precision_desc">Crucial pieces of information needed to answer the question are missing</span>
                                                     </div>
                                                 </div>
                                             </div>
@@ -843,29 +804,24 @@
                                             <div class="question-number">3. I think the chart is visually appealing and attractive</div>
                                             <div class="slider-group horizontal">
                                                 <div class="slider-container">
-                                                    <div class="slider-label-row">
-                                                        <span class="slider-current-value" id="chart_a_aesthetics_value">Disagree</span>
-                                                    </div>
                                                     <div class="slider-wrapper">
-                                                        <input 
-                                                            type="range" 
-                                                            class="evaluation-slider" 
-                                                            id="chart_a_aesthetics" 
-                                                            name="chart_a_aesthetics" 
-                                                            min="0" 
-                                                            max="4" 
-                                                            value="1" 
+                                                        <span class="slider-endpoint-left">NO</span>
+                                                        <input
+                                                            type="range"
+                                                            class="evaluation-slider"
+                                                            id="chart_a_aesthetics"
+                                                            name="chart_a_aesthetics"
+                                                            min="0"
+                                                            max="4"
+                                                            value="1"
                                                             step="1"
                                                             oninput="updateSliderDisplay(this, document.getElementById('chart_a_aesthetics_value'))"
                                                         >
-                                                        <div class="slider-description" id="chart_a_aesthetics_desc">The chart looks somewhat unattractive with many flaws.</div>
+                                                        <span class="slider-endpoint-right">YES</span>
                                                     </div>
-                                                    <div class="slider-labels">
-                                                        <span class="label-no">Strongly Disagree</span>
-                                                        <span>Disagree</span>
-                                                        <span>Neutral</span>
-                                                        <span>Agree</span>
-                                                        <span class="label-yes">Strongly Agree</span>
+                                                    <div class="slider-description">
+                                                        <span class="slider-current-value" id="chart_a_aesthetics_value">Disagree</span>
+                                                        <span id="chart_a_aesthetics_desc">The chart looks somewhat unattractive with many flaws.</span>
                                                     </div>
                                                 </div>
                                             </div>
@@ -880,14 +836,13 @@
                     <div class="slide" id="slide2">
                         <div class="slide-content">
                             <div class="slide-title-section">
-                                <h3 style="color: #28a745; margin-bottom: 15px; text-align: center;">Chart B Evaluation</h3>
+                                <h6 style="color: #28a745; margin-bottom: 15px; text-align: center;">Kindly provide your feedback on the following assertions about Chart B</h6>
                             </div>
                             
                             <div class="both-charts-container">
                                 <!-- Chart Display -->
                                 <div class="charts-comparison" style="display: flex; flex-direction: column; gap: 8px;">
                                     <div class="chart-container">
-                                        <div class="chart-title">Chart B</div>
                                         <div class="chart-image-container">
                                             <img id="chartB" class="chart-image" alt="Chart B" style="display: none;">
                                             <div id="placeholderB" class="simple-placeholder">Loading Chart B...</div>
@@ -904,29 +859,24 @@
                                             <div class="question-number">1. I think the chart seems easy to understand at a glance</div>
                                             <div class="slider-group horizontal">
                                                 <div class="slider-container">
-                                                    <div class="slider-label-row">
-                                                        <span class="slider-current-value" id="chart_b_readability_value">Disagree</span>
-                                                    </div>
                                                     <div class="slider-wrapper">
-                                                        <input 
-                                                            type="range" 
-                                                            class="evaluation-slider" 
-                                                            id="chart_b_readability" 
-                                                            name="chart_b_readability" 
-                                                            min="0" 
-                                                            max="4" 
-                                                            value="1" 
+                                                        <span class="slider-endpoint-left">NO</span>
+                                                        <input
+                                                            type="range"
+                                                            class="evaluation-slider"
+                                                            id="chart_b_readability"
+                                                            name="chart_b_readability"
+                                                            min="0"
+                                                            max="4"
+                                                            value="1"
                                                             step="1"
                                                             oninput="updateSliderDisplay(this, document.getElementById('chart_b_readability_value'))"
                                                         >
-                                                        <div class="slider-description" id="chart_b_readability_desc">I had to look at the chart several times just to identify basic values/elements</div>
+                                                        <span class="slider-endpoint-right">YES</span>
                                                     </div>
-                                                    <div class="slider-labels">
-                                                        <span class="label-no">Strongly Disagree</span>
-                                                        <span>Disagree</span>
-                                                        <span>Neutral</span>
-                                                        <span>Agree</span>
-                                                        <span class="label-yes">Strongly Agree</span>
+                                                    <div class="slider-description">
+                                                        <span class="slider-current-value" id="chart_b_readability_value">Disagree</span>
+                                                        <span id="chart_b_readability_desc">I had to look at the chart several times just to identify basic values/elements</span>
                                                     </div>
                                                 </div>
                                             </div>
@@ -937,29 +887,24 @@
                                             <div class="question-number">2. I think that the chart answers the given question</div>
                                             <div class="slider-group horizontal">
                                                 <div class="slider-container">
-                                                    <div class="slider-label-row">
-                                                        <span class="slider-current-value" id="chart_b_precision_value">Disagree</span>
-                                                    </div>
                                                     <div class="slider-wrapper">
-                                                        <input 
-                                                            type="range" 
-                                                            class="evaluation-slider" 
-                                                            id="chart_b_precision" 
-                                                            name="chart_b_precision" 
-                                                            min="0" 
-                                                            max="4" 
-                                                            value="1" 
+                                                        <span class="slider-endpoint-left">NO</span>
+                                                        <input
+                                                            type="range"
+                                                            class="evaluation-slider"
+                                                            id="chart_b_precision"
+                                                            name="chart_b_precision"
+                                                            min="0"
+                                                            max="4"
+                                                            value="1"
                                                             step="1"
                                                             oninput="updateSliderDisplay(this, document.getElementById('chart_b_precision_value'))"
                                                         >
-                                                        <div class="slider-description" id="chart_b_precision_desc">Crucial pieces of information needed to answer the question are missing</div>
+                                                        <span class="slider-endpoint-right">YES</span>
                                                     </div>
-                                                    <div class="slider-labels">
-                                                        <span class="label-no">Strongly Disagree</span>
-                                                        <span>Disagree</span>
-                                                        <span>Neutral</span>
-                                                        <span>Agree</span>
-                                                        <span class="label-yes">Strongly Agree</span>
+                                                    <div class="slider-description">
+                                                        <span class="slider-current-value" id="chart_b_precision_value">Disagree</span>
+                                                        <span id="chart_b_precision_desc">Crucial pieces of information needed to answer the question are missing</span>
                                                     </div>
                                                 </div>
                                             </div>
@@ -970,29 +915,24 @@
                                             <div class="question-number">3. I think the chart is visually appealing and attractive</div>
                                             <div class="slider-group horizontal">
                                                 <div class="slider-container">
-                                                    <div class="slider-label-row">
-                                                        <span class="slider-current-value" id="chart_b_aesthetics_value">Disagree</span>
-                                                    </div>
                                                     <div class="slider-wrapper">
-                                                        <input 
-                                                            type="range" 
-                                                            class="evaluation-slider" 
-                                                            id="chart_b_aesthetics" 
-                                                            name="chart_b_aesthetics" 
-                                                            min="0" 
-                                                            max="4" 
-                                                            value="1" 
+                                                        <span class="slider-endpoint-left">NO</span>
+                                                        <input
+                                                            type="range"
+                                                            class="evaluation-slider"
+                                                            id="chart_b_aesthetics"
+                                                            name="chart_b_aesthetics"
+                                                            min="0"
+                                                            max="4"
+                                                            value="1"
                                                             step="1"
                                                             oninput="updateSliderDisplay(this, document.getElementById('chart_b_aesthetics_value'))"
                                                         >
-                                                        <div class="slider-description" id="chart_b_aesthetics_desc">The chart looks somewhat unattractive with many flaws.</div>
+                                                        <span class="slider-endpoint-right">YES</span>
                                                     </div>
-                                                    <div class="slider-labels">
-                                                        <span class="label-no">Strongly Disagree</span>
-                                                        <span>Disagree</span>
-                                                        <span>Neutral</span>
-                                                        <span>Agree</span>
-                                                        <span class="label-yes">Strongly Agree</span>
+                                                    <div class="slider-description">
+                                                        <span class="slider-current-value" id="chart_b_aesthetics_value">Disagree</span>
+                                                        <span id="chart_b_aesthetics_desc">The chart looks somewhat unattractive with many flaws.</span>
                                                     </div>
                                                 </div>
                                             </div>
@@ -1177,15 +1117,15 @@
         };
 
         window.updateDatasetInfoFromYAML = async function(tableNumber) {
-            const datasetInfo = document.querySelector('.dataset-info');
-            if (datasetInfo) {
-                datasetInfo.innerHTML = `<strong>Dataset:</strong> <span id="datasetName">Loading...</span>`;
+            const stickyDatasetText = document.getElementById('stickyDatasetText');
+            if (stickyDatasetText) {
+                stickyDatasetText.textContent = 'Dataset: Loading...';
                 
                 const datasetName = await loadDatasetNameFromYAML(tableNumber);
                 if (datasetName) {
-                    datasetInfo.innerHTML = `<strong>Dataset:</strong> <span id="datasetName">${datasetName}</span>`;
+                    stickyDatasetText.textContent = `Dataset: ${datasetName}`;
                 } else {
-                    datasetInfo.innerHTML = `<strong>Dataset:</strong> <span id="datasetName">Dataset name not found</span>`;
+                    stickyDatasetText.textContent = `Dataset: ${tableNumber}`;
                 }
                 
                 return datasetName;
@@ -1450,14 +1390,14 @@
         // Update pair information
         function updatePairInfo(pair) {
             const questionText = document.getElementById('questionText');
-            const stickyQuestionText = document.getElementById('stickyQuestionText');
+            const dynamicQuestionText = document.getElementById('dynamicQuestionText');
             
             if (questionText) {
                 questionText.textContent = `Compare these two visualizations of ${pair.metadata.dataset} data and evaluate their effectiveness.`;
             }
             
-            if (stickyQuestionText) {
-                stickyQuestionText.textContent = `Compare these two visualizations of ${pair.metadata.dataset} data and evaluate their effectiveness.`;
+            if (dynamicQuestionText) {
+                dynamicQuestionText.textContent = `Compare these two visualizations of ${pair.metadata.dataset} data and evaluate their effectiveness.`;
             }
         }
 
@@ -1542,34 +1482,34 @@
             }
         }
 
-        // Function to update sticky question display
+        // Function to update nav-bar question display
         function updateStickyQuestionDisplay(questionText = null) {
-            const stickyQuestionText = document.getElementById('stickyQuestionText');
+            const dynamicQuestionText = document.getElementById('dynamicQuestionText');
             
             if (questionText) {
-                stickyQuestionText.textContent = questionText;
-                console.log('Updated sticky question:', questionText);
+                if (dynamicQuestionText) dynamicQuestionText.textContent = questionText;
+                console.log('Updated nav-bar question:', questionText);
             } else if (window.annotationUI && typeof window.annotationUI.getCurrentAnnotation === 'function') {
                 // Try to get question_string from annotation system
                 const currentAnnotation = window.annotationUI.getCurrentAnnotation();
                 if (currentAnnotation && currentAnnotation.question_string) {
-                    stickyQuestionText.textContent = currentAnnotation.question_string;
+                    if (dynamicQuestionText) dynamicQuestionText.textContent = currentAnnotation.question_string;
+                    if (currentAnnotation.table) updateDatasetInfoFromYAML(currentAnnotation.table);
                     console.log('Updated from annotation question_string:', currentAnnotation.question_string);
                 } else if (currentAnnotation && currentAnnotation.question) {
-                    stickyQuestionText.textContent = currentAnnotation.question;
+                    if (dynamicQuestionText) dynamicQuestionText.textContent = currentAnnotation.question;
                     console.log('Updated from annotation question:', currentAnnotation.question);
                 }
             } else {
                 // Fallback - try to find question text in page
                 const questionElements = [
                     document.getElementById('questionText'),
-                    document.querySelector('.question-content'),
                     document.querySelector('[data-question]')
                 ];
                 
                 for (const element of questionElements) {
                     if (element && element.textContent.trim()) {
-                        stickyQuestionText.textContent = element.textContent.trim();
+                        if (dynamicQuestionText) dynamicQuestionText.textContent = element.textContent.trim();
                         console.log('Updated from page element:', element.textContent.trim());
                         break;
                     }
@@ -1588,10 +1528,9 @@
                 });
             });
             
-            // Observe changes to question text areas
+            // Observe changes to question text areas (external sources only — NOT the sticky header itself)
             const questionContainers = [
                 document.getElementById('questionText'),
-                document.querySelector('.master-question-section'),
                 document.querySelector('[data-question]')
             ];
             
@@ -1683,16 +1622,14 @@
                 counter.textContent = `${current} / ${sliderAnnotations.length}`;
             }
             
-            // Update sticky header text
-            const slideHeaders = [
-                'Chart A Evaluation - Rate readability, cognition dimension, and aesthetic quality',
-                'Chart B Evaluation - Rate readability, cognition dimension, and aesthetic quality',
-                'Chart Preference - Choose which chart you would prefer to see'
-            ];
-            
-            const stickyQuestionText = document.getElementById('stickyQuestionText');
-            if (stickyQuestionText) {
-                stickyQuestionText.textContent = slideHeaders[currentSlide] || 'Chart Evaluation';
+            // Update sticky header with current dataset name
+            const stickyDatasetText = document.getElementById('stickyDatasetText');
+            if (stickyDatasetText) {
+                const idx = window.annotationLoader ? window.annotationLoader.getCurrentIndex() : 0;
+                const annotation = sliderAnnotations[idx];
+                if (annotation && (stickyDatasetText.textContent === 'Loading dataset...' || stickyDatasetText.textContent === 'Loading...')) {
+                    stickyDatasetText.textContent = `Dataset: ${annotation.table}`;
+                }
             }
         }
         
@@ -1813,8 +1750,10 @@
             // Update question text
             const questionText = document.getElementById('questionText');
             if (questionText) questionText.textContent = annotation.question_string;
-            const stickyQuestionText = document.getElementById('stickyQuestionText');
-            if (stickyQuestionText) stickyQuestionText.textContent = annotation.question_string;
+            const dynamicQuestionText = document.getElementById('dynamicQuestionText');
+            if (dynamicQuestionText) dynamicQuestionText.textContent = annotation.question_string;
+            // Load actual dataset name from YAML into sticky header
+            updateDatasetInfoFromYAML(annotation.table);
 
             // Initialize evaluation tracking for this pair
             const pairId = `${annotation.table}_${annotation.variants[0]}_vs_${annotation.variants[1]}`;
@@ -2033,37 +1972,26 @@
             }
             
             if (valueDisplay) valueDisplay.textContent = displayText;
-            
-            // Update description
+
+            // Update description text separately
             if (descriptionElement) {
                 descriptionElement.textContent = descriptionText;
-                descriptionElement.classList.add('active');
-                
-                // Remove active class after a brief moment
-                setTimeout(() => {
-                    descriptionElement.classList.remove('active');
-                }, 200);
             }
         }
         
         // Initialize descriptions on page load
         function initializeTooltips() {
-            initializeSliderDisplays();
         }
         
         // Initialize when DOM is ready - Additional setup
         document.addEventListener('DOMContentLoaded', function() {
             // Initialize tooltips functionality
             initializeTooltips();
-            
+
             // Initialize annotation system checks
             updateStickyQuestionDisplay();
             observeQuestionChanges();
             initializeNavigationListeners();
-            
-            setInterval(() => {
-                updateStickyQuestionDisplay();
-            }, 2000);
         });
         
         // Hook into annotation system if available
@@ -2088,12 +2016,11 @@
             };
             
             // Also trigger load when annotation system becomes available
+            let annotationCheckRetries = 0;
+            const maxAnnotationRetries = 20; // 10 seconds max
             const checkAnnotationSystem = () => {
-                console.log('Checking annotation system availability...');
                 if (window.annotationUI && typeof window.annotationUI.getCurrentAnnotation === 'function') {
-                    console.log('Annotation UI found, checking for current annotation...');
                     const annotation = window.annotationUI.getCurrentAnnotation();
-                    console.log('Current annotation:', annotation);
                     if (annotation) {
                         console.log('Annotation system ready, loading initial pair...');
                         loadCurrentPair();
@@ -2101,11 +2028,14 @@
                         return; // Stop checking once loaded
                     }
                 }
-                console.log('Annotation system not ready yet, will retry in 500ms...');
-                // Keep checking every 500ms until annotation system is ready
-                setTimeout(checkAnnotationSystem, 500);
+                if (++annotationCheckRetries < maxAnnotationRetries) {
+                    setTimeout(checkAnnotationSystem, 500);
+                } else {
+                    console.warn('Annotation system not found after', maxAnnotationRetries, 'attempts. Loading fallback.');
+                    loadCurrentPair();
+                }
             };
-            
+
             // Start checking for annotation system
             setTimeout(checkAnnotationSystem, 100);
             
@@ -2426,37 +2356,41 @@
             </div>
             <div class="modal-body">
                 <div style="background: #e3f2fd; padding: 15px; border-radius: 8px; margin-bottom: 20px; border-left: 4px solid #007bff;">
-                    <p style="margin: 0; color: #1976d2; font-weight: 500; line-height: 1.5;">
-                        Welcome to the <strong>Slider Interface</strong>! Use precise slider controls to evaluate each chart's readability and precision, then choose your overall preference.
+                    <p style="margin: 0; font-weight: 500; color: #1565c0;">
+                        <strong>Important:</strong> Both charts in each evaluation show visualizations of the same underlying dataset; only the visual design elements differ.
                     </p>
                 </div>
-                
+
                 <h4 style="margin-bottom: 15px; color: #495057;">Evaluation Criteria:</h4>
-                
+
                 <div style="margin-bottom: 20px;">
-                    <strong style="color: #007bff;">📖 Readability:</strong> How easily can you perceive and decode the information? Use the slider to indicate how much effort was required to understand the chart.
+                    <h5 style="color: #007bff; margin-bottom: 8px;">🔍 Readability</h5>
+                    <p style="margin: 0; line-height: 1.5;">Is the chart easy to perceive for you, and can you decode the encoded information unambiguously? Consider visual clarity, legibility of text, and ease of understanding the chart elements.</p>
                 </div>
-                
+
                 <div style="margin-bottom: 20px;">
-                    <strong style="color: #28a745;">🎯 Precision:</strong> Can you use this chart to answer the provided question completely? Slide to show how well the chart supports accurate analysis.
+                    <h5 style="color: #007bff; margin-bottom: 8px;">🎯 Precision</h5>
+                    <p style="margin: 0; line-height: 1.5;">Given the question, are you able to identify and extract all the relevant information from the chart encodings/annotations/etc., and process it accurately to reach a reliable conclusion/answer?</p>
                 </div>
-                
+
                 <div style="margin-bottom: 25px;">
-                    <strong style="color: #17a2b8;">⚖️ Overall Preference:</strong> After rating both charts, click to choose which you'd prefer to see for this type of data visualization.
+                    <h5 style="color: #007bff; margin-bottom: 8px;">⭐ Overall Preference</h5>
+                    <p style="margin: 0; line-height: 1.5;">Given the previous considerations about presence of important information to answer the question, your ability to easily identify and decode it, and the overall design scheme used (colors, spatial layout etc.) which chart would you prefer?</p>
                 </div>
-                
+
                 <div style="text-align: center; padding-top: 15px; border-top: 1px solid #dee2e6;">
                     <button onclick="hideInstructionsModal(true)" style="
-                        background: #007bff;
+                        background: linear-gradient(135deg, #007bff, #0056b3);
                         color: white;
                         border: none;
-                        padding: 10px 24px;
-                        border-radius: 5px;
-                        font-weight: 500;
+                        padding: 12px 24px;
+                        border-radius: 25px;
+                        font-weight: 600;
                         cursor: pointer;
-                        transition: background 0.3s ease;
-                    " onmouseover="this.style.background='#0056b3'" onmouseout="this.style.background='#007bff'">
-                        ✓ Got it, let's start evaluating!
+                        font-size: 14px;
+                        transition: all 0.3s ease;
+                    " onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 4px 12px rgba(0,123,255,0.3)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none'">
+                        ✅ Got it! Start Evaluating
                     </button>
                 </div>
             </div>

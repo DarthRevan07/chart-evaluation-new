@@ -603,16 +603,20 @@ body {
     transition: color 0.2s ease;
 }
 
-/* Slider wrapper for positioning tooltips */
+/* Slider wrapper — bar flanked by endpoint labels */
 .slider-wrapper {
-    position: relative;
-    margin: 10px 0;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+    margin: 4px 0;
 }
 
 /* Enhanced slider styling for discrete positions */
 .evaluation-slider {
-    width: 100%;
-    height: 8px;
+    flex: 0 0 180px;
+    width: 240px;
+    height: 3px;
     border-radius: 5px;
     background: #ddd;
     outline: none;
@@ -640,7 +644,7 @@ body {
 .evaluation-slider::-webkit-slider-thumb {
     -webkit-appearance: none;
     appearance: none;
-    width: 24px;
+    width: 15px;
     height: 24px;
     border-radius: 50%;
     background: #007bff;
@@ -808,6 +812,53 @@ body {
 .slider-labels .label-yes {
     color: #28a745;
     text-align: right;
+}
+
+/* Flanking endpoint labels on the slider row */
+.slider-endpoint-left,
+.slider-endpoint-right {
+    font-weight: 600;
+    padding: 2px 4px;
+    box-sizing: border-box;
+    font-size: 0.75em;
+    margin-top: 5px;
+    line-height: 1.2;
+    color: #6c757d;
+    white-space: nowrap;
+}
+
+.slider-endpoint-left {
+    color: #dc3545;
+    text-align: right;
+}
+
+.slider-endpoint-right {
+    color: #28a745;
+    text-align: left;
+}
+
+/* Caption row below the slider */
+.slider-description {
+    font-size: 0.75em;
+    color: #6c757d;
+    text-align: center;
+    margin-top: 5px;
+    font-style: italic;
+    min-height: 16px;
+    transition: color 0.2s ease;
+}
+
+.slider-description .slider-current-value {
+    min-width: auto;
+    text-align: left;
+    font-style: normal;
+}
+
+.slider-description .slider-current-value::after {
+    content: ' :';
+    font-weight: 400;
+    color: #495057;
+    background: none;
 }
 
 /* Question group styling */

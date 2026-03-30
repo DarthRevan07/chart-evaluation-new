@@ -713,7 +713,7 @@ function showNotification(message, type = 'info') {
         color: ${type === 'success' ? '#155724' : type === 'warning' ? '#856404' : '#0c5460'};
         border-radius: 6px;
         box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-        z-index: 1000;
+        z-index: 100000;
         font-weight: 500;
         max-width: 300px;
         animation: slideInRight 0.3s ease;

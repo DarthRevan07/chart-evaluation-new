@@ -705,7 +705,7 @@ function showNotification(message, type = 'info') {
     notification.className = `notification ${type}`;
     notification.style.cssText = `
         position: fixed;
-        top: 20px;
+        bottom: 20px;
         right: 20px;
         padding: 15px 20px;
         background-color: ${type === 'success' ? '#d4edda' : type === 'warning' ? '#fff3cd' : '#d1ecf1'};

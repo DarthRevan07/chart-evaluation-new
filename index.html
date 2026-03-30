@@ -1330,12 +1330,6 @@
                 const data = await response.json();
                 sliderAnnotations = data.annotations || [];
 
-                // Fisher-Yates shuffle so each annotator sees a unique random order
-                for (let i = sliderAnnotations.length - 1; i > 0; i--) {
-                    const j = Math.floor(Math.random() * (i + 1));
-                    [sliderAnnotations[i], sliderAnnotations[j]] = [sliderAnnotations[j], sliderAnnotations[i]];
-                }
-
                 if (sliderAnnotations.length === 0) {
                     showNoPairsMessage();
                     return;
@@ -2025,6 +2019,10 @@
                     const annotation = window.annotationUI.getCurrentAnnotation();
                     if (annotation) {
                         console.log('Annotation system ready, loading initial pair...');
+                        // Sync sliderAnnotations from the loader's shuffled copy so indices always match
+                        if (window.annotationLoader && window.annotationLoader.annotations.length > 0) {
+                            sliderAnnotations = window.annotationLoader.annotations;
+                        }
                         loadCurrentPair();
                         updateStickyQuestionDisplay();
                         return; // Stop checking once loaded

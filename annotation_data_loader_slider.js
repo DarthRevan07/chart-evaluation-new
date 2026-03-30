@@ -43,6 +43,12 @@ class AnnotationDataLoader {
             this.annotationData = await response.json();
             this.annotations = this.annotationData.annotations || [];
 
+            // Fisher-Yates shuffle so every annotator session sees a unique random order
+            for (let i = this.annotations.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [this.annotations[i], this.annotations[j]] = [this.annotations[j], this.annotations[i]];
+            }
+
             console.log('Annotation data loaded successfully:', {
                 totalEntries: this.annotationData.metadata?.total_entries,
                 annotationsCount: this.annotations.length

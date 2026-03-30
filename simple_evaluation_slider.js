@@ -1,5 +1,11 @@
 // Simple Evaluation Form Functions - SLIDER VERSION
 
+// ─── Google Apps Script endpoint ─────────────────────────────────────────────
+// After deploying the Apps Script web app, paste the URL below.
+// See google_apps_script.gs for setup instructions.
+const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwSecfqiYmmEeh2OMXQwi1LbK_k8AbwiyFJY4FNSxqm_rp_Lc2il5kvO7JvKKxUoTm4gA/exec';
+// ─────────────────────────────────────────────────────────────────────────────
+
 // Storage for evaluations
 let simpleEvaluations = {};
 let currentPair = null;
@@ -56,11 +62,19 @@ function initializeSimpleEvaluation(pairId, pairMetadata) {
             overallPreference: null,
             comments: '',
             completed: false,
+            displayedAt: new Date().toISOString(),
+            savedAt: null,
+            timeToSave_seconds: null,
+            chartADisplayedAt: null,
+            chartBDisplayedAt: null,
+            prefDisplayedAt: null,
+            preferenceLastUpdatedAt: null,
             timestamp: null,
             displayedImages: {
                 chartA: null,
                 chartB: null
-            }
+            },
+            sliderTimestamps: {}
         };
     }
     
@@ -89,7 +103,10 @@ function saveSimpleEvaluation() {
     const readSlider = (id) => {
         const el = document.getElementById(id);
         const score = el ? parseInt(el.value) : 1;
-        return makeSliderValue(id, score);
+        const val = makeSliderValue(id, score);
+        const ts = evaluation.sliderTimestamps && evaluation.sliderTimestamps[id];
+        if (ts) val.lastUpdatedAt = ts;
+        return val;
     };
     evaluation.chartA.readability = readSlider('chart_a_readability');
     evaluation.chartA.precision   = readSlider('chart_a_precision');
@@ -134,8 +151,14 @@ function saveSimpleEvaluation() {
     evaluation.comments_pref = document.getElementById('evaluation_comments_pref')?.value.trim() || '';
     evaluation.comments = [evaluation.comments_a, evaluation.comments_b, evaluation.comments_pref].filter(Boolean).join('; ');
     
-    evaluation.timestamp = new Date().toISOString();
-    
+    evaluation.savedAt = new Date().toISOString();
+    evaluation.timestamp = evaluation.savedAt;
+    if (evaluation.displayedAt) {
+        evaluation.timeToSave_seconds = Math.round(
+            (new Date(evaluation.savedAt) - new Date(evaluation.displayedAt)) / 1000
+        );
+    }
+
     // Save to localStorage
     localStorage.setItem('simpleEvaluations', JSON.stringify(simpleEvaluations));
     
@@ -207,18 +230,12 @@ async function submitSimpleEvaluation() {
         
         // Debug: Log the complete submit data
         console.log('Complete submit data:', JSON.stringify(submitData, null, 2));
-        const apiEndpoint = window.location.hostname.includes('netlify.app') || window.location.hostname.includes('netlify.com') 
-            ? '/.netlify/functions/submit-evaluation-slider'  // Different endpoint for slider version
-            : window.location.hostname.includes('vercel.app') 
-            ? '/api/submit-evaluation-slider'  // Vercel slider endpoint
-            : window.location.hostname.includes('github.io')
-            ? 'https://chart-evaluation-slider.netlify.app/.netlify/functions/submit-evaluation-slider'  // GitHub Pages to Netlify
-            : '/api/submit-evaluation-slider';  // Local or other
-        
+        const apiEndpoint = GOOGLE_SCRIPT_URL;
+
         const response = await fetch(apiEndpoint, {
             method: 'POST',
             headers: {
-                'Content-Type': 'application/json',
+                'Content-Type': 'text/plain',
             },
             body: JSON.stringify(submitData)
         });
@@ -423,6 +440,10 @@ function initializeSliderDisplays() {
             
             // Add change event for auto-save
             slider.addEventListener('change', function() {
+                // Record last time this slider was changed by the user
+                if (currentPair && currentPair.id && simpleEvaluations[currentPair.id]) {
+                    simpleEvaluations[currentPair.id].sliderTimestamps[this.id] = new Date().toISOString();
+                }
                 updateSliderDisplay(this, valueDisplay);
                 updateTooltipDisplay(this);
                 if (currentPair && currentPair.id) {
@@ -884,18 +905,12 @@ async function retryFailedSubmissions() {
                 retryAttempt: true
             };
             
-            const apiEndpoint = window.location.hostname.includes('netlify.app') || window.location.hostname.includes('netlify.com') 
-                ? '/.netlify/functions/submit-evaluation-slider'
-                : window.location.hostname.includes('vercel.app') 
-                ? '/api/submit-evaluation-slider'
-                : window.location.hostname.includes('github.io')
-                ? 'https://chart-evaluation-slider.netlify.app/.netlify/functions/submit-evaluation-slider'
-                : '/api/submit-evaluation-slider';
-            
+            const apiEndpoint = GOOGLE_SCRIPT_URL;
+
             const response = await fetch(apiEndpoint, {
                 method: 'POST',
                 headers: {
-                    'Content-Type': 'application/json',
+                    'Content-Type': 'text/plain',
                 },
                 body: JSON.stringify(submitData)
             });

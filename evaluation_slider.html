@@ -697,8 +697,8 @@
                     i
                 </button>
 
-                <!-- Center: Current question (absolutely centered in the bar) -->
-                <div id="dynamicQuestionText" style="position: absolute; left: 50%; transform: translateX(-50%); white-space: nowrap; max-width: 55%; overflow: hidden; text-overflow: ellipsis; font-size: 16px; font-weight: 700; color: #212529;">
+                <!-- Center: Current question (flex-centered in the bar) -->
+                <div id="dynamicQuestionText" style="flex: 1; text-align: center; font-size: 16px; font-weight: 700; color: #212529; white-space: normal; padding: 0 8px;">
                     Loading question...
                 </div>
 
@@ -946,13 +946,10 @@
                     <!-- Slide 3: Chart Preference Selection -->
                     <div class="slide" id="slide3">
                         <div class="slide-content">
-                            <div class="slide-title-section">
-                                <h3 style="color: #6c757d; margin-bottom: 15px; text-align: center;">Chart Preference</h3>
-                            </div>
                             
                             <!-- Charts Selection Row -->
                             <div class="charts-selection-row">
-                                <h3 style="text-align: center; margin-bottom: 20px; color: #495057;">Preference: Choose the chart you would prefer to see</h3>
+                                <h3 style="text-align: center; margin-bottom: 20px; color: #495057;">Choose the chart you would prefer to see</h3>
                                 
                                 <!-- Clickable Charts Side by Side -->
                                 <div class="charts-for-selection">
@@ -1040,23 +1037,6 @@
                     ">Submit</button>
                 </div>
                 
-                <!-- Alternative Interface Link -->
-                <div class="alternative-interface">
-                    <a href="evaluation.html" style="
-                        display: inline-flex;
-                        align-items: center;
-                        gap: 6px;
-                        background: linear-gradient(135deg, #e65100, #d84315);
-                        color: white;
-                        text-decoration: none;
-                        padding: 6px 12px;
-                        border-radius: 15px;
-                        font-size: 12px;
-                        font-weight: 500;
-                        transition: all 0.3s ease;
-                        box-shadow: 0 1px 4px rgba(230, 81, 0, 0.3);
-                    " onmouseover="this.style.transform='translateY(-1px)'; this.style.boxShadow='0 2px 8px rgba(230, 81, 0, 0.4)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 1px 4px rgba(230, 81, 0, 0.3)'">☑️ Checkbox Interface</a>
-                </div>
             </div>
 
     </div>
@@ -1631,6 +1611,22 @@
                     stickyDatasetText.textContent = `Dataset: ${annotation.table}`;
                 }
             }
+
+            // Record when each slide is first shown
+            if (typeof simpleEvaluations !== 'undefined' && currentPair && currentPair.id) {
+                const ev = simpleEvaluations[currentPair.id];
+                if (ev) {
+                    if (currentSlide === 0 && !ev.chartADisplayedAt) {
+                        ev.chartADisplayedAt = new Date().toISOString();
+                    }
+                    if (currentSlide === 1 && !ev.chartBDisplayedAt) {
+                        ev.chartBDisplayedAt = new Date().toISOString();
+                    }
+                    if (currentSlide === 2 && !ev.prefDisplayedAt) {
+                        ev.prefDisplayedAt = new Date().toISOString();
+                    }
+                }
+            }
         }
         
         function nextSlide() {
@@ -2110,6 +2106,7 @@
                 if (typeof simpleEvaluations !== 'undefined' && typeof currentPair !== 'undefined' && currentPair && currentPair.id) {
                     if (simpleEvaluations[currentPair.id]) {
                         simpleEvaluations[currentPair.id].overallPreference = choice;
+                        simpleEvaluations[currentPair.id].preferenceLastUpdatedAt = new Date().toISOString();
                         localStorage.setItem('simpleEvaluations', JSON.stringify(simpleEvaluations));
                     }
                 }

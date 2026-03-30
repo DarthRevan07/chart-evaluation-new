@@ -2348,31 +2348,55 @@
     <div id="instructionsModal" class="modal-overlay" style="display: flex;" onclick="hideInstructionsModal(false)">
         <div class="modal-content" onclick="event.stopPropagation()">
             <div class="modal-header">
-                <h3>📊 Chart Evaluation Instructions</h3>
+                <h3>📊 Preference Annotation : A Brief Overview</h3>
                 <button class="modal-close" onclick="hideInstructionsModal(false)">&times;</button>
             </div>
             <div class="modal-body">
-                <div style="background: #e3f2fd; padding: 15px; border-radius: 8px; margin-bottom: 20px; border-left: 4px solid #007bff;">
-                    <p style="margin: 0; font-weight: 500; color: #1565c0;">
-                        <strong>Important:</strong> Both charts in each evaluation show visualizations of the same underlying dataset; only the visual design elements differ.
+                <p style="margin-bottom: 20px; line-height: 1.7; color: #333;">
+                    Thanks for signing up for this pilot study! You are tasked with evaluating a series of data visualizations created from real datasets across diverse domains. Each annotation case is presented across <strong>3 slides</strong>, which you can navigate using the arrow buttons or the dot indicators at the top of the page. The first two slides each show one of two candidate data visualizations <i>(Chart A and Chart B)</i> — both built from the same underlying dataset and intended to answer the same question about that data, which is displayed prominently in the navigation bar. The third slide lets you make a direct side-by-side comparison and record your overall preference between the two charts.
+                </p>
+
+                <div style="background: #fff8e1; border-left: 4px solid #f9a825; border-radius: 6px; padding: 14px 18px; margin-bottom: 20px;">
+                    <p style="margin: 0 0 6px 0; font-weight: 700; color: #e65100; font-size: 1em;">💬 Comments are essential</p>
+                    <p style="margin: 0; line-height: 1.7; color: #333;">
+                        Each slide includes a <strong>Comments</strong> text box, and we strongly encourage you to use it for each of the 3 slides. Please share your subjective impressions freely — what you noticed, what confused you, what stood out, any trade-offs you weighed, and most importantly, your thoughts while choosing the <strong> overall preference </strong>. Your written thoughts are just as valuable as your slider ratings for this pilot study, and there is no such thing as a comment that is too short or too detailed.
                     </p>
                 </div>
 
-                <h4 style="margin-bottom: 15px; color: #495057;">Evaluation Criteria:</h4>
+                <h4 style="margin-bottom: 12px; color: #495057;">Navigation &amp; Saving</h4>
+                <ul style="margin: 0 0 20px 0; padding-left: 20px; line-height: 1.8; color: #333;">
+                    <li>Use the <strong>‹ ›</strong> arrow buttons or the dot indicators to move between slides within a question.</li>
+                    <li>Continuing past the last slide (slide 3) will advance you to the next annotation question.</li>
+                    <li>Use the <strong>💾 Save</strong> button at any point to save your current responses without submitting.</li>
+                    <li>Click <strong>Submit</strong> once you are satisfied with all your responses for that annotation case.</li>
+                    <li>You can also download all your saved responses as a JSON file at any time using the download button (<strong> Recommended for this PILOT STUDY </strong>).</li>
+                </ul>
+
+                <h4 style="margin-bottom: 15px; color: #495057;">Expectations</h4>
+                <p style="margin-bottom: 20px; line-height: 1.7; color: #333;">
+                    For each chart, you will be asked to rate it on a few slider-based assertions covering various aspects of perception such as readability, precision, and aesthetics. There is no time pressure — take as long as you need to examine each chart carefully before responding. There are no right or wrong answers. The sliders are a 5-scale range from <em>Strongly Disagree</em> to <em>Strongly Agree</em>, and a short description is shown beneath each slider to help clarify what your chosen position means for each assertion.
+                </p>
+
+                <h4 style="margin-bottom: 15px; color: #495057;">Evaluation Criteria</h4>
 
                 <div style="margin-bottom: 20px;">
                     <h5 style="color: #007bff; margin-bottom: 8px;">🔍 Readability</h5>
-                    <p style="margin: 0; line-height: 1.5;">Is the chart easy to perceive for you, and can you decode the encoded information unambiguously? Consider visual clarity, legibility of text, and ease of understanding the chart elements.</p>
+                    <p style="margin: 0; line-height: 1.5;">Is the chart easy to perceive for you, and can you easily identify and understand the visually encoded information (data values, scale, annotations, etc.)?</p>
                 </div>
 
                 <div style="margin-bottom: 20px;">
                     <h5 style="color: #007bff; margin-bottom: 8px;">🎯 Precision</h5>
-                    <p style="margin: 0; line-height: 1.5;">Given the question, are you able to identify and extract all the relevant information from the chart encodings/annotations/etc., and process it accurately to reach a reliable conclusion/answer?</p>
+                    <p style="margin: 0; line-height: 1.5;">Given the question, do you feel that the given chart can satisfactorily answer it?</p>
+                </div>
+
+                <div style="margin-bottom: 20px;">
+                    <h5 style="color: #007bff; margin-bottom: 8px;">🎨 Aesthetics</h5>
+                    <p style="margin: 0; line-height: 1.5;">How visually appealing do you find it? Consider factors such as color choices, layout, use of space, labelling, and the overall visual design.</p>
                 </div>
 
                 <div style="margin-bottom: 25px;">
                     <h5 style="color: #007bff; margin-bottom: 8px;">⭐ Overall Preference</h5>
-                    <p style="margin: 0; line-height: 1.5;">Given the previous considerations about presence of important information to answer the question, your ability to easily identify and decode it, and the overall design scheme used (colors, spatial layout etc.) which chart would you prefer?</p>
+                    <p style="margin: 0; line-height: 1.5;">Given the previous considerations about presence of important information to answer the question, your ability to easily identify and decode it, and the overall design/aesthetic appeal, which chart would you prefer?</p>
                 </div>
 
                 <div style="text-align: center; padding-top: 15px; border-top: 1px solid #dee2e6;">

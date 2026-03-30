@@ -3,7 +3,7 @@
 // ─── Google Apps Script endpoint ─────────────────────────────────────────────
 // After deploying the Apps Script web app, paste the URL below.
 // See google_apps_script.gs for setup instructions.
-const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwSecfqiYmmEeh2OMXQwi1LbK_k8AbwiyFJY4FNSxqm_rp_Lc2il5kvO7JvKKxUoTm4gA/exec';
+const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwAp70eVlIS0YCzzGfZCFb03HDpP1o-zAqSGeNFm-yrmK9ZjlEgUxxfEtiRg8sX9qX-1g/exec';
 // ─────────────────────────────────────────────────────────────────────────────
 
 // Storage for evaluations

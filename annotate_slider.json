@@ -22,17 +22,6 @@
       ]
     },
     {
-      "table": "243",
-      "summary_idx": 1,
-      "narrative_summary": "This dataset enables urban planners to visually compare weather variability across multiple metropolitan areas, helping them accept the reality of climate diversity and establish baseline risk profiles. By exploring patterns between temperature, humidity, wind speed, and weather conditions at different observation times, planners can identify potential challenges for infrastructure or public safety, such as extreme weather moments or persistent trends. The rich granularity of location and time supports actionable geographic and temporal insights, stimulating strategic city-wide adaptation and investment decisions.",
-      "question_idx": 3,
-      "question_string": "How does the 'feels like' temperature compare to the actual temperature in each city?",
-      "variants": [
-        "243/sum_1_ques_3/var2.png",
-        "243/sum_1_ques_3/var3.png"
-      ]
-    },
-    {
       "table": "261",
       "summary_idx": 1,
       "narrative_summary": "This schema enables a comprehensive examination of the demographic, academic, and gender composition of NASA astronauts over time. By leveraging fields such as Gender, Alma Mater, Undergraduate Major, Birth Place, and Year, stakeholders can visualize trends in diversity and the academic origins of astronauts. This narrative supports actionable insights into which educational institutions contributed to NASA's talent pool and the evolution of gender representation, informing future outreach, recruitment, and curriculum development strategies in STEM education.",
@@ -77,17 +66,6 @@
       ]
     },
     {
-      "table": "3",
-      "summary_idx": 4,
-      "narrative_summary": "Leveraging the ranking and quantitative production data, supply chain managers and executives can assess the relative market position of countries within the global rice trade. The dataset enables identification of high-output producers with efficient land use, as well as nations whose low ranking may indicate emerging opportunities or supply risk. Visualization of these relationships provides actionable intelligence for business planning, sourcing strategy, and competitive benchmarking in the rice industry.",
-      "question_idx": 8,
-      "question_string": "Which countries show emerging opportunities in the global rice trade based on low production rank but high yield per hectare?",
-      "variants": [
-        "3/sum_4_ques_8/var4.png",
-        "3/sum_4_ques_8/var2.png"
-      ]
-    },
-    {
       "table": "25",
       "summary_idx": 1,
       "narrative_summary": "This dataset empowers business leaders to visualize and compare multi-period stock performance, identifying both short-term momentum and long-term stability across NIFTY 50 stocks. By integrating change percentages for 365-day and 30-day periods with high/low price bounds, executives can efficiently pinpoint outperformers, underperformers, and highlight strategic investment opportunities or risks. These field combinations lay the foundation for high-level dashboards that guide capital allocation decisions and risk management strategies.",
@@ -107,17 +85,6 @@
       "variants": [
         "25/sum_1_ques_4/var3.png",
         "25/sum_1_ques_4/var4.png"
-      ]
-    },
-    {
-      "table": "28",
-      "summary_idx": 3,
-      "narrative_summary": "By coupling fuel type, engine volume, mileage, and drive wheels, the schema enables exploration of patterns relevant to transportation sustainability. Researchers can analyze the prevalence and market value of hybrids versus traditional fuels, engine size distributions, and real-world usage via mileage. Planners can use this data to identify trends in city-friendly vehicles and formulate policies for environmental improvement, such as promoting low-emission vehicle adoption.",
-      "question_idx": 7,
-      "question_string": "Do vehicles with higher mileage tend to have lower prices regardless of fuel type?",
-      "variants": [
-        "28/sum_3_ques_7/var2.png",
-        "28/sum_3_ques_7/var4.png"
       ]
     },
     {
@@ -184,17 +151,6 @@
       "variants": [
         "206/sum_1_ques_6/var1.png",
         "206/sum_1_ques_6/var4.png"
-      ]
-    },
-    {
-      "table": "269",
-      "summary_idx": 1,
-      "narrative_summary": "This schema allows policy makers to visualize the interplay between country population size, continent, growth rate, and world percentage. By comparing these fields, leaders can identify high-impact geographic areas for targeted interventions, track how regional population dynamics shift over time, and allocate international development resources more effectively. The curated structural focus encourages insights into where rapid growth may create future needs, ensuring responsive policy planning aligned with major demographic trends.",
-      "question_idx": 4,
-      "question_string": "What is the relationship between a country's area (km²) and its 2023 population?",
-      "variants": [
-        "269/sum_1_ques_4/var1.png",
-        "269/sum_1_ques_4/var4.png"
       ]
     },
     {
@@ -283,17 +239,6 @@
       "variants": [
         "94/sum_1_ques_1/var5.png",
         "94/sum_1_ques_1/var6.png"
-      ]
-    },
-    {
-      "table": "75",
-      "summary_idx": 2,
-      "narrative_summary": "This dataset structure allows academic researchers to systematically investigate the interplay between test preparation (completed vs none), parental education levels, and score outcomes in math, reading, and writing. By leveraging both categorical and continuous fields, researchers can design multivariate analyses and model how preparation and family factors interact to predict success. The schema encourages establishing new understandings about which factors most strongly drive achievement, uncovering latent correlations, and validating hypotheses about educational attainment, paving the way for publication-quality research and informed inquiries into student learning behaviors.",
-      "question_idx": 2,
-      "question_string": "What is the average writing score for each parental level of education category?",
-      "variants": [
-        "75/sum_2_ques_2/var1.png",
-        "75/sum_2_ques_2/var3.png"
       ]
     },
     {

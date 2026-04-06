@@ -223,17 +223,6 @@
       "table": "94",
       "summary_idx": 1,
       "narrative_summary": "This dataset’s longitudinal combination of year, global population, median age, and fertility rate invites policymakers and demographers to explore the trajectory of demographic change over time. By visualizing trends between population growth, rising median age, and declining fertility rates, this table enables stakeholders to infer the onset of demographic transitions, anticipate an aging society, and connect these shifts to resource planning needs. The schema structure supports analyses such as age-structure shifts and their correlation with fertility changes, providing a foundation for actionable projections in public policy, health systems design, and long-term socioeconomic strategies.",
-      "question_idx": 5,
-      "question_string": "During which years did the fertility rate experience its most significant decline, and what was the impact on population growth?",
-      "variants": [
-        "94/sum_1_ques_5/var2.png",
-        "94/sum_1_ques_5/var3.png"
-      ]
-    },
-    {
-      "table": "94",
-      "summary_idx": 1,
-      "narrative_summary": "This dataset’s longitudinal combination of year, global population, median age, and fertility rate invites policymakers and demographers to explore the trajectory of demographic change over time. By visualizing trends between population growth, rising median age, and declining fertility rates, this table enables stakeholders to infer the onset of demographic transitions, anticipate an aging society, and connect these shifts to resource planning needs. The schema structure supports analyses such as age-structure shifts and their correlation with fertility changes, providing a foundation for actionable projections in public policy, health systems design, and long-term socioeconomic strategies.",
       "question_idx": 1,
       "question_string": "How has the global population changed from 1955 to 2024, and what patterns emerge across different decades?",
       "variants": [

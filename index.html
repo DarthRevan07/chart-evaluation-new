@@ -1865,15 +1865,11 @@
         });
         
         // Instructions Modal functionality
-        function hideInstructionsModal(savePreference = true) {
+        function hideInstructionsModal() {
             const modal = document.getElementById('instructionsModal');
             if (modal) {
                 modal.style.display = 'none';
                 document.body.style.overflow = 'auto';
-                
-                if (savePreference) {
-                    localStorage.setItem('chartEvaluationInstructionsSeen', 'true');
-                }
             }
         }
 
@@ -1885,16 +1881,12 @@
             }
         }
 
-        // Check if user has seen instructions before
+        // Always show instructions on page load
         document.addEventListener('DOMContentLoaded', function() {
-            const hasSeenInstructions = localStorage.getItem('chartEvaluationInstructionsSeen');
             const modal = document.getElementById('instructionsModal');
-            
-            if (!hasSeenInstructions && modal) {
+            if (modal) {
                 modal.style.display = 'flex';
                 document.body.style.overflow = 'hidden';
-            } else if (modal) {
-                modal.style.display = 'none';
             }
         });
         
@@ -2233,6 +2225,10 @@
                     <div><strong>Dataset Name:</strong> <span id="modalDatasetName"></span></div>
                     <div style="margin-top: 4px;"><strong>Category:</strong> <span id="modalDatasetCategory"></span></div>
                 </div>
+                <div id="modalNarrativeSummary" style="display: none; margin-bottom: 14px; padding: 12px 16px; background: #fff8e1; border-radius: 6px; border-left: 3px solid #ffc107; font-size: 0.88em; color: #495057; line-height: 1.6;">
+                    <div style="font-weight: 600; margin-bottom: 6px; color: #856404;">&#128218; Narrative Summary</div>
+                    <div id="modalNarrativeSummaryText"></div>
+                </div>
                 <div class="data-table-container" id="modalDataTableContainer">
                     <div class="loading-message" style="text-align: center; padding: 20px; color: #6c757d;">
                         <div class="spinner" style="display: inline-block; width: 20px; height: 20px; border: 3px solid #f3f3f3; border-top: 3px solid #007bff; border-radius: 50%; animation: spin 1s linear infinite; margin-right: 10px;"></div>
@@ -2272,6 +2268,9 @@
             }
             if (statsContainer)  statsContainer.innerHTML = '';
             if (metaBox)         metaBox.style.display = 'none';
+            const narrativeBox  = document.getElementById('modalNarrativeSummary');
+            const narrativeText = document.getElementById('modalNarrativeSummaryText');
+            if (narrativeBox)  narrativeBox.style.display = 'none';
 
             // Determine current annotation
             const idx        = window.annotationLoader ? window.annotationLoader.getCurrentIndex() : 0;
@@ -2306,6 +2305,12 @@
             if (nameEl)     nameEl.textContent     = datasetName;
             if (categoryEl) categoryEl.textContent = category || 'N/A';
             if (metaBox)    metaBox.style.display  = 'block';
+
+            // Show narrative summary if available
+            if (annotation.narrative_summary && narrativeBox && narrativeText) {
+                narrativeText.textContent = annotation.narrative_summary;
+                narrativeBox.style.display = 'block';
+            }
 
             // Load the CSV directly from csv_c_squared/{table}.csv
             try {
@@ -2349,11 +2354,11 @@
     </script>
 
     <!-- Initial Instructions Modal -->
-    <div id="instructionsModal" class="modal-overlay" style="display: flex;" onclick="hideInstructionsModal(false)">
+    <div id="instructionsModal" class="modal-overlay" style="display: flex;" onclick="hideInstructionsModal()">
         <div class="modal-content" onclick="event.stopPropagation()">
             <div class="modal-header">
                 <h3>📊 Preference Annotation : A Brief Overview</h3>
-                <button class="modal-close" onclick="hideInstructionsModal(false)">&times;</button>
+                <button class="modal-close" onclick="hideInstructionsModal()">&times;</button>
             </div>
             <div class="modal-body">
                 <p style="margin-bottom: 20px; line-height: 1.7; color: #333;">
@@ -2370,6 +2375,7 @@
                 <h4 style="margin-bottom: 12px; color: #495057;">Navigation &amp; Saving</h4>
                 <ul style="margin: 0 0 20px 0; padding-left: 20px; line-height: 1.8; color: #333;">
                     <li>Use the <strong>‹ ›</strong> arrow buttons or the dot indicators to move between slides within a question.</li>
+                    <li> You may click on a chart image to enlarge it for a closer look. </li>
                     <li>Continuing past the last slide (slide 3) will advance you to the next annotation question.</li>
                     <li>Use the <strong>💾 Save</strong> button at any point to save your current responses without submitting.</li>
                     <li>Click <strong>Submit</strong> once you are satisfied with all your responses for that annotation case.</li>
@@ -2404,7 +2410,7 @@
                 </div>
 
                 <div style="text-align: center; padding-top: 15px; border-top: 1px solid #dee2e6;">
-                    <button onclick="hideInstructionsModal(true)" style="
+                    <button onclick="hideInstructionsModal()" style="
                         background: linear-gradient(135deg, #007bff, #0056b3);
                         color: white;
                         border: none;

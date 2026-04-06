@@ -1,0 +1,429 @@
+{
+  "metadata": {
+    "description": "Question annotation data extracted from secondIter chartVariants_clubbed, summaries, and questions",
+    "total_entries": 37,
+    "variants_source": "C:\\prose\\etc\\ExcelCopilot\\ExcelCopilotResearch\\ChartQuality\\ChartGen\\secondIter\\chartVariants_clubbed",
+    "summaries_source": "C:\\prose\\etc\\ExcelCopilot\\ExcelCopilotResearch\\ChartQuality\\ChartGen\\secondIter\\summaries",
+    "questions_source": "C:\\prose\\etc\\ExcelCopilot\\ExcelCopilotResearch\\ChartQuality\\ChartGen\\secondIter\\questions",
+    "generated_timestamp": "2026-04-01"
+  },
+  "annotations": [
+    {
+      "table": "12",
+      "summary_idx": 1,
+      "narrative_summary": "This dataset enables career counselors to systematically analyze how personality traits and aptitudes relate to eventual career groupings. By jointly visualizing dimensions such as O_score, C_score, E_score, A_score, and N_score alongside cognitive aptitudes, counselors can uncover clusters or trajectories indicative of particular professions. The structure supports exploration of which combinations are most predictive for various career groups, identifies outliers or unusual fits, and can be used to generate actionable student guidance protocols rooted in empirical schema patterns. Stakeholders can accept that career groupings align with distinct cognitive and personality patterns, agree on the value of multifactor profiling for guidance, and establish refined student-to-career matching strategies through interactive data visualizations.",
+      "question_idx": 1,
+      "question_string": "How does the distribution of Numerical Aptitude scores differ across various Career groupings?",
+      "variants": [
+        "12/sum_1_ques_1/var1.png",
+        "12/sum_1_ques_1/var2.png"
+      ]
+    },
+    {
+      "table": "12",
+      "summary_idx": 1,
+      "narrative_summary": "This dataset enables career counselors to systematically analyze how personality traits and aptitudes relate to eventual career groupings. By jointly visualizing dimensions such as O_score, C_score, E_score, A_score, and N_score alongside cognitive aptitudes, counselors can uncover clusters or trajectories indicative of particular professions. The structure supports exploration of which combinations are most predictive for various career groups, identifies outliers or unusual fits, and can be used to generate actionable student guidance protocols rooted in empirical schema patterns. Stakeholders can accept that career groupings align with distinct cognitive and personality patterns, agree on the value of multifactor profiling for guidance, and establish refined student-to-career matching strategies through interactive data visualizations.",
+      "question_idx": 7,
+      "question_string": "Is there a noticeable difference in Perceptual Aptitude between Careers with strong analytical requirements and those that are more people-oriented?",
+      "variants": [
+        "12/sum_1_ques_7/var1.png",
+        "12/sum_1_ques_7/var2.png"
+      ]
+    },
+    {
+      "table": "12",
+      "summary_idx": 2,
+      "narrative_summary": "For talent acquisition experts, this schema presents a structured framework to visualize and quantify how various personality scores and measured aptitudes correspond to specific job titles. Through comparative analyses and field combinations such as Verbal Reasoning versus Career or Numerical Aptitude distributions by profession, stakeholders can uncover evidence of role-specific requirements and narrow talent searches by identifying desirable psychometric profiles. This supports the acceptance of data-driven approaches in hiring, agreement on the measurable attributes that predict job suitability, and establishing systematic benchmarking standards for human capital decisions directly traceable to the interconnected structure of the schema.",
+      "question_idx": 5,
+      "question_string": "How do Abstract Reasoning scores compare between managerial and creative job roles?",
+      "variants": [
+        "12/sum_2_ques_5/var1.png",
+        "12/sum_2_ques_5/var2.png"
+      ]
+    },
+    {
+      "table": "16",
+      "summary_idx": 1,
+      "narrative_summary": "This schema enables a comprehensive analysis of how categorical attributes such as Type 1, Type 2, and Generation relate to key aggregate statistics like Total and Legendary status. The dataset structure encourages game designers to visualize the spread and clustering of types and generations within high-performance or Legendary categories, prompting actionable insights on possible imbalances or dominance of certain types. By analyzing these relationships, stakeholders can identify opportunities for structural balancing, inform future design choices, and assess if power levels are adequately distributed across types and generations, supporting evidence-based recommendations for diversified game content.",
+      "question_idx": 2,
+      "question_string": "Which Generation features the highest proportion of Legendary Pokémon compared to its total Pokémon count?",
+      "variants": [
+        "16/sum_1_ques_2/var1.png",
+        "16/sum_1_ques_2/var2.png"
+      ]
+    },
+    {
+      "table": "16",
+      "summary_idx": 1,
+      "narrative_summary": "This schema enables a comprehensive analysis of how categorical attributes such as Type 1, Type 2, and Generation relate to key aggregate statistics like Total and Legendary status. The dataset structure encourages game designers to visualize the spread and clustering of types and generations within high-performance or Legendary categories, prompting actionable insights on possible imbalances or dominance of certain types. By analyzing these relationships, stakeholders can identify opportunities for structural balancing, inform future design choices, and assess if power levels are adequately distributed across types and generations, supporting evidence-based recommendations for diversified game content.",
+      "question_idx": 7,
+      "question_string": "Do Pokémon with a secondary type (Type 2) generally have higher Total statistics than those without?",
+      "variants": [
+        "16/sum_1_ques_7/var1.png",
+        "16/sum_1_ques_7/var2.png"
+      ]
+    },
+    {
+      "table": "16",
+      "summary_idx": 2,
+      "narrative_summary": "The schema structure is conducive to educational and research-oriented exploration of complex relationships between categorical fields (e.g., types, generations) and multiple continuous statistics (e.g., HP, Attack, Speed). This facilitates advanced visualizations such as boxplots, correlation matrices, or clustering models, allowing academics to teach or model how category membership influences or predicts statistical profiles. The data invites examination of distributional differences, causal hypotheses, and outlier detection, promoting analytical rigor and supporting curriculum or publication needs within data-driven teaching or research contexts.",
+      "question_idx": 4,
+      "question_string": "How does the Total stat differ between Pokémon with and without a secondary type (Type 2)?",
+      "variants": [
+        "16/sum_2_ques_4/var1.png",
+        "16/sum_2_ques_4/var2.png"
+      ]
+    },
+//Included
+    {
+      "table": "16",
+      "summary_idx": 2,
+      "narrative_summary": "The schema structure is conducive to educational and research-oriented exploration of complex relationships between categorical fields (e.g., types, generations) and multiple continuous statistics (e.g., HP, Attack, Speed). This facilitates advanced visualizations such as boxplots, correlation matrices, or clustering models, allowing academics to teach or model how category membership influences or predicts statistical profiles. The data invites examination of distributional differences, causal hypotheses, and outlier detection, promoting analytical rigor and supporting curriculum or publication needs within data-driven teaching or research contexts.",
+      "question_idx": 8,
+      "question_string": "Is there a significant difference in Attack between Pokémon of different primary types (Type 1)?",
+      "variants": [
+        "16/sum_2_ques_8/var4.png",
+        "16/sum_2_ques_8/var2.png"
+      ]
+    },
+    {
+      "table": "20",
+      "summary_idx": 1,
+      "narrative_summary": "This dataset provides a rich analytical framework for art historians and cultural researchers to visualize the timeline and spatial distribution of artistic genres. By combining the 'years', 'genre', and 'nationality' fields, users can map the emergence and migration of art movements, identify dominant genres within specific eras or nations, and uncover periods of stylistic transition. The structure encourages users to accept genre evolutions as documented, explore cross-national influences, and establish a deeper understanding of how historical context shapes artistic expression. Visualizations such as heatmaps, timelines, or geographic genre maps can demonstrate shifts in creative energy, facilitate trend identification, and reveal outlier regions or epochs with unique artistic profiles, guiding actionable interpretations for comparative cultural analysis.",
+      "question_idx": 10,
+      "question_string": "Which genres appear most often during periods of stylistic transition, as indicated by overlapping or mixed genre entries?",
+      "variants": [
+        "20/sum_1_ques_10/var1.png",
+        "20/sum_1_ques_10/var2.png"
+      ]
+    },
+    {
+      "table": "20",
+      "summary_idx": 1,
+      "narrative_summary": "This dataset provides a rich analytical framework for art historians and cultural researchers to visualize the timeline and spatial distribution of artistic genres. By combining the 'years', 'genre', and 'nationality' fields, users can map the emergence and migration of art movements, identify dominant genres within specific eras or nations, and uncover periods of stylistic transition. The structure encourages users to accept genre evolutions as documented, explore cross-national influences, and establish a deeper understanding of how historical context shapes artistic expression. Visualizations such as heatmaps, timelines, or geographic genre maps can demonstrate shifts in creative energy, facilitate trend identification, and reveal outlier regions or epochs with unique artistic profiles, guiding actionable interpretations for comparative cultural analysis.",
+      "question_idx": 6,
+      "question_string": "Are there any epochs or periods that feature an unusually high diversity of genres?",
+      "variants": [
+        "20/sum_1_ques_6/var1.png",
+        "20/sum_1_ques_6/var2.png"
+      ]
+    },
+    {
+      "table": "20",
+      "summary_idx": 1,
+      "narrative_summary": "This dataset provides a rich analytical framework for art historians and cultural researchers to visualize the timeline and spatial distribution of artistic genres. By combining the 'years', 'genre', and 'nationality' fields, users can map the emergence and migration of art movements, identify dominant genres within specific eras or nations, and uncover periods of stylistic transition. The structure encourages users to accept genre evolutions as documented, explore cross-national influences, and establish a deeper understanding of how historical context shapes artistic expression. Visualizations such as heatmaps, timelines, or geographic genre maps can demonstrate shifts in creative energy, facilitate trend identification, and reveal outlier regions or epochs with unique artistic profiles, guiding actionable interpretations for comparative cultural analysis.",
+      "question_idx": 7,
+      "question_string": "Do certain genres cluster within specific nationalities or spread across multiple countries?",
+      "variants": [
+        "20/sum_1_ques_7/var1.png",
+        "20/sum_1_ques_7/var2.png"
+      ]
+    },
+    {
+      "table": "20",
+      "summary_idx": 2,
+      "narrative_summary": "For museum curators and exhibition designers, this data schema invites actionable insights by integrating 'paintings', 'bio', and 'name' fields. Users are encouraged to analyze artist productivity alongside compelling biographical details, facilitating selection of exhibition themes that blend high-impact creative output with engaging life stories. The structure guides curators to accept the value of productivity metrics, explore biographical diversity, and design exhibitions that foreground artists' uniqueness. Visualizations such as ranked lists, productivity distributions, or bio-based storytelling dashboards can reveal which artists offer both narrative richness and substantial bodies of work, enabling strategic decisions to attract and educate audiences with both quantifiable and qualitative content.",
+      "question_idx": 3,
+      "question_string": "Are there any artists whose biographical narratives suggest periods of intense productivity during specific years?",
+      "variants": [
+        "20/sum_2_ques_3/var1.png",
+        "20/sum_2_ques_3/var2.png"
+      ]
+    },
+    {
+      "table": "20",
+      "summary_idx": 2,
+      "narrative_summary": "For museum curators and exhibition designers, this data schema invites actionable insights by integrating 'paintings', 'bio', and 'name' fields. Users are encouraged to analyze artist productivity alongside compelling biographical details, facilitating selection of exhibition themes that blend high-impact creative output with engaging life stories. The structure guides curators to accept the value of productivity metrics, explore biographical diversity, and design exhibitions that foreground artists' uniqueness. Visualizations such as ranked lists, productivity distributions, or bio-based storytelling dashboards can reveal which artists offer both narrative richness and substantial bodies of work, enabling strategic decisions to attract and educate audiences with both quantifiable and qualitative content.",
+      "question_idx": 7,
+      "question_string": "Which artists have both a high number of paintings and biographies that emphasize innovation or major influence on artistic movements?",
+      "variants": [
+        "20/sum_2_ques_7/var1.png",
+        "20/sum_2_ques_7/var2.png"
+      ]
+    },
+    {
+      "table": "26",
+      "summary_idx": 1,
+      "narrative_summary": "By integrating Date, Open, High, Low, Close, Adj Close, and Volume fields, this dataset offers financial professionals a robust foundation to visualize Tesla's stock history across a ten-year period. The structure supports time series analysis, identification of price trends, and assessment of trading volumes, enabling effective detection of volatile periods, historical highs and lows, and potential turning points. Curator aligns with analyst needs by facilitating longitudinal studies of stock performance, empowering users to accept historical volatility, explore market dynamics, and establish temporal context for investment decisions and risk assessment.",
+      "question_idx": 1,
+      "question_string": "How did Tesla's closing price change over the ten-year period, and were there any noticeable long-term upward or downward trends?",
+      "variants": [
+        "26/sum_1_ques_1/var1.png",
+        "26/sum_1_ques_1/var2.png"
+      ]
+    },
+    {
+      "table": "26",
+      "summary_idx": 1,
+      "narrative_summary": "By integrating Date, Open, High, Low, Close, Adj Close, and Volume fields, this dataset offers financial professionals a robust foundation to visualize Tesla's stock history across a ten-year period. The structure supports time series analysis, identification of price trends, and assessment of trading volumes, enabling effective detection of volatile periods, historical highs and lows, and potential turning points. Curator aligns with analyst needs by facilitating longitudinal studies of stock performance, empowering users to accept historical volatility, explore market dynamics, and establish temporal context for investment decisions and risk assessment.",
+      "question_idx": 3,
+      "question_string": "What are the most significant spikes or drops in Tesla's daily price range (the difference between High and Low), and when did they occur?",
+      "variants": [
+        "26/sum_1_ques_3/var1.png",
+        "26/sum_1_ques_3/var2.png"
+      ]
+    },
+    {
+      "table": "37",
+      "summary_idx": 1,
+      "narrative_summary": "This data table provides a strategic overview of mall customers, highlighting the interplay between demographics (Age, Gender), financial capacity (Annual Income), and consumer behavior (Spending Score). By visualizing these field combinations, business leaders can uncover patterns such as how age or income relate to spending behavior, and identify high-value segments for tailored promotions. The schema's design supports trend analysis, clustering, and segmentation, guiding executives toward evidence-based decisions for customer targeting and loyalty programs.",
+      "question_idx": 2,
+      "question_string": "Is there a relationship between annual income and spending score among mall customers?",
+      "variants": [
+        "37/sum_1_ques_2/var1.png",
+        "37/sum_1_ques_2/var2.png"
+      ]
+    },
+    {
+      "table": "37",
+      "summary_idx": 1,
+      "narrative_summary": "This data table provides a strategic overview of mall customers, highlighting the interplay between demographics (Age, Gender), financial capacity (Annual Income), and consumer behavior (Spending Score). By visualizing these field combinations, business leaders can uncover patterns such as how age or income relate to spending behavior, and identify high-value segments for tailored promotions. The schema's design supports trend analysis, clustering, and segmentation, guiding executives toward evidence-based decisions for customer targeting and loyalty programs.",
+      "question_idx": 5,
+      "question_string": "Are there noticeable differences in spending behavior between genders?",
+      "variants": [
+        "37/sum_1_ques_5/var1.png",
+        "37/sum_1_ques_5/var2.png"
+      ]
+    },
+    {
+      "table": "37",
+      "summary_idx": 2,
+      "narrative_summary": "With explicit demographic and financial attributes, this schema enables analysts to investigate the relationship between gender, income, age, and shopping activity. Visualizations of these combinations can reveal income disparities, spending tendencies, or age-specific purchasing behaviors. The curated structure invites exploratory analysis of variable distributions, correlation matrices, and outlier detection, equipping researchers to generate hypotheses, validate behavioral theories, and contribute to predictive modeling of consumer actions in mall settings.",
+      "question_idx": 9,
+      "question_string": "Among young customers, does gender impact spending score differently?",
+      "variants": [
+        "37/sum_2_ques_9/var1.png",
+        "37/sum_2_ques_9/var2.png"
+      ]
+    },
+    {
+      "table": "50",
+      "summary_idx": 2,
+      "narrative_summary": "The schema's detailed breakdown of segment types and descriptions supports sociological exploration of online shopping influence mechanisms. Researchers can leverage this structure to analyze cross-sectional patterns, investigate hidden correlations, and generate hypotheses about social media's impact on different social or personal identifiers. The table's design encourages deep visualization and statistical analysis of influence distribution, fostering theory development and refinement in the context of social media-driven consumer behavior.",
+      "question_idx": 1,
+      "question_string": "How does the percentage of respondents influenced by each social platform vary across different segment types?",
+      "variants": [
+        "50/sum_2_ques_1/var1.png",
+        "50/sum_2_ques_1/var2.png"
+      ]
+    },
+    //INCLUDED
+    {
+      "table": "65",
+      "summary_idx": 1,
+      "narrative_summary": "This dataset offers marketing managers and business executives a high-level perspective on how different product positions (Aisle, End-cap, Front of Store), pricing strategies, and promotional activities interplay with observed sales volume. By exploring combinations of fields like Product Position, Promotion, Price, and Sales Volume, users can identify patterns and potential causal relationships underlying sales effectiveness. The analytical value centers on visualizing comparative sales volumes across locations and campaign styles, helping stakeholders identify which store layouts and promotional tactics are linked to higher performance. This strategic view supports actionable outcomes, such as optimizing product placement or adjusting promotional campaigns based on data-driven insights into consumer response and sales uplift.",
+      "question_idx": 10,
+      "question_string": "Are certain Product Positions more effective in boosting Sales Volume during seasonal periods compared to others?",
+      "variants": [
+        "65/sum_1_ques_10/var1.png",
+        "65/sum_1_ques_10/var4.png"
+      ]
+    },
+    {
+      "table": "65",
+      "summary_idx": 1,
+      "narrative_summary": "This dataset offers marketing managers and business executives a high-level perspective on how different product positions (Aisle, End-cap, Front of Store), pricing strategies, and promotional activities interplay with observed sales volume. By exploring combinations of fields like Product Position, Promotion, Price, and Sales Volume, users can identify patterns and potential causal relationships underlying sales effectiveness. The analytical value centers on visualizing comparative sales volumes across locations and campaign styles, helping stakeholders identify which store layouts and promotional tactics are linked to higher performance. This strategic view supports actionable outcomes, such as optimizing product placement or adjusting promotional campaigns based on data-driven insights into consumer response and sales uplift.",
+      "question_idx": 3,
+      "question_string": "Are there observable differences in Sales Volume across various Product Categories (Clothing, Electronics, Food) when Promotion is applied?",
+      "variants": [
+        "65/sum_1_ques_3/var1.png",
+        "65/sum_1_ques_3/var2.png"
+      ]
+    },
+    {
+      "table": "65",
+      "summary_idx": 1,
+      "narrative_summary": "This dataset offers marketing managers and business executives a high-level perspective on how different product positions (Aisle, End-cap, Front of Store), pricing strategies, and promotional activities interplay with observed sales volume. By exploring combinations of fields like Product Position, Promotion, Price, and Sales Volume, users can identify patterns and potential causal relationships underlying sales effectiveness. The analytical value centers on visualizing comparative sales volumes across locations and campaign styles, helping stakeholders identify which store layouts and promotional tactics are linked to higher performance. This strategic view supports actionable outcomes, such as optimizing product placement or adjusting promotional campaigns based on data-driven insights into consumer response and sales uplift.",
+      "question_idx": 6,
+      "question_string": "Is there any relationship between Consumer Demographics (College students, Families, Seniors, Young adults) and Sales Volume for promoted products?",
+      "variants": [
+        "65/sum_1_ques_6/var1.png",
+        "65/sum_1_ques_6/var2.png"
+      ]
+    },
+    {
+      "table": "65",
+      "summary_idx": 1,
+      "narrative_summary": "This dataset offers marketing managers and business executives a high-level perspective on how different product positions (Aisle, End-cap, Front of Store), pricing strategies, and promotional activities interplay with observed sales volume. By exploring combinations of fields like Product Position, Promotion, Price, and Sales Volume, users can identify patterns and potential causal relationships underlying sales effectiveness. The analytical value centers on visualizing comparative sales volumes across locations and campaign styles, helping stakeholders identify which store layouts and promotional tactics are linked to higher performance. This strategic view supports actionable outcomes, such as optimizing product placement or adjusting promotional campaigns based on data-driven insights into consumer response and sales uplift.",
+      "question_idx": 9,
+      "question_string": "Which Consumer Demographic group is associated with the highest Sales Volume for each Product Category?",
+      "variants": [
+        "65/sum_1_ques_9/var1.png",
+        "65/sum_1_ques_9/var2.png"
+      ]
+    },
+    {
+      "table": "65",
+      "summary_idx": 2,
+      "narrative_summary": "For consumer behavior researchers and retail domain experts, this schema enables nuanced analysis of how diverse consumer segments (such as young adults or seniors), product categories (Clothing, Electronics, Food), and seasonal contexts combine to shape sales dynamics. By analyzing field combinations like Consumer Demographics, Product Category, Seasonal, Foot Traffic, and Sales Volume, stakeholders are encouraged to uncover correlation and trend patterns in purchasing behavior. This approach facilitates visualization of demographic-driven and category-specific sales distributions, highlights seasonal effects, and reveals how foot traffic mediates outcomes. The information serves as a foundation for deeper segmentation studies, helping experts identify actionable opportunities for targeted marketing, assortment optimization, and customer experience improvements.",
+      "question_idx": 10,
+      "question_string": "Are Clothing products more sensitive to Promotion in terms of Sales Volume compared to Food products?",
+      "variants": [
+        "65/sum_2_ques_10/var1.png",
+        "65/sum_2_ques_10/var2.png"
+      ]
+    },
+    {
+      "table": "75",
+      "summary_idx": 1,
+      "narrative_summary": "This schema enables education policymakers and school leaders to explore patterns in student achievement through the lens of demographic and socioeconomic factors. By visually analyzing combinations such as gender, race/ethnicity, parental education, lunch status, and test preparation course against scores in math, reading, and writing, stakeholders can identify disparities, evaluate program impacts, and understand potential barriers to student success. The structure invites users to accept the reality of multidimensional influences on exam performance and encourages exploration of subgroup trends or gaps, enabling actionable decisions on targeted interventions, resource allocation, and policy reforms aimed at improving educational equity.",
+      "question_idx": 1,
+      "question_string": "How do average math scores differ between students who completed the test preparation course versus those who did not?",
+      "variants": [
+        "75/sum_1_ques_1/var1.png",
+        "75/sum_1_ques_1/var2.png"
+      ]
+    },
+    //included
+    {
+      "table": "75",
+      "summary_idx": 2,
+      "narrative_summary": "This dataset structure allows academic researchers to systematically investigate the interplay between test preparation (completed vs none), parental education levels, and score outcomes in math, reading, and writing. By leveraging both categorical and continuous fields, researchers can design multivariate analyses and model how preparation and family factors interact to predict success. The schema encourages establishing new understandings about which factors most strongly drive achievement, uncovering latent correlations, and validating hypotheses about educational attainment, paving the way for publication-quality research and informed inquiries into student learning behaviors.",
+      "question_idx": 2,
+      "question_string": "What is the average writing score for each parental level of education category?",
+      "variants": [
+        "75/sum_2_ques_2/var1.png",
+        "75/sum_2_ques_2/var3.png"
+      ]
+    },
+    {
+      "table": "94",
+      "summary_idx": 1,
+      "narrative_summary": "This dataset’s longitudinal combination of year, global population, median age, and fertility rate invites policymakers and demographers to explore the trajectory of demographic change over time. By visualizing trends between population growth, rising median age, and declining fertility rates, this table enables stakeholders to infer the onset of demographic transitions, anticipate an aging society, and connect these shifts to resource planning needs. The schema structure supports analyses such as age-structure shifts and their correlation with fertility changes, providing a foundation for actionable projections in public policy, health systems design, and long-term socioeconomic strategies.",
+      "question_idx": 1,
+      "question_string": "How has the global population changed from 1955 to 2024, and what patterns emerge across different decades?",
+      "variants": [
+        "94/sum_1_ques_1/var1.png",
+        "94/sum_1_ques_1/var2.png"
+      ]
+    },
+    //included
+    {
+      "table": "94",
+      "summary_idx": 1,
+      "narrative_summary": "This dataset’s longitudinal combination of year, global population, median age, and fertility rate invites policymakers and demographers to explore the trajectory of demographic change over time. By visualizing trends between population growth, rising median age, and declining fertility rates, this table enables stakeholders to infer the onset of demographic transitions, anticipate an aging society, and connect these shifts to resource planning needs. The schema structure supports analyses such as age-structure shifts and their correlation with fertility changes, providing a foundation for actionable projections in public policy, health systems design, and long-term socioeconomic strategies.",
+      "question_idx": 5,
+      "question_string": "During which years did the fertility rate experience its most significant decline, and what was the impact on population growth?",
+      "variants": [
+        "94/sum_1_ques_5/var2.png",
+        "94/sum_1_ques_5/var3.png"
+      ]
+    },
+    //included
+    {
+      "table": "94",
+      "summary_idx": 2,
+      "narrative_summary": "By relating year, population, yearly percent change, yearly change, and density per square kilometer, this schema provides a comprehensive view for analyzing spatiotemporal trends in global crowding and land use. It encourages stakeholders to explore how periods of higher yearly population increases correspond to surges in density, and to identify pacing or acceleration of density growth. Such examination supports actionable insights in forecasting infrastructure stress points, guiding strategic investment in housing, transportation, and climate resilience, and detecting points of inflection relevant for sustainable urban and environmental planning.",
+      "question_idx": 9,
+      "question_string": "Are there any years where the population growth (yearly % change) deviates from the overall trend, and what was the density in those years?",
+      "variants": [
+        "94/sum_2_ques_9/var1.png",
+        "94/sum_2_ques_9/var3.png"
+      ]
+    },
+    {
+      "table": "112",
+      "summary_idx": 1,
+      "narrative_summary": "This dataset empowers health professionals and nutritionists to explore relationships between caffeine content, calorie levels, and drink volumes across various beverage categories including coffee, tea, energy drinks, and soft drinks. By comparing these fields, analysts can identify high-risk products, assess typical serving sizes, and highlight potential correlations that impact dietary risk. Visualizations of distributions and cross-segment comparisons can guide actionable recommendations for reducing unhealthy intake, tailoring nutritional policies, and flagging outlier beverages for further scrutiny. The schema lays the foundation for robust risk profiling and targeted messaging about safe consumption practices.",
+      "question_idx": 10,
+      "question_string": "Which drinks combine both high calorie and high caffeine amounts, and what types do they represent?",
+      "variants": [
+        "112/sum_1_ques_10/var1.png",
+        "112/sum_1_ques_10/var2.png"
+      ]
+    },
+//included
+    {
+      "table": "112",
+      "summary_idx": 2,
+      "narrative_summary": "For business executives in beverage companies, this schema serves as a comprehensive foundation for benchmarking their products against competitors by examining drink names, caffeine levels, calories, and drink types. Analytical exploration of these fields can reveal market gaps, trend clusters, and unique product attributes, supporting decisions on product innovation and competitive messaging. Visual analysis of caffeine and calorie distributions across brands and categories enables strategic positioning, helps identify consumer segments, and guides marketing campaigns to differentiate offerings and respond effectively to shifting consumer preferences. The data structure invites actionable insights for market-driven beverage management.",
+      "question_idx": 1,
+      "question_string": "How do caffeine levels vary among different drink types, such as coffee, tea, energy drinks, and soft drinks?",
+      "variants": [
+        "112/sum_2_ques_1/var5.png",
+        "112/sum_2_ques_1/var6.png"
+      ]
+    },
+    {
+      "table": "112",
+      "summary_idx": 2,
+      "narrative_summary": "For business executives in beverage companies, this schema serves as a comprehensive foundation for benchmarking their products against competitors by examining drink names, caffeine levels, calories, and drink types. Analytical exploration of these fields can reveal market gaps, trend clusters, and unique product attributes, supporting decisions on product innovation and competitive messaging. Visual analysis of caffeine and calorie distributions across brands and categories enables strategic positioning, helps identify consumer segments, and guides marketing campaigns to differentiate offerings and respond effectively to shifting consumer preferences. The data structure invites actionable insights for market-driven beverage management.",
+      "question_idx": 10,
+      "question_string": "How do average caffeine contents compare across drink types, and what might this indicate about consumer preferences?",
+      "variants": [
+        "112/sum_2_ques_10/var1.png",
+        "112/sum_2_ques_10/var2.png"
+      ]
+    },
+    {
+      "table": "112",
+      "summary_idx": 2,
+      "narrative_summary": "For business executives in beverage companies, this schema serves as a comprehensive foundation for benchmarking their products against competitors by examining drink names, caffeine levels, calories, and drink types. Analytical exploration of these fields can reveal market gaps, trend clusters, and unique product attributes, supporting decisions on product innovation and competitive messaging. Visual analysis of caffeine and calorie distributions across brands and categories enables strategic positioning, helps identify consumer segments, and guides marketing campaigns to differentiate offerings and respond effectively to shifting consumer preferences. The data structure invites actionable insights for market-driven beverage management.",
+      "question_idx": 9,
+      "question_string": "What brands or drink names dominate the top ranks for caffeine content and how does their calorie content compare?",
+      "variants": [
+        "112/sum_2_ques_9/var1.png",
+        "112/sum_2_ques_9/var2.png"
+      ]
+    },
+    {
+      "table": "122",
+      "summary_idx": 1,
+      "narrative_summary": "The schema offers executives a broad structure for examining the interplay between sales regions, genres, platforms, and publisher activities across time. By leveraging fields such as Platform, Year, Publisher, and Global_Sales in combination, visualization analysis can reveal market trends, dominant platforms, and publisher strategies that account for the biggest sales successes. Executives are prompted to accept sales distribution realities, agree with strategic positions of leading publishers, and establish data-driven investment priorities by recognizing platform or genre sales concentration. This analytical pathway enables actionable outcomes like identifying untapped market opportunities, optimizing product launch strategies, and understanding region-specific demand fluctuations.",
+      "question_idx": 1,
+      "question_string": "How do global sales differ across platforms, and which platforms consistently lead in overall sales?",
+      "variants": [
+        "122/sum_1_ques_1/var1.png",
+        "122/sum_1_ques_1/var2.png"
+      ]
+    },
+    //Included
+    {
+      "table": "122",
+      "summary_idx": 1,
+      "narrative_summary": "The schema offers executives a broad structure for examining the interplay between sales regions, genres, platforms, and publisher activities across time. By leveraging fields such as Platform, Year, Publisher, and Global_Sales in combination, visualization analysis can reveal market trends, dominant platforms, and publisher strategies that account for the biggest sales successes. Executives are prompted to accept sales distribution realities, agree with strategic positions of leading publishers, and establish data-driven investment priorities by recognizing platform or genre sales concentration. This analytical pathway enables actionable outcomes like identifying untapped market opportunities, optimizing product launch strategies, and understanding region-specific demand fluctuations.",
+      "question_idx": 5,
+      "question_string": "Are there genres that dominate global sales in specific years, suggesting shifts in market demand or player preferences?",
+      "variants": [
+        "122/sum_1_ques_5/var1.png",
+        "122/sum_1_ques_5/var2.png"
+      ]
+    },
+    //NOPE
+    {
+      "table": "122",
+      "summary_idx": 1,
+      "narrative_summary": "The schema offers executives a broad structure for examining the interplay between sales regions, genres, platforms, and publisher activities across time. By leveraging fields such as Platform, Year, Publisher, and Global_Sales in combination, visualization analysis can reveal market trends, dominant platforms, and publisher strategies that account for the biggest sales successes. Executives are prompted to accept sales distribution realities, agree with strategic positions of leading publishers, and establish data-driven investment priorities by recognizing platform or genre sales concentration. This analytical pathway enables actionable outcomes like identifying untapped market opportunities, optimizing product launch strategies, and understanding region-specific demand fluctuations.",
+      "question_idx": 8,
+      "question_string": "How do the sales distributions of a single genre differ among platforms, indicating platform-genre strengths or gaps?",
+      "variants": [
+        "122/sum_1_ques_8/var1.png",
+        "122/sum_1_ques_8/var2.png"
+      ]
+    },
+    //included
+    {
+      "table": "122",
+      "summary_idx": 2,
+      "narrative_summary": "This schema empowers researchers to analyze sales dynamics through the lens of region (NA_Sales, EU_Sales, JP_Sales, Other_Sales), Genre, and Year, facilitating visualization that uncovers how gaming popularity and cultural trends evolve geographically and temporally. Analysts are invited to infer regional preferences, detect outliers in genre popularity within specific markets, and explore correlations between cultural contexts and sales performance. The structure supports actionable insights into the dynamics of gaming as a social phenomenon, allowing the identification of shifts in audience tastes, the rise and fall of genres across territories, and the influence of publisher and platform choices on regional adoption.",
+      "question_idx": 3,
+      "question_string": "Are there any publishers whose games consistently perform well in a particular region compared to others?",
+      "variants": [
+        "122/sum_2_ques_3/var5.png",
+        "122/sum_2_ques_3/var6.png"
+      ]
+    },
+    //included
+    {
+      "table": "122",
+      "summary_idx": 2,
+      "narrative_summary": "This schema empowers researchers to analyze sales dynamics through the lens of region (NA_Sales, EU_Sales, JP_Sales, Other_Sales), Genre, and Year, facilitating visualization that uncovers how gaming popularity and cultural trends evolve geographically and temporally. Analysts are invited to infer regional preferences, detect outliers in genre popularity within specific markets, and explore correlations between cultural contexts and sales performance. The structure supports actionable insights into the dynamics of gaming as a social phenomenon, allowing the identification of shifts in audience tastes, the rise and fall of genres across territories, and the influence of publisher and platform choices on regional adoption.",
+      "question_idx": 5,
+      "question_string": "How do sales in Japan for role-playing games compare to sales in North America for the same genre?",
+      "variants": [
+        "122/sum_2_ques_5/var1.png",
+        "122/sum_2_ques_5/var3.png"
+      ]
+    }
+  ]
+}

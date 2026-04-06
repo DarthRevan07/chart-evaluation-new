@@ -99,28 +99,6 @@
       ]
     },
     {
-      "table": "32",
-      "summary_idx": 1,
-      "narrative_summary": "This dataset enables policy makers to visualize how medical charges vary across regions, considering demographic factors like age and smoking status. By examining field combinations such as region, smoker, and age alongside charges, users can identify patterns that highlight communities at higher risk of elevated medical costs. Analytical tools could be used to spot regional outliers, uncover demographic-driven disparities, and support strategies for targeted intervention, thereby informing public health allocation and preventative programs.",
-      "question_idx": 1,
-      "question_string": "How do average medical charges differ between smokers and non-smokers across various regions?",
-      "variants": [
-        "32/sum_1_ques_1/var1.png",
-        "32/sum_1_ques_1/var3.png"
-      ]
-    },
-    {
-      "table": "22",
-      "summary_idx": 4,
-      "narrative_summary": "Combining CarName, symboling, and price sets the stage for market researchers to uncover the landscape of brand offerings, observe perceived risk or value, and benchmark against competitors. Through segmentation and trend visualizations, the audience identifies how brands align with different price ranges or symboling scores, guiding strategic positioning and differentiation opportunities in the automotive marketplace.",
-      "question_idx": 1,
-      "question_string": "How do car prices vary between different CarName brands, and are certain brands consistently in higher or lower price ranges?",
-      "variants": [
-        "22/sum_4_ques_1/var4.png",
-        "22/sum_4_ques_1/var3.png"
-      ]
-    },
-    {
       "table": "25",
       "summary_idx": 1,
       "narrative_summary": "This dataset empowers business leaders to visualize and compare multi-period stock performance, identifying both short-term momentum and long-term stability across NIFTY 50 stocks. By integrating change percentages for 365-day and 30-day periods with high/low price bounds, executives can efficiently pinpoint outperformers, underperformers, and highlight strategic investment opportunities or risks. These field combinations lay the foundation for high-level dashboards that guide capital allocation decisions and risk management strategies.",
@@ -128,7 +106,7 @@
       "question_string": "Which stocks have demonstrated the largest positive or negative percentage changes over the past 30 days, and how do these changes compare to their 365-day percentage changes?",
       "variants": [
         "25/sum_1_ques_1/var2.png",
-        "25/sum_1_ques_1/var3.png"
+        "25/sum_1_ques_1/var4.png"
       ]
     },
     {
@@ -259,7 +237,7 @@
       "question_idx": 8,
       "question_string": "Is there a significant difference in Attack between Pokémon of different primary types (Type 1)?",
       "variants": [
-        "16/sum_2_ques_8/var4.png",
+        "16/sum_2_ques_8/var5.png",
         "16/sum_2_ques_8/var2.png"
       ]
     },
@@ -271,9 +249,21 @@
       "question_string": "Are there genres that dominate global sales in specific years, suggesting shifts in market demand or player preferences?",
       "variants": [
         "122/sum_1_ques_5/var1.png",
-        "122/sum_1_ques_5/var2.png"
+        "122/sum_1_ques_5/var5.png"
       ]
     },
+    {
+      "table": "122",
+      "summary_idx": 1,
+      "narrative_summary": "The schema offers executives a broad structure for examining the interplay between sales regions, genres, platforms, and publisher activities across time. By leveraging fields such as Platform, Year, Publisher, and Global_Sales in combination, visualization analysis can reveal market trends, dominant platforms, and publisher strategies that account for the biggest sales successes. Executives are prompted to accept sales distribution realities, agree with strategic positions of leading publishers, and establish data-driven investment priorities by recognizing platform or genre sales concentration. This analytical pathway enables actionable outcomes like identifying untapped market opportunities, optimizing product launch strategies, and understanding region-specific demand fluctuations.",
+      "question_idx": 5,
+      "question_string": "Are there genres that dominate global sales in specific years, suggesting shifts in market demand or player preferences?",
+      "variants": [
+        "122/sum_1_ques_5/var7.png",
+        "122/sum_1_ques_5/var6.png"
+      ]
+    },
+    //remove, as chart A is too cluttered for someone to favour it. --> replaced with var5, var6
     {
       "table": "122",
       "summary_idx": 2,
@@ -281,8 +271,8 @@
       "question_idx": 5,
       "question_string": "How do sales in Japan for role-playing games compare to sales in North America for the same genre?",
       "variants": [
-        "122/sum_2_ques_5/var1.png",
-        "122/sum_2_ques_5/var3.png"
+        "122/sum_2_ques_5/var5.png",
+        "122/sum_2_ques_5/var6.png"
       ]
     },
     {
@@ -298,13 +288,13 @@
     },
     {
       "table": "94",
-      "summary_idx": 2,
-      "narrative_summary": "By relating year, population, yearly percent change, yearly change, and density per square kilometer, this schema provides a comprehensive view for analyzing spatiotemporal trends in global crowding and land use. It encourages stakeholders to explore how periods of higher yearly population increases correspond to surges in density, and to identify pacing or acceleration of density growth. Such examination supports actionable insights in forecasting infrastructure stress points, guiding strategic investment in housing, transportation, and climate resilience, and detecting points of inflection relevant for sustainable urban and environmental planning.",
-      "question_idx": 9,
-      "question_string": "Are there any years where the population growth (yearly % change) deviates from the overall trend, and what was the density in those years?",
+      "summary_idx": 1,
+      "narrative_summary": "This dataset’s longitudinal combination of year, global population, median age, and fertility rate invites policymakers and demographers to explore the trajectory of demographic change over time. By visualizing trends between population growth, rising median age, and declining fertility rates, this table enables stakeholders to infer the onset of demographic transitions, anticipate an aging society, and connect these shifts to resource planning needs. The schema structure supports analyses such as age-structure shifts and their correlation with fertility changes, providing a foundation for actionable projections in public policy, health systems design, and long-term socioeconomic strategies.",
+      "question_idx": 1,
+      "question_string": "How has the global population changed from 1955 to 2024, and what patterns emerge across different decades?",
       "variants": [
-        "94/sum_2_ques_9/var1.png",
-        "94/sum_2_ques_9/var3.png"
+        "94/sum_1_ques_1/var5.png",
+        "94/sum_1_ques_1/var6.png"
       ]
     },
     {

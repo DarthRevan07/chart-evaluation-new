@@ -2103,6 +2103,9 @@
                     if (simpleEvaluations[currentPair.id]) {
                         simpleEvaluations[currentPair.id].overallPreference = choice;
                         simpleEvaluations[currentPair.id].preferenceLastUpdatedAt = new Date().toISOString();
+                        if (typeof checkAndUpdateCompletion === 'function') {
+                            checkAndUpdateCompletion(currentPair.id);
+                        }
                         localStorage.setItem('simpleEvaluations', JSON.stringify(simpleEvaluations));
                     }
                 }

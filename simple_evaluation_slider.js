@@ -159,6 +159,10 @@ function saveSimpleEvaluation() {
         );
     }
 
+    // Auto-mark completed when all three parts have been answered:
+    // Chart A sliders, Chart B sliders (always present), and the preference question.
+    checkAndUpdateCompletion(pairId);
+
     // Save to localStorage
     localStorage.setItem('simpleEvaluations', JSON.stringify(simpleEvaluations));
     
@@ -484,6 +488,18 @@ function initializeSliderDisplays() {
             }
         }
     });
+}
+
+// Mark a pair as completed when the preference question has been answered
+// (slider values always exist, so the preference is the meaningful completion signal).
+function checkAndUpdateCompletion(pairId) {
+    const evaluation = simpleEvaluations[pairId];
+    if (!evaluation) return;
+    const wasCompleted = evaluation.completed;
+    evaluation.completed = !!(evaluation.overallPreference);
+    if (!wasCompleted && evaluation.completed) {
+        console.log('Pair marked as completed:', pairId);
+    }
 }
 
 // Get evaluation statistics

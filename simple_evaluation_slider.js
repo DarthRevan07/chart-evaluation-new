@@ -172,110 +172,101 @@ function saveSimpleEvaluation() {
     console.log('Saved evaluation for pair:', pairId, evaluation);
 }
 
-// Submit evaluation (complete it)
+// Submit ALL evaluations to the server (batch).
+// Falls back to sequential one-by-one if the server rejects the batch payload.
 async function submitSimpleEvaluation() {
-    if (!currentPair) {
-        console.warn('No current pair to submit evaluation for');
-        return;
-    }
-    
-    const pairId = currentPair.id;
-    
-    // First save the current responses
-    saveSimpleEvaluation();
-    
-    const evaluation = simpleEvaluations[pairId];
-    
-    // Check if all required fields are filled  
-    if (!evaluation.overallPreference) {
-        showNotification('❗ Please select an overall preference before submitting.', 'warning');
-        return;
-    }
-    
-    // Mark as completed
-    evaluation.completed = true;
-    evaluation.submittedAt = new Date().toISOString();
-    
-    // Save to localStorage
-    localStorage.setItem('simpleEvaluations', JSON.stringify(simpleEvaluations));
-    
-    // Show submitting message
-    showNotification('⏳ Submitting evaluation...', 'info');
-    
-    // Debug: Log the evaluation data being submitted
-    console.log('Submitting evaluation data:', {
-        pairId: pairId,
-        evaluation: evaluation,
-        comments: evaluation.comments,
-        hasComments: !!evaluation.comments
-    });
-
-    try {
-        // Submit to backend
-        const submitData = {
-            pairId: pairId,
-            evaluation: evaluation,
-            userAgent: navigator.userAgent,
-            timestamp: new Date().toISOString(),
-            sessionId: getOrCreateSessionId(),
-            url: window.location.href,
-            imageInfo: {
-                chartA: {
-                    src: evaluation.chartA.imagePath,
-                    filename: evaluation.chartA.imagePath ? evaluation.chartA.imagePath.split('/').pop() : null
-                },
-                chartB: {
-                    src: evaluation.chartB.imagePath,
-                    filename: evaluation.chartB.imagePath ? evaluation.chartB.imagePath.split('/').pop() : null
-                },
-                baseUrl: window.location.origin + window.location.pathname.replace(/\/[^/]*$/, '')
-            }
-        };
-        
-        // Debug: Log the complete submit data
-        console.log('Complete submit data:', JSON.stringify(submitData, null, 2));
-        const apiEndpoint = GOOGLE_SCRIPT_URL;
-
-        const response = await fetch(apiEndpoint, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'text/plain',
-            },
-            body: JSON.stringify(submitData)
-        });
-        
-        if (!response.ok) {
-            throw new Error(`HTTP error! status: ${response.status}`);
+    // Save whatever is currently on screen first
+    if (currentPair && currentPair.id) {
+        const curEv = simpleEvaluations[currentPair.id];
+        if (curEv && !curEv.overallPreference) {
+            showNotification('❗ Please select an overall preference for the current pair before submitting.', 'warning');
+            return;
         }
-        
-        const result = await response.json();
-        console.log('Backend submission successful:', result);
-        
-        // Show success message
-        showNotification('🎉 Evaluation submitted successfully to server!', 'success');
-        
-    } catch (error) {
-        console.error('Error submitting to backend:', error);
-        showNotification('⚠️ Evaluation saved locally but failed to submit to server. Will retry later.', 'warning');
-        
-        // Mark for retry
-        evaluation.needsServerSubmission = true;
-        localStorage.setItem('simpleEvaluations', JSON.stringify(simpleEvaluations));
+        saveSimpleEvaluation();
     }
-    
-    // Update navigation controls if they exist
+
+    const allEvaluations = Object.values(simpleEvaluations);
+    if (allEvaluations.length === 0) {
+        showNotification('❗ No evaluations to submit.', 'warning');
+        return;
+    }
+
+    // Mark every entry as submitted
+    const now = new Date().toISOString();
+    allEvaluations.forEach(ev => {
+        ev.completed = !!(ev.overallPreference);
+        ev.submittedAt = now;
+    });
+    localStorage.setItem('simpleEvaluations', JSON.stringify(simpleEvaluations));
+
+    const sessionId  = getOrCreateSessionId();
+    const totalCount = allEvaluations.length;
+    showNotification(`⏳ Submitting ${totalCount} evaluation(s)…`, 'info');
+    console.log(`Batch-submitting ${totalCount} evaluations`);
+
+    // Build the batch payload
+    const submissions = allEvaluations.map(ev => ({
+        pairId:     ev.pairId,
+        evaluation: ev,
+        userAgent:  navigator.userAgent,
+        timestamp:  now,
+        sessionId:  sessionId,
+        url:        window.location.href
+    }));
+
+    // ── Attempt 1: single batch POST ────────────────────────────────────────
+    try {
+        const response = await fetch(GOOGLE_SCRIPT_URL, {
+            method:  'POST',
+            headers: { 'Content-Type': 'text/plain' },
+            body:    JSON.stringify({ submissions })
+        });
+        if (!response.ok) throw new Error(`HTTP ${response.status}`);
+        const result = await response.json();
+        console.log('Batch submission result:', result);
+        showNotification(`🎉 All ${totalCount} evaluations submitted successfully!`, 'success');
+        return;
+    } catch (batchError) {
+        console.warn('Batch submission failed, falling back to sequential:', batchError);
+    }
+
+    // ── Attempt 2: sequential one-by-one (fallback) ──────────────────────────
+    let successCount = 0;
+    for (const sub of submissions) {
+        try {
+            const r = await fetch(GOOGLE_SCRIPT_URL, {
+                method:  'POST',
+                headers: { 'Content-Type': 'text/plain' },
+                body:    JSON.stringify(sub)
+            });
+            if (r.ok) {
+                successCount++;
+                if (simpleEvaluations[sub.pairId]) {
+                    delete simpleEvaluations[sub.pairId].needsServerSubmission;
+                }
+            } else {
+                throw new Error(`HTTP ${r.status}`);
+            }
+        } catch (err) {
+            console.error('Individual submit failed for', sub.pairId, err);
+            if (simpleEvaluations[sub.pairId]) {
+                simpleEvaluations[sub.pairId].needsServerSubmission = true;
+            }
+        }
+    }
+    localStorage.setItem('simpleEvaluations', JSON.stringify(simpleEvaluations));
+
+    if (successCount === totalCount) {
+        showNotification(`🎉 All ${successCount} evaluations submitted successfully!`, 'success');
+    } else if (successCount > 0) {
+        showNotification(`⚠️ ${successCount}/${totalCount} submitted. ${totalCount - successCount} saved locally for retry.`, 'warning');
+    } else {
+        showNotification('❌ Submission failed. Evaluations saved locally — try again.', 'error');
+    }
+
     if (typeof updateNavigationControls === 'function') {
         updateNavigationControls();
     }
-    
-    console.log('Submitted evaluation for pair:', pairId, evaluation);
-    
-    // Optional: automatically move to next pair
-    setTimeout(() => {
-        if (typeof goToNextPair === 'function') {
-            goToNextPair();
-        }
-    }, 1500);
 }
 
 // Load saved evaluation into the form
@@ -856,9 +847,14 @@ window.updateCurrentEvaluationImages = function() {
 // Initialize on page load
 document.addEventListener('DOMContentLoaded', function() {
     addNotificationStyles();
-    // Always start fresh — clear any persisted evaluations from previous sessions
-    simpleEvaluations = {};
-    localStorage.removeItem('simpleEvaluations');
+    // Restore any evaluations saved during this or a previous session
+    try {
+        const saved = localStorage.getItem('simpleEvaluations');
+        if (saved) simpleEvaluations = JSON.parse(saved);
+    } catch (e) {
+        console.warn('Could not restore evaluations from localStorage:', e);
+        simpleEvaluations = {};
+    }
     addExportButtons();
     initializeSliderDisplays(); // Initialize slider-specific functionality
     

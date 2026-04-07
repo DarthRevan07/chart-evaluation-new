@@ -1,0 +1,11 @@
+Dataset : World data population (Among the top-ranked....) -> OBVIOUS CHOICE 
+
+Dataset : Car Price Prediction Multiple Linear Regresion (Among different enginetypes, which ..) (Table 22, sum1q4)-> Maybe OBVIOUS
+Dataset : World data population (What is the relationship) -> Question might be ambiguous, choice can be OBVIOUS
+Dataset : Video Game Sales (Are there genres... Table 122, sum1q5) -> 2 pairs --> KEEP BOTH
+Dataset : NASA Astronauts --> KEEP
+Dataset : Global Metropolis Weather --> Doubtful rn.
+Dataset : Medical Cost (How do average ...) (sum1q1) -> Doubtful rn.
+Dataset : Car Price (How do car prices...) -> Might be useless to keep
+
+(How does distribution of star types) IS SIMILAR TO

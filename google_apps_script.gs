@@ -39,7 +39,6 @@ const HEADERS = [
 function doPost(e) {
   try {
     const payload = JSON.parse(e.postData.contents);
-    const ev = payload.evaluation || {};
 
     const ss = SpreadsheetApp.openById(SPREADSHEET_ID);
     let sheet = ss.getSheetByName(SHEET_NAME);
@@ -51,51 +50,60 @@ function doPost(e) {
       sheet.getRange(1, 1, 1, HEADERS.length).setFontWeight('bold');
     }
 
-    const ca = ev.chartA || {};
-    const cb = ev.chartB || {};
+    // Support both batch mode  { submissions: [...] }
+    // and single mode          { pairId, evaluation, ... }  (backward compat)
+    const submissions = Array.isArray(payload.submissions)
+      ? payload.submissions
+      : [payload];
 
-    sheet.appendRow([
-      payload.timestamp                    || new Date().toISOString(),
-      payload.sessionId                    || '',
-      payload.pairId                       || '',
-      (ev.metadata && ev.metadata.table)   || '',
-      (ev.metadata && ev.metadata.question)|| '',
-      ca.imagePath                         || '',
-      cb.imagePath                         || '',
-      (ca.readability && ca.readability.score) || '',
-      (ca.readability && ca.readability.label) || '',
-      (ca.precision  && ca.precision.score)    || '',
-      (ca.precision  && ca.precision.label)    || '',
-      (ca.aesthetics && ca.aesthetics.score)   || '',
-      (ca.aesthetics && ca.aesthetics.label)   || '',
-      (cb.readability && cb.readability.score) || '',
-      (cb.readability && cb.readability.label) || '',
-      (cb.precision  && cb.precision.score)    || '',
-      (cb.precision  && cb.precision.label)    || '',
-      (cb.aesthetics && cb.aesthetics.score)   || '',
-      (cb.aesthetics && cb.aesthetics.label)   || '',
-      (ca.readability && ca.readability.lastUpdatedAt) || '',
-      (ca.precision   && ca.precision.lastUpdatedAt)   || '',
-      (ca.aesthetics  && ca.aesthetics.lastUpdatedAt)  || '',
-      (cb.readability && cb.readability.lastUpdatedAt) || '',
-      (cb.precision   && cb.precision.lastUpdatedAt)   || '',
-      (cb.aesthetics  && cb.aesthetics.lastUpdatedAt)  || '',
-      ev.overallPreference || '',
-      ev.comments_a        || '',
-      ev.comments_b        || '',
-      ev.comments_pref     || '',
-      ev.chartADisplayedAt          || '',
-      ev.chartBDisplayedAt          || '',
-      ev.prefDisplayedAt            || '',
-      ev.preferenceLastUpdatedAt    || '',
-      ev.displayedAt       || '',
-      ev.savedAt           || '',
-      (ev.timeToSave_seconds !== null && ev.timeToSave_seconds !== undefined) ? ev.timeToSave_seconds : '',
-      payload.userAgent    || ''
-    ]);
+    for (const p of submissions) {
+      const ev = p.evaluation || {};
+      const ca = ev.chartA || {};
+      const cb = ev.chartB || {};
+
+      sheet.appendRow([
+        p.timestamp                          || new Date().toISOString(),
+        p.sessionId                          || '',
+        p.pairId                             || '',
+        (ev.metadata && ev.metadata.table)   || '',
+        (ev.metadata && ev.metadata.question)|| '',
+        ca.imagePath                         || '',
+        cb.imagePath                         || '',
+        (ca.readability && ca.readability.score) || '',
+        (ca.readability && ca.readability.label) || '',
+        (ca.precision  && ca.precision.score)    || '',
+        (ca.precision  && ca.precision.label)    || '',
+        (ca.aesthetics && ca.aesthetics.score)   || '',
+        (ca.aesthetics && ca.aesthetics.label)   || '',
+        (cb.readability && cb.readability.score) || '',
+        (cb.readability && cb.readability.label) || '',
+        (cb.precision  && cb.precision.score)    || '',
+        (cb.precision  && cb.precision.label)    || '',
+        (cb.aesthetics && cb.aesthetics.score)   || '',
+        (cb.aesthetics && cb.aesthetics.label)   || '',
+        (ca.readability && ca.readability.lastUpdatedAt) || '',
+        (ca.precision   && ca.precision.lastUpdatedAt)   || '',
+        (ca.aesthetics  && ca.aesthetics.lastUpdatedAt)  || '',
+        (cb.readability && cb.readability.lastUpdatedAt) || '',
+        (cb.precision   && cb.precision.lastUpdatedAt)   || '',
+        (cb.aesthetics  && cb.aesthetics.lastUpdatedAt)  || '',
+        ev.overallPreference || '',
+        ev.comments_a        || '',
+        ev.comments_b        || '',
+        ev.comments_pref     || '',
+        ev.chartADisplayedAt          || '',
+        ev.chartBDisplayedAt          || '',
+        ev.prefDisplayedAt            || '',
+        ev.preferenceLastUpdatedAt    || '',
+        ev.displayedAt       || '',
+        ev.savedAt           || '',
+        (ev.timeToSave_seconds !== null && ev.timeToSave_seconds !== undefined) ? ev.timeToSave_seconds : '',
+        p.userAgent          || ''
+      ]);
+    }
 
     return ContentService
-      .createTextOutput(JSON.stringify({ status: 'ok' }))
+      .createTextOutput(JSON.stringify({ status: 'ok', count: submissions.length }))
       .setMimeType(ContentService.MimeType.JSON);
 
   } catch (err) {

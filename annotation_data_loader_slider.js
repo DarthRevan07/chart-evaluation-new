@@ -128,7 +128,15 @@ class AnnotationDataLoader {
             dataset_info: {
                 dataset_name: entry.table_metadata?.table_name || `Dataset ${tableId}`,
                 category: entry.table_metadata?.category || 'unknown',
-                index: tableId
+                index: tableId,
+                table_name: entry.table_metadata?.table_name || `Dataset ${tableId}`,
+                file_path: entry.table_metadata?.file_path || '',
+                source_url: entry.table_metadata?.source_url || '',
+                source_ref: entry.table_metadata?.source_ref || '',
+                license: entry.table_metadata?.license || '',
+                row_count: entry.table_metadata?.row_count ?? '',
+                column_count: entry.table_metadata?.column_count ?? '',
+                field_names: entry.table_metadata?.field_names || []
             }
         };
     }

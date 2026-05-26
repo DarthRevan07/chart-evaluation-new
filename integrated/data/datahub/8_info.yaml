@@ -1,0 +1,73 @@
+category: sports
+dataset_name: English Premier League Season 2025-26
+index: 8
+license: 'Open Data Commons Public Domain Dedication and Licence (PDDL)'
+sources: www.football-data.co.uk/
+url: https://datahub.io/football/english-premier-league
+schema:
+  - name: Date
+    type: date
+    description: Match date (YYYY-MM-DD)
+  - name: HomeTeam
+    type: string
+    description: Home Team
+  - name: AwayTeam
+    type: string
+    description: Away Team
+  - name: FTHG
+    type: integer
+    description: Full Time Home Team Goals
+  - name: FTAG
+    type: integer
+    description: Full Time Away Team Goals
+  - name: FTR
+    type: string
+    description: Full Time Result (H=Home Win, D=Draw, A=Away Win)
+  - name: HTHG
+    type: integer
+    description: Half Time Home Team Goals
+  - name: HTAG
+    type: integer
+    description: Half Time Away Team Goals
+  - name: HTR
+    type: string
+    description: Half Time Result (H=Home Win, D=Draw, A=Away Win)
+  - name: Referee
+    type: string
+    description: Match Referee
+  - name: HS
+    type: integer
+    description: Home Team Shots
+  - name: AS
+    type: integer
+    description: Away Team Shots
+  - name: HST
+    type: integer
+    description: Home Team Shots on Target
+  - name: AST
+    type: integer
+    description: Away Team Shots on Target
+  - name: HF
+    type: integer
+    description: Home Team Fouls Committed
+  - name: AF
+    type: integer
+    description: Away Team Fouls Committed
+  - name: HC
+    type: integer
+    description: Home Team Corners
+  - name: AC
+    type: integer
+    description: Away Team Corners
+  - name: HY
+    type: integer
+    description: Home Team Yellow Cards
+  - name: AY
+    type: integer
+    description: Away Team Yellow Cards
+  - name: HR
+    type: integer
+    description: Home Team Red Cards
+  - name: AR
+    type: integer
+    description: Away Team Red Cards

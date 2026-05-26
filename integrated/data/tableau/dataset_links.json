@@ -1,0 +1,83 @@
+{
+  "source_page": "https://public.tableau.com/app/resources/sample-data",
+  "datasets": {
+    "sample_-_superstore.xls": {
+      "name": "Superstore Sales",
+      "description": "Contains information about products, sales, and profits that you can use to identify key areas of improvement within this fictitious company.",
+      "url": "https://public.tableau.com/app/resources/sample-data",
+      "format": "xls"
+    },
+    "Data Set- Inc5000 Company List_2014.csv": {
+      "name": "The 2014 Inc. 5000",
+      "description": "Inc. Magazine's annual list of the 5000 fastest growing private companies in the United States, compiled by measuring each company's percentage revenue growth over a four-year period.",
+      "url": "https://public.tableau.com/app/resources/sample-data",
+      "format": "csv"
+    },
+    "HollywoodsMostProfitableStories.csv": {
+      "name": "Hollywood's Most Profitable Stories",
+      "description": "Title, genre, studio, profitability and ratings for movies released 2007-2012. Source: InformationIsBeautiful.net",
+      "url": "https://public.tableau.com/app/resources/sample-data",
+      "format": "csv"
+    },
+    "atp_number_1.csv": {
+      "name": "ATP Top-Ranked Singles Tennis Players",
+      "description": "Association of Tennis Professionals (ATP) Men's and Women's top-ranked players from 1973-2018. Source: Wikipedia",
+      "url": "https://public.tableau.com/app/resources/sample-data",
+      "format": "csv"
+    },
+    "Summer_Olympic_medallists_1896-2008.xlsx": {
+      "name": "Summer Olympics Medalist Dataset",
+      "description": "Every summer Olympic medalist from 1896-2012. Includes data about home country, event, medal, and gender. Source: The Guardian",
+      "url": "https://public.tableau.com/app/resources/sample-data",
+      "format": "xlsx"
+    },
+    "advancement_donations_and_giving_demo.xls": {
+      "name": "University Advancement, Donations, and Giving",
+      "description": "A table of donations made to Universities in the United States. The donation amounts and locations in this data set are fictitious and intended for training purposes only.",
+      "url": "https://public.tableau.com/app/resources/sample-data",
+      "format": "xls"
+    },
+    "catsvdogs.xlsx": {
+      "name": "Cat vs Dog Popularity in the U.S.",
+      "description": "Population and ownership of dogs and cats by household broken down by state. Source: American Veterinary Medical Association",
+      "url": "https://public.tableau.com/app/resources/sample-data",
+      "format": "xlsx"
+    },
+    "TB_Burden_Country.csv": {
+      "name": "Tuberculosis Burden by Country",
+      "description": "Estimating the prevalence and mortality of Tuberculosis by country. Source: World Health Organization",
+      "url": "https://public.tableau.com/app/resources/sample-data",
+      "format": "csv"
+    },
+    "County_Health_Rankings.csv": {
+      "name": "U.S. County Health Rankings",
+      "description": "Ranks U.S. counties on a variety of health factors. Source: County Health Rankings & Roadmaps (CHR&R)",
+      "url": "https://public.tableau.com/app/resources/sample-data",
+      "format": "csv"
+    },
+    "IHME_GBD_2010_MORTALITY_AGE_SPECIFIC_BY_COUNTRY_1970_2010.csv": {
+      "name": "Global Burden of Disease",
+      "description": "Estimating the burden of diseases, injuries, and risk factors globally and for 21 regions for 1990 and 2010. Source: Institute for Health Metrics and Evaluation (IHME)",
+      "url": "https://public.tableau.com/app/resources/sample-data",
+      "format": "csv"
+    },
+    "appendix.csv": {
+      "name": "edX.org Academic Year 2012-2013",
+      "description": "De-identified data from the first year (Academic Year 2013: Fall 2012, Spring 2013, and Summer 2013) of MITx and HarvardX courses on the edX platform. Source: Harvard Dataverse",
+      "url": "https://public.tableau.com/app/resources/sample-data",
+      "format": "csv"
+    },
+    "degrees-that-pay-back.csv": {
+      "name": "Degrees That Pay You Back",
+      "description": "Starting and mid-career median salaries by undergraduate major. Source: Wall Street Journal / PayScale",
+      "url": "https://public.tableau.com/app/resources/sample-data",
+      "format": "csv"
+    },
+    "2015_16_Statewise_Secondary.csv": {
+      "name": "India Statewise Secondary Education Statistics 2015-16",
+      "description": "State-wise secondary and higher secondary education data for India (2015-16) including enrollment, schools, teachers, and infrastructure. Source: UDISE (Unified District Information System for Education)",
+      "url": "https://public.tableau.com/app/resources/sample-data",
+      "format": "csv"
+    }
+  }
+}

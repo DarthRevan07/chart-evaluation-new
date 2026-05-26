@@ -1,0 +1,6 @@
+category: air-pollution
+dataset_name: Annual AQI Report by Country, 2025
+index: 6
+license: 'Open Data Commons Public Domain Dedication and Licence (PDDL)'
+sources: United States Environmental Protection Agency (EPA)
+url: https://aqs.epa.gov/aqsweb/airdata/download_files.html#Annual

@@ -1,0 +1,16 @@
+category: climate-change-data
+dataset_name: Global Average Absolute Sea Level Change (Monthly), 1880-2014
+index: 0
+license: 'Open Data Commons Public Domain Dedication and License v1.0'
+sources: EPA (United States Environmental Protection Agency), CSIRO (Commonwealth Scientific and Industrial Research Organisation)
+url: https://datahub.io/core/sea-level-rise/_r/-/data/CSIRO_Alt_seas_inc.csv
+schema: 
+  - name: Time
+    type: date
+    description: Year and month of GMSL calculation (YYYY-MMM)
+  - name: GMSL (monthly)
+    type: number
+    description: Global Mean Sea Level - monthly value in mm
+  - name: GMSL (smoothed)
+    type: number
+    description: Global Mean Sea Level - smoothed value in mm

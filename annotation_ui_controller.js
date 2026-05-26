@@ -217,7 +217,20 @@ class AnnotationUIController {
         try {
             container.innerHTML = '<div class="text-center">Loading...</div>';
 
-            const response = await fetch(`./csv_c_squared/${tableId}.csv`);
+            const currentAnnotation = this.loader && typeof this.loader.getCurrentAnnotationWithDatasetInfo === 'function'
+                ? this.loader.getCurrentAnnotationWithDatasetInfo()
+                : null;
+            const matchedAnnotation = currentAnnotation && String(currentAnnotation.table) === String(tableId)
+                ? currentAnnotation
+                : (this.loader?.allEntries || []).find(entry => String(entry.table) === String(tableId));
+            const filePath = matchedAnnotation?.dataset_info?.file_path || matchedAnnotation?.table_metadata?.file_path || '';
+            const normalizedPath = filePath ? `./integrated/data/${filePath.replace(/\\/g, '/')}` : '';
+
+            if (!normalizedPath) {
+                throw new Error('No integrated data path found for this table');
+            }
+
+            const response = await fetch(normalizedPath);
             if (!response.ok) {
                 throw new Error('Failed to load CSV data');
             }

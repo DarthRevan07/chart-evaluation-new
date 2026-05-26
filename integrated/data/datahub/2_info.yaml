@@ -1,0 +1,13 @@
+category: commodities
+dataset_name: Annual average gold prices in USD per troy ounce from 1833 to present 
+index: 2
+license: 'Open Data Commons Public Domain Dedication and License'
+sources: World Bank Commodity Markets (Pink Sheet), Timothy Green Historical Gold Price Table (National Mining Association)
+url: https://datahub.io/core/gold-prices/_r/-/data/annual.csv
+schema: 
+  - name: Date
+    type: year
+    description: Year of the observation (YYYY)
+  - name: Price
+    type: number
+    description: Annual average gold price in USD per troy ounce

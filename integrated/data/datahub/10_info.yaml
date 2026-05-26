@@ -1,0 +1,183 @@
+dataset_name: All AI Models (Epoch Database)
+category: technology
+url: https://datahub.io/ai/epoch-data-on-ai-models
+sources: Epoch AI
+license: Creative Commons Attribution 4.0
+schema:
+  - name: Model
+    type: string
+    description: Name of the AI model
+  - name: Domain
+    type: string
+    description: Domain(s) the model operates in (e.g. Language, Vision, Multimodal)
+  - name: Task
+    type: string
+    description: Tasks the model is designed for (e.g. Language modeling, Code generation)
+  - name: Organization
+    type: string
+    description: Organization(s) that developed the model
+  - name: Authors
+    type: string
+    description: Authors or contributors of the model
+  - name: Publication date
+    type: date
+    description: Date the model was published (YYYY-MM-DD)
+  - name: Reference
+    type: string
+    description: Reference title or paper name
+  - name: Link
+    type: string
+    description: URL link to the model's page or paper
+  - name: Citations
+    type: float
+    description: Number of citations the model's paper has received
+  - name: Notability criteria
+    type: string
+    description: Why this model is considered notable
+  - name: Notability criteria notes
+    type: string
+    description: Additional notes on the notability criteria
+  - name: Parameters
+    type: float
+    description: Number of parameters in the model
+  - name: Parameters notes
+    type: string
+    description: Additional notes on parameter count
+  - name: Training compute (FLOP)
+    type: float
+    description: Total training compute in floating-point operations
+  - name: Training compute notes
+    type: string
+    description: Notes on how training compute was estimated
+  - name: Training dataset
+    type: string
+    description: Name(s) of datasets used for training
+  - name: Training dataset notes
+    type: string
+    description: Additional notes on training data
+  - name: Training dataset size (datapoints)
+    type: float
+    description: Number of datapoints (e.g. tokens) in the training dataset
+  - name: Dataset size notes
+    type: string
+    description: Additional notes on dataset size
+  - name: Training time (hours)
+    type: float
+    description: Total training time in hours
+  - name: Training time notes
+    type: string
+    description: Additional notes on training time
+  - name: Training hardware
+    type: string
+    description: Hardware used for training (e.g. NVIDIA H100, Google TPU v5e)
+  - name: Approach
+    type: string
+    description: Training approach or methodology
+  - name: Confidence
+    type: string
+    description: Confidence level in the reported data (e.g. Confident, Speculative)
+  - name: Abstract
+    type: string
+    description: Abstract or summary of the model
+  - name: Epochs
+    type: float
+    description: Number of training epochs
+  - name: Benchmark data
+    type: string
+    description: Benchmark evaluation data
+  - name: Model accessibility
+    type: string
+    description: How the model can be accessed (e.g. Open weights, API access, Unreleased)
+  - name: Country (of organization)
+    type: string
+    description: Country where the developing organization is based
+  - name: Base model
+    type: string
+    description: Base model this model was derived from, if any
+  - name: Finetune compute (FLOP)
+    type: float
+    description: Compute used for fine-tuning in FLOP
+  - name: Finetune compute notes
+    type: string
+    description: Notes on fine-tuning compute estimation
+  - name: Hardware quantity
+    type: float
+    description: Number of hardware units (e.g. GPUs/TPUs) used for training
+  - name: Hardware utilization (MFU)
+    type: float
+    description: Model FLOPs Utilization during training
+  - name: Last modified
+    type: datetime
+    description: Timestamp of last modification to this record
+  - name: Training cloud compute vendor
+    type: string
+    description: Cloud provider used for training (e.g. Google Cloud, AWS)
+  - name: Training data center
+    type: string
+    description: Data center location used for training
+  - name: Archived links
+    type: string
+    description: Archived/mirror links for the model
+  - name: Batch size
+    type: float
+    description: Training batch size
+  - name: Batch size notes
+    type: string
+    description: Additional notes on batch size
+  - name: Organization categorization
+    type: string
+    description: Type of organization (e.g. Industry, Academia)
+  - name: Foundation model
+    type: string
+    description: Whether this is a foundation model
+  - name: Training compute lower bound
+    type: float
+    description: Lower bound estimate of training compute in FLOP
+  - name: Training compute upper bound
+    type: float
+    description: Upper bound estimate of training compute in FLOP
+  - name: Training chip-hours
+    type: float
+    description: Total chip-hours used for training
+  - name: Training code accessibility
+    type: string
+    description: Accessibility of the training code
+  - name: Accessibility notes
+    type: string
+    description: Additional notes on model/code accessibility and licensing
+  - name: Organization categorization (from Organization)
+    type: string
+    description: Organization type derived from the Organization field
+  - name: Possibly over 1e23 FLOP
+    type: string
+    description: Whether the model possibly used over 1e23 FLOP for training
+  - name: Training compute cost (2023 USD)
+    type: float
+    description: Estimated training compute cost in 2023 US dollars
+  - name: Utilization notes
+    type: string
+    description: Notes on hardware utilization
+  - name: Numerical format
+    type: string
+    description: Numerical precision format used (e.g. FP8, FP16, BF16)
+  - name: Frontier model
+    type: string
+    description: Whether the model is considered a frontier model
+  - name: Training power draw (W)
+    type: float
+    description: Power draw during training in watts
+  - name: Training compute estimation method
+    type: string
+    description: Method used to estimate training compute (e.g. Hardware, Operation counting, Reported)
+  - name: Hugging Face developer id
+    type: string
+    description: Developer ID on Hugging Face
+  - name: Post-training compute (FLOP)
+    type: float
+    description: Compute used for post-training (e.g. RLHF) in FLOP
+  - name: Post-training compute notes
+    type: string
+    description: Notes on post-training compute estimation
+  - name: Hardware utilization (HFU)
+    type: float
+    description: Hardware FLOPs Utilization during training

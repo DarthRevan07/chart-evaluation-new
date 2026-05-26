@@ -1,0 +1,25 @@
+category: healthcare-data
+dataset_name: Annual pharmaceutical drug spending per country, combining OECD expenditure data with UN population figures. Each row represents one country-year combination. TOTAL_SPEND is derived by multiplying USD_CAP by the country's population and dividing by 1,000,000 
+index: 3
+license: 'Open Data Commons Public Domain Dedication and Licence (PDDL)'
+sources: https://datahub.io/core/pharmaceutical-drug-spending
+url: https://datahub.io/core/pharmaceutical-drug-spending/_r/-/data/data.csv
+schema: 
+  - name: LOCATION
+    type: string
+    description: Country code
+  - name: TIME
+    type: year
+    description: Year of the observation (YYYY)
+  - name: PC_HEALTHXP
+    type: number
+    description: percentage of Health spending
+  - name: PC_GDP
+    type: number
+    description: percentage of GDP
+  - name: USD_CAP
+    type: number
+    description: Pharmaceutical drug spending per capita in USD (using economy-wide PPPs)
+  - name: TOTAL_SPEND
+    type: number
+    description: Total pharmaceutical drug spending in millions of USD (calculated as USD_CAP multiplied by population, divided by 1,000,000)

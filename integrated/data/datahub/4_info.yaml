@@ -1,0 +1,19 @@
+category: economic-data
+dataset_name: Expenditure on Research and Development(R&D) by countries with indicators such as source of funds, type of R%&D activity, fields of R&D(medical and health sciences) since 1996
+index: 4
+license: 'Open Data Commons Public Domain Dedication and Licence (PDDL)'
+sources: UNESCO institute for statistics
+url: https://datahub.io/core/expenditure-on-research-and-development
+schema: 
+  - name: LOCATION
+    type: string
+    description: Country code
+  - name: Country
+    type: string
+    description: Country name
+  - name: TIME
+    type: year
+    description: Year of the observation (YYYY)
+  - name: Applied research
+    type: number
+    description: Expenditure on applied research in million USD

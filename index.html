@@ -1057,33 +1057,12 @@
             'ATP_rendered_charts': "Player,DOB,Cumulative Weeks,Date,Sex,Weeks,Age (days),Age (years)\nIlie Nastase,7/19/1946,40,8/23/1973,Male,40,9897,27.09\nJohn Newcombe,5/23/1944,8,6/3/1974,Male,8,10968,30.03\nJimmy Connors,9/2/1952,160,7/29/1974,Male,160,8000,21.90\nBjörn Borg,6/6/1956,1,8/23/1977,Male,1,7748,21.21\nJimmy Connors,9/2/1952,244,8/30/1977,Male,84,9128,24.99\nBjörn Borg,6/6/1956,7,4/9/1979,Male,6,8342,22.84\nJimmy Connors,9/2/1952,251,5/21/1979,Male,7,9757,26.71\nBjörn Borg,6/6/1956,41,7/9/1979,Male,34,8433,23.09\nJohn McEnroe,2/16/1959,3,3/3/1980,Male,3,7686,21.04\nBjörn Borg,6/6/1956,61,3/24/1980,Male,20,8692,23.80"
         };
 
-        // All CSV loading and data functionality remains the same
+        // Read dataset info from the assignment loader's normalized sampled_all metadata.
         window.loadDatasetNameFromYAML = async function(tableNumber) {
-            try {
-                const yamlFileName = `${tableNumber}_info.yaml`;
-                const response = await fetch(`csv_c_squared/${yamlFileName}`);
-                
-                if (!response.ok) {
-                    throw new Error(`Failed to load YAML file: ${yamlFileName}`);
-                }
-                
-                const yamlText = await response.text();
-                
-                const lines = yamlText.split('\n');
-                for (const line of lines) {
-                    const trimmedLine = line.trim();
-                    if (trimmedLine.startsWith('dataset_name:')) {
-                        const datasetName = trimmedLine.split('dataset_name:')[1].trim().replace(/['"]/g, '');
-                        return datasetName;
-                    }
-                }
-                
-                return null;
-                
-            } catch (error) {
-                console.error('Error loading dataset name from YAML:', error);
-                return null;
-            }
+            const info = window.annotationLoader && typeof window.annotationLoader.getDatasetInfo === 'function'
+                ? window.annotationLoader.getDatasetInfo(tableNumber)
+                : null;
+            return info?.dataset_name || info?.table_name || null;
         };
 
         window.updateDatasetInfoFromYAML = async function(tableNumber) {
@@ -1104,15 +1083,27 @@
         };
 
         async function loadCSVData(dataset) {
-            const filename = csvFilenames[dataset];
-            if (!filename) {
-                throw new Error('No CSV file mapping found for dataset: ' + dataset);
+            const currentAnnotation = window.annotationUI && typeof window.annotationUI.getCurrentAnnotation === 'function'
+                ? window.annotationUI.getCurrentAnnotation()
+                : null;
+            const currentFilePath = currentAnnotation?.dataset_info?.file_path || currentAnnotation?.table_metadata?.file_path || '';
+            const matchedEntry = !currentFilePath && window.annotationLoader && Array.isArray(window.annotationLoader.allEntries)
+                ? window.annotationLoader.allEntries.find(entry => {
+                    const info = entry.dataset_info || entry.table_metadata || {};
+                    return info.dataset_name === dataset || info.table_name === dataset;
+                })
+                : null;
+            const matchedFilePath = matchedEntry?.dataset_info?.file_path || matchedEntry?.table_metadata?.file_path || '';
+            const resolvedFilePath = currentFilePath || matchedFilePath;
+
+            if (!resolvedFilePath) {
+                throw new Error('No integrated data file mapping found for dataset: ' + dataset);
             }
             
             try {
-                const response = await fetch('csv_c_squared/' + filename);
+                const response = await fetch('integrated/data/' + resolvedFilePath.replace(/\\/g, '/'));
                 if (!response.ok) {
-                    throw new Error(`Failed to load CSV file: ${filename} (Status: ${response.status})`);
+                    throw new Error(`Failed to load CSV file: ${resolvedFilePath} (Status: ${response.status})`);
                 }
                 
                 const csvText = await response.text();
@@ -2298,25 +2289,17 @@
             }
 
             const table = annotation.table;
+            const datasetInfo = annotation.dataset_info || annotation.table_metadata || {};
+            const filePath = datasetInfo.file_path || annotation.table_metadata?.file_path || '';
+            const normalizedCsvPath = filePath ? `integrated/data/${filePath.replace(/\\/g, '/')}` : '';
 
-            // Populate dataset name and category from the cached loader info
+            // Populate dataset name and category from sampled_all metadata
             let datasetName = `Dataset ${table}`;
             let category    = '';
             if (window.annotationLoader && typeof window.annotationLoader.getDatasetInfo === 'function') {
                 const info = window.annotationLoader.getDatasetInfo(table);
                 if (info.dataset_name) datasetName = info.dataset_name;
-                if (info.category)    category    = info.category;
-            } else {
-                // Fallback: fetch YAML directly
-                try {
-                    const yamlRes  = await fetch(`csv_c_squared/${table}_info.yaml`);
-                    const yamlText = await yamlRes.text();
-                    for (const line of yamlText.split('\n')) {
-                        const t = line.trim();
-                        if (t.startsWith('dataset_name:')) datasetName = t.split('dataset_name:')[1].trim().replace(/['"]/g, '');
-                        if (t.startsWith('category:'))    category    = t.split('category:')[1].trim().replace(/['"]/g, '');
-                    }
-                } catch (e) { /* leave defaults */ }
+                if (info.category) category = info.category;
             }
 
             if (nameEl)     nameEl.textContent     = datasetName;
@@ -2329,9 +2312,10 @@
                 narrativeBox.style.display = 'block';
             }
 
-            // Load the CSV directly from csv_c_squared/{table}.csv
+            // Load the CSV directly from integrated/data using file_path from sampled_all.json
             try {
-                const csvRes = await fetch(`csv_c_squared/${table}.csv`);
+                if (!normalizedCsvPath) throw new Error('No integrated data file_path found for this entry');
+                const csvRes = await fetch(normalizedCsvPath);
                 if (!csvRes.ok) throw new Error(`HTTP ${csvRes.status}`);
                 const csvText = await csvRes.text();
                 const csvData = parseCSV(csvText);

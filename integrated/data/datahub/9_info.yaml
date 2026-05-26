@@ -1,0 +1,123 @@
+dataset_name: Frontier AI Models
+category: technology
+url: https://datahub.io/ai/epoch-data-on-ai-models
+sources: Epoch AI
+license: Creative Commons Attribution 4.0
+schema:
+  - name: Model
+    type: string
+    description: Name of the AI model
+  - name: Domain
+    type: string
+    description: Domain(s) the model operates in (e.g. Language, Vision, Multimodal)
+  - name: Task
+    type: string
+    description: Tasks the model is designed for (e.g. Language modeling, Code generation)
+  - name: Authors
+    type: string
+    description: Authors or contributors of the model
+  - name: Notability criteria
+    type: string
+    description: Why this model is considered notable (e.g. SOTA improvement, Training cost)
+  - name: Notability criteria notes
+    type: string
+    description: Additional notes on the notability criteria
+  - name: Model accessibility
+    type: string
+    description: How the model can be accessed (e.g. Open weights, API access, Unreleased)
+  - name: Link
+    type: string
+    description: URL link to the model's page or paper
+  - name: Citations
+    type: float
+    description: Number of citations the model's paper has received
+  - name: Reference
+    type: string
+    description: Reference title or paper name
+  - name: Publication date
+    type: date
+    description: Date the model was published (YYYY-MM-DD)
+  - name: Organization
+    type: string
+    description: Organization(s) that developed the model
+  - name: Parameters
+    type: float
+    description: Number of parameters in the model
+  - name: Parameters notes
+    type: string
+    description: Additional notes on parameter count
+  - name: Training compute (FLOP)
+    type: float
+    description: Total training compute in floating-point operations
+  - name: Training compute notes
+    type: string
+    description: Notes on how training compute was estimated
+  - name: Training dataset
+    type: string
+    description: Name(s) of datasets used for training
+  - name: Training dataset notes
+    type: string
+    description: Additional notes on training data
+  - name: Training dataset size (datapoints)
+    type: float
+    description: Number of datapoints (e.g. tokens) in the training dataset
+  - name: Dataset size notes
+    type: string
+    description: Additional notes on dataset size
+  - name: Epochs
+    type: float
+    description: Number of training epochs
+  - name: Inference compute (FLOP)
+    type: float
+    description: Compute required for a single inference pass
+  - name: Inference compute notes
+    type: string
+    description: Notes on inference compute estimation
+  - name: Training time (hours)
+    type: float
+    description: Total training time in hours
+  - name: Training time notes
+    type: string
+    description: Additional notes on training time
+  - name: Training hardware
+    type: string
+    description: Hardware used for training (e.g. NVIDIA H100, Google TPU v5e)
+  - name: Approach
+    type: string
+    description: Training approach or methodology
+  - name: Confidence
+    type: string
+    description: Confidence level in the reported data (e.g. Confident, Speculative)
+  - name: Abstract
+    type: string
+    description: Abstract or summary of the model
+  - name: Country (of organization)
+    type: string
+    description: Country where the developing organization is based
+  - name: Base model
+    type: string
+    description: Base model this model was derived from, if any
+  - name: Finetune compute (FLOP)
+    type: float
+    description: Compute used for fine-tuning in FLOP
+  - name: Hardware quantity
+    type: float
+    description: Number of hardware units (e.g. GPUs/TPUs) used for training
+  - name: Hardware utilization (MFU)
+    type: float
+    description: Model FLOPs Utilization during training
+  - name: Organization categorization
+    type: string
+    description: Type of organization (e.g. Industry, Academia)
+  - name: Training compute cost (2023 USD)
+    type: float
+    description: Estimated training compute cost in 2023 US dollars
+  - name: Frontier model
+    type: string
+    description: Whether the model is considered a frontier model
+  - name: Training power draw (W)
+    type: float
+    description: Power draw during training in watts
+  - name: Training compute estimation method
+    type: string
+    description: Method used to estimate training compute (e.g. Hardware, Operation counting, Reported)

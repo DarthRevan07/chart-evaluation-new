@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chart Evaluation System - Slider Version</title>
-    <link rel="stylesheet" href="styles_slider.css">
+    <meta name="ui-build" content="f84d75b-fullbleed-v2" />
+    <link rel="stylesheet" href="styles_slider.css?v=20260526a">
     <style>
         :root {
             --full-bleed-offset: calc(50% - 50vw);
@@ -44,11 +45,11 @@
         /* Horizontal Navigation Styles */
         .horizontal-nav-container {
             background-color: white;
-            width: 100vw;
-            max-width: 100vw;
-            margin-left: var(--full-bleed-offset);
-            margin-right: var(--full-bleed-offset);
-            min-height: calc(100vh - 96px);
+            width: 100vw !important;
+            max-width: 100vw !important;
+            margin-left: var(--full-bleed-offset) !important;
+            margin-right: var(--full-bleed-offset) !important;
+            min-height: calc(100vh - 96px) !important;
         }
         
         .slide-nav-controls {
@@ -109,8 +110,8 @@
         .slides-wrapper {
             overflow: hidden;
             position: relative;
-            width: 100vw;
-            max-width: 100vw;
+            width: 100vw !important;
+            max-width: 100vw !important;
         }
         
         .slides-container {
@@ -1156,12 +1157,12 @@
     </div>
 
     <!-- New annotation-based data loading system -->
-    <script src="annotation_data_loader_slider.js"></script>
-    <script src="annotation_ui_controller.js"></script>
+    <script src="annotation_data_loader_slider.js?v=20260526a"></script>
+    <script src="annotation_ui_controller.js?v=20260526a"></script>
     
     <!-- Modified scripts for slider evaluation functionality -->
-    <script src="simple_evaluation_slider.js"></script>
-    <script src="pair_slider.js"></script>
+    <script src="simple_evaluation_slider.js?v=20260526a"></script>
+    <script src="pair_slider.js?v=20260526a"></script>
     <script>
         // Same core functionality as original evaluation.html but adapted for sliders
         // All the existing JavaScript functionality is preserved, 

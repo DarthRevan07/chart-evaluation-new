@@ -38,8 +38,8 @@ body {
     max-width: none;
     margin: 0;
     background-color: white;
-    min-height: calc(100vh - 180px);
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    min-height: 100vh;
+    box-shadow: none;
 }
 
 .header {

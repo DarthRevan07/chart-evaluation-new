@@ -6,6 +6,11 @@
     <title>Chart Evaluation System - Slider Version</title>
     <link rel="stylesheet" href="styles_slider.css">
     <style>
+        :root {
+            --full-bleed-offset: calc(50% - 50vw);
+            --full-bleed-inline-pad: clamp(8px, 1.2vw, 20px);
+        }
+
         .data-table {
             width: 100%;
             border-collapse: collapse;
@@ -39,7 +44,11 @@
         /* Horizontal Navigation Styles */
         .horizontal-nav-container {
             background-color: white;
-            min-height: calc(100vh - 440px);
+            width: 100vw;
+            max-width: 100vw;
+            margin-left: var(--full-bleed-offset);
+            margin-right: var(--full-bleed-offset);
+            min-height: calc(100vh - 96px);
         }
         
         .slide-nav-controls {
@@ -100,6 +109,8 @@
         .slides-wrapper {
             overflow: hidden;
             position: relative;
+            width: 100vw;
+            max-width: 100vw;
         }
         
         .slides-container {
@@ -111,13 +122,18 @@
         .slide {
             width: 33.33%;
             flex-shrink: 0;
-            padding: 20px;
+            padding: 20px var(--full-bleed-inline-pad);
+        }
+
+        .slide-content {
+            width: 100%;
         }
         
         .both-charts-container {
             display: flex;
             gap: clamp(12px, 2vw, 28px);
-            align-items: flex-start;
+            align-items: stretch;
+            width: 100%;
         }
         
         .charts-comparison {
@@ -143,7 +159,8 @@
         
         .chart-image-container {
             position: relative;
-            min-height: clamp(260px, 44vh, 760px);
+            height: 75vh;
+            max-height: 75vh;
             width: 100%;
             display: flex;
             align-items: center;
@@ -159,7 +176,7 @@
             background: linear-gradient(135deg, #f8f9fa, #e9ecef) !important;
             border-bottom: 3px solid #007bff !important;
             z-index: 9999 !important;
-            padding: 15px 20px !important;
+            padding: 15px var(--full-bleed-inline-pad) !important;
             box-shadow: 0 2px 12px rgba(0,0,0,0.15) !important;
             box-sizing: border-box !important;
         }
@@ -195,6 +212,15 @@
             overflow: visible !important;
             margin-top: 0 !important;
             padding-top: 0 !important;
+            width: 100vw !important;
+            max-width: 100vw !important;
+            margin-left: var(--full-bleed-offset) !important;
+            margin-right: var(--full-bleed-offset) !important;
+        }
+
+        .master-question-section {
+            width: 100%;
+            padding: 8px var(--full-bleed-inline-pad) !important;
         }
         
         /* Horizontal radio group layout */
@@ -347,7 +373,8 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            min-height: clamp(260px, 44vh, 760px);
+            height: 100%;
+            min-height: 100%;
             width: 100%;
             max-width: none;
             background-color: #ffffff;
@@ -363,8 +390,8 @@
         .chart-image {
             width: 100%;
             max-width: none;
-            max-height: 75vh;
-            height: auto;
+            height: 100%;
+            max-height: 100%;
             object-fit: contain;
         }
         
@@ -670,7 +697,19 @@
             body {
                 padding-top: 80px !important;
             }
-            
+
+            .horizontal-nav-container {
+                width: 100vw;
+                max-width: 100vw;
+                margin-left: var(--full-bleed-offset);
+                margin-right: var(--full-bleed-offset);
+            }
+
+            .slides-wrapper {
+                width: 100vw;
+                max-width: 100vw;
+            }
+
             .slide {
                 padding: 5px;
             }
@@ -702,6 +741,18 @@
             .chart-image {
                 max-width: 100%;
                 height: auto;
+                max-height: 60vh;
+            }
+
+            .chart-image-container {
+                height: auto;
+                max-height: none;
+                min-height: 50vh;
+            }
+
+            .simple-placeholder {
+                min-height: 50vh;
+                height: 50vh;
             }
         }
     </style>

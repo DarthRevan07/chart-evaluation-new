@@ -1247,24 +1247,78 @@
             }
         }
 
-        // Parse CSV text into array of objects
+        // Parse CSV text using a quote-aware state machine so rows are not dropped
+        // when values contain commas, escaped quotes, or embedded newlines.
         function parseCSV(csvText) {
-            const lines = csvText.trim().split('\n');
-            const headers = lines[0].split(',').map(header => header.trim());
-            const data = [];
-            
-            for (let i = 1; i < lines.length && i <= 15; i++) { // Limit to 15 rows
-                const values = parseCSVLine(lines[i]);
-                if (values.length === headers.length) {
-                    const row = {};
-                    headers.forEach((header, index) => {
-                        row[header] = values[index];
-                    });
-                    data.push(row);
+            const rows = [];
+            let row = [];
+            let field = '';
+            let inQuotes = false;
+
+            for (let i = 0; i < csvText.length; i++) {
+                const ch = csvText[i];
+                const next = i + 1 < csvText.length ? csvText[i + 1] : '';
+
+                if (ch === '"') {
+                    if (inQuotes && next === '"') {
+                        field += '"';
+                        i++;
+                    } else {
+                        inQuotes = !inQuotes;
+                    }
+                    continue;
+                }
+
+                if (!inQuotes && ch === ',') {
+                    row.push(field);
+                    field = '';
+                    continue;
+                }
+
+                if (!inQuotes && (ch === '\n' || ch === '\r')) {
+                    if (ch === '\r' && next === '\n') i++;
+                    row.push(field);
+                    field = '';
+
+                    // Skip fully empty lines.
+                    if (!(row.length === 1 && row[0].trim() === '')) {
+                        rows.push(row);
+                    }
+                    row = [];
+                    continue;
+                }
+
+                field += ch;
+            }
+
+            // Flush trailing field/row.
+            if (field.length > 0 || row.length > 0) {
+                row.push(field);
+                if (!(row.length === 1 && row[0].trim() === '')) {
+                    rows.push(row);
                 }
             }
-            
-            return { headers: headers, data: data, totalRows: lines.length - 1 };
+
+            if (rows.length === 0) {
+                return { headers: [], data: [], totalRows: 0 };
+            }
+
+            const headers = rows[0].map(header => String(header || '').trim());
+            const data = [];
+            const maxRows = Math.min(15, Math.max(0, rows.length - 1));
+
+            for (let i = 1; i <= maxRows; i++) {
+                const values = rows[i] || [];
+                const rowObj = {};
+
+                headers.forEach((header, index) => {
+                    rowObj[header] = (values[index] !== undefined ? values[index] : '').trim();
+                });
+
+                data.push(rowObj);
+            }
+
+            return { headers: headers, data: data, totalRows: rows.length - 1 };
         }
 
         // Parse a single CSV line, handling quoted values

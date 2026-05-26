@@ -822,7 +822,6 @@ function addExportButtons() {
     
     // Create export section header
     const exportHeader = document.createElement('h4');
-    exportHeader.textContent = 'Export Your Data';
     exportHeader.style.cssText = `
         margin: 0 0 15px 0;
         color: #495057;

@@ -17,6 +17,10 @@ class AnnotationDataLoader {
         this.assignmentApiUrl = null;
     }
 
+    getDatasetCacheKey(artefact, tableId) {
+        return `${artefact || 'unknown'}::${tableId || ''}`;
+    }
+
     /**
      * Initialize the loader by fetching and parsing the annotation data
      */
@@ -54,10 +58,11 @@ class AnnotationDataLoader {
 
             this.allEntries = normalizedEntries;
 
-            // Build table-level cache from normalized entries
+            // Build artefact+table-level cache from normalized entries.
             normalizedEntries.forEach(entry => {
-                if (entry.table && entry.dataset_info && !this.datasetInfoCache[entry.table]) {
-                    this.datasetInfoCache[entry.table] = entry.dataset_info;
+                const cacheKey = this.getDatasetCacheKey(entry.artefact, entry.table);
+                if (entry.table && entry.dataset_info && !this.datasetInfoCache[cacheKey]) {
+                    this.datasetInfoCache[cacheKey] = entry.dataset_info;
                 }
             });
 
@@ -114,6 +119,7 @@ class AnnotationDataLoader {
 
         return {
             entry_id: stableId,
+            dataset_key: this.getDatasetCacheKey(entry.artefact || 'src', tableId),
             table: tableId,
             summary_idx: entry.summary_idx,
             narrative_summary: entry.summary_text || '',
@@ -230,10 +236,26 @@ class AnnotationDataLoader {
     }
 
     /**
-     * Get dataset information for a table ID
+     * Get dataset information for an annotation or artefact/table pair.
      */
-    getDatasetInfo(tableId) {
-        return this.datasetInfoCache[tableId] || {
+    getDatasetInfo(annotationOrTableId, artefact) {
+        if (annotationOrTableId && typeof annotationOrTableId === 'object') {
+            if (annotationOrTableId.dataset_info) {
+                return annotationOrTableId.dataset_info;
+            }
+
+            const tableId = annotationOrTableId.table;
+            const cacheKey = this.getDatasetCacheKey(annotationOrTableId.artefact, tableId);
+            return this.datasetInfoCache[cacheKey] || {
+                dataset_name: `Dataset ${tableId}`,
+                category: 'unknown',
+                index: tableId
+            };
+        }
+
+        const tableId = annotationOrTableId;
+        const cacheKey = this.getDatasetCacheKey(artefact, tableId);
+        return this.datasetInfoCache[cacheKey] || {
             dataset_name: `Dataset ${tableId}`,
             category: 'unknown',
             index: tableId
@@ -247,7 +269,7 @@ class AnnotationDataLoader {
         const annotation = this.getCurrentAnnotation();
         if (!annotation) return null;
 
-        const datasetInfo = this.getDatasetInfo(annotation.table);
+        const datasetInfo = this.getDatasetInfo(annotation);
 
         return {
             ...annotation,
@@ -331,7 +353,7 @@ class AnnotationDataLoader {
         for (const table of uniqueTables) {
             summaryStats[table] = {
                 count: this.annotations.filter(ann => ann.table === table).length,
-                dataset_name: this.getDatasetInfo(table).dataset_name
+                dataset_name: this.getDatasetInfo(this.annotations.find(ann => ann.table === table) || table).dataset_name
             };
         }
 

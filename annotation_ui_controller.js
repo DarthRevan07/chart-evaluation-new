@@ -133,7 +133,7 @@ class AnnotationUIController {
         console.log('Updating UI with annotation:', annotation);
 
         // Update dataset name from loader cache/annotation payload
-        this.updateDatasetName(annotation.table);
+        this.updateDatasetName(annotation);
 
         // Update question display
         this.updateQuestion(annotation.question_string);
@@ -151,13 +151,14 @@ class AnnotationUIController {
     /**
      * Update dataset name display using YAML data
      */
-    updateDatasetName(tableNumber) {
+    updateDatasetName(annotationOrTable) {
         const datasetNameElement = document.getElementById('datasetName');
         if (datasetNameElement) {
             const info = this.loader && typeof this.loader.getDatasetInfo === 'function'
-                ? this.loader.getDatasetInfo(tableNumber)
+                ? this.loader.getDatasetInfo(annotationOrTable)
                 : null;
-            datasetNameElement.textContent = info?.dataset_name || `Table ${tableNumber}`;
+            const tableId = typeof annotationOrTable === 'object' ? annotationOrTable?.table : annotationOrTable;
+            datasetNameElement.textContent = info?.dataset_name || `Table ${tableId}`;
         }
     }
 
@@ -222,7 +223,10 @@ class AnnotationUIController {
                 : null;
             const matchedAnnotation = currentAnnotation && String(currentAnnotation.table) === String(tableId)
                 ? currentAnnotation
-                : (this.loader?.allEntries || []).find(entry => String(entry.table) === String(tableId));
+                : (this.loader?.allEntries || []).find(entry =>
+                    String(entry.table) === String(tableId)
+                    && String(entry.artefact || '') === String(currentAnnotation?.artefact || '')
+                );
             const filePath = matchedAnnotation?.dataset_info?.file_path || matchedAnnotation?.table_metadata?.file_path || '';
             const normalizedPath = filePath ? `./integrated/data/${filePath.replace(/\\/g, '/')}` : '';
 

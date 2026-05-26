@@ -1059,9 +1059,12 @@
 
         // Read dataset info from the assignment loader's normalized sampled_all metadata.
         window.loadDatasetNameFromYAML = async function(tableNumber) {
-            const info = window.annotationLoader && typeof window.annotationLoader.getDatasetInfo === 'function'
-                ? window.annotationLoader.getDatasetInfo(tableNumber)
-                : null;
+                const currentAnnotation = window.annotationUI && typeof window.annotationUI.getCurrentAnnotation === 'function'
+                    ? window.annotationUI.getCurrentAnnotation()
+                    : null;
+                const info = window.annotationLoader && typeof window.annotationLoader.getDatasetInfo === 'function'
+                    ? window.annotationLoader.getDatasetInfo(currentAnnotation || tableNumber, currentAnnotation?.artefact)
+                    : null;
             return info?.dataset_name || info?.table_name || null;
         };
 
@@ -1088,10 +1091,11 @@
                 : null;
             const currentFilePath = currentAnnotation?.dataset_info?.file_path || currentAnnotation?.table_metadata?.file_path || '';
             const matchedEntry = !currentFilePath && window.annotationLoader && Array.isArray(window.annotationLoader.allEntries)
-                ? window.annotationLoader.allEntries.find(entry => {
-                    const info = entry.dataset_info || entry.table_metadata || {};
-                    return info.dataset_name === dataset || info.table_name === dataset;
-                })
+                    ? window.annotationLoader.allEntries.find(entry => {
+                        const info = entry.dataset_info || entry.table_metadata || {};
+                        return (info.dataset_name === dataset || info.table_name === dataset)
+                            && (!currentAnnotation || String(entry.artefact || '') === String(currentAnnotation.artefact || ''));
+                    })
                 : null;
             const matchedFilePath = matchedEntry?.dataset_info?.file_path || matchedEntry?.table_metadata?.file_path || '';
             const resolvedFilePath = currentFilePath || matchedFilePath;
@@ -2297,7 +2301,7 @@
             let datasetName = `Dataset ${table}`;
             let category    = '';
             if (window.annotationLoader && typeof window.annotationLoader.getDatasetInfo === 'function') {
-                const info = window.annotationLoader.getDatasetInfo(table);
+                const info = window.annotationLoader.getDatasetInfo(annotation);
                 if (info.dataset_name) datasetName = info.dataset_name;
                 if (info.category) category = info.category;
             }

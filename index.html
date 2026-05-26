@@ -1089,21 +1089,19 @@
             const currentAnnotation = window.annotationUI && typeof window.annotationUI.getCurrentAnnotation === 'function'
                 ? window.annotationUI.getCurrentAnnotation()
                 : null;
-            const currentFilePath = currentAnnotation?.dataset_info?.file_path || currentAnnotation?.table_metadata?.file_path || '';
             const currentIntegratedPath = currentAnnotation?.dataset_info?.integrated_csv_path || '';
-            const matchedEntry = !currentFilePath && window.annotationLoader && Array.isArray(window.annotationLoader.allEntries)
+            const matchedEntry = !currentIntegratedPath && window.annotationLoader && Array.isArray(window.annotationLoader.allEntries)
                     ? window.annotationLoader.allEntries.find(entry => {
                         const info = entry.dataset_info || entry.table_metadata || {};
                         return (info.dataset_name === dataset || info.table_name === dataset)
                             && (!currentAnnotation || String(entry.artefact || '') === String(currentAnnotation.artefact || ''));
                     })
                 : null;
-            const matchedFilePath = matchedEntry?.dataset_info?.file_path || matchedEntry?.table_metadata?.file_path || '';
             const matchedIntegratedPath = matchedEntry?.dataset_info?.integrated_csv_path || '';
             const resolvedIntegratedPath = currentIntegratedPath
                 || matchedIntegratedPath
-                || ((currentFilePath || matchedFilePath)
-                    ? `integrated/datasets/${String(currentFilePath || matchedFilePath).replace(/\\/g, '/').replace(/^\.?\//, '').replace(/^datasets\//, '')}`
+                || ((currentAnnotation?.artefact && currentAnnotation?.table)
+                    ? `integrated/datasets/${currentAnnotation.artefact}/${currentAnnotation.table}.csv`
                     : '');
 
             if (!resolvedIntegratedPath) {
@@ -2254,6 +2252,7 @@
                     </div>
                 </div>
                 <div class="dataset-stats" id="modalDatasetStats" style="margin-top: 10px; font-size: 0.85em; color: #6c757d;"></div>
+                <div id="modalDatasetDebugLine" style="margin-top: 8px; font-size: 0.8em; color: #856404; background: #fff3cd; border: 1px solid #ffeeba; border-radius: 4px; padding: 6px 8px; word-break: break-all;"></div>
             </div>
         </div>
     </div>
@@ -2273,6 +2272,7 @@
 
             const tableContainer = document.getElementById('modalDataTableContainer');
             const statsContainer  = document.getElementById('modalDatasetStats');
+            const debugContainer  = document.getElementById('modalDatasetDebugLine');
             const metaBox         = document.getElementById('modalDatasetMeta');
             const nameEl          = document.getElementById('modalDatasetName');
             const categoryEl      = document.getElementById('modalDatasetCategory');
@@ -2285,6 +2285,7 @@
                     + 'Loading dataset sample...</div>';
             }
             if (statsContainer)  statsContainer.innerHTML = '';
+            if (debugContainer) debugContainer.textContent = '';
             if (metaBox)         metaBox.style.display = 'none';
             const narrativeBox  = document.getElementById('modalNarrativeSummary');
             const narrativeText = document.getElementById('modalNarrativeSummaryText');
@@ -2300,11 +2301,14 @@
 
             const table = annotation.table;
             const datasetInfo = annotation.dataset_info || annotation.table_metadata || {};
-            const filePath = datasetInfo.file_path || annotation.table_metadata?.file_path || '';
             const normalizedCsvPath = datasetInfo.integrated_csv_path
-                || (filePath
-                    ? `integrated/datasets/${filePath.replace(/\\/g, '/').replace(/^\.?\//, '').replace(/^datasets\//, '')}`
+                || ((annotation.artefact && table)
+                    ? `integrated/datasets/${annotation.artefact}/${table}.csv`
                     : '');
+
+            if (debugContainer) {
+                debugContainer.textContent = `Debug | entry_id: ${annotation.entry_id || 'N/A'} | artefact: ${annotation.artefact || 'N/A'} | table_id: ${table || 'N/A'} | csv: ${normalizedCsvPath || 'N/A'}`;
+            }
 
             // Populate dataset name and category from sampled_all metadata
             let datasetName = `Dataset ${table}`;

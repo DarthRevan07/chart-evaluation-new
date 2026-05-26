@@ -21,14 +21,11 @@ class AnnotationDataLoader {
         return `${artefact || 'unknown'}::${tableId || ''}`;
     }
 
-    normalizeIntegratedDataPath(filePath) {
-        const raw = String(filePath || '').replace(/\\/g, '/').replace(/^\.?\//, '');
-        if (!raw) return '';
-
-        // sampled_all stores file_path as datasets/<artefact>/<id>.csv, and files now live under
-        // integrated/datasets/<artefact>/<id>.csv in this workspace.
-        const withoutDatasetsPrefix = raw.startsWith('datasets/') ? raw.slice('datasets/'.length) : raw;
-        return `integrated/datasets/${withoutDatasetsPrefix}`;
+    buildIntegratedCsvPath(artefact, tableId) {
+        const a = String(artefact || '').trim();
+        const t = String(tableId || '').trim();
+        if (!a || !t) return '';
+        return `integrated/datasets/${a}/${t}.csv`;
     }
 
     /**
@@ -147,7 +144,7 @@ class AnnotationDataLoader {
                 index: tableId,
                 table_name: entry.table_metadata?.table_name || `Dataset ${tableId}`,
                 file_path: entry.table_metadata?.file_path || '',
-                integrated_csv_path: this.normalizeIntegratedDataPath(entry.table_metadata?.file_path || ''),
+                integrated_csv_path: this.buildIntegratedCsvPath(entry.artefact, tableId),
                 source_url: entry.table_metadata?.source_url || '',
                 source_ref: entry.table_metadata?.source_ref || '',
                 license: entry.table_metadata?.license || '',

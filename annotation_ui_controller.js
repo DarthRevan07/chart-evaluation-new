@@ -230,12 +230,9 @@ class AnnotationUIController {
             const normalizedPath = matchedAnnotation?.dataset_info?.integrated_csv_path
                 ? `./${matchedAnnotation.dataset_info.integrated_csv_path}`
                 : (() => {
-                    const raw = String(matchedAnnotation?.dataset_info?.file_path || matchedAnnotation?.table_metadata?.file_path || '')
-                        .replace(/\\/g, '/')
-                        .replace(/^\.?\//, '');
-                    if (!raw) return '';
-                    const withoutDatasets = raw.startsWith('datasets/') ? raw.slice('datasets/'.length) : raw;
-                    return `./integrated/datasets/${withoutDatasets}`;
+                    const a = String(matchedAnnotation?.artefact || '').trim();
+                    const t = String(matchedAnnotation?.table || tableId || '').trim();
+                    return (a && t) ? `./integrated/datasets/${a}/${t}.csv` : '';
                 })();
 
             if (!normalizedPath) {

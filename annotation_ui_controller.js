@@ -227,8 +227,16 @@ class AnnotationUIController {
                     String(entry.table) === String(tableId)
                     && String(entry.artefact || '') === String(currentAnnotation?.artefact || '')
                 );
-            const filePath = matchedAnnotation?.dataset_info?.file_path || matchedAnnotation?.table_metadata?.file_path || '';
-            const normalizedPath = filePath ? `./integrated/data/${filePath.replace(/\\/g, '/')}` : '';
+            const normalizedPath = matchedAnnotation?.dataset_info?.integrated_csv_path
+                ? `./${matchedAnnotation.dataset_info.integrated_csv_path}`
+                : (() => {
+                    const raw = String(matchedAnnotation?.dataset_info?.file_path || matchedAnnotation?.table_metadata?.file_path || '')
+                        .replace(/\\/g, '/')
+                        .replace(/^\.?\//, '');
+                    if (!raw) return '';
+                    const withoutDatasets = raw.startsWith('datasets/') ? raw.slice('datasets/'.length) : raw;
+                    return `./integrated/datasets/${withoutDatasets}`;
+                })();
 
             if (!normalizedPath) {
                 throw new Error('No integrated data path found for this table');

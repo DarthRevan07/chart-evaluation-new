@@ -1090,6 +1090,7 @@
                 ? window.annotationUI.getCurrentAnnotation()
                 : null;
             const currentFilePath = currentAnnotation?.dataset_info?.file_path || currentAnnotation?.table_metadata?.file_path || '';
+            const currentIntegratedPath = currentAnnotation?.dataset_info?.integrated_csv_path || '';
             const matchedEntry = !currentFilePath && window.annotationLoader && Array.isArray(window.annotationLoader.allEntries)
                     ? window.annotationLoader.allEntries.find(entry => {
                         const info = entry.dataset_info || entry.table_metadata || {};
@@ -1098,16 +1099,21 @@
                     })
                 : null;
             const matchedFilePath = matchedEntry?.dataset_info?.file_path || matchedEntry?.table_metadata?.file_path || '';
-            const resolvedFilePath = currentFilePath || matchedFilePath;
+            const matchedIntegratedPath = matchedEntry?.dataset_info?.integrated_csv_path || '';
+            const resolvedIntegratedPath = currentIntegratedPath
+                || matchedIntegratedPath
+                || ((currentFilePath || matchedFilePath)
+                    ? `integrated/datasets/${String(currentFilePath || matchedFilePath).replace(/\\/g, '/').replace(/^\.?\//, '').replace(/^datasets\//, '')}`
+                    : '');
 
-            if (!resolvedFilePath) {
+            if (!resolvedIntegratedPath) {
                 throw new Error('No integrated data file mapping found for dataset: ' + dataset);
             }
             
             try {
-                const response = await fetch('integrated/data/' + resolvedFilePath.replace(/\\/g, '/'));
+                const response = await fetch(resolvedIntegratedPath);
                 if (!response.ok) {
-                    throw new Error(`Failed to load CSV file: ${resolvedFilePath} (Status: ${response.status})`);
+                    throw new Error(`Failed to load CSV file: ${resolvedIntegratedPath} (Status: ${response.status})`);
                 }
                 
                 const csvText = await response.text();
@@ -2295,7 +2301,10 @@
             const table = annotation.table;
             const datasetInfo = annotation.dataset_info || annotation.table_metadata || {};
             const filePath = datasetInfo.file_path || annotation.table_metadata?.file_path || '';
-            const normalizedCsvPath = filePath ? `integrated/data/${filePath.replace(/\\/g, '/')}` : '';
+            const normalizedCsvPath = datasetInfo.integrated_csv_path
+                || (filePath
+                    ? `integrated/datasets/${filePath.replace(/\\/g, '/').replace(/^\.?\//, '').replace(/^datasets\//, '')}`
+                    : '');
 
             // Populate dataset name and category from sampled_all metadata
             let datasetName = `Dataset ${table}`;
@@ -2316,7 +2325,7 @@
                 narrativeBox.style.display = 'block';
             }
 
-            // Load the CSV directly from integrated/data using file_path from sampled_all.json
+            // Load the CSV directly from integrated/datasets using file_path from sampled_all.json
             try {
                 if (!normalizedCsvPath) throw new Error('No integrated data file_path found for this entry');
                 const csvRes = await fetch(normalizedCsvPath);

@@ -4,11 +4,16 @@
 // After deploying the Apps Script web app, paste the URL below.
 // See google_apps_script.gs for setup instructions.
 const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwAp70eVlIS0YCzzGfZCFb03HDpP1o-zAqSGeNFm-yrmK9ZjlEgUxxfEtiRg8sX9qX-1g/exec';
+window.GOOGLE_SCRIPT_URL = GOOGLE_SCRIPT_URL;
 // ─────────────────────────────────────────────────────────────────────────────
 
 // Storage for evaluations
 let simpleEvaluations = {};
 let currentPair = null;
+const AUTO_SAVE_INTERVAL_MS = 100;
+let autoSaveIntervalId = null;
+let pendingLoadTimeoutId = null;
+const lastAutoSavePayloadByPair = {};
 
 // Label maps for each slider dimension
 const SLIDER_LABELS = {
@@ -39,10 +44,23 @@ function makeSliderValue(sliderId, score) {
 // Initialize simple evaluation for a pair
 function initializeSimpleEvaluation(pairId, pairMetadata) {
     currentPair = { id: pairId, metadata: pairMetadata };
+    window.currentPair = currentPair;
     
     // Clear form first
     clearSimpleEvaluationForm();
     
+    if (!simpleEvaluations[pairId]) {
+        // Restore from per-pair auto-save key if available
+        const autoSaved = localStorage.getItem('evaluation_' + pairId);
+        if (autoSaved) {
+            try {
+                simpleEvaluations[pairId] = JSON.parse(autoSaved);
+            } catch (e) {
+                console.warn('Failed to parse auto-saved evaluation for pair:', pairId);
+            }
+        }
+    }
+
     if (!simpleEvaluations[pairId]) {
         simpleEvaluations[pairId] = {
             pairId: pairId,
@@ -78,9 +96,13 @@ function initializeSimpleEvaluation(pairId, pairMetadata) {
         };
     }
     
-    // Load saved responses into the form after a short delay to ensure form is cleared
-    setTimeout(() => {
+    // Load saved responses after a short delay; cancel stale loads from rapid navigation.
+    if (pendingLoadTimeoutId) {
+        clearTimeout(pendingLoadTimeoutId);
+    }
+    pendingLoadTimeoutId = setTimeout(() => {
         loadSimpleEvaluation(pairId);
+        pendingLoadTimeoutId = null;
     }, 50);
 }
 
@@ -172,20 +194,177 @@ function saveSimpleEvaluation() {
     console.log('Saved evaluation for pair:', pairId, evaluation);
 }
 
+// Silently capture DOM state for a single pair and write only that pair's entry
+// to localStorage. Called automatically on navigation — no notification shown.
+function autoSavePair(pairId) {
+    if (!pairId || !simpleEvaluations[pairId]) return;
+
+    const evaluation = simpleEvaluations[pairId];
+
+    const readSlider = (id) => {
+        const el = document.getElementById(id);
+        const score = el ? parseInt(el.value) : 1;
+        const val = makeSliderValue(id, score);
+        const ts = evaluation.sliderTimestamps && evaluation.sliderTimestamps[id];
+        if (ts) val.lastUpdatedAt = ts;
+        return val;
+    };
+    evaluation.chartA.readability = readSlider('chart_a_readability');
+    evaluation.chartA.precision   = readSlider('chart_a_precision');
+    evaluation.chartA.aesthetics  = readSlider('chart_a_aesthetics');
+    evaluation.chartB.readability = readSlider('chart_b_readability');
+    evaluation.chartB.precision   = readSlider('chart_b_precision');
+    evaluation.chartB.aesthetics  = readSlider('chart_b_aesthetics');
+
+    const chartAImg = document.getElementById('chartA');
+    const chartBImg = document.getElementById('chartB');
+    evaluation.chartA.imagePath = chartAImg ? chartAImg.src : null;
+    evaluation.chartB.imagePath = chartBImg ? chartBImg.src : null;
+    evaluation.displayedImages = {
+        chartA: evaluation.chartA.imagePath,
+        chartB: evaluation.chartB.imagePath
+    };
+
+    const hiddenPref = document.getElementById('overall_preference_hidden');
+    const hiddenPrefValue = hiddenPref ? hiddenPref.value : '';
+    if (hiddenPrefValue) {
+        evaluation.overallPreference = hiddenPrefValue;
+    } else {
+        evaluation.overallPreference = null;
+        const preferenceRadios = document.querySelectorAll('input[name="overall_preference"]');
+        for (const radio of preferenceRadios) {
+            if (radio.checked) { evaluation.overallPreference = radio.value; break; }
+        }
+    }
+
+    evaluation.comments_a    = document.getElementById('evaluation_comments_a')?.value.trim()    || '';
+    evaluation.comments_b    = document.getElementById('evaluation_comments_b')?.value.trim()    || '';
+    evaluation.comments_pref = document.getElementById('evaluation_comments_pref')?.value.trim() || '';
+    evaluation.comments = [evaluation.comments_a, evaluation.comments_b, evaluation.comments_pref].filter(Boolean).join('; ');
+
+    evaluation.autoSavedAt = new Date().toISOString();
+    checkAndUpdateCompletion(pairId);
+
+    // Write only when payload changes to avoid unnecessary localStorage churn.
+    const serialized = JSON.stringify(evaluation);
+    if (lastAutoSavePayloadByPair[pairId] === serialized) return;
+    lastAutoSavePayloadByPair[pairId] = serialized;
+
+    // Write only this pair — not the entire simpleEvaluations object
+    localStorage.setItem('evaluation_' + pairId, serialized);
+}
+
+function startAutoSaveTimer() {
+    if (autoSaveIntervalId) return;
+
+    autoSaveIntervalId = setInterval(() => {
+        if (currentPair && currentPair.id) {
+            autoSavePair(currentPair.id);
+        }
+    }, AUTO_SAVE_INTERVAL_MS);
+}
+
+function isCoverageAdminModeEnabled() {
+    try {
+        const params = new URLSearchParams(window.location.search);
+        return params.get('admin') === '1';
+    } catch (_) {
+        return false;
+    }
+}
+
+function initCoverageStatsPanel() {
+    if (!isCoverageAdminModeEnabled()) return;
+
+    const panel = document.createElement('div');
+    panel.id = 'coverageStatsPanel';
+    panel.style.cssText = [
+        'position: fixed',
+        'right: 14px',
+        'bottom: 14px',
+        'z-index: 9999',
+        'background: rgba(33,37,41,0.95)',
+        'color: #fff',
+        'border-radius: 8px',
+        'padding: 10px 12px',
+        'font-size: 12px',
+        'line-height: 1.45',
+        'min-width: 260px',
+        'max-width: 320px',
+        'box-shadow: 0 6px 18px rgba(0,0,0,0.25)'
+    ].join(';');
+    panel.innerHTML = '<div><strong>Coverage Stats</strong></div><div id="coverageStatsBody">Loading...</div>';
+    document.body.appendChild(panel);
+
+    const fetchStats = async () => {
+        const bodyEl = document.getElementById('coverageStatsBody');
+        if (!bodyEl) return;
+
+        try {
+            const entryIds = (window.annotationLoader && Array.isArray(window.annotationLoader.allEntries))
+                ? window.annotationLoader.allEntries.map(a => a.entry_id).filter(Boolean)
+                : [];
+
+            const response = await fetch(GOOGLE_SCRIPT_URL, {
+                method: 'POST',
+                headers: { 'Content-Type': 'text/plain' },
+                body: JSON.stringify({
+                    action: 'get_coverage_stats',
+                    targetPerEntry: 5,
+                    entryIds
+                })
+            });
+
+            if (!response.ok) {
+                throw new Error(`HTTP ${response.status}`);
+            }
+
+            const stats = await response.json();
+            if (stats.status !== 'ok') {
+                throw new Error(stats.message || 'Unknown stats error');
+            }
+
+            bodyEl.innerHTML = [
+                `Assigned >= target: ${stats.coveredEntries}/${stats.totalEntries} (${stats.completionPercent}%)`,
+                `Completed >= target: ${stats.completionCoveredEntries}/${stats.totalEntries} (${stats.completionCoveragePercent}%)`,
+                `Assign Min/Avg/Max: ${stats.minAssignedCount} / ${stats.averageAssignedCount} / ${stats.maxAssignedCount}`,
+                `Complete Min/Avg/Max: ${stats.minCompletedCount} / ${stats.averageCompletedCount} / ${stats.maxCompletedCount}`,
+                `Remaining assignments: ${stats.remainingAssignmentsToTarget}`,
+                `Remaining completions: ${stats.remainingCompletionsToTarget}`
+            ].join('<br>');
+        } catch (error) {
+            bodyEl.textContent = `Stats unavailable: ${error.message}`;
+        }
+    };
+
+    fetchStats();
+    setInterval(fetchStats, 15000);
+}
+
 // Submit ALL evaluations to the server (batch).
 // Falls back to sequential one-by-one if the server rejects the batch payload.
 async function submitSimpleEvaluation() {
-    // Save whatever is currently on screen first
+    // Auto-save the current (last) pair before validating
     if (currentPair && currentPair.id) {
-        const curEv = simpleEvaluations[currentPair.id];
-        if (curEv && !curEv.overallPreference) {
-            showNotification('❗ Please select an overall preference for the current pair before submitting.', 'warning');
-            return;
-        }
-        saveSimpleEvaluation();
+        autoSavePair(currentPair.id);
     }
 
+    // Validate that every pair has been visited and has a preference selected
+    const totalPairs = window.annotationLoader ? window.annotationLoader.getTotalAnnotations() : null;
     const allEvaluations = Object.values(simpleEvaluations);
+
+    if (totalPairs !== null && allEvaluations.length < totalPairs) {
+        const missing = totalPairs - allEvaluations.length;
+        showNotification(`❗ ${missing} pair(s) have not been visited yet. Please go through all pairs before submitting.`, 'warning');
+        return;
+    }
+
+    const incomplete = allEvaluations.filter(ev => !ev.overallPreference);
+    if (incomplete.length > 0) {
+        showNotification(`❗ ${incomplete.length} pair(s) are missing an overall preference. Please complete all pairs before submitting.`, 'warning');
+        return;
+    }
+
     if (allEvaluations.length === 0) {
         showNotification('❗ No evaluations to submit.', 'warning');
         return;
@@ -442,10 +621,7 @@ function initializeSliderDisplays() {
                 updateSliderDisplay(this, valueDisplay);
                 updateTooltipDisplay(this);
                 if (currentPair && currentPair.id) {
-                    setTimeout(() => {
-                        saveSimpleEvaluation();
-                        console.log('Auto-saved slider change for pair:', currentPair.id);
-                    }, 100);
+                    autoSavePair(currentPair.id);
                 }
             });
             
@@ -857,17 +1033,23 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     addExportButtons();
     initializeSliderDisplays(); // Initialize slider-specific functionality
+    startAutoSaveTimer();
+    initCoverageStatsPanel();
     
     // Add event listeners for radio button changes to auto-save
     document.addEventListener('change', function(e) {
         if (e.target.closest('.simple-evaluation-form') && e.target.type === 'radio') {
             // Auto-save when radio button changes, but only if we have a current pair
             if (currentPair && currentPair.id) {
-                setTimeout(() => {
-                    saveSimpleEvaluation();
-                    console.log('Auto-saved radio change for pair:', currentPair.id);
-                }, 100);
+                autoSavePair(currentPair.id);
             }
+        }
+    });
+
+    // Flush one last auto-save when the user leaves the page.
+    window.addEventListener('beforeunload', function() {
+        if (currentPair && currentPair.id) {
+            autoSavePair(currentPair.id);
         }
     });
     

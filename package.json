@@ -1,8 +1,11 @@
 {
-  "name": "chart-evaluation-backend",
+  "name": "chart-evaluation",
   "version": "1.0.0",
-  "description": "Backend functions for chart evaluation form",
-  "dependencies": {
-    "discord-webhook-node": "^1.1.8"
+  "description": "Google Apps Script based chart evaluation form",
+  "scripts": {
+    "lookup:pair": "node scripts/generate_pair_lookup.js",
+    "test": "npm run test:allocator && npm run test:completion",
+    "test:allocator": "node tests/assignment_allocator.test.js",
+    "test:completion": "node tests/completion_coverage_tracker.test.js"
   }
 }

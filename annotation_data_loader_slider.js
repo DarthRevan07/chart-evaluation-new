@@ -1,7 +1,7 @@
 /**
  * Annotation Data Loader (Slider)
- * Handles loading and parsing of question annotation data from annotate_slider.json
- * and associated dataset information from YAML files
+ * Handles loading and parsing of question annotation data from integrated/sampled_all.json
+ * and obtaining a quota-aware per-user assignment from the backend.
  */
 
 class AnnotationDataLoader {
@@ -9,8 +9,12 @@ class AnnotationDataLoader {
         this.annotationData = null;
         this.currentAnnotationIndex = 0;
         this.annotations = [];
+        this.allEntries = [];
         this.datasetInfoCache = {}; // Cache for YAML dataset info
         this.isInitialized = false;
+        this.sampleSize = 15;
+        this.targetUsersPerEntry = 5;
+        this.assignmentApiUrl = null;
     }
 
     /**
@@ -19,8 +23,10 @@ class AnnotationDataLoader {
     async initialize() {
         console.log('Initializing Annotation Data Loader...');
         try {
+            this.assignmentApiUrl = (typeof window !== 'undefined' && window.GOOGLE_SCRIPT_URL)
+                ? window.GOOGLE_SCRIPT_URL
+                : null;
             await this.loadAnnotationData();
-            await this.loadDatasetInfo();
             this.isInitialized = true;
             console.log(`Loaded ${this.annotations.length} annotations`);
             return true;
@@ -35,18 +41,39 @@ class AnnotationDataLoader {
      */
     async loadAnnotationData() {
         try {
-            const response = await fetch('./annotate_slider.json');
+            const response = await fetch('./integrated/sampled_all.json');
             if (!response.ok) {
                 throw new Error(`Failed to load annotation data: ${response.status}`);
             }
 
             this.annotationData = await response.json();
-            this.annotations = this.annotationData.annotations || [];
+            const rawEntries = this.annotationData.entries || this.annotationData.annotations || [];
+            const normalizedEntries = rawEntries
+                .map((entry, index) => this.normalizeEntry(entry, index))
+                .filter(entry => Array.isArray(entry.variants) && entry.variants.length >= 2);
 
-            // Fisher-Yates shuffle so every annotator session sees a unique random order
-            for (let i = this.annotations.length - 1; i > 0; i--) {
-                const j = Math.floor(Math.random() * (i + 1));
-                [this.annotations[i], this.annotations[j]] = [this.annotations[j], this.annotations[i]];
+            this.allEntries = normalizedEntries;
+
+            // Build table-level cache from normalized entries
+            normalizedEntries.forEach(entry => {
+                if (entry.table && entry.dataset_info && !this.datasetInfoCache[entry.table]) {
+                    this.datasetInfoCache[entry.table] = entry.dataset_info;
+                }
+            });
+
+            const assignedEntryIds = await this.getAssignedEntryIds(normalizedEntries);
+            const assignedIdSet = new Set(assignedEntryIds);
+            this.annotations = normalizedEntries.filter(entry => assignedIdSet.has(entry.entry_id));
+
+            if (this.annotations.length === 0) {
+                console.warn('Assigned set produced no matching entries. Falling back to local random subset.');
+                this.annotations = this.shuffleCopy(normalizedEntries).slice(0, Math.min(this.sampleSize, normalizedEntries.length));
+            }
+
+            // Keep a deterministic order from assignment response when available
+            if (assignedEntryIds.length > 0) {
+                const position = new Map(assignedEntryIds.map((id, idx) => [id, idx]));
+                this.annotations.sort((a, b) => (position.get(a.entry_id) ?? 9999) - (position.get(b.entry_id) ?? 9999));
             }
 
             console.log('Annotation data loaded successfully:', {
@@ -59,80 +86,129 @@ class AnnotationDataLoader {
         }
     }
 
-    /**
-     * Load dataset information from YAML files for all unique tables
-     */
-    async loadDatasetInfo() {
-        // Get unique table IDs from annotations
-        const uniqueTableIds = [...new Set(this.annotations.map(ann => ann.table))];
+    normalizeEntry(entry, index) {
+        const isIntegrated = Object.prototype.hasOwnProperty.call(entry, 'table_id')
+            || Object.prototype.hasOwnProperty.call(entry, 'summary_text')
+            || Object.prototype.hasOwnProperty.call(entry, 'question_text');
 
-        console.log('Loading dataset info for tables:', uniqueTableIds);
-
-        // Load YAML info for each unique table
-        for (const tableId of uniqueTableIds) {
-            try {
-                const yamlContent = await this.fetchYamlContent(tableId);
-                this.datasetInfoCache[tableId] = yamlContent;
-                console.log(`Loaded dataset info for table ${tableId}:`, yamlContent.dataset_name);
-            } catch (error) {
-                console.warn(`Failed to load dataset info for table ${tableId}:`, error);
-                // Provide fallback info
-                this.datasetInfoCache[tableId] = {
-                    dataset_name: `Dataset ${tableId}`,
+        if (!isIntegrated) {
+            const stableId = entry.entry_id || `${entry.table || 't'}_${entry.summary_idx || 's'}_${entry.question_idx || 'q'}_${index}`;
+            return {
+                ...entry,
+                entry_id: stableId,
+                dataset_info: entry.dataset_info || {
+                    dataset_name: `Dataset ${entry.table}`,
                     category: 'unknown',
-                    index: tableId
-                };
-            }
+                    index: entry.table
+                }
+            };
         }
+
+        const tableId = String(entry.table_id ?? '');
+        const renderedPath = String(entry.rendered_path || '');
+        const normalizedBasePath = renderedPath.startsWith('charts/')
+            ? `integrated/${renderedPath}`
+            : `integrated/charts/${renderedPath}`;
+
+        const stableId = `${entry.artefact || 'src'}_${tableId}_s${entry.summary_idx || 0}_q${entry.question_idx || 0}_${(entry.variants || []).join('__')}`;
+
+        return {
+            entry_id: stableId,
+            table: tableId,
+            summary_idx: entry.summary_idx,
+            narrative_summary: entry.summary_text || '',
+            question_idx: entry.question_idx,
+            question_string: entry.question_text || '',
+            variants: Array.isArray(entry.variants) ? entry.variants.slice(0, 2) : [],
+            chart_base_path: normalizedBasePath,
+            rendered_path: renderedPath,
+            artefact: entry.artefact || '',
+            table_metadata: entry.table_metadata || {},
+            summary_context: entry.summary_context || {},
+            dataset_info: {
+                dataset_name: entry.table_metadata?.table_name || `Dataset ${tableId}`,
+                category: entry.table_metadata?.category || 'unknown',
+                index: tableId
+            }
+        };
     }
 
-    /**
-     * Fetch and parse YAML content for a given table ID
-     */
-    async fetchYamlContent(tableId) {
-        const yamlPath = `./csv_c_squared/${tableId}_info.yaml`;
+    getOrCreateSessionId() {
+        let sessionId = localStorage.getItem('evaluationSessionId');
+        if (!sessionId) {
+            sessionId = 'session_' + Date.now() + '_' + Math.random().toString(36).slice(2, 11);
+            localStorage.setItem('evaluationSessionId', sessionId);
+        }
+        return sessionId;
+    }
+
+    shuffleCopy(list) {
+        const copy = list.slice();
+        for (let i = copy.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [copy[i], copy[j]] = [copy[j], copy[i]];
+        }
+        return copy;
+    }
+
+    async getAssignedEntryIds(normalizedEntries) {
+        const sessionId = this.getOrCreateSessionId();
+        const cacheKey = `assignedEntryIds_${sessionId}`;
+        const cached = localStorage.getItem(cacheKey);
+        const allIdSet = new Set(normalizedEntries.map(entry => entry.entry_id));
+        if (cached) {
+            try {
+                const parsed = JSON.parse(cached);
+                if (Array.isArray(parsed) && parsed.length > 0) {
+                    const valid = parsed.filter(id => allIdSet.has(id));
+                    if (valid.length > 0) {
+                        return valid;
+                    }
+                }
+            } catch (_) {
+                // ignore cache parse errors and re-request
+            }
+        }
+
+        const allIds = normalizedEntries.map(entry => entry.entry_id);
+
+        if (!this.assignmentApiUrl) {
+            const fallbackIds = this.shuffleCopy(allIds).slice(0, Math.min(this.sampleSize, allIds.length));
+            localStorage.setItem(cacheKey, JSON.stringify(fallbackIds));
+            return fallbackIds;
+        }
 
         try {
-            const response = await fetch(yamlPath);
+            const response = await fetch(this.assignmentApiUrl, {
+                method: 'POST',
+                headers: { 'Content-Type': 'text/plain' },
+                body: JSON.stringify({
+                    action: 'assign_entries',
+                    sessionId,
+                    entryIds: allIds,
+                    sampleSize: this.sampleSize,
+                    targetPerEntry: this.targetUsersPerEntry
+                })
+            });
+
             if (!response.ok) {
-                throw new Error(`YAML file not found: ${yamlPath}`);
+                throw new Error(`Assignment request failed: HTTP ${response.status}`);
             }
 
-            const yamlText = await response.text();
-            return this.parseYaml(yamlText);
+            const payload = await response.json();
+            const assigned = Array.isArray(payload.assignedEntryIds) ? payload.assignedEntryIds : [];
+            if (assigned.length === 0) {
+                throw new Error('Assignment response missing assignedEntryIds');
+            }
+
+            localStorage.setItem(cacheKey, JSON.stringify(assigned));
+            return assigned;
         } catch (error) {
-            console.error(`Error fetching YAML for table ${tableId}:`, error);
-            throw error;
+            console.warn('Assignment API unavailable, falling back to local random sampling:', error);
+            const fallbackIds = this.shuffleCopy(allIds).slice(0, Math.min(this.sampleSize, allIds.length));
+            localStorage.setItem(cacheKey, JSON.stringify(fallbackIds));
+            return fallbackIds;
         }
-    }
-
-    /**
-     * Simple YAML parser for dataset info files
-     */
-    parseYaml(yamlText) {
-        const result = {};
-        const lines = yamlText.split('\n');
-
-        for (const line of lines) {
-            const trimmedLine = line.trim();
-            if (trimmedLine && !trimmedLine.startsWith('#')) {
-                const colonIndex = trimmedLine.indexOf(':');
-                if (colonIndex !== -1) {
-                    const key = trimmedLine.substring(0, colonIndex).trim();
-                    let value = trimmedLine.substring(colonIndex + 1).trim();
-
-                    // Remove quotes if present
-                    if ((value.startsWith('"') && value.endsWith('"')) ||
-                        (value.startsWith("'") && value.endsWith("'"))) {
-                        value = value.slice(1, -1);
-                    }
-
-                    result[key] = value;
-                }
-            }
-        }
-
-        return result;
     }
 
     /**

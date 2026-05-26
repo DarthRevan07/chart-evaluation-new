@@ -71,6 +71,9 @@ class AnnotationUIController {
      */
     navigatePrevious() {
         console.log('navigatePrevious called, current index:', this.loader.getCurrentIndex());
+        if (typeof autoSavePair === 'function' && window.currentPair?.id) {
+            autoSavePair(window.currentPair.id);
+        }
         const annotation = this.loader.previousAnnotation();
         if (annotation) {
             console.log('Moved to annotation index:', annotation.annotation_index);
@@ -84,6 +87,9 @@ class AnnotationUIController {
      */
     navigateNext() {
         console.log('navigateNext called, current index:', this.loader.getCurrentIndex());
+        if (typeof autoSavePair === 'function' && window.currentPair?.id) {
+            autoSavePair(window.currentPair.id);
+        }
         const annotation = this.loader.nextAnnotation();
         if (annotation) {
             console.log('Moved to annotation index:', annotation.annotation_index);
@@ -97,6 +103,9 @@ class AnnotationUIController {
      */
     handleSliderChange(value) {
         console.log('handleSliderChange called with value:', value);
+        if (typeof autoSavePair === 'function' && window.currentPair?.id) {
+            autoSavePair(window.currentPair.id);
+        }
         const index = parseInt(value);
         const annotation = this.loader.navigateToAnnotation(index);
         if (annotation) {
@@ -123,7 +132,7 @@ class AnnotationUIController {
     updateUI(annotation) {
         console.log('Updating UI with annotation:', annotation);
 
-        // Update dataset name from YAML instead of annotation fallback
+        // Update dataset name from loader cache/annotation payload
         this.updateDatasetName(annotation.table);
 
         // Update question display
@@ -142,24 +151,13 @@ class AnnotationUIController {
     /**
      * Update dataset name display using YAML data
      */
-    async updateDatasetName(tableNumber) {
+    updateDatasetName(tableNumber) {
         const datasetNameElement = document.getElementById('datasetName');
         if (datasetNameElement) {
-            // Show loading state
-            datasetNameElement.textContent = 'Loading...';
-            
-            // Load dataset name from YAML
-            if (typeof window.loadDatasetNameFromYAML === 'function') {
-                const datasetName = await window.loadDatasetNameFromYAML(tableNumber);
-                if (datasetName) {
-                    datasetNameElement.textContent = datasetName;
-                } else {
-                    datasetNameElement.textContent = 'Dataset name not found';
-                }
-            } else {
-                console.warn('loadDatasetNameFromYAML function not available');
-                datasetNameElement.textContent = `Table ${tableNumber}`;
-            }
+            const info = this.loader && typeof this.loader.getDatasetInfo === 'function'
+                ? this.loader.getDatasetInfo(tableNumber)
+                : null;
+            datasetNameElement.textContent = info?.dataset_name || `Table ${tableNumber}`;
         }
     }
 
@@ -353,6 +351,13 @@ class AnnotationUIController {
         
         if (nextBtn) {
             nextBtn.disabled = !this.loader.hasNext();
+        }
+
+        // Show the Submit button only on the last pair
+        const submitBtn = document.getElementById('submitBtn');
+        if (submitBtn) {
+            const isLast = !this.loader.hasNext();
+            submitBtn.style.display = isLast ? 'inline-block' : 'none';
         }
     }
 

@@ -1013,18 +1013,8 @@
             <div style="display: flex; flex-direction: row-reverse; flex-wrap: wrap; gap: 15px; align-items: stretch; justify-content: space-between;">
                 <!-- Form Actions -->
                 <div class="form-actions">
-                    <button type="button" class="save-btn" onclick="saveSimpleEvaluation()" style="
-                        background: #28a745;
-                        color: white;
-                        border: none;
-                        padding: 8px 16px;
-                        border-radius: 4px;
-                        font-size: 13px;
-                        font-weight: 500;
-                        cursor: pointer;
-                        transition: background 0.3s ease;
-                    ">💾 Save</button>
-                    <button type="button" class="submit-btn" onclick="submitSimpleEvaluation()" style="
+                    <button type="button" id="submitBtn" class="submit-btn" onclick="submitSimpleEvaluation()" style="
+                        display: none;
                         background: #007bff;
                         color: white;
                         border: none;
@@ -1034,7 +1024,7 @@
                         font-weight: 500;
                         cursor: pointer;
                         transition: background 0.3s ease;
-                    ">Submit</button>
+                    ">Submit All</button>
                 </div>
                 
             </div>
@@ -1318,24 +1308,42 @@
             }
         }
         
-        // Annotations loaded from annotate_slider.json
+        // Annotations loaded from integrated/sampled_all.json (or loader-assigned subset)
         let sliderAnnotations = [];
 
         // Initialize pair loading on page load
         async function initializeIntegratedPairs() {
             try {
-                console.log('Loading pairs from annotate_slider.json...');
-                const response = await fetch('annotate_slider.json');
+                console.log('Loading pairs from integrated/sampled_all.json...');
+                const response = await fetch('integrated/sampled_all.json');
                 if (!response.ok) throw new Error(`HTTP ${response.status}`);
                 const data = await response.json();
-                sliderAnnotations = data.annotations || [];
+                sliderAnnotations = (data.entries || data.annotations || []).map((entry, idx) => {
+                    if (entry && entry.question_string) return entry;
+                    const tableId = String(entry.table_id ?? entry.table ?? '');
+                    const renderedPath = String(entry.rendered_path || '');
+                    const chartBasePath = renderedPath.startsWith('charts/')
+                        ? `integrated/${renderedPath}`
+                        : `integrated/charts/${renderedPath}`;
+                    return {
+                        entry_id: entry.entry_id || `${entry.artefact || 'src'}_${tableId}_s${entry.summary_idx || 0}_q${entry.question_idx || 0}_${idx}`,
+                        table: tableId,
+                        summary_idx: entry.summary_idx,
+                        narrative_summary: entry.summary_text || entry.narrative_summary || '',
+                        question_idx: entry.question_idx,
+                        question_string: entry.question_text || entry.question_string || '',
+                        variants: entry.variants || [],
+                        chart_base_path: entry.chart_base_path || chartBasePath,
+                        artefact: entry.artefact || ''
+                    };
+                });
 
                 if (sliderAnnotations.length === 0) {
                     showNoPairsMessage();
                     return;
                 }
 
-                console.log(`Loaded ${sliderAnnotations.length} annotations`);
+                console.log(`Loaded ${sliderAnnotations.length} entries`);
 
                 // Set pair slider range
                 const pairSlider = document.getElementById('pairSlider');
@@ -1345,14 +1353,14 @@
                     pairSlider.value = 0;
                 }
 
-                loadCurrentPair();
-                updateSlideNavigation();
+                // Do not render here; assignment-aware annotation loader will render
+                // the authoritative 15-entry session subset.
                 addReturnToWelcomeButton();
 
                 if (typeof onPairsLoaded === 'function') onPairsLoaded();
 
             } catch (error) {
-                console.error('Failed to load annotate_slider.json:', error);
+                console.error('Failed to load integrated/sampled_all.json:', error);
                 showErrorMessage();
             }
         }
@@ -1752,8 +1760,11 @@
             updateDatasetInfoFromYAML(annotation.table);
 
             // Initialize evaluation tracking for this pair
-            const pairId = `${annotation.table}_${annotation.variants[0]}_vs_${annotation.variants[1]}`;
+            const stableEntryId = annotation.entry_id || `${annotation.table}_${annotation.summary_idx}_${annotation.question_idx}`;
+            const pairId = stableEntryId;
             const pairMetadata = {
+                entry_id: stableEntryId,
+                artefact: annotation.artefact || '',
                 table: annotation.table,
                 question: annotation.question_string,
                 variants: annotation.variants
@@ -1775,8 +1786,11 @@
                 }
             }
 
-            // Build path: prepend table/ if not already present
+            // Build chart path from normalized entry data.
             function buildPath(variant) {
+                if (annotation.chart_base_path) {
+                    return `${annotation.chart_base_path}/${variant}`;
+                }
                 const prefixed = variant.startsWith(annotation.table + '/') ? variant : annotation.table + '/' + variant;
                 return 'run2_variants_parallel_organized/' + prefixed;
             }
@@ -2380,8 +2394,8 @@
                     <li>Use the <strong>‹ ›</strong> arrow buttons or the dot indicators to move between slides within a question.</li>
                     <li> You may click on a chart image to enlarge it for a closer look. </li>
                     <li>Continuing past the last slide (slide 3) will advance you to the next annotation question.</li>
-                    <li>Use the <strong>💾 Save</strong> button at any point to save your current responses without submitting.</li>
-                    <li>Click <strong>Submit</strong> once you are satisfied with all your responses for that annotation case.</li>
+                    <li>Your responses are auto-saved whenever you navigate between pairs — no manual saving needed.</li>
+                    <li>A <strong>Submit All</strong> button will appear when you reach the last pair. You can only submit once all pairs have a preference selected.</li>
                     <li>You can also download all your saved responses as a JSON file at any time using the download button (<strong> Recommended for this PILOT STUDY </strong>).</li>
                 </ul>
 

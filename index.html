@@ -1606,16 +1606,19 @@
             const counter = document.getElementById('slideQuestionCounter');
             if (counter && sliderAnnotations.length > 0) {
                 const current = window.annotationLoader ? window.annotationLoader.getCurrentIndex() + 1 : 1;
-                counter.textContent = `${current} / ${sliderAnnotations.length}`;
+                const total = window.annotationLoader ? window.annotationLoader.getTotalAnnotations() : sliderAnnotations.length;
+                counter.textContent = `${current} / ${total}`;
             }
             
             // Update sticky header with current dataset name
             const stickyDatasetText = document.getElementById('stickyDatasetText');
             if (stickyDatasetText) {
-                const idx = window.annotationLoader ? window.annotationLoader.getCurrentIndex() : 0;
-                const annotation = sliderAnnotations[idx];
+                const annotation = window.annotationLoader && typeof window.annotationLoader.getCurrentAnnotationWithDatasetInfo === 'function'
+                    ? window.annotationLoader.getCurrentAnnotationWithDatasetInfo()
+                    : null;
                 if (annotation && (stickyDatasetText.textContent === 'Loading dataset...' || stickyDatasetText.textContent === 'Loading...')) {
-                    stickyDatasetText.textContent = `Dataset: ${annotation.table}`;
+                    const dsName = annotation.dataset_info?.table_name || annotation.dataset_info?.dataset_name || annotation.table;
+                    stickyDatasetText.textContent = `Dataset: ${dsName}`;
                 }
             }
 
@@ -1741,8 +1744,9 @@
             placeholderA.textContent = 'Loading Chart A...';
             placeholderB.textContent = 'Loading Chart B...';
 
-            const idx = window.annotationLoader ? window.annotationLoader.getCurrentIndex() : 0;
-            const annotation = sliderAnnotations[idx];
+            const annotation = window.annotationLoader && typeof window.annotationLoader.getCurrentAnnotationWithDatasetInfo === 'function'
+                ? window.annotationLoader.getCurrentAnnotationWithDatasetInfo()
+                : null;
 
             if (!annotation) {
                 placeholderA.textContent = 'No annotation found';
@@ -2240,6 +2244,7 @@
                 <div id="modalDatasetMeta" style="margin-bottom: 14px; padding: 10px 14px; background: #f8f9fa; border-radius: 6px; border-left: 3px solid #007bff; font-size: 0.88em; color: #495057; display: none;">
                     <div><strong>Dataset Name:</strong> <span id="modalDatasetName"></span></div>
                     <div style="margin-top: 4px;"><strong>Category:</strong> <span id="modalDatasetCategory"></span></div>
+                    <div style="margin-top: 4px;"><strong>Source URL:</strong> <span id="modalDatasetSourceUrl"></span></div>
                 </div>
                 <div id="modalNarrativeSummary" style="display: none; margin-bottom: 14px; padding: 12px 16px; background: #fff8e1; border-radius: 6px; border-left: 3px solid #ffc107; font-size: 0.88em; color: #495057; line-height: 1.6;">
                     <div style="font-weight: 600; margin-bottom: 6px; color: #856404;">&#128218; Narrative Summary</div>
@@ -2276,6 +2281,7 @@
             const metaBox         = document.getElementById('modalDatasetMeta');
             const nameEl          = document.getElementById('modalDatasetName');
             const categoryEl      = document.getElementById('modalDatasetCategory');
+            const sourceUrlEl     = document.getElementById('modalDatasetSourceUrl');
 
             // Reset to loading state
             if (tableContainer) {
@@ -2292,8 +2298,9 @@
             if (narrativeBox)  narrativeBox.style.display = 'none';
 
             // Determine current annotation
-            const idx        = window.annotationLoader ? window.annotationLoader.getCurrentIndex() : 0;
-            const annotation = sliderAnnotations[idx];
+            const annotation = window.annotationLoader && typeof window.annotationLoader.getCurrentAnnotationWithDatasetInfo === 'function'
+                ? window.annotationLoader.getCurrentAnnotationWithDatasetInfo()
+                : null;
             if (!annotation) {
                 if (tableContainer) tableContainer.innerHTML = '<div style="text-align:center;padding:20px;color:#dc3545;">No annotation loaded.</div>';
                 return;
@@ -2313,14 +2320,23 @@
             // Populate dataset name and category from sampled_all metadata
             let datasetName = `Dataset ${table}`;
             let category    = '';
+            let sourceUrl   = '';
             if (window.annotationLoader && typeof window.annotationLoader.getDatasetInfo === 'function') {
                 const info = window.annotationLoader.getDatasetInfo(annotation);
                 if (info.dataset_name) datasetName = info.dataset_name;
                 if (info.category) category = info.category;
+                if (info.source_url) sourceUrl = info.source_url;
             }
 
             if (nameEl)     nameEl.textContent     = datasetName;
             if (categoryEl) categoryEl.textContent = category || 'N/A';
+            if (sourceUrlEl) {
+                if (sourceUrl) {
+                    sourceUrlEl.innerHTML = `<a href="${sourceUrl}" target="_blank" rel="noopener noreferrer">${sourceUrl}</a>`;
+                } else {
+                    sourceUrlEl.textContent = 'N/A';
+                }
+            }
             if (metaBox)    metaBox.style.display  = 'block';
 
             // Show narrative summary if available

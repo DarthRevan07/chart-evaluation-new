@@ -11,8 +11,8 @@
 // - Uses script lock to avoid race conditions under concurrent users.
 // ─────────────────────────────────────────────────────────────────────────────
 
-const SPREADSHEET_ID = 'YOUR_SPREADSHEET_ID_HERE'; // replace this
-const RESPONSES_SHEET = 'Responses';
+const SPREADSHEET_ID = '1zeTt5v5XPtdVJ9yEy_N7Mlr2o2Mp54gM8YC81hE2XT4'; // replace this
+const RESPONSES_SHEET = 'CrowdResponses';
 const ASSIGNMENTS_SHEET = 'AssignmentCounts';
 const SESSION_ASSIGNMENTS_SHEET = 'SessionAssignments';
 const COMPLETION_COUNTS_SHEET = 'CompletionCounts';

@@ -116,7 +116,7 @@
         
         .both-charts-container {
             display: flex;
-            gap: 20px;
+            gap: clamp(12px, 2vw, 28px);
             align-items: flex-start;
         }
         
@@ -124,7 +124,8 @@
             display: flex;
             flex-direction: column;
             gap: 15px;
-            flex: 1;
+            flex: 0 0 70%;
+            max-width: 70%;
             min-width: 0;
         }
         
@@ -142,7 +143,11 @@
         
         .chart-image-container {
             position: relative;
-            min-height: 100px;
+            min-height: clamp(260px, 44vh, 760px);
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
         
         /* Combined Fixed Header with Question and Controls */
@@ -342,9 +347,9 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            height: 400px;
-            width: 120%;
-            max-width: 600px;
+            min-height: clamp(260px, 44vh, 760px);
+            width: 100%;
+            max-width: none;
             background-color: #ffffff;
             border: 1px solid #dee2e6;
             border-radius: 4px;
@@ -356,9 +361,9 @@
         }
         
         .chart-image {
-            max-width: 550px;
-            max-height: 420px;
-            width: auto;
+            width: 100%;
+            max-width: none;
+            max-height: 75vh;
             height: auto;
             object-fit: contain;
         }
@@ -395,6 +400,11 @@
             justify-content: center;
             margin: 20px 0;
         }
+
+        .charts-for-selection .selectable-chart {
+            flex: 1 1 0;
+            min-width: 0;
+        }
         
         .selection-chart-title {
             text-align: center;
@@ -402,6 +412,28 @@
             margin-bottom: 10px;
             font-size: 1.1em;
             font-weight: 600;
+        }
+
+        .chart-select-btn {
+            display: inline-block;
+            background: #f1f3f5;
+            border: 1px solid #ced4da;
+            color: #343a40;
+            padding: 6px 12px;
+            border-radius: 8px;
+            font-size: 1em;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .chart-select-btn:hover {
+            background: #e9ecef;
+            border-color: #adb5bd;
+        }
+
+        .chart-select-btn:active {
+            transform: scale(0.98);
         }
         
         .selection-chart-container {
@@ -411,8 +443,9 @@
         }
         
         .selection-image {
-            max-width: 100%;
-            max-height: 380px;
+            width: 100%;
+            max-width: none;
+            max-height: clamp(320px, 58vh, 900px);
             object-fit: contain;
             cursor: pointer;
             transition: transform 0.2s ease;
@@ -495,7 +528,7 @@
         
         .modal-chart-section {
             flex: 1;
-            min-width: 400px;
+            min-width: min(380px, 100%);
             text-align: center;
         }
         
@@ -517,13 +550,32 @@
         
         .selection-equal-option {
             text-align: center;
-            padding: 20px;
+            padding: 12px;
             border: 3px solid transparent;
             border-radius: 8px;
             cursor: pointer;
             background-color: #f8f9fa;
             transition: all 0.3s ease;
-            min-width: 200px;
+            min-width: 150px;
+        }
+
+        .selectable-chart.selectable-chart-equal {
+            flex: 0 0 180px;
+            max-width: 200px;
+        }
+
+        .selectable-chart.selectable-chart-equal .selection-chart-title {
+            font-size: 0.95em;
+            margin-bottom: 8px;
+        }
+
+        .selectable-chart.selectable-chart-equal .equal-icon {
+            font-size: 1.5em;
+            margin-bottom: 6px;
+        }
+
+        .selectable-chart.selectable-chart-equal p {
+            font-size: 12px;
         }
         
         .selection-equal-option:hover {
@@ -629,6 +681,17 @@
             
             .both-charts-container {
                 flex-direction: column;
+            }
+
+            .charts-comparison {
+                flex: 1 1 auto;
+                max-width: 100%;
+            }
+
+            .evaluation-section {
+                flex: 1 1 auto !important;
+                max-width: 100% !important;
+                min-width: 100% !important;
             }
             
             .evaluation-section {
@@ -741,7 +804,7 @@
                                 </div>
                                 
                                 <!-- Evaluation Questions for Chart A -->
-                                <div class="evaluation-section" style="flex: 1; min-width: 400px; padding-left: 20px;">
+                                <div class="evaluation-section" style="flex: 0 0 30%; max-width: 30%; min-width: min(320px, 100%); padding-left: 20px;">
                                     <div class="question-group" style="max-height: 500px; overflow-y: auto; padding-right: 10px;">
                                         <!-- Readability Question -->
                                         <div class="question-item">
@@ -852,7 +915,7 @@
                                 </div>
                                 
                                 <!-- Evaluation Questions for Chart B -->
-                                <div class="evaluation-section" style="flex: 1; min-width: 400px; padding-left: 20px;">
+                                <div class="evaluation-section" style="flex: 0 0 30%; max-width: 30%; min-width: min(320px, 100%); padding-left: 20px;">
                                     <div class="question-group" style="max-height: 500px; overflow-y: auto; padding-right: 10px;">
                                         <!-- Readability Question -->
                                         <div class="question-item">
@@ -953,23 +1016,27 @@
                                 
                                 <!-- Clickable Charts Side by Side -->
                                 <div class="charts-for-selection">
-                                    <div class="selectable-chart" id="selectableChartA" onclick="selectChart('Chart A')" ondblclick="openChartModal()">
-                                        <h4 class="selection-chart-title">Chart A</h4>
+                                    <div class="selectable-chart" id="selectableChartA" onclick="selectChart('Chart A')">
+                                        <h4 class="selection-chart-title">
+                                            <button type="button" class="chart-select-btn" onclick="selectChart('Chart A')" ondblclick="openPreferenceChartZoom('A')">Chart A</button>
+                                        </h4>
                                         <div class="selection-chart-container">
-                                            <img id="chartACompare" src="" alt="Chart A" class="chart-image selection-image" style="display: none; max-width: 100%; height: auto;" ondblclick="openChartModal()">
+                                            <img id="chartACompare" src="" alt="Chart A" class="chart-image selection-image" style="display: none; max-width: 100%; height: auto;">
                                             <div class="simple-placeholder" id="placeholderACompare">Loading Chart A...</div>
                                         </div>
                                     </div>
                                     
-                                    <div class="selectable-chart" id="selectableChartB" onclick="selectChart('Chart B')" ondblclick="openChartModal()">
-                                        <h4 class="selection-chart-title">Chart B</h4>
+                                    <div class="selectable-chart" id="selectableChartB" onclick="selectChart('Chart B')">
+                                        <h4 class="selection-chart-title">
+                                            <button type="button" class="chart-select-btn" onclick="selectChart('Chart B')" ondblclick="openPreferenceChartZoom('B')">Chart B</button>
+                                        </h4>
                                         <div class="selection-chart-container">
-                                            <img id="chartBCompare" src="" alt="Chart B" class="chart-image selection-image" style="display: none; max-width: 100%; height: auto;" ondblclick="openChartModal()">
+                                            <img id="chartBCompare" src="" alt="Chart B" class="chart-image selection-image" style="display: none; max-width: 100%; height: auto;">
                                             <div class="simple-placeholder" id="placeholderBCompare">Loading Chart B...</div>
                                         </div>
                                     </div>
                                     
-                                    <div class="selectable-chart" id="selectableEqual" onclick="selectChart('Both similar')">
+                                    <div class="selectable-chart selectable-chart-equal" id="selectableEqual" onclick="selectChart('Both similar')">
                                         <h4 class="selection-chart-title">No Strong Preference</h4>
                                         <div class="selection-equal-option">
                                             <div class="equal-icon">≈</div>
@@ -1309,6 +1376,7 @@
         
         // Annotations loaded from integrated/sampled_all.json (or loader-assigned subset)
         let sliderAnnotations = [];
+        let currentRenderedAnnotation = null;
 
         // Initialize pair loading on page load
         async function initializeIntegratedPairs() {
@@ -1320,10 +1388,15 @@
                 sliderAnnotations = (data.entries || data.annotations || []).map((entry, idx) => {
                     if (entry && entry.question_string) return entry;
                     const tableId = String(entry.table_id ?? entry.table ?? '');
-                    const renderedPath = String(entry.rendered_path || '');
-                    const chartBasePath = renderedPath.startsWith('charts/')
-                        ? `integrated/${renderedPath}`
-                        : `integrated/charts/${renderedPath}`;
+                    const renderedPath = String(entry.rendered_path || '').replace(/\\/g, '/').replace(/^\.\//, '');
+                    const chartBasePath = renderedPath.startsWith('integrated/')
+                        ? renderedPath
+                        : (renderedPath.startsWith('charts/')
+                            ? `integrated/${renderedPath}`
+                            : `integrated/charts/${renderedPath}`);
+                    const normalizedVariants = Array.isArray(entry.variants)
+                        ? entry.variants.map(v => String(v || '').trim()).filter(Boolean).slice(0, 2)
+                        : [];
                     return {
                         entry_id: entry.entry_id || `${entry.artefact || 'src'}_${tableId}_s${entry.summary_idx || 0}_q${entry.question_idx || 0}_${idx}`,
                         table: tableId,
@@ -1331,8 +1404,10 @@
                         narrative_summary: entry.summary_text || entry.narrative_summary || '',
                         question_idx: entry.question_idx,
                         question_string: entry.question_text || entry.question_string || '',
-                        variants: entry.variants || [],
+                        variants: normalizedVariants,
                         chart_base_path: entry.chart_base_path || chartBasePath,
+                        rendered_path: renderedPath,
+                        source_file: entry.source_file || '',
                         artefact: entry.artefact || ''
                     };
                 });
@@ -1613,9 +1688,10 @@
             // Update sticky header with current dataset name
             const stickyDatasetText = document.getElementById('stickyDatasetText');
             if (stickyDatasetText) {
-                const annotation = window.annotationLoader && typeof window.annotationLoader.getCurrentAnnotationWithDatasetInfo === 'function'
-                    ? window.annotationLoader.getCurrentAnnotationWithDatasetInfo()
-                    : null;
+                const annotation = currentRenderedAnnotation
+                    || (window.annotationLoader && typeof window.annotationLoader.getCurrentAnnotationWithDatasetInfo === 'function'
+                        ? window.annotationLoader.getCurrentAnnotationWithDatasetInfo()
+                        : null);
                 if (annotation && (stickyDatasetText.textContent === 'Loading dataset...' || stickyDatasetText.textContent === 'Loading...')) {
                     const dsName = annotation.dataset_info?.table_name || annotation.dataset_info?.dataset_name || annotation.table;
                     stickyDatasetText.textContent = `Dataset: ${dsName}`;
@@ -1754,6 +1830,8 @@
                 return;
             }
 
+            currentRenderedAnnotation = annotation;
+
             // Update question text
             const questionText = document.getElementById('questionText');
             if (questionText) questionText.textContent = annotation.question_string;
@@ -1791,11 +1869,32 @@
 
             // Build chart path from normalized entry data.
             function buildPath(variant) {
-                if (annotation.chart_base_path) {
-                    return `${annotation.chart_base_path}/${variant}`;
+                const normalizedVariant = String(variant || '').trim().replace(/\\/g, '/');
+                if (!normalizedVariant) return '';
+
+                if (/^(https?:|data:)/i.test(normalizedVariant)) {
+                    return normalizedVariant;
                 }
-                const prefixed = variant.startsWith(annotation.table + '/') ? variant : annotation.table + '/' + variant;
-                return 'run2_variants_parallel_organized/' + prefixed;
+
+                if (normalizedVariant.startsWith('integrated/')) {
+                    return normalizedVariant;
+                }
+
+                if (normalizedVariant.startsWith('charts/')) {
+                    return `integrated/${normalizedVariant}`;
+                }
+
+                const renderedPath = String(annotation.rendered_path || '').trim().replace(/\\/g, '/').replace(/^\.\//, '');
+                const basePath = annotation.chart_base_path
+                    || (renderedPath
+                        ? (renderedPath.startsWith('integrated/')
+                            ? renderedPath
+                            : (renderedPath.startsWith('charts/')
+                                ? `integrated/${renderedPath}`
+                                : `integrated/charts/${renderedPath}`))
+                        : '');
+
+                return basePath ? `${basePath}/${normalizedVariant}` : normalizedVariant;
             }
 
             const chartAPath = buildPath(annotation.variants[0]);
@@ -1808,7 +1907,7 @@
             };
             chartA.onerror = function() {
                 console.error('Chart A failed to load:', chartAPath);
-                placeholderA.textContent = 'Chart A - Image not found';
+                placeholderA.textContent = `Chart A - Image not found (${chartAPath || 'no path'})`;
                 placeholderA.style.color = '#dc3545';
                 chartALoaded = true;
                 checkAndSyncCharts();
@@ -1824,7 +1923,7 @@
             };
             chartB.onerror = function() {
                 console.error('Chart B failed to load:', chartBPath);
-                placeholderB.textContent = 'Chart B - Image not found';
+                placeholderB.textContent = `Chart B - Image not found (${chartBPath || 'no path'})`;
                 placeholderB.style.color = '#dc3545';
                 chartBLoaded = true;
                 checkAndSyncCharts();
@@ -2149,6 +2248,16 @@
                 modal.style.display = 'block';
                 document.body.style.overflow = 'hidden'; // Prevent background scrolling
             };
+
+            window.openPreferenceChartZoom = function(which) {
+                const chartEl = which === 'A'
+                    ? document.getElementById('chartACompare')
+                    : document.getElementById('chartBCompare');
+                if (!chartEl || !chartEl.src) return;
+                if (typeof openImageModal === 'function') {
+                    openImageModal(chartEl.src);
+                }
+            };
             
             window.closeChartModal = function() {
                 const modal = document.getElementById('chartModal');
@@ -2298,9 +2407,10 @@
             if (narrativeBox)  narrativeBox.style.display = 'none';
 
             // Determine current annotation
-            const annotation = window.annotationLoader && typeof window.annotationLoader.getCurrentAnnotationWithDatasetInfo === 'function'
-                ? window.annotationLoader.getCurrentAnnotationWithDatasetInfo()
-                : null;
+            const annotation = currentRenderedAnnotation
+                || (window.annotationLoader && typeof window.annotationLoader.getCurrentAnnotationWithDatasetInfo === 'function'
+                    ? window.annotationLoader.getCurrentAnnotationWithDatasetInfo()
+                    : null);
             if (!annotation) {
                 if (tableContainer) tableContainer.innerHTML = '<div style="text-align:center;padding:20px;color:#dc3545;">No annotation loaded.</div>';
                 return;

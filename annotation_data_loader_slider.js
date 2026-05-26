@@ -28,6 +28,49 @@ class AnnotationDataLoader {
         return `integrated/datasets/${a}/${t}.csv`;
     }
 
+    normalizePath(pathValue) {
+        return String(pathValue || '').replace(/\\/g, '/').replace(/^\.\//, '');
+    }
+
+    buildChartBasePath(renderedPath) {
+        const rp = this.normalizePath(renderedPath);
+        if (!rp) return '';
+        if (rp.startsWith('integrated/')) return rp;
+        if (rp.startsWith('charts/')) return `integrated/${rp}`;
+        return `integrated/charts/${rp}`;
+    }
+
+    extractVariants(rawVariants) {
+        if (Array.isArray(rawVariants)) {
+            return rawVariants
+                .map(v => String(v || '').trim())
+                .filter(Boolean);
+        }
+
+        if (rawVariants && typeof rawVariants === 'object') {
+            const preferredOrder = [
+                'a', 'b', 'chart_a', 'chart_b', 'variant_a', 'variant_b', 'left', 'right', 'first', 'second'
+            ];
+            const ordered = [];
+
+            preferredOrder.forEach(key => {
+                if (rawVariants[key]) {
+                    ordered.push(String(rawVariants[key]).trim());
+                }
+            });
+
+            if (ordered.length > 0) {
+                return ordered.filter(Boolean);
+            }
+
+            return Object.values(rawVariants)
+                .map(v => String(v || '').trim())
+                .filter(Boolean);
+        }
+
+        return [];
+    }
+
     /**
      * Initialize the loader by fetching and parsing the annotation data
      */
@@ -117,12 +160,11 @@ class AnnotationDataLoader {
         }
 
         const tableId = String(entry.table_id ?? '');
-        const renderedPath = String(entry.rendered_path || '');
-        const normalizedBasePath = renderedPath.startsWith('charts/')
-            ? `integrated/${renderedPath}`
-            : `integrated/charts/${renderedPath}`;
+        const renderedPath = this.normalizePath(entry.rendered_path || '');
+        const normalizedBasePath = this.buildChartBasePath(renderedPath);
+        const normalizedVariants = this.extractVariants(entry.variants).slice(0, 2);
 
-        const stableId = `${entry.artefact || 'src'}_${tableId}_s${entry.summary_idx || 0}_q${entry.question_idx || 0}_${(entry.variants || []).join('__')}`;
+        const stableId = `${entry.artefact || 'src'}_${tableId}_s${entry.summary_idx || 0}_q${entry.question_idx || 0}_${normalizedVariants.join('__')}`;
 
         return {
             entry_id: stableId,
@@ -132,9 +174,10 @@ class AnnotationDataLoader {
             narrative_summary: entry.summary_text || '',
             question_idx: entry.question_idx,
             question_string: entry.question_text || '',
-            variants: Array.isArray(entry.variants) ? entry.variants.slice(0, 2) : [],
+            variants: normalizedVariants,
             chart_base_path: normalizedBasePath,
             rendered_path: renderedPath,
+            source_file: entry.source_file || '',
             artefact: entry.artefact || '',
             table_metadata: entry.table_metadata || {},
             summary_context: entry.summary_context || {},

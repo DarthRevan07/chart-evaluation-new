@@ -19,7 +19,7 @@
       ],
       "summary_text": "By analyzing Date alongside Price, this dataset enables long horizon trend analysis of gold as a financial asset. The chronological structure supports examination of persistent growth phases, prolonged stability periods, and transitions between low and high volatility regimes. For long term investors and planners, this combination allows exploration of how gold’s role may change across generations, how historical price behavior can inform expectations under different economic climates, and how extremes or shifts in the distribution of prices signal underlying structural changes. The data is well suited for identifying broad trends, detecting multi year turning points, comparing historical eras, and setting realistic benchmarks for strategic asset allocation decisions.",
       "question_text": "How has the annual average price of gold evolved from 1833 through 2025 across major historical periods?",
-      "rendered_path": "charts/datahub/2/sum1_ques1",
+      "rendered_path": "charts/0",
       "variants": [
         "gen1_sug4.png",
         "gen1_sug2.png"
@@ -56,7 +56,7 @@
       ],
       "summary_text": "By jointly analyzing the Time and GMSL (yearly) fields, this dataset enables a clear examination of how global average sea level change progresses year by year. The structure encourages trend analysis to distinguish persistent long term rise from short term variability, helping identify whether changes appear steady, accelerating, or punctuated by anomalies. For climate policy advisors and planners, this perspective supports evidence based evaluation of climate risk trajectories, timing of impacts, and urgency of response measures. The data is well suited for visualizing temporal trends, detecting inflection points, and building baseline narratives that inform adaptation planning, communication of climate risks, and prioritization of mitigation efforts without relying on single year observations.",
       "question_text": "How has global mean sea level change evolved across the yearly time span covered by the dataset?",
-      "rendered_path": "charts/datahub/1/sum1_ques1",
+      "rendered_path": "charts/1",
       "variants": [
         "gen2_sug1.png",
         "gen2_sug3.png"
@@ -93,7 +93,7 @@
       ],
       "summary_text": "By jointly analyzing the Time and GMSL (yearly) fields, this dataset enables a clear examination of how global average sea level change progresses year by year. The structure encourages trend analysis to distinguish persistent long term rise from short term variability, helping identify whether changes appear steady, accelerating, or punctuated by anomalies. For climate policy advisors and planners, this perspective supports evidence based evaluation of climate risk trajectories, timing of impacts, and urgency of response measures. The data is well suited for visualizing temporal trends, detecting inflection points, and building baseline narratives that inform adaptation planning, communication of climate risks, and prioritization of mitigation efforts without relying on single year observations.",
       "question_text": "How has global mean sea level change evolved across the yearly time span covered by the dataset?",
-      "rendered_path": "charts/datahub/1/sum1_ques1",
+      "rendered_path": "charts/2",
       "variants": [
         "gen2_sug1.png",
         "gen1_sug3.png"
@@ -130,7 +130,7 @@
       ],
       "summary_text": "By jointly analyzing the Time and GMSL (yearly) fields, this dataset enables a clear examination of how global average sea level change progresses year by year. The structure encourages trend analysis to distinguish persistent long term rise from short term variability, helping identify whether changes appear steady, accelerating, or punctuated by anomalies. For climate policy advisors and planners, this perspective supports evidence based evaluation of climate risk trajectories, timing of impacts, and urgency of response measures. The data is well suited for visualizing temporal trends, detecting inflection points, and building baseline narratives that inform adaptation planning, communication of climate risks, and prioritization of mitigation efforts without relying on single year observations.",
       "question_text": "What periods exhibit relatively stable versus highly variable global mean sea level change over consecutive years?",
-      "rendered_path": "charts/datahub/1/sum1_ques6",
+      "rendered_path": "charts/3",
       "variants": [
         "gen4_sug2.png",
         "gen4_sug1.png"
@@ -168,7 +168,7 @@
       ],
       "summary_text": "This table enables a comparative analysis of raw monthly global mean sea level changes alongside their smoothed counterpart across a long historical time span. By aligning the Time field with both GMSL measurements, analysts can explore how short term month to month variability contrasts with the underlying long term trajectory emphasized by the smoothed series. This supports insights such as identifying sustained upward or downward trends, assessing periods of increased volatility, and understanding the value of smoothing for trend interpretation. For researchers and policy analysts, this combination encourages deeper evaluation of climate signals over time, helps prevent misinterpretation of temporary anomalies, and provides a structured foundation for visualizing and communicating long term sea level change dynamics.",
       "question_text": "How closely do monthly global mean sea level measurements track the smoothed values throughout the time series?",
-      "rendered_path": "charts/datahub/0/sum1_ques6",
+      "rendered_path": "charts/4",
       "variants": [
         "gen1_sug4.png",
         "gen2_sug1.png"
@@ -207,7 +207,7 @@
       ],
       "summary_text": "This table enables a comparative analysis of raw monthly global mean sea level changes alongside their smoothed counterpart across a long historical time span. By aligning the Time field with both GMSL measurements, analysts can explore how short term month to month variability contrasts with the underlying long term trajectory emphasized by the smoothed series. This supports insights such as identifying sustained upward or downward trends, assessing periods of increased volatility, and understanding the value of smoothing for trend interpretation. For researchers and policy analysts, this combination encourages deeper evaluation of climate signals over time, helps prevent misinterpretation of temporary anomalies, and provides a structured foundation for visualizing and communicating long term sea level change dynamics.",
       "question_text": "How closely do monthly global mean sea level measurements track the smoothed values throughout the time series?",
-      "rendered_path": "charts/datahub/0/sum1_ques6",
+      "rendered_path": "charts/5",
       "variants": [
         "gen1_sug3.png",
         "gen1_sug1.png"
@@ -246,7 +246,7 @@
       ],
       "summary_text": "This table enables a comparative analysis of raw monthly global mean sea level changes alongside their smoothed counterpart across a long historical time span. By aligning the Time field with both GMSL measurements, analysts can explore how short term month to month variability contrasts with the underlying long term trajectory emphasized by the smoothed series. This supports insights such as identifying sustained upward or downward trends, assessing periods of increased volatility, and understanding the value of smoothing for trend interpretation. For researchers and policy analysts, this combination encourages deeper evaluation of climate signals over time, helps prevent misinterpretation of temporary anomalies, and provides a structured foundation for visualizing and communicating long term sea level change dynamics.",
       "question_text": "During which time periods does the monthly global mean sea level show the greatest deviations from the smoothed trend?",
-      "rendered_path": "charts/datahub/0/sum1_ques3",
+      "rendered_path": "charts/6",
       "variants": [
         "gen1_sug1_fixed.png",
         "gen2_sug2.png"
@@ -288,7 +288,7 @@
       ],
       "summary_text": "This combination enables analysis of disciplinary behavior by linking fouls to card issuance for both home and away teams. It supports investigation into whether fouling intensity translates into official sanctions and whether imbalances exist between teams or venues. The insight potential includes identifying aggressive play styles, consistency of discipline, and broader trends in match control across the season.",
       "question_text": "Are there matches where high foul counts do not result in any red cards, indicating potential disciplinary anomalies?",
-      "rendered_path": "charts/datahub/7/sum4_ques4",
+      "rendered_path": "charts/7",
       "variants": [
         "gen1_sug4.png",
         "gen4_sug2.png"
@@ -350,7 +350,7 @@
       ],
       "summary_text": "This field combination enables analysis of the economic and geopolitical structure of frontier AI development by linking model scale and training compute to monetary cost, organizational characteristics, and national origin. Analysts can examine how training cost escalates with parameter count and compute, whether certain organization types consistently operate at higher scales, and how these patterns change across publication dates. The structure supports identifying concentration effects, such as whether frontier-scale training is limited to a small set of countries or industry players, and assessing trends that inform policy discussions around access, regulation, and international competition in advanced AI development.",
       "question_text": "Are there outlier models whose training compute cost is unusually high relative to their parameter count?",
-      "rendered_path": "charts/datahub/9/sum1_ques6",
+      "rendered_path": "charts/8",
       "variants": [
         "gen2_sug1.png",
         "gen2_sug6.png"
@@ -493,7 +493,7 @@
       ],
       "summary_text": "Linking model domains and tasks with dataset descriptions and scale enables investigation into how data demands differ across application areas. This perspective allows users to analyze whether certain domains consistently require larger or more specialized datasets and how dataset composition is described relative to intended tasks. For practitioners, these insights inform realistic expectations around data collection, curation effort, and transferability when planning new models in similar domains.",
       "question_text": "How does the typical training dataset size vary across different model domains?",
-      "rendered_path": "charts/datahub/10/sum3_ques1",
+      "rendered_path": "charts/9",
       "variants": [
         "gen2_sug1.png",
         "gen1_sug4.png"
@@ -591,7 +591,7 @@
       ],
       "summary_text": "By combining release timing with indicators of model scale and classification, this view supports analysis of how computational intensity and parameter size have progressed across generations of AI models. The data structure enables trend analysis showing whether growth is gradual or characterized by sharp inflection points associated with foundation or frontier models. For policy oriented stakeholders, this framing helps assess when compute scale transitions align with heightened societal impact, enabling evidence based discussions around regulation thresholds, monitoring needs, and resource concentration in advanced model development.",
       "question_text": "How have reported parameter counts of AI models changed over publication dates?",
-      "rendered_path": "charts/datahub/10/sum1_ques1",
+      "rendered_path": "charts/10",
       "variants": [
         "gen2_sug2.png",
         "gen2_sug3.png"
@@ -689,7 +689,7 @@
       ],
       "summary_text": "By combining release timing with indicators of model scale and classification, this view supports analysis of how computational intensity and parameter size have progressed across generations of AI models. The data structure enables trend analysis showing whether growth is gradual or characterized by sharp inflection points associated with foundation or frontier models. For policy oriented stakeholders, this framing helps assess when compute scale transitions align with heightened societal impact, enabling evidence based discussions around regulation thresholds, monitoring needs, and resource concentration in advanced model development.",
       "question_text": "How have reported parameter counts of AI models changed over publication dates?",
-      "rendered_path": "charts/datahub/10/sum1_ques1",
+      "rendered_path": "charts/11",
       "variants": [
         "gen1_sug3.png",
         "gen2_sug2.png"
@@ -784,7 +784,7 @@
       ],
       "summary_text": "This analysis combines the time dimension with both monthly and smoothed global mean sea level measures to help users assess how sea level change evolves over extended periods. By comparing the higher-frequency monthly values against the smoothed series, analysts can separate short-term variability from longer-term directional movement. This supports identification of acceleration patterns, periods of relative stability, and shifts in trend across decades. For climate policy advisors and researchers, such a view provides a clear analytical foundation for evaluating long-term risks, validating climate models, and justifying strategic planning decisions related to coastal infrastructure, risk management, and climate adaptation.",
       "question_text": "During which decades does the long-term sea level trend appear to accelerate most noticeably?",
-      "rendered_path": "charts/datahub/0/sum1_ques2",
+      "rendered_path": "charts/12",
       "variants": [
         "gen2_sug1.png",
         "gen2_sug4.png"
@@ -823,7 +823,7 @@
       ],
       "summary_text": "This analysis combines the time dimension with both monthly and smoothed global mean sea level measures to help users assess how sea level change evolves over extended periods. By comparing the higher-frequency monthly values against the smoothed series, analysts can separate short-term variability from longer-term directional movement. This supports identification of acceleration patterns, periods of relative stability, and shifts in trend across decades. For climate policy advisors and researchers, such a view provides a clear analytical foundation for evaluating long-term risks, validating climate models, and justifying strategic planning decisions related to coastal infrastructure, risk management, and climate adaptation.",
       "question_text": "Are there identifiable periods where monthly sea level values fluctuate widely while the smoothed trend remains relatively stable?",
-      "rendered_path": "charts/datahub/0/sum1_ques5",
+      "rendered_path": "charts/13",
       "variants": [
         "gen2_sug1.png",
         "gen2_sug2.png"
@@ -861,7 +861,7 @@
       ],
       "summary_text": "This table enables a time series analysis linking calendar years with global mean sea level change, supporting examination of long-term trends, rates of increase and potential acceleration across decades. By pairing the time dimension with yearly sea level change, the data allows analysts and policy advisors to move beyond one-off observations and assess whether changes are becoming more consistent, more variable or more rapid over time. Such analysis can help identify periods of relative stability versus periods of faster increase, informing risk evaluations and prioritization of adaptation measures. The structure of the data encourages visualization techniques such as trend lines or moving averages, helping decision makers translate raw measurements into strategic insights about persistent environmental change.",
       "question_text": "How has the global average sea level change evolved from the early 1990s to 2019?",
-      "rendered_path": "charts/datahub/1/sum1_ques1",
+      "rendered_path": "charts/14",
       "variants": [
         "gen2_sug1.png",
         "gen2_sug2.png"
@@ -898,7 +898,7 @@
       ],
       "summary_text": "This table enables a time series analysis linking calendar years with global mean sea level change, supporting examination of long-term trends, rates of increase and potential acceleration across decades. By pairing the time dimension with yearly sea level change, the data allows analysts and policy advisors to move beyond one-off observations and assess whether changes are becoming more consistent, more variable or more rapid over time. Such analysis can help identify periods of relative stability versus periods of faster increase, informing risk evaluations and prioritization of adaptation measures. The structure of the data encourages visualization techniques such as trend lines or moving averages, helping decision makers translate raw measurements into strategic insights about persistent environmental change.",
       "question_text": "How has the global average sea level change evolved from the early 1990s to 2019?",
-      "rendered_path": "charts/datahub/1/sum1_ques1",
+      "rendered_path": "charts/15",
       "variants": [
         "gen2_sug4.png",
         "gen2_sug2.png"
@@ -935,7 +935,7 @@
       ],
       "summary_text": "This table enables a time series analysis linking calendar years with global mean sea level change, supporting examination of long-term trends, rates of increase and potential acceleration across decades. By pairing the time dimension with yearly sea level change, the data allows analysts and policy advisors to move beyond one-off observations and assess whether changes are becoming more consistent, more variable or more rapid over time. Such analysis can help identify periods of relative stability versus periods of faster increase, informing risk evaluations and prioritization of adaptation measures. The structure of the data encourages visualization techniques such as trend lines or moving averages, helping decision makers translate raw measurements into strategic insights about persistent environmental change.",
       "question_text": "How does the pace of sea level rise in the first decade after 1993 compare to the pace in the most recent decade?",
-      "rendered_path": "charts/datahub/1/sum1_ques5",
+      "rendered_path": "charts/16",
       "variants": [
         "gen2_sug2.png",
         "gen2_sug4.png"
@@ -972,7 +972,7 @@
       ],
       "summary_text": "This table enables a time series analysis linking calendar years with global mean sea level change, supporting examination of long-term trends, rates of increase and potential acceleration across decades. By pairing the time dimension with yearly sea level change, the data allows analysts and policy advisors to move beyond one-off observations and assess whether changes are becoming more consistent, more variable or more rapid over time. Such analysis can help identify periods of relative stability versus periods of faster increase, informing risk evaluations and prioritization of adaptation measures. The structure of the data encourages visualization techniques such as trend lines or moving averages, helping decision makers translate raw measurements into strategic insights about persistent environmental change.",
       "question_text": "How does the pace of sea level rise in the first decade after 1993 compare to the pace in the most recent decade?",
-      "rendered_path": "charts/datahub/1/sum1_ques5",
+      "rendered_path": "charts/17",
       "variants": [
         "gen2_sug1.png",
         "gen2_sug2.png"
@@ -1009,7 +1009,7 @@
       ],
       "summary_text": "This table enables a time series analysis linking calendar years with global mean sea level change, supporting examination of long-term trends, rates of increase and potential acceleration across decades. By pairing the time dimension with yearly sea level change, the data allows analysts and policy advisors to move beyond one-off observations and assess whether changes are becoming more consistent, more variable or more rapid over time. Such analysis can help identify periods of relative stability versus periods of faster increase, informing risk evaluations and prioritization of adaptation measures. The structure of the data encourages visualization techniques such as trend lines or moving averages, helping decision makers translate raw measurements into strategic insights about persistent environmental change.",
       "question_text": "Which consecutive years show a notably sharper jump in sea level compared to surrounding years?",
-      "rendered_path": "charts/datahub/1/sum1_ques7",
+      "rendered_path": "charts/18",
       "variants": [
         "gen2_sug1.png",
         "gen2_sug2.png"
@@ -1046,7 +1046,7 @@
       ],
       "summary_text": "By combining calendar year with annual average gold price, the dataset enables a long term time series analysis that highlights how gold behaves across economic eras rather than isolated events. For investment strategists, this structure supports identifying broad trend phases, periods of relative stability versus acceleration and potential regime changes in pricing behavior. For macroeconomic researchers, the year to price linkage allows exploration of golds historical role as an inflation hedge or safe haven across changing economic conditions. The analytical value lies in trend decomposition, growth rate comparison across decades and detection of long run price cycles, which can inform strategic asset allocation, historical benchmarking and hypothesis generation for further economic or financial modeling.",
       "question_text": "How has the average value of gold changed from the early 1830s to recent years like 2020 through 2025?",
-      "rendered_path": "charts/datahub/2/sum1_ques1",
+      "rendered_path": "charts/19",
       "variants": [
         "gen1_sug4.png",
         "gen2_sug1.png"
@@ -1083,7 +1083,7 @@
       ],
       "summary_text": "By combining calendar year with annual average gold price, the dataset enables a long term time series analysis that highlights how gold behaves across economic eras rather than isolated events. For investment strategists, this structure supports identifying broad trend phases, periods of relative stability versus acceleration and potential regime changes in pricing behavior. For macroeconomic researchers, the year to price linkage allows exploration of golds historical role as an inflation hedge or safe haven across changing economic conditions. The analytical value lies in trend decomposition, growth rate comparison across decades and detection of long run price cycles, which can inform strategic asset allocation, historical benchmarking and hypothesis generation for further economic or financial modeling.",
       "question_text": "How does the long flat pricing era around the mid‑1800s differ from the volatility seen after the 1970s?",
-      "rendered_path": "charts/datahub/2/sum1_ques6",
+      "rendered_path": "charts/20",
       "variants": [
         "gen2_sug1.png",
         "gen2_sug4.png"
@@ -1122,7 +1122,7 @@
       ],
       "summary_text": "By combining country identifiers with time series data on per capita drug spending and total national expenditure, this field grouping supports analysis of how pharmaceutical costs have evolved across decades and countries. Analysts can distinguish whether rising total spending is primarily driven by higher per person costs, demographic scale, or both. This enables policymakers to identify countries with disproportionately rapid expenditure growth, compare national spending paths, and assess long term fiscal exposure from pharmaceuticals. The structure encourages trend analysis, cross-country benchmarking, and early detection of potentially unsustainable spending dynamics.",
       "question_text": "Which five countries recorded the highest total pharmaceutical spending in 2022?",
-      "rendered_path": "charts/datahub/3/sum1_ques1",
+      "rendered_path": "charts/21",
       "variants": [
         "gen1_sug1.png",
         "gen2_sug2.png"
@@ -1165,7 +1165,7 @@
       ],
       "summary_text": "By combining country identifiers with time series data on per capita drug spending and total national expenditure, this field grouping supports analysis of how pharmaceutical costs have evolved across decades and countries. Analysts can distinguish whether rising total spending is primarily driven by higher per person costs, demographic scale, or both. This enables policymakers to identify countries with disproportionately rapid expenditure growth, compare national spending paths, and assess long term fiscal exposure from pharmaceuticals. The structure encourages trend analysis, cross-country benchmarking, and early detection of potentially unsustainable spending dynamics.",
       "question_text": "How does total pharmaceutical spending in Canada compare to Germany from 1980 through 2020?",
-      "rendered_path": "charts/datahub/3/sum1_ques4",
+      "rendered_path": "charts/22",
       "variants": [
         "gen1_sug2.png",
         "gen2_sug2.png"
@@ -1208,7 +1208,7 @@
       ],
       "summary_text": "Linking the share of health expenditure devoted to pharmaceuticals with per capita drug spending enables nuanced analysis of healthcare system structure. Researchers can explore whether higher per person drug spending reflects greater prioritization of medicines within health budgets or simply higher overall health spending levels. Temporal analysis reveals shifts in spending composition, while cross-country comparison highlights alternative health system models. This perspective supports evaluation of cost containment strategies, innovation uptake, and the role of pharmaceuticals within broader healthcare delivery.",
       "question_text": "How does per person pharmaceutical spending relate to the share of health budgets spent on drugs across countries in the year 2019?",
-      "rendered_path": "charts/datahub/3/sum3_ques8",
+      "rendered_path": "charts/23",
       "variants": [
         "gen2_sug1.png",
         "gen2_sug4.png"
@@ -1251,7 +1251,7 @@
       ],
       "summary_text": "This field combination enables longitudinal and cross sectional analysis of applied research expenditure by country. By combining country identifiers with yearly observations, analysts can identify long term investment trajectories, detect periods of acceleration or decline in applied research funding, and compare relative commitment levels across countries. Such analysis supports policy evaluation by revealing whether national strategies translate into sustained financial support for applied research, helps benchmark countries against peers, and highlights structural gaps between nations with similar economic or regional characteristics. The data is well suited for trend analysis, growth rate estimation, and identification of outlier countries whose applied research spending deviates from broader regional or global patterns.",
       "question_text": "Which countries spent the most on applied research in 2015?",
-      "rendered_path": "charts/datahub/4/sum1_ques1",
+      "rendered_path": "charts/24",
       "variants": [
         "gen1_sug1.png",
         "gen1_sug6.png"
@@ -1292,7 +1292,7 @@
       ],
       "summary_text": "This field combination enables longitudinal and cross sectional analysis of applied research expenditure by country. By combining country identifiers with yearly observations, analysts can identify long term investment trajectories, detect periods of acceleration or decline in applied research funding, and compare relative commitment levels across countries. Such analysis supports policy evaluation by revealing whether national strategies translate into sustained financial support for applied research, helps benchmark countries against peers, and highlights structural gaps between nations with similar economic or regional characteristics. The data is well suited for trend analysis, growth rate estimation, and identification of outlier countries whose applied research spending deviates from broader regional or global patterns.",
       "question_text": "How has applied research spending changed over time in Australia from 1996 to 2015?",
-      "rendered_path": "charts/datahub/4/sum1_ques2",
+      "rendered_path": "charts/25",
       "variants": [
         "gen1_sug3.png",
         "gen1_sug1.png"
@@ -1332,7 +1332,7 @@
       ],
       "summary_text": "Analyzing applied research expenditure by country and year allows researchers to explore how investment in practical research is distributed globally and how that distribution changes over time. This combination supports studies on convergence or divergence in research capacity, identification of persistent leaders and laggards in applied research funding, and examination of whether global disparities are widening or narrowing. Researchers can use this structure to perform comparative trend analysis, cluster countries with similar investment profiles, or link R and D spending patterns to broader innovation and development outcomes in downstream studies. The schema encourages high level evaluation of global applied research dynamics rather than isolated national snapshots.",
       "question_text": "Which countries show the sharpest increases in applied research spending between 2005 and 2015?",
-      "rendered_path": "charts/datahub/4/sum2_ques6",
+      "rendered_path": "charts/26",
       "variants": [
         "gen1_sug4.png",
         "gen2_sug2.png"
@@ -1377,7 +1377,7 @@
       ],
       "summary_text": "By examining the full breakdown of AQI health categories alongside the number of reporting days for each metropolitan area, this data enables evaluation of how consistently different communities experience clean versus polluted air. Public health planners can assess whether areas with similar monitoring coverage show very different exposure patterns, highlighting inequities in environmental conditions. This field combination supports analysis of chronic versus occasional air quality stress, helping prioritize outreach, refine public advisories, and allocate resources toward regions where unhealthy categories occur more persistently rather than sporadically.",
       "question_text": "Are there metro areas where unhealthy air days noticeably outnumber clean days, such as in Bakersfield or Stockton-Lodi?",
-      "rendered_path": "charts/datahub/5/sum1_ques4",
+      "rendered_path": "charts/27",
       "variants": [
         "gen1_sug1.png",
         "gen2_sug1.png"
@@ -1435,7 +1435,7 @@
       ],
       "summary_text": "By examining the full breakdown of AQI health categories alongside the number of reporting days for each metropolitan area, this data enables evaluation of how consistently different communities experience clean versus polluted air. Public health planners can assess whether areas with similar monitoring coverage show very different exposure patterns, highlighting inequities in environmental conditions. This field combination supports analysis of chronic versus occasional air quality stress, helping prioritize outreach, refine public advisories, and allocate resources toward regions where unhealthy categories occur more persistently rather than sporadically.",
       "question_text": "Which areas show unusually low numbers of clean air days despite having more than 360 days of air quality data available?",
-      "rendered_path": "charts/datahub/5/sum1_ques8",
+      "rendered_path": "charts/28",
       "variants": [
         "gen2_sug1.png",
         "gen1_sug3.png"
@@ -1489,7 +1489,7 @@
       ],
       "summary_text": "Using multiple AQI statistical measures together allows researchers to identify regions where extreme pollution events disproportionately influence annual perceptions of air quality versus areas where consistently elevated pollution defines the norm. Comparing median and 90th percentile AQI values against maximum levels helps separate chronic exposure patterns from episodic spikes. This approach supports deeper analytical work such as clustering regions by pollution behavior, assessing resilience to extreme events, and informing models that predict health or regulatory impacts based on typical rather than worst case conditions alone.",
       "question_text": "Which five California regions show the largest gap between their worst pollution day and their typical yearly air quality, such as places reaching values above 400 versus medians below 40?",
-      "rendered_path": "charts/datahub/5/sum2_ques1",
+      "rendered_path": "charts/29",
       "variants": [
         "gen1_sug4.png",
         "gen1_sug3.png"
@@ -1543,7 +1543,7 @@
       ],
       "summary_text": "Using multiple AQI statistical measures together allows researchers to identify regions where extreme pollution events disproportionately influence annual perceptions of air quality versus areas where consistently elevated pollution defines the norm. Comparing median and 90th percentile AQI values against maximum levels helps separate chronic exposure patterns from episodic spikes. This approach supports deeper analytical work such as clustering regions by pollution behavior, assessing resilience to extreme events, and informing models that predict health or regulatory impacts based on typical rather than worst case conditions alone.",
       "question_text": "Which five California regions show the largest gap between their worst pollution day and their typical yearly air quality, such as places reaching values above 400 versus medians below 40?",
-      "rendered_path": "charts/datahub/5/sum2_ques1",
+      "rendered_path": "charts/30",
       "variants": [
         "gen1_sug4.png",
         "gen2_sug1.png"
@@ -1597,7 +1597,7 @@
       ],
       "summary_text": "Using multiple AQI statistical measures together allows researchers to identify regions where extreme pollution events disproportionately influence annual perceptions of air quality versus areas where consistently elevated pollution defines the norm. Comparing median and 90th percentile AQI values against maximum levels helps separate chronic exposure patterns from episodic spikes. This approach supports deeper analytical work such as clustering regions by pollution behavior, assessing resilience to extreme events, and informing models that predict health or regulatory impacts based on typical rather than worst case conditions alone.",
       "question_text": "How are California regions distributed when comparing their median pollution levels against their maximum recorded pollution values?",
-      "rendered_path": "charts/datahub/5/sum2_ques7",
+      "rendered_path": "charts/31",
       "variants": [
         "gen1_sug1.png",
         "gen2_sug4.png"
@@ -1651,7 +1651,7 @@
       ],
       "summary_text": "Using multiple AQI statistical measures together allows researchers to identify regions where extreme pollution events disproportionately influence annual perceptions of air quality versus areas where consistently elevated pollution defines the norm. Comparing median and 90th percentile AQI values against maximum levels helps separate chronic exposure patterns from episodic spikes. This approach supports deeper analytical work such as clustering regions by pollution behavior, assessing resilience to extreme events, and informing models that predict health or regulatory impacts based on typical rather than worst case conditions alone.",
       "question_text": "Which regions stand out as outliers with unusually high maximum pollution values compared to most regions clustered below 200?",
-      "rendered_path": "charts/datahub/5/sum2_ques8",
+      "rendered_path": "charts/32",
       "variants": [
         "gen2_sug1.png",
         "gen2_sug2.png"
@@ -1707,7 +1707,7 @@
       ],
       "summary_text": "This combination of pollutant specific exceedance day counts allows policy focused users to compare how different contaminants shape air quality outcomes across metropolitan regions. Identifying whether ozone, particulate matter, or nitrogen based pollutants dominate in certain areas helps uncover underlying emission sources and environmental conditions. The structure supports prioritization of regulatory actions, technology investments, or cross agency coordination by revealing pollutant profiles rather than treating air quality as a single aggregated outcome.",
       "question_text": "How are ozone exceedance days distributed across all metros, from locations with fewer than 100 days to those exceeding 350 days?",
-      "rendered_path": "charts/datahub/5/sum3_ques6",
+      "rendered_path": "charts/33",
       "variants": [
         "gen1_sug2.png",
         "gen2_sug1.png"
@@ -1766,7 +1766,7 @@
       ],
       "summary_text": "By analyzing how total monitored days break down across air quality categories at the county and state level, this field combination supports assessment of exposure intensity rather than isolated pollution events. Health planners can distinguish areas dominated by consistently good or moderate air from those experiencing frequent unhealthy or hazardous periods. The structure allows identification of counties where limited monitoring days may mask risk as well as counties where sustained unhealthy conditions suggest chronic exposure concerns. This perspective is well suited for prioritizing interventions, refining monitoring strategies, and communicating localized health risks to residents.",
       "question_text": "Which counties had the most days classified as very unhealthy or hazardous air quality during 2025?",
-      "rendered_path": "charts/datahub/6/sum1_ques2",
+      "rendered_path": "charts/34",
       "variants": [
         "gen1_sug2.png",
         "gen2_sug1.png"
@@ -1826,7 +1826,7 @@
       ],
       "summary_text": "By analyzing how total monitored days break down across air quality categories at the county and state level, this field combination supports assessment of exposure intensity rather than isolated pollution events. Health planners can distinguish areas dominated by consistently good or moderate air from those experiencing frequent unhealthy or hazardous periods. The structure allows identification of counties where limited monitoring days may mask risk as well as counties where sustained unhealthy conditions suggest chronic exposure concerns. This perspective is well suited for prioritizing interventions, refining monitoring strategies, and communicating localized health risks to residents.",
       "question_text": "Which counties experienced more unhealthy days than good days during the 2025 reporting period?",
-      "rendered_path": "charts/datahub/6/sum1_ques8",
+      "rendered_path": "charts/35",
       "variants": [
         "gen1_sug4.png",
         "gen2_sug1.png"
@@ -1884,7 +1884,7 @@
       ],
       "summary_text": "This pollutant focused view shifts attention from overall AQI categories to the underlying contributors of air quality issues. By examining how often each pollutant exceeds thresholds across counties and states, policymakers can infer dominant pollution profiles for different regions. The structure supports cross pollutant comparisons that reveal whether problems are driven by combustion sources, photochemical reactions, or particulate matter. These insights are actionable for designing targeted emission controls, region specific standards, and monitoring investments aligned with dominant risks.",
       "question_text": "What is the relationship between fine particulate exceedance days and ozone exceedance days across all counties in 2025?",
-      "rendered_path": "charts/datahub/6/sum3_ques7",
+      "rendered_path": "charts/36",
       "variants": [
         "gen2_sug3.png",
         "gen2_sug1.png"
@@ -1940,7 +1940,7 @@
       ],
       "summary_text": "Linking monitoring coverage with median air quality and key pollutant day counts allows communicators to contextualize how well air quality is measured and what residents generally experience. This approach avoids sensational focus on extreme events and instead emphasizes typical conditions alongside major contributors like ozone and fine particles. It supports creation of state level comparisons that are grounded in both data completeness and everyday exposure. Such framing helps audiences understand not just where air is worse, but how reliably it is measured and what factors most shape daily conditions.",
       "question_text": "How does the typical air quality level compare across states with very high ozone pollution days above 270?",
-      "rendered_path": "charts/datahub/6/sum4_ques3",
+      "rendered_path": "charts/37",
       "variants": [
         "gen1_sug1.png",
         "gen2_sug3.png"
@@ -1996,7 +1996,7 @@
       ],
       "summary_text": "Linking monitoring coverage with median air quality and key pollutant day counts allows communicators to contextualize how well air quality is measured and what residents generally experience. This approach avoids sensational focus on extreme events and instead emphasizes typical conditions alongside major contributors like ozone and fine particles. It supports creation of state level comparisons that are grounded in both data completeness and everyday exposure. Such framing helps audiences understand not just where air is worse, but how reliably it is measured and what factors most shape daily conditions.",
       "question_text": "How does the number of days affected by ozone pollution differ between states with low versus high typical air quality levels?",
-      "rendered_path": "charts/datahub/6/sum4_ques7",
+      "rendered_path": "charts/38",
       "variants": [
         "gen1_sug4.png",
         "gen1_sug3.png"
@@ -2052,7 +2052,7 @@
       ],
       "summary_text": "Linking monitoring coverage with median air quality and key pollutant day counts allows communicators to contextualize how well air quality is measured and what residents generally experience. This approach avoids sensational focus on extreme events and instead emphasizes typical conditions alongside major contributors like ozone and fine particles. It supports creation of state level comparisons that are grounded in both data completeness and everyday exposure. Such framing helps audiences understand not just where air is worse, but how reliably it is measured and what factors most shape daily conditions.",
       "question_text": "How does the number of days affected by ozone pollution differ between states with low versus high typical air quality levels?",
-      "rendered_path": "charts/datahub/6/sum4_ques7",
+      "rendered_path": "charts/39",
       "variants": [
         "gen1_sug1.png",
         "gen1_sug3.png"
@@ -2109,7 +2109,7 @@
       ],
       "summary_text": "By combining total shots, shots on target, and goals scored for both teams, this view supports evaluation of offensive efficiency rather than raw activity. Analysts can explore how frequently high shot volume translates into goals, compare shooting accuracy between teams, and identify mismatches where dominance in attempts does not yield results. This framework helps translate match statistics into insights about finishing quality, decision making in attack, and potential areas for tactical improvement.",
       "question_text": "How does the number of goals scored relate to shots on target for away teams across the season?",
-      "rendered_path": "charts/datahub/7/sum2_ques2",
+      "rendered_path": "charts/40",
       "variants": [
         "gen1_sug4.png",
         "gen1_sug2.png"
@@ -2170,7 +2170,7 @@
       ],
       "summary_text": "By combining total shots, shots on target, and goals scored for both teams, this view supports evaluation of offensive efficiency rather than raw activity. Analysts can explore how frequently high shot volume translates into goals, compare shooting accuracy between teams, and identify mismatches where dominance in attempts does not yield results. This framework helps translate match statistics into insights about finishing quality, decision making in attack, and potential areas for tactical improvement.",
       "question_text": "Which teams converted the highest percentage of their shots on target into goals when playing away from home?",
-      "rendered_path": "charts/datahub/7/sum2_ques5",
+      "rendered_path": "charts/41",
       "variants": [
         "gen1_sug1.png",
         "gen1_sug2.png"
@@ -2231,7 +2231,7 @@
       ],
       "summary_text": "By combining total shots, shots on target, and goals scored for both teams, this view supports evaluation of offensive efficiency rather than raw activity. Analysts can explore how frequently high shot volume translates into goals, compare shooting accuracy between teams, and identify mismatches where dominance in attempts does not yield results. This framework helps translate match statistics into insights about finishing quality, decision making in attack, and potential areas for tactical improvement.",
       "question_text": "Which teams converted the highest percentage of their shots on target into goals when playing away from home?",
-      "rendered_path": "charts/datahub/7/sum2_ques5",
+      "rendered_path": "charts/42",
       "variants": [
         "gen1_sug1.png",
         "gen2_sug2.png"
@@ -2292,7 +2292,7 @@
       ],
       "summary_text": "By combining total shots, shots on target, and goals scored for both teams, this view supports evaluation of offensive efficiency rather than raw activity. Analysts can explore how frequently high shot volume translates into goals, compare shooting accuracy between teams, and identify mismatches where dominance in attempts does not yield results. This framework helps translate match statistics into insights about finishing quality, decision making in attack, and potential areas for tactical improvement.",
       "question_text": "How does the distribution of goals per match differ between games with fewer than 10 total shots on target and those with 10 or more?",
-      "rendered_path": "charts/datahub/7/sum2_ques6",
+      "rendered_path": "charts/43",
       "variants": [
         "gen2_sug1.png",
         "gen1_sug3.png"
@@ -2353,7 +2353,7 @@
       ],
       "summary_text": "This combination links fouling behavior with disciplinary outcomes for both home and away teams. It enables analysis of whether higher foul counts lead to more cards, differences in discipline between venues, and identification of teams or matches with elevated disciplinary risk. The data structure supports monitoring consistency in officiating impact and helps stakeholders assess how aggressive play influences match flow and regulatory decisions.",
       "question_text": "Which five home teams average the most fouls committed per match over the 2025–26 season?",
-      "rendered_path": "charts/datahub/7/sum3_ques1",
+      "rendered_path": "charts/44",
       "variants": [
         "gen2_sug3.png",
         "gen2_sug1.png"
@@ -2414,7 +2414,7 @@
       ],
       "summary_text": "This combination links fouling behavior with disciplinary outcomes for both home and away teams. It enables analysis of whether higher foul counts lead to more cards, differences in discipline between venues, and identification of teams or matches with elevated disciplinary risk. The data structure supports monitoring consistency in officiating impact and helps stakeholders assess how aggressive play influences match flow and regulatory decisions.",
       "question_text": "How has the average number of cards per match changed from August 2025 to May 2026?",
-      "rendered_path": "charts/datahub/7/sum3_ques8",
+      "rendered_path": "charts/45",
       "variants": [
         "gen1_sug2.png",
         "gen1_sug1.png"
@@ -2476,7 +2476,7 @@
       ],
       "summary_text": "Aligning match dates with halftime and full time scores allows exploration of momentum and comeback patterns over the season. Users can analyze how often halftime leads are preserved, overturned, or neutralized, and how these dynamics change across the calendar. This perspective supports temporal storytelling, identification of resilient or vulnerable teams, and deeper insight into in game dynamics that shape the season narrative beyond final scores alone.",
       "question_text": "How has the share of matches where the home side was leading at halftime but failed to win changed from August 2025 to May 2026?",
-      "rendered_path": "charts/datahub/7/sum4_ques1",
+      "rendered_path": "charts/46",
       "variants": [
         "gen2_sug1.png",
         "gen2_sug2.png"
@@ -2539,7 +2539,7 @@
       ],
       "summary_text": "By combining team identifiers with halftime and full time results and goals, this analysis explores how early advantages or deficits influence final match outcomes. Comparing halftime results with final results allows the audience to identify momentum shifts, comebacks, or the stability of early leads. Separating home and away perspectives highlights whether home advantage is expressed early in matches or accumulates over time. This field combination supports trend detection around match control, resilience, and the predictive value of halftime performance for final outcomes.",
       "question_text": "Which home teams most often converted a halftime lead into a full-time win?",
-      "rendered_path": "charts/datahub/8/sum1_ques1",
+      "rendered_path": "charts/47",
       "variants": [
         "gen1_sug4.png",
         "gen2_sug1.png"
@@ -2602,7 +2602,7 @@
       ],
       "summary_text": "By combining publication timing with measures of model scale, training compute, and inflation adjusted training cost, this field set enables analysis of how frontier AI development has shifted from low cost, domain specific systems toward increasingly expensive, high capacity foundation models. Overlaying domain coverage, frontier designation, and notability criteria makes it possible to study whether growth in parameters and compute is associated with broader task generality and stronger claims of historical or state of the art importance. For policy analysts and governance researchers, this combination supports trend analysis on concentration of resources, identification of inflection points in AI scaling, and assessment of whether escalating costs are primarily tied to general purpose models rather than specialized ones. The dataset structure encourages longitudinal comparisons that can inform discussions on regulation thresholds, compute based oversight, and the sustainability of continued scaling.",
       "question_text": "How has the typical training computation for AI models published between 1959 and 2025 changed over time?",
-      "rendered_path": "charts/datahub/9/sum1_ques1",
+      "rendered_path": "charts/48",
       "variants": [
         "gen1_sug4.png",
         "gen1_sug1.png"
@@ -2748,7 +2748,7 @@
       ],
       "summary_text": "By combining publication timing with measures of model scale, training compute, and inflation adjusted training cost, this field set enables analysis of how frontier AI development has shifted from low cost, domain specific systems toward increasingly expensive, high capacity foundation models. Overlaying domain coverage, frontier designation, and notability criteria makes it possible to study whether growth in parameters and compute is associated with broader task generality and stronger claims of historical or state of the art importance. For policy analysts and governance researchers, this combination supports trend analysis on concentration of resources, identification of inflection points in AI scaling, and assessment of whether escalating costs are primarily tied to general purpose models rather than specialized ones. The dataset structure encourages longitudinal comparisons that can inform discussions on regulation thresholds, compute based oversight, and the sustainability of continued scaling.",
       "question_text": "Which five AI models released after 2020 have the highest inflation-adjusted training costs?",
-      "rendered_path": "charts/datahub/9/sum1_ques2",
+      "rendered_path": "charts/49",
       "variants": [
         "gen1_sug2.png",
         "gen1_sug1.png"
@@ -2892,7 +2892,7 @@
       ],
       "summary_text": "By analyzing publication date alongside parameters and training compute, this field combination enables a longitudinal view of how AI models have scaled in size and resource intensity over time. Adding domain context allows stakeholders to compare whether rapid growth is uniform across areas like language, vision, or science, or concentrated in specific applications. The inclusion of notability criteria highlights which models were considered impactful relative to their era, helping distinguish routine scaling from historically meaningful leaps. Finally, layering in organization categorization reveals how different institution types contribute to or lag behind these trends. For policy and funding audiences, this analysis supports evidence-based decisions about where AI progress is accelerating fastest, whether compute investment is increasingly tied to certain domains or organizational structures, and how notions of notability evolve as scale becomes more common. These insights can guide resource allocation, research incentives, and long-term governance discussions around sustainable AI development.",
       "question_text": "How has the typical model size changed from the early 2010s to releases in 2025 based on reported publication dates?",
-      "rendered_path": "charts/datahub/10/sum1_ques1",
+      "rendered_path": "charts/50",
       "variants": [
         "gen2_sug4.png",
         "gen1_sug3.png"
@@ -2990,7 +2990,7 @@
       ],
       "summary_text": "By analyzing publication date alongside parameters and training compute, this field combination enables a longitudinal view of how AI models have scaled in size and resource intensity over time. Adding domain context allows stakeholders to compare whether rapid growth is uniform across areas like language, vision, or science, or concentrated in specific applications. The inclusion of notability criteria highlights which models were considered impactful relative to their era, helping distinguish routine scaling from historically meaningful leaps. Finally, layering in organization categorization reveals how different institution types contribute to or lag behind these trends. For policy and funding audiences, this analysis supports evidence-based decisions about where AI progress is accelerating fastest, whether compute investment is increasingly tied to certain domains or organizational structures, and how notions of notability evolve as scale becomes more common. These insights can guide resource allocation, research incentives, and long-term governance discussions around sustainable AI development.",
       "question_text": "Between language-focused and vision-focused models, which group shows higher typical training compute per release year?",
-      "rendered_path": "charts/datahub/10/sum1_ques8",
+      "rendered_path": "charts/51",
       "variants": [
         "gen2_sug1.png",
         "gen2_sug2.png"
@@ -3085,7 +3085,7 @@
       ],
       "summary_text": "Using Age (days), its normalized version in years, and Date supports detailed temporal analysis of ranking events. The schema encourages exploration of how small differences in age correspond to holding the top ranking at specific points in time. This enables rigorous trend analysis, seasonality checks, and alignment of career milestones with calendar progression, making the dataset suitable for advanced statistical or longitudinal studies.",
       "question_text": "How does the age of the No. 1 player in the 1990s compare to the 2010s?",
-      "rendered_path": "charts/tableau/3/sum3_ques5",
+      "rendered_path": "charts/52",
       "variants": [
         "gen2_sug4.png",
         "gen2_sug2.png"
@@ -3130,7 +3130,7 @@
       ],
       "summary_text": "Using Age (days), its normalized version in years, and Date supports detailed temporal analysis of ranking events. The schema encourages exploration of how small differences in age correspond to holding the top ranking at specific points in time. This enables rigorous trend analysis, seasonality checks, and alignment of career milestones with calendar progression, making the dataset suitable for advanced statistical or longitudinal studies.",
       "question_text": "How does the age of the No. 1 player in the 1990s compare to the 2010s?",
-      "rendered_path": "charts/tableau/3/sum3_ques5",
+      "rendered_path": "charts/53",
       "variants": [
         "gen1_sug1.png",
         "gen2_sug2.png"
@@ -3175,7 +3175,7 @@
       ],
       "summary_text": "Combining Age (years), Weeks, and Player allows examination of how ranking success aligns with different career stages. The data structure supports identifying whether players tend to achieve prolonged success at similar ages or if peak dominance varies significantly. This insight can inform models of athletic development, expectations for emerging players, and broader discussions about physical maturity and endurance in professional tennis.",
       "question_text": "Which 10 players spent the most weeks as world No. 1?",
-      "rendered_path": "charts/tableau/3/sum2_ques1",
+      "rendered_path": "charts/54",
       "variants": [
         "gen1_sug1.png",
         "gen1_sug4.png"
@@ -3220,7 +3220,7 @@
       ],
       "summary_text": "By analyzing Player alongside Cumulative Weeks and Weeks, this dataset enables comparison between sustained career leadership and peak ranking runs. The structure supports insights into whether certain players achieved number one status through repeated returns over time or through fewer extended stretches. This distinction helps the audience evaluate different types of greatness, supporting storytelling around legacy, consistency, and historical comparison without focusing on match level results.",
       "question_text": "Who are the top 5 players by total cumulative weeks at No. 1?",
-      "rendered_path": "charts/tableau/3/sum1_ques1",
+      "rendered_path": "charts/55",
       "variants": [
         "gen1_sug3.png",
         "gen2_sug1.png"
@@ -3265,7 +3265,7 @@
       ],
       "summary_text": "By analyzing Player alongside Cumulative Weeks and Weeks, this dataset enables comparison between sustained career leadership and peak ranking runs. The structure supports insights into whether certain players achieved number one status through repeated returns over time or through fewer extended stretches. This distinction helps the audience evaluate different types of greatness, supporting storytelling around legacy, consistency, and historical comparison without focusing on match level results.",
       "question_text": "Who are the top 5 players by total cumulative weeks at No. 1?",
-      "rendered_path": "charts/tableau/3/sum1_ques1",
+      "rendered_path": "charts/56",
       "variants": [
         "gen1_sug3.png",
         "gen2_sug3.png"
@@ -3310,7 +3310,7 @@
       ],
       "summary_text": "Linking DOB, Age (years), and Date enables age contextualization of top ranking achievements over time. The structure supports narratives that translate ranking milestones into life stage terms, such as early career breakthroughs or later career longevity. This perspective helps non technical audiences better grasp the significance of achievements and compare players across eras in an intuitive way.",
       "question_text": "Which decade produced the most No. 1 players by birth year?",
-      "rendered_path": "charts/tableau/3/sum4_ques2",
+      "rendered_path": "charts/57",
       "variants": [
         "gen2_sug1.png",
         "gen1_sug2.png"
@@ -3355,7 +3355,7 @@
       ],
       "summary_text": "By analyzing Player alongside Cumulative Weeks and Weeks, this dataset enables comparison between sustained career leadership and peak ranking runs. The structure supports insights into whether certain players achieved number one status through repeated returns over time or through fewer extended stretches. This distinction helps the audience evaluate different types of greatness, supporting storytelling around legacy, consistency, and historical comparison without focusing on match level results.",
       "question_text": "How does Federer's cumulative weeks compare to Djokovic and Nadal?",
-      "rendered_path": "charts/tableau/3/sum1_ques6",
+      "rendered_path": "charts/58",
       "variants": [
         "gen1_sug1.png",
         "gen1_sug2.png"
@@ -3400,7 +3400,7 @@
       ],
       "summary_text": "By analyzing Player alongside Cumulative Weeks and Weeks, this dataset enables comparison between sustained career leadership and peak ranking runs. The structure supports insights into whether certain players achieved number one status through repeated returns over time or through fewer extended stretches. This distinction helps the audience evaluate different types of greatness, supporting storytelling around legacy, consistency, and historical comparison without focusing on match level results.",
       "question_text": "How does Federer's cumulative weeks compare to Djokovic and Nadal?",
-      "rendered_path": "charts/tableau/3/sum1_ques6",
+      "rendered_path": "charts/59",
       "variants": [
         "gen2_sug1.png",
         "gen2_sug4.png"
@@ -3446,7 +3446,7 @@
       ],
       "summary_text": "By linking company identity with years on list, rank, and industry, this view supports storytelling around consistency and resilience. Journalists and educators can investigate how repeat appearances intersect with industry context and ranking position to illustrate different paths to sustained growth. The schema encourages separating enduring performers from short term standouts and understanding how industry characteristics may influence longevity. This enables richer narratives about what long term success looks like across different sectors of the economy.",
       "question_text": "Which industries are most represented among companies with the longest tenure on the Inc. 5000 list?",
-      "rendered_path": "charts/tableau/6/sum4_ques3",
+      "rendered_path": "charts/60",
       "variants": [
         "gen1_sug2.png",
         "gen2_sug7.png"
@@ -3502,7 +3502,7 @@
       ],
       "summary_text": "This combination frames the Inc. 5000 as a geographic dataset linking company success to location. By analyzing state and metro area alongside rank and workforce size, policymakers can explore whether certain regions consistently attract or produce highly ranked firms and larger employers. The structure supports identifying regional patterns in entrepreneurial concentration and employment contribution. These insights can guide economic development strategies, infrastructure investment, and talent attraction initiatives.",
       "question_text": "Which metropolitan areas have the highest concentration of top-ranked companies?",
-      "rendered_path": "charts/tableau/6/sum3_ques2",
+      "rendered_path": "charts/61",
       "variants": [
         "gen1_sug1.png",
         "gen2_sug5.png"
@@ -3558,7 +3558,7 @@
       ],
       "summary_text": "This field combination allows executives to analyze how company rank relates to growth intensity, revenue scale, and workforce size. By examining these fields together, the data supports exploration of whether top ranked companies tend to be smaller firms experiencing rapid expansion or larger organizations scaling steadily. The structure encourages identifying patterns such as growth efficiency per employee and tradeoffs between absolute revenue and growth rate. These insights help decision makers benchmark their own company trajectory against peers and assess which growth profiles are most associated with higher rankings.",
       "question_text": "How does revenue growth rate vary across different rank ranges in the Inc. 5000 list?",
-      "rendered_path": "charts/tableau/6/sum1_ques1",
+      "rendered_path": "charts/62",
       "variants": [
         "gen2_sug1.png",
         "gen2_sug2.png"
@@ -3614,7 +3614,7 @@
       ],
       "summary_text": "By linking undergraduate major with both starting and mid career median salaries and the percent change between them, this analysis highlights how different fields reward experience over time. The combination allows students to evaluate trade offs between majors that may offer strong early earnings versus those that grow substantially as careers progress. This supports informed decision making by identifying patterns of income growth across disciplines, helping students align educational choices with personal financial goals and career expectations rather than relying on a single salary checkpoint.",
       "question_text": "Which majors have the lowest starting salary but end up in the top 10 for mid-career salary?",
-      "rendered_path": "charts/tableau/7/sum1_ques4",
+      "rendered_path": "charts/63",
       "variants": [
         "gen2_sug4.png",
         "gen2_sug2.png"
@@ -3658,7 +3658,7 @@
       ],
       "summary_text": "Analyzing starting median salary alongside the percent change to mid career salary allows researchers to identify majors that may start modestly but deliver strong long term returns, as well as those with high entry pay but limited growth. This field pairing supports evaluation of structural differences in career ladders across disciplines and informs discussions on educational return on investment. The insights can guide policy debates on funding priorities, labor market alignment and the economic resilience of different fields of study.",
       "question_text": "Which majors have the lowest starting salary but highest percent growth?",
-      "rendered_path": "charts/tableau/7/sum3_ques1",
+      "rendered_path": "charts/64",
       "variants": [
         "gen3_sug1.png",
         "gen2_sug2.png"
@@ -3702,7 +3702,7 @@
       ],
       "summary_text": "Combining critic scores, audience ratings, and profitability allows analysis of alignment or divergence between professional reviews, viewer enjoyment, and financial results. This setup supports exploration of whether audience approval or critical acclaim is more closely associated with profitable outcomes. It enables teams to identify patterns where films succeed financially despite weak reviews or underperform despite strong reception. The analytical value lies in refining marketing narratives, targeting promotional spend, and anticipating financial performance based on early reception signals.",
       "question_text": "How closely do audience scores align with critic scores across the top 5 most profitable films?",
-      "rendered_path": "charts/tableau/8/sum2_ques4",
+      "rendered_path": "charts/65",
       "variants": [
         "gen2_sug2.png",
         "gen2_sug4.png"
@@ -3746,7 +3746,7 @@
       ],
       "summary_text": "This combination enables analysis of how genre profitability changes across different years, supporting detection of emerging trends or declining categories. By linking Year with Genre and Profitability, analysts can assess whether certain genres become more or less financially viable over time. The insight potential lies in forward planning, trend forecasting, and adapting creative pipelines to align with evolving market conditions rather than relying on static genre assumptions.",
       "question_text": "Are there specific years where certain genres significantly outperform others in profitability?",
-      "rendered_path": "charts/tableau/8/sum4_ques4",
+      "rendered_path": "charts/66",
       "variants": [
         "gen1_sug4.png",
         "gen1_sug1.png"
@@ -3797,7 +3797,7 @@
       ],
       "summary_text": "This field combination enables a multi-layered assessment of tuberculosis burden that links disease dynamics, co-morbid risk, and data quality. By jointly examining incidence, prevalence, and mortality rates over time and across regions, policymakers can distinguish countries with high transmission from those with long disease duration or poor treatment outcomes. Integrating HIV-related TB mortality and the proportion of incident TB cases with HIV highlights how co-infection reshapes mortality risk and may demand integrated TB-HIV responses rather than isolated interventions. Adding regional grouping supports comparative analysis that can reveal systemic disparities or shared trajectories among neighboring countries. Finally, incorporating the stated methods for deriving incidence and mortality estimates supports critical interpretation, allowing users to identify where apparent trends may be influenced by modeling approaches rather than real-world change. Together, these fields support strategic insights such as prioritizing regions for intensified case finding, tailoring interventions where HIV drives excess TB deaths, and flagging countries where improved surveillance could materially change policy conclusions.",
       "question_text": "How has the tuberculosis incidence rate changed from 1990 to 2013 in India?",
-      "rendered_path": "charts/tableau/12/sum1_ques2",
+      "rendered_path": "charts/67",
       "variants": [
         "gen1_sug1.png",
         "gen1_sug4.png"
@@ -3880,7 +3880,7 @@
       ],
       "summary_text": "By combining player identity with cumulative weeks at number one and sex, this analysis supports exploration of dominance longevity across careers and between men and women. It enables comparison of how sustained excellence develops differently by gender, helping distinguish between brief peaks and long standing eras of control. The fields together allow identification of outliers who redefine expectations of career longevity, supporting storytelling about historical eras, shifts in competitive balance, and structural differences in professional tennis careers.",
       "question_text": "Which five players have accumulated the most total weeks at world number one across their careers?",
-      "rendered_path": "charts/tableau/3/sum1_ques1",
+      "rendered_path": "charts/68",
       "variants": [
         "gen1_sug3.png",
         "gen1_sug1.png"
@@ -3925,7 +3925,7 @@
       ],
       "summary_text": "By combining player identity with cumulative weeks at number one and sex, this analysis supports exploration of dominance longevity across careers and between men and women. It enables comparison of how sustained excellence develops differently by gender, helping distinguish between brief peaks and long standing eras of control. The fields together allow identification of outliers who redefine expectations of career longevity, supporting storytelling about historical eras, shifts in competitive balance, and structural differences in professional tennis careers.",
       "question_text": "Are there players who stand out as clear outliers in total weeks at number one compared with the rest of their gender?",
-      "rendered_path": "charts/tableau/3/sum1_ques5",
+      "rendered_path": "charts/69",
       "variants": [
         "gen1_sug4.png",
         "gen1_sug1.png"
@@ -3970,7 +3970,7 @@
       ],
       "summary_text": "By combining player identity with cumulative weeks at number one and sex, this analysis supports exploration of dominance longevity across careers and between men and women. It enables comparison of how sustained excellence develops differently by gender, helping distinguish between brief peaks and long standing eras of control. The fields together allow identification of outliers who redefine expectations of career longevity, supporting storytelling about historical eras, shifts in competitive balance, and structural differences in professional tennis careers.",
       "question_text": "Are there players who stand out as clear outliers in total weeks at number one compared with the rest of their gender?",
-      "rendered_path": "charts/tableau/3/sum1_ques5",
+      "rendered_path": "charts/70",
       "variants": [
         "gen2_sug2.png",
         "gen1_sug1.png"
@@ -4015,7 +4015,7 @@
       ],
       "summary_text": "Linking ranking dates with player identity and weeks at number one supports time series analysis of leadership turnover in professional tennis. This enables examination of whether certain eras are marked by frequent changes or prolonged monopolies. The combination helps quantify competitive concentration over time and detect structural shifts in dominance patterns, providing analytical grounding for discussions about era based competitiveness and tour depth.",
       "question_text": "How is total time spent at number one distributed among the top 10 players with the most recorded weeks?",
-      "rendered_path": "charts/tableau/3/sum3_ques7",
+      "rendered_path": "charts/71",
       "variants": [
         "gen1_sug1.png",
         "gen1_sug2.png"
@@ -4063,7 +4063,7 @@
       ],
       "summary_text": "This field combination enables an integrated analysis of how growth performance, rank positioning, and revenue scale interact across industries while accounting for organizational size and consistency over time. By examining rank alongside growth and revenue, executives can explore whether top-ranked companies are driven primarily by extreme growth rates, larger revenue bases, or a balance of both. Adding industry context allows identification of sectors where high growth is more frequently associated with smaller teams or where scaling workforce is correlated with revenue expansion. The inclusion of years on list supports analysis of durability, distinguishing companies that demonstrate repeatable growth from those with one-time surges. Overall, this combination supports strategic benchmarking, outlier detection, and pattern recognition that can inform growth planning, investment prioritization, and realistic expectation setting based on industry norms.",
       "question_text": "How does reported revenue differ between companies ranked in the top 500 and those ranked near the bottom of the list?",
-      "rendered_path": "charts/tableau/6/sum1_ques2",
+      "rendered_path": "charts/72",
       "variants": [
         "gen2_sug2.png",
         "gen1_sug3.png"
@@ -4121,7 +4121,7 @@
       ],
       "summary_text": "This field combination enables an integrated analysis of how growth performance, rank positioning, and revenue scale interact across industries while accounting for organizational size and consistency over time. By examining rank alongside growth and revenue, executives can explore whether top-ranked companies are driven primarily by extreme growth rates, larger revenue bases, or a balance of both. Adding industry context allows identification of sectors where high growth is more frequently associated with smaller teams or where scaling workforce is correlated with revenue expansion. The inclusion of years on list supports analysis of durability, distinguishing companies that demonstrate repeatable growth from those with one-time surges. Overall, this combination supports strategic benchmarking, outlier detection, and pattern recognition that can inform growth planning, investment prioritization, and realistic expectation setting based on industry norms.",
       "question_text": "What is the relationship between workforce size and total revenue for companies in the Software sector?",
-      "rendered_path": "charts/tableau/6/sum1_ques4",
+      "rendered_path": "charts/73",
       "variants": [
         "gen1_sug1.png",
         "gen1_sug2.png"
@@ -4179,7 +4179,7 @@
       ],
       "summary_text": "This field combination enables an integrated analysis of how growth performance, rank positioning, and revenue scale interact across industries while accounting for organizational size and consistency over time. By examining rank alongside growth and revenue, executives can explore whether top-ranked companies are driven primarily by extreme growth rates, larger revenue bases, or a balance of both. Adding industry context allows identification of sectors where high growth is more frequently associated with smaller teams or where scaling workforce is correlated with revenue expansion. The inclusion of years on list supports analysis of durability, distinguishing companies that demonstrate repeatable growth from those with one-time surges. Overall, this combination supports strategic benchmarking, outlier detection, and pattern recognition that can inform growth planning, investment prioritization, and realistic expectation setting based on industry norms.",
       "question_text": "How does workforce size tend to change as rank moves from the top 100 toward the bottom 5000?",
-      "rendered_path": "charts/tableau/6/sum1_ques8",
+      "rendered_path": "charts/74",
       "variants": [
         "gen2_sug3.png",
         "gen1_sug1.png"
@@ -4235,7 +4235,7 @@
       ],
       "summary_text": "By analyzing undergraduate major alongside starting median salary, mid career median salary, and percent change between the two, this dataset enables readers to evaluate how different fields convert early career earnings into long term income growth. The combination of absolute salary levels and growth rates supports comparative analysis across majors, revealing patterns such as degrees with modest starting pay but strong upward mobility versus those with high initial compensation but slower growth. For students and advisors, this perspective supports more informed decision making by aligning personal financial goals with realistic career earning trajectories, rather than relying on starting salary alone.",
       "question_text": "How do mid-career earnings compare between traditionally high-paying fields like engineering and lower-paying fields like art history or religion?",
-      "rendered_path": "charts/tableau/7/sum1_ques5",
+      "rendered_path": "charts/75",
       "variants": [
         "gen1_sug3.png",
         "gen3_sug4.png"
@@ -4280,7 +4280,7 @@
       ],
       "summary_text": "By analyzing undergraduate major alongside starting median salary, mid career median salary, and percent change between the two, this dataset enables readers to evaluate how different fields convert early career earnings into long term income growth. The combination of absolute salary levels and growth rates supports comparative analysis across majors, revealing patterns such as degrees with modest starting pay but strong upward mobility versus those with high initial compensation but slower growth. For students and advisors, this perspective supports more informed decision making by aligning personal financial goals with realistic career earning trajectories, rather than relying on starting salary alone.",
       "question_text": "What is the spread of percentage pay growth across all majors, from the lowest around 23% to the highest above 100%?",
-      "rendered_path": "charts/tableau/7/sum1_ques7",
+      "rendered_path": "charts/76",
       "variants": [
         "gen1_sug4.png",
         "gen1_sug1.png"
@@ -4324,7 +4324,7 @@
       ],
       "summary_text": "Combining audience scores, critic ratings, and profitability allows analysts to explore the relationship between perception and financial return. This structure supports correlation analysis to see whether broad audience appeal or critical endorsement aligns more strongly with profitable outcomes. The resulting insights can guide marketing emphasis, preview testing strategy, and early forecasting models by clarifying which perception metrics tend to coincide with stronger financial efficiency.",
       "question_text": "What is the overall relationship between audience approval percentages and financial return across all films?",
-      "rendered_path": "charts/tableau/8/sum2_ques3",
+      "rendered_path": "charts/77",
       "variants": [
         "gen2_sug2.png",
         "gen1_sug4.png"
@@ -4368,7 +4368,7 @@
       ],
       "summary_text": "Analyzing lead studio alongside profitability and worldwide gross enables comparison of financial performance patterns across production and distribution entities. This perspective helps identify studios that consistently achieve high returns even without extreme box office scale, as well as those that rely on blockbuster revenue for success. Such insight supports competitive analysis, partnership evaluation, and assessments of operational efficiency within the film industry.",
       "question_text": "How is total worldwide box office revenue divided among studios such as Paramount, Sony, and 20th Century Fox?",
-      "rendered_path": "charts/tableau/8/sum3_ques5",
+      "rendered_path": "charts/78",
       "variants": [
         "gen2_sug3.png",
         "gen2_sug4.png"
@@ -4412,7 +4412,7 @@
       ],
       "summary_text": "Analyzing lead studio alongside profitability and worldwide gross enables comparison of financial performance patterns across production and distribution entities. This perspective helps identify studios that consistently achieve high returns even without extreme box office scale, as well as those that rely on blockbuster revenue for success. Such insight supports competitive analysis, partnership evaluation, and assessments of operational efficiency within the film industry.",
       "question_text": "How is total worldwide box office revenue divided among studios such as Paramount, Sony, and 20th Century Fox?",
-      "rendered_path": "charts/tableau/8/sum3_ques5",
+      "rendered_path": "charts/79",
       "variants": [
         "gen2_sug3.png",
         "gen1_sug1.png"
@@ -4456,7 +4456,7 @@
       ],
       "summary_text": "Linking year, genre, and worldwide gross supports time series and comparative trend analysis of box office performance by genre. This structure allows analysts to observe how revenue concentration shifts across genres over multiple years, revealing periods of growth, saturation, or decline. The insights can inform long term forecasting, contextual interpretation of current releases, and strategic positioning of genres in future production slates.",
       "question_text": "Are there any genres that experienced a noticeable spike or drop in worldwide box office revenue in a single year?",
-      "rendered_path": "charts/tableau/8/sum4_ques5",
+      "rendered_path": "charts/80",
       "variants": [
         "gen1_sug1.png",
         "gen1_sug3.png"
@@ -4500,7 +4500,7 @@
       ],
       "summary_text": "Analyzing standardized death rates by age group and sex reveals how mortality risk is distributed across the life course and between biological groups. This field combination supports identification of high risk life stages, comparison of male and female mortality profiles, and assessment of whether observed risks concentrate in early life, working age, or older populations. The insights guide targeted prevention strategies and support hypothesis generation around biological, social, or behavioral drivers of demographic inequality in health outcomes.",
       "question_text": "Which age groups show the highest death rates for males compared with females when looking across the full life course?",
-      "rendered_path": "charts/tableau/9/sum2_ques1",
+      "rendered_path": "charts/81",
       "variants": [
         "gen2_sug1.png",
         "gen1_sug6.png"
@@ -4544,7 +4544,7 @@
       ],
       "summary_text": "Linking test preparation participation with scores across core subjects provides a focused framework for evaluating program effectiveness. Analysts can compare score distributions between students who completed preparation courses and those who did not, examine subject-specific sensitivity to preparation and identify consistency of impact. These insights support evidence-based decisions on whether to expand, refine or redesign preparatory offerings within academic systems.",
       "question_text": "Do students who completed the test preparation course consistently outperform those with none across math, reading, and writing scores?",
-      "rendered_path": "charts/c2_2/151/sum3_ques8",
+      "rendered_path": "charts/82",
       "variants": [
         "gen2_sug3.png",
         "gen1_sug1.png"
@@ -4589,7 +4589,7 @@
       ],
       "summary_text": "Linking test preparation participation with scores across core subjects provides a focused framework for evaluating program effectiveness. Analysts can compare score distributions between students who completed preparation courses and those who did not, examine subject-specific sensitivity to preparation and identify consistency of impact. These insights support evidence-based decisions on whether to expand, refine or redesign preparatory offerings within academic systems.",
       "question_text": "Do students who completed the test preparation course consistently outperform those with none across math, reading, and writing scores?",
-      "rendered_path": "charts/c2_2/151/sum3_ques8",
+      "rendered_path": "charts/83",
       "variants": [
         "gen1_sug6.png",
         "gen1_sug1.png"
@@ -4635,7 +4635,7 @@
       ],
       "summary_text": "Combining parental education level and lunch program status with student performance scores enables a layered view of socioeconomic context and academic outcomes. This setup supports comparative analysis across socioeconomic segments, identification of performance gradients and detection of compounding effects between home environment and school-provided support. The resulting insights can help administrators prioritize interventions, evaluate equity gaps and assess whether existing support mechanisms align with observed performance patterns.",
       "question_text": "What is the proportional distribution of parental education levels among students receiving free/reduced lunch?",
-      "rendered_path": "charts/c2_2/151/sum2_ques1",
+      "rendered_path": "charts/84",
       "variants": [
         "gen2_sug1.png",
         "gen1_sug3.png"
@@ -4681,7 +4681,7 @@
       ],
       "summary_text": "Combining parental education level and lunch program status with student performance scores enables a layered view of socioeconomic context and academic outcomes. This setup supports comparative analysis across socioeconomic segments, identification of performance gradients and detection of compounding effects between home environment and school-provided support. The resulting insights can help administrators prioritize interventions, evaluate equity gaps and assess whether existing support mechanisms align with observed performance patterns.",
       "question_text": "Which parental education level has the most students on free/reduced lunch?",
-      "rendered_path": "charts/c2_2/151/sum2_ques8",
+      "rendered_path": "charts/85",
       "variants": [
         "gen1_sug1.png",
         "gen1_sug2.png"
@@ -4727,7 +4727,7 @@
       ],
       "summary_text": "This combination allows researchers to evaluate how continuous inflation measures align with binary inflation crisis indicators and currency crisis events over time. It supports analysis of inflation volatility, extreme outliers, and regime shifts, as well as testing whether currency crises are consistently associated with accelerating price instability. The schema enables formal comparison between quantitative inflation outcomes and qualitative crisis classifications, aiding model validation and refinement of crisis definitions.",
       "question_text": "Which countries experienced the highest annual inflation rates during years labeled as inflation crises?",
-      "rendered_path": "charts/c2_2/139/sum2_ques1",
+      "rendered_path": "charts/86",
       "variants": [
         "gen1_sug1.png",
         "gen1_sug2.png"
@@ -4779,7 +4779,7 @@
       ],
       "summary_text": "This field combination enables analysis of the co occurrence and timing of different financial crisis types within African countries across a long historical timeline. By aligning crisis indicators with country and year, analysts can explore whether banking crises tend to precede systemic crises, or whether currency crises act as early signals of broader financial breakdowns. The structure supports cross country comparisons and temporal clustering analysis, helping regulators identify recurring crisis pathways and design monitoring indicators that capture multi crisis dynamics rather than isolated events.",
       "question_text": "Which African countries experience the longest uninterrupted runs of years without any currency crises?",
-      "rendered_path": "charts/c2_2/139/sum1_ques5",
+      "rendered_path": "charts/87",
       "variants": [
         "gen1_sug1.png",
         "gen1_sug2.png"
@@ -4825,7 +4825,7 @@
       "columns_used": [],
       "summary_text": "",
       "question_text": "Which countries experience the most years with currency crises compared to years without such events?",
-      "rendered_path": "charts/c2_2/139/sum2_ques5",
+      "rendered_path": "charts/88",
       "variants": [
         "gen1_sug2.png",
         "gen2_sug2.png"
@@ -4871,7 +4871,7 @@
       "columns_used": [],
       "summary_text": "",
       "question_text": "Which countries experience the most years with currency crises compared to years without such events?",
-      "rendered_path": "charts/c2_2/139/sum2_ques5",
+      "rendered_path": "charts/89",
       "variants": [
         "gen1_sug2.png",
         "gen2_sug1.png"
@@ -4917,7 +4917,7 @@
       "columns_used": [],
       "summary_text": "",
       "question_text": "Which countries experienced repeated debt default episodes over the longest spans of years since 1900?",
-      "rendered_path": "charts/c2_2/139/sum3_ques4",
+      "rendered_path": "charts/90",
       "variants": [
         "gen1_sug2.png",
         "gen1_sug1.png"
@@ -4963,7 +4963,7 @@
       "columns_used": [],
       "summary_text": "",
       "question_text": "How has the annual occurrence of systemic financial crises changed across Africa from the 1960s through the 2000s?",
-      "rendered_path": "charts/c2_2/139/sum1_ques2",
+      "rendered_path": "charts/91",
       "variants": [
         "gen2_sug2.png",
         "gen2_sug1.png"
@@ -5009,7 +5009,7 @@
       "columns_used": [],
       "summary_text": "",
       "question_text": "How has the annual occurrence of systemic financial crises changed across Africa from the 1960s through the 2000s?",
-      "rendered_path": "charts/c2_2/139/sum1_ques2",
+      "rendered_path": "charts/92",
       "variants": [
         "gen2_sug3.png",
         "gen2_sug1.png"
@@ -5055,7 +5055,7 @@
       "columns_used": [],
       "summary_text": "",
       "question_text": "Which rival party pairs produce the smallest victory margins across constituencies, making those contests the most closely fought?",
-      "rendered_path": "charts/c2_2/146/sum2_ques1",
+      "rendered_path": "charts/93",
       "variants": [],
       "table_metadata": {
         "table_name": "Lok Sabha Election Results 2024 India",
@@ -5092,7 +5092,7 @@
       "columns_used": [],
       "summary_text": "",
       "question_text": "Are contests between Bharatiya Janata Party and Indian National Congress generally more competitive than contests involving smaller parties based on margin size?",
-      "rendered_path": "charts/c2_2/146/sum2_ques7",
+      "rendered_path": "charts/94",
       "variants": [],
       "table_metadata": {
         "table_name": "Lok Sabha Election Results 2024 India",
@@ -5129,7 +5129,7 @@
       "columns_used": [],
       "summary_text": "",
       "question_text": "Which five constituency numbers have the largest victory margins, including extreme cases like margins above one million votes?",
-      "rendered_path": "charts/c2_2/146/sum4_ques1",
+      "rendered_path": "charts/95",
       "variants": [],
       "table_metadata": {
         "table_name": "Lok Sabha Election Results 2024 India",
@@ -5166,7 +5166,7 @@
       "columns_used": [],
       "summary_text": "",
       "question_text": "Are there noticeable gaps or jumps in victory margins between consecutive constituency numbers that suggest irregular patterns?",
-      "rendered_path": "charts/c2_2/146/sum4_ques8",
+      "rendered_path": "charts/96",
       "variants": [],
       "table_metadata": {
         "table_name": "Lok Sabha Election Results 2024 India",
@@ -5203,7 +5203,7 @@
       "columns_used": [],
       "summary_text": "",
       "question_text": "In which constituencies did newcomers such as ABDUL RASHID SHEIKH emerge as the leading face over more established rivals?",
-      "rendered_path": "charts/c2_2/146/sum3_ques2",
+      "rendered_path": "charts/97",
       "variants": [],
       "table_metadata": {
         "table_name": "Lok Sabha Election Results 2024 India",
@@ -5240,7 +5240,7 @@
       "columns_used": [],
       "summary_text": "",
       "question_text": "How do candidate matchups in high-profile constituencies like Wayanad differ from those in places like AJMER or ALWAR?",
-      "rendered_path": "charts/c2_2/146/sum3_ques4",
+      "rendered_path": "charts/98",
       "variants": [],
       "table_metadata": {
         "table_name": "Lok Sabha Election Results 2024 India",
@@ -5277,7 +5277,7 @@
       "columns_used": [],
       "summary_text": "",
       "question_text": "Which political parties hold the highest number of constituencies nationwide based on declared outcomes?",
-      "rendered_path": "charts/c2_2/146/sum1_ques1",
+      "rendered_path": "charts/99",
       "variants": [],
       "table_metadata": {
         "table_name": "Lok Sabha Election Results 2024 India",
@@ -5314,7 +5314,7 @@
       "columns_used": [],
       "summary_text": "",
       "question_text": "How does the share of declared versus uncontested results differ across political parties?",
-      "rendered_path": "charts/c2_2/146/sum1_ques5",
+      "rendered_path": "charts/100",
       "variants": [],
       "table_metadata": {
         "table_name": "Lok Sabha Election Results 2024 India",
@@ -5351,7 +5351,7 @@
       "columns_used": [],
       "summary_text": "",
       "question_text": "Which gender has more students clustered near perfect scores between 95 and 100 in math?",
-      "rendered_path": "charts/c2_2/151/sum1_ques4",
+      "rendered_path": "charts/101",
       "variants": [
         "gen2_sug1.png",
         "gen2_sug3.png"
@@ -5391,7 +5391,7 @@
       "columns_used": [],
       "summary_text": "",
       "question_text": "Which gender has more students clustered near perfect scores between 95 and 100 in math?",
-      "rendered_path": "charts/c2_2/151/sum1_ques4",
+      "rendered_path": "charts/102",
       "variants": [
         "gen2_sug1.png",
         "gen1_sug2.png"
@@ -5431,7 +5431,7 @@
       "columns_used": [],
       "summary_text": "",
       "question_text": "How do reading score distributions differ between students who completed test preparation and those who did not?",
-      "rendered_path": "charts/c2_2/151/sum3_ques2",
+      "rendered_path": "charts/103",
       "variants": [
         "gen2_sug2.png",
         "gen1_sug1.png"
@@ -5471,7 +5471,7 @@
       "columns_used": [],
       "summary_text": "",
       "question_text": "How consistent are the score ranges in math, reading, and writing for students who completed test preparation?",
-      "rendered_path": "charts/c2_2/151/sum3_ques7",
+      "rendered_path": "charts/104",
       "variants": [],
       "table_metadata": {
         "table_name": "Student performance prediction",
@@ -5508,7 +5508,7 @@
       "columns_used": [],
       "summary_text": "",
       "question_text": "What proportion of students scoring above 90 in reading comes from each parental education level?",
-      "rendered_path": "charts/c2_2/151/sum4_ques8",
+      "rendered_path": "charts/105",
       "variants": [
         "gen1_sug3.png",
         "gen1_sug2.png"
@@ -5548,7 +5548,7 @@
       "columns_used": [],
       "summary_text": "",
       "question_text": "How are math scores distributed within the group of students whose parents did not complete high school?",
-      "rendered_path": "charts/c2_2/151/sum2_ques7",
+      "rendered_path": "charts/106",
       "variants": [
         "gen3_sug4.png",
         "gen3_sug7.png"
@@ -5588,7 +5588,7 @@
       "columns_used": [],
       "summary_text": "",
       "question_text": "How has India’s overall trade balance shifted from the 1997 financial year to the 2022 financial year?",
-      "rendered_path": "charts/c2_2/223/sum4_ques1",
+      "rendered_path": "charts/107",
       "variants": [
         "gen1_sug1.png",
         "gen1_sug2.png"
@@ -5627,7 +5627,7 @@
       "columns_used": [],
       "summary_text": "",
       "question_text": "How has India’s overall trade balance shifted from the 1997 financial year to the 2022 financial year?",
-      "rendered_path": "charts/c2_2/223/sum4_ques1",
+      "rendered_path": "charts/108",
       "variants": [
         "gen1_sug2.png",
         "gen1_sug3.png"
@@ -5666,7 +5666,7 @@
       "columns_used": [],
       "summary_text": "",
       "question_text": "How has India’s overall trade balance shifted from the 1997 financial year to the 2022 financial year?",
-      "rendered_path": "charts/c2_2/223/sum4_ques1",
+      "rendered_path": "charts/109",
       "variants": [
         "gen1_sug1.png",
         "gen2_sug4.png"
@@ -5705,7 +5705,7 @@
       "columns_used": [],
       "summary_text": "",
       "question_text": "Are there any financial years where exports and imports were nearly equal, resulting in a minimal trade imbalance?",
-      "rendered_path": "charts/c2_2/223/sum4_ques7",
+      "rendered_path": "charts/110",
       "variants": [
         "gen2_sug1.png",
         "gen1_sug2.png"
@@ -5744,7 +5744,7 @@
       "columns_used": [],
       "summary_text": "",
       "question_text": "What proportion of India’s total trade in the financial year starting 2015 is accounted for by the top 10 partner countries?",
-      "rendered_path": "charts/c2_2/223/sum3_ques6",
+      "rendered_path": "charts/111",
       "variants": [
         "gen2_sug6.png",
         "gen1_sug2.png"
@@ -5783,7 +5783,7 @@
       "columns_used": [],
       "summary_text": "",
       "question_text": "What proportion of India’s total trade in the financial year starting 2015 is accounted for by the top 10 partner countries?",
-      "rendered_path": "charts/c2_2/223/sum3_ques6",
+      "rendered_path": "charts/112",
       "variants": [
         "gen1_sug6.png",
         "gen1_sug2.png"
@@ -5822,7 +5822,7 @@
       "columns_used": [],
       "summary_text": "",
       "question_text": "Which financial years show the highest total trade values compared to earlier periods in the late 1990s such as 1997–1998?",
-      "rendered_path": "charts/c2_2/223/sum2_ques2",
+      "rendered_path": "charts/113",
       "variants": [
         "gen1_sug1.png",
         "gen2_sug2.png"
@@ -5861,7 +5861,7 @@
       "columns_used": [],
       "summary_text": "",
       "question_text": "Are there any financial years where total trade drops sharply compared to the immediately preceding year, suggesting a possible anomaly?",
-      "rendered_path": "charts/c2_2/223/sum2_ques5",
+      "rendered_path": "charts/114",
       "variants": [
         "gen1_sug1.png",
         "gen1_sug2.png"
@@ -5900,7 +5900,7 @@
       "columns_used": [],
       "summary_text": "",
       "question_text": "Are there any financial years where total trade drops sharply compared to the immediately preceding year, suggesting a possible anomaly?",
-      "rendered_path": "charts/c2_2/223/sum2_ques5",
+      "rendered_path": "charts/115",
       "variants": [
         "gen1_sug1.png",
         "gen2_sug4.png"
@@ -5939,7 +5939,7 @@
       "columns_used": [],
       "summary_text": "",
       "question_text": "Which IQ ranges show the highest proportion of biased judgments marked as present?",
-      "rendered_path": "charts/c2_2/227/sum2_ques2",
+      "rendered_path": "charts/116",
       "variants": [
         "gen1_sug1.png",
         "gen2_sug4.png"
@@ -5993,7 +5993,7 @@
       "columns_used": [],
       "summary_text": "",
       "question_text": "Which days show the largest daily percent gains despite having relatively narrow intraday price ranges?",
-      "rendered_path": "charts/c2_2/254/sum4_ques1",
+      "rendered_path": "charts/117",
       "variants": [],
       "table_metadata": {
         "table_name": "Ethereum Cryptocurrency Historical Dataset ",
@@ -6034,7 +6034,7 @@
       ],
       "summary_text": "Comparing bicycle crossings across individual bridges reveals relative usage patterns and highlights which structures consistently carry higher cycling volumes. This perspective enables infrastructure managers to detect imbalances, assess wear and tear risks, and prioritize inspections or upgrades. It also supports strategic planning for capacity expansion or traffic redistribution to improve overall network efficiency and safety.",
       "question_text": "How do daily bicycle crossing counts on the Williamsburg crossing compare with the Manhattan crossing around early April?",
-      "rendered_path": "charts/c2_2/270/sum3_ques2",
+      "rendered_path": "charts/118",
       "variants": [
         "gen1_sug3.png",
         "gen1_sug1.png"
@@ -6082,7 +6082,7 @@
       ],
       "summary_text": "Comparing bicycle crossings across individual bridges reveals relative usage patterns and highlights which structures consistently carry higher cycling volumes. This perspective enables infrastructure managers to detect imbalances, assess wear and tear risks, and prioritize inspections or upgrades. It also supports strategic planning for capacity expansion or traffic redistribution to improve overall network efficiency and safety.",
       "question_text": "How do bicycle crossing volumes on the Brooklyn crossing change from the start of April to the end of the month?",
-      "rendered_path": "charts/c2_2/270/sum3_ques5",
+      "rendered_path": "charts/119",
       "variants": [
         "gen1_sug1.png",
         "gen2_sug1.png"
@@ -6130,7 +6130,7 @@
       ],
       "summary_text": "Comparing bicycle crossings across individual bridges reveals relative usage patterns and highlights which structures consistently carry higher cycling volumes. This perspective enables infrastructure managers to detect imbalances, assess wear and tear risks, and prioritize inspections or upgrades. It also supports strategic planning for capacity expansion or traffic redistribution to improve overall network efficiency and safety.",
       "question_text": "How do bicycle crossing volumes on the Brooklyn crossing change from the start of April to the end of the month?",
-      "rendered_path": "charts/c2_2/270/sum3_ques5",
+      "rendered_path": "charts/120",
       "variants": [
         "gen2_sug2.png",
         "gen2_sug1.png"
@@ -6178,7 +6178,7 @@
       ],
       "summary_text": "By pairing daily temperature ranges with total bicycle crossings, this analysis highlights the potential relationship between comfortable weather conditions and aggregate cycling demand. It enables planners to assess sensitivity of ridership to temperature changes, identify thresholds where cycling activity increases or decreases, and anticipate demand under varying weather scenarios. These insights can guide decisions around resource allocation, seasonal maintenance schedules, and future resilience planning.",
       "question_text": "How did total bicycle crossings trend over the month of April 2016 as daily temperatures gradually increased?",
-      "rendered_path": "charts/c2_2/270/sum1_ques5",
+      "rendered_path": "charts/121",
       "variants": [
         "gen1_sug1.png",
         "gen2_sug5.png"
@@ -6226,7 +6226,7 @@
       ],
       "summary_text": "By pairing daily temperature ranges with total bicycle crossings, this analysis highlights the potential relationship between comfortable weather conditions and aggregate cycling demand. It enables planners to assess sensitivity of ridership to temperature changes, identify thresholds where cycling activity increases or decreases, and anticipate demand under varying weather scenarios. These insights can guide decisions around resource allocation, seasonal maintenance schedules, and future resilience planning.",
       "question_text": "How did total bicycle crossings trend over the month of April 2016 as daily temperatures gradually increased?",
-      "rendered_path": "charts/c2_2/270/sum1_ques5",
+      "rendered_path": "charts/122",
       "variants": [
         "gen1_sug1.png",
         "gen3_sug6.png"
@@ -6274,7 +6274,7 @@
       ],
       "summary_text": "Bringing together daily timing, total crossings, and weather indicators enables exploration of how combined environmental conditions shape cycling behavior on specific days. This supports identification of recurring temporal patterns, compound weather effects, and anomalies that deviate from expected trends. The resulting insights can inform predictive modeling, scenario analysis, and more nuanced interpretations of daily mobility dynamics.",
       "question_text": "How does the total number of bicycle crossings differ between days with measurable rainfall, i.e. greater than 0.2 inches and days with only trace precipitation?",
-      "rendered_path": "charts/c2_2/270/sum4_ques5",
+      "rendered_path": "charts/123",
       "variants": [
         "gen2_sug1.png",
         "gen2_sug6.png"
@@ -6322,7 +6322,7 @@
       ],
       "summary_text": "Bringing together daily timing, total crossings, and weather indicators enables exploration of how combined environmental conditions shape cycling behavior on specific days. This supports identification of recurring temporal patterns, compound weather effects, and anomalies that deviate from expected trends. The resulting insights can inform predictive modeling, scenario analysis, and more nuanced interpretations of daily mobility dynamics.",
       "question_text": "What is the distribution of daily bicycle crossing totals across all April 2016 dates?",
-      "rendered_path": "charts/c2_2/270/sum4_ques6",
+      "rendered_path": "charts/124",
       "variants": [],
       "table_metadata": {
         "table_name": "New York City - East River Bicycle Crossings",
@@ -6362,7 +6362,7 @@
       "columns_used": [],
       "summary_text": "",
       "question_text": "How does average defect percentage change as worker efficiency increases?",
-      "rendered_path": "charts/c2_2/338/sum4_ques4",
+      "rendered_path": "charts/125",
       "variants": [
         "gen1_sug1.png",
         "gen2_sug3.png"
@@ -6411,7 +6411,7 @@
       "columns_used": [],
       "summary_text": "",
       "question_text": "How does average defect percentage change as worker efficiency increases?",
-      "rendered_path": "charts/c2_2/338/sum4_ques4",
+      "rendered_path": "charts/126",
       "variants": [
         "gen1_sug2.png",
         "gen2_sug1.png"
@@ -6460,7 +6460,7 @@
       "columns_used": [],
       "summary_text": "",
       "question_text": "How does manufacturing cost change as energy efficiency rises from about 0.10 to 0.50?",
-      "rendered_path": "charts/c2_2/338/sum3_ques2",
+      "rendered_path": "charts/127",
       "variants": [
         "gen1_sug1.png",
         "gen1_sug3.png"
@@ -6509,7 +6509,7 @@
       "columns_used": [],
       "summary_text": "",
       "question_text": "How does manufacturing cost change as energy efficiency rises from about 0.10 to 0.50?",
-      "rendered_path": "charts/c2_2/338/sum3_ques2",
+      "rendered_path": "charts/128",
       "variants": [
         "gen1_sug1.png",
         "gen1_sug2.png"
@@ -6558,7 +6558,7 @@
       "columns_used": [],
       "summary_text": "",
       "question_text": "Which supplier quality score ranges show unusually high defect percentages despite being close to top-tier levels?",
-      "rendered_path": "charts/c2_2/338/sum1_ques5",
+      "rendered_path": "charts/129",
       "variants": [
         "gen1_sug2.png",
         "gen1_sug1.png"
@@ -6607,7 +6607,7 @@
       "columns_used": [],
       "summary_text": "",
       "question_text": "Which supplier quality score ranges show unusually high defect percentages despite being close to top-tier levels?",
-      "rendered_path": "charts/c2_2/338/sum1_ques5",
+      "rendered_path": "charts/130",
       "variants": [
         "gen2_sug1.png",
         "gen1_sug1.png"
@@ -6656,7 +6656,7 @@
       "columns_used": [],
       "summary_text": "",
       "question_text": "How does reported motion discomfort vary as session length increases from about 5 minutes to 60 minutes?",
-      "rendered_path": "charts/c2_2/352/sum1_ques3",
+      "rendered_path": "charts/131",
       "variants": [
         "gen1_sug2.png",
         "gen2_sug3.png"
@@ -6695,7 +6695,7 @@
       "columns_used": [],
       "summary_text": "",
       "question_text": "Which ages experience the lowest motion discomfort during short sessions under 10 minutes?",
-      "rendered_path": "charts/c2_2/352/sum1_ques5",
+      "rendered_path": "charts/132",
       "variants": [
         "gen1_sug1.png",
         "gen1_sug2.png"
@@ -6734,7 +6734,7 @@
       "columns_used": [],
       "summary_text": "",
       "question_text": "Which headset shows the highest typical motion sickness rating on the 1–10 scale?",
-      "rendered_path": "charts/c2_2/352/sum2_ques2",
+      "rendered_path": "charts/133",
       "variants": [
         "gen2_sug1.png",
         "gen1_sug3.png"
@@ -6773,7 +6773,7 @@
       "columns_used": [],
       "summary_text": "",
       "question_text": "For experiences rated at the highest immersion level of 5, which headset has the lowest average motion sickness?",
-      "rendered_path": "charts/c2_2/352/sum2_ques4",
+      "rendered_path": "charts/134",
       "variants": [
         "gen1_sug2.png",
         "gen1_sug3.png"
@@ -6812,7 +6812,7 @@
       "columns_used": [],
       "summary_text": "",
       "question_text": "What is the typical session length for Male users at each immersion rating level?",
-      "rendered_path": "charts/c2_2/352/sum3_ques4",
+      "rendered_path": "charts/135",
       "variants": [
         "gen1_sug1.png",
         "gen1_sug3.png"
@@ -6851,7 +6851,7 @@
       "columns_used": [],
       "summary_text": "",
       "question_text": "How does enrollment change as course length increases from very short offerings under 1 hour to long courses approaching 70 hours?",
-      "rendered_path": "charts/c2_2/366/sum2_ques4",
+      "rendered_path": "charts/136",
       "variants": [
         "gen2_sug1.png",
         "gen2_sug2.png"
@@ -6895,7 +6895,7 @@
       "columns_used": [],
       "summary_text": "",
       "question_text": "Which subject contains paid courses with unusually high prices near $200 but relatively low enrollment counts?",
-      "rendered_path": "charts/c2_2/366/sum1_ques6",
+      "rendered_path": "charts/137",
       "variants": [
         "gen1_sug1.png",
         "gen1_sug3.png"
@@ -6939,7 +6939,7 @@
       "columns_used": [],
       "summary_text": "",
       "question_text": "Among courses with more than 10,000 enrolled learners, which subject category appears most frequently?",
-      "rendered_path": "charts/c2_2/366/sum1_ques7",
+      "rendered_path": "charts/138",
       "variants": [
         "gen1_sug1.png",
         "gen2_sug2.png"
@@ -6983,7 +6983,7 @@
       "columns_used": [],
       "summary_text": "",
       "question_text": "How do subscriber counts compare between free courses priced at $0 and paid courses across the platform?",
-      "rendered_path": "charts/c2_2/366/sum4_ques1",
+      "rendered_path": "charts/139",
       "variants": [
         "gen1_sug3.png",
         "gen2_sug2.png"
@@ -7027,7 +7027,7 @@
       "columns_used": [],
       "summary_text": "",
       "question_text": "Which price points between $20 and $200 attract the highest average number of subscribers?",
-      "rendered_path": "charts/c2_2/366/sum4_ques2",
+      "rendered_path": "charts/140",
       "variants": [
         "gen2_sug2.png",
         "gen2_sug1.png"
@@ -7071,7 +7071,7 @@
       "columns_used": [],
       "summary_text": "",
       "question_text": "Which price points between $20 and $200 attract the highest average number of subscribers?",
-      "rendered_path": "charts/c2_2/366/sum4_ques2",
+      "rendered_path": "charts/141",
       "variants": [
         "gen2_sug1.png",
         "gen2_sug3.png"
@@ -7115,7 +7115,7 @@
       "columns_used": [],
       "summary_text": "",
       "question_text": "Which price points between $20 and $200 attract the highest average number of subscribers?",
-      "rendered_path": "charts/c2_2/366/sum4_ques2",
+      "rendered_path": "charts/142",
       "variants": [
         "gen1_sug1.png",
         "gen1_sug2.png"
@@ -7159,7 +7159,7 @@
       "columns_used": [],
       "summary_text": "",
       "question_text": "How has learner enrollment changed from courses published around 2011 to those released closer to 2017?",
-      "rendered_path": "charts/c2_2/366/sum3_ques1",
+      "rendered_path": "charts/143",
       "variants": [
         "gen1_sug1.png",
         "gen1_sug4.png"
@@ -7203,7 +7203,7 @@
       "columns_used": [],
       "summary_text": "",
       "question_text": "How has learner enrollment changed from courses published around 2011 to those released closer to 2017?",
-      "rendered_path": "charts/c2_2/366/sum3_ques1",
+      "rendered_path": "charts/144",
       "variants": [
         "gen2_sug3.png",
         "gen1_sug4.png"
@@ -7247,7 +7247,7 @@
       "columns_used": [],
       "summary_text": "",
       "question_text": "How do average review counts compare across subjects for courses released in the same year?",
-      "rendered_path": "charts/c2_2/366/sum3_ques7",
+      "rendered_path": "charts/145",
       "variants": [
         "gen2_sug1.png",
         "gen2_sug2.png"
@@ -7291,7 +7291,7 @@
       "columns_used": [],
       "summary_text": "",
       "question_text": "How does South Korea’s share of economic output devoted to research and development compare with that of Germany and France?",
-      "rendered_path": "charts/c2_2/384/sum1_ques4",
+      "rendered_path": "charts/146",
       "variants": [
         "gen2_sug2.png",
         "gen1_sug1.png"
@@ -7326,7 +7326,7 @@
       "columns_used": [],
       "summary_text": "",
       "question_text": "How does South Korea’s share of economic output devoted to research and development compare with that of Germany and France?",
-      "rendered_path": "charts/c2_2/384/sum1_ques4",
+      "rendered_path": "charts/147",
       "variants": [
         "gen1_sug2.png",
         "gen1_sug3.png"
@@ -7361,7 +7361,7 @@
       "columns_used": [],
       "summary_text": "",
       "question_text": "How are countries distributed when comparing total research spending against the percentage of GDP invested in innovation?",
-      "rendered_path": "charts/c2_2/384/sum1_ques6",
+      "rendered_path": "charts/148",
       "variants": [
         "gen1_sug2.png",
         "gen1_sug3.png"
@@ -7396,7 +7396,7 @@
       "columns_used": [],
       "summary_text": "",
       "question_text": "Which countries produce the highest carbon dioxide emissions among the group that includes the United States, China, and India?",
-      "rendered_path": "charts/c2_2/388/sum1_ques1",
+      "rendered_path": "charts/149",
       "variants": [
         "gen1_sug4.png",
         "gen2_sug1.png"
@@ -7431,7 +7431,7 @@
       "columns_used": [],
       "summary_text": "",
       "question_text": "Which country stands out as an outlier with exceptionally high emissions relative to its forest area?",
-      "rendered_path": "charts/c2_2/388/sum1_ques5",
+      "rendered_path": "charts/150",
       "variants": [
         "gen1_sug3.png",
         "gen1_sug2.png"
@@ -7466,7 +7466,7 @@
       "columns_used": [],
       "summary_text": "",
       "question_text": "Do Germany and Japan show similar patterns in trade concentration compared with the United States across the six observations?",
-      "rendered_path": "charts/c2_2/396/sum2_ques8",
+      "rendered_path": "charts/151",
       "variants": [
         "gen2_sug1.png",
         "gen2_sug2.png"
@@ -7504,7 +7504,7 @@
       "columns_used": [],
       "summary_text": "",
       "question_text": "How do trade volumes involving China compare to those involving India across the six recorded trade observations?",
-      "rendered_path": "charts/c2_2/396/sum3_ques2",
+      "rendered_path": "charts/152",
       "variants": [
         "gen1_sug3.png",
         "gen1_sug1.png"
@@ -7542,7 +7542,7 @@
       "columns_used": [],
       "summary_text": "",
       "question_text": "How do trade volumes involving China compare to those involving India across the six recorded trade observations?",
-      "rendered_path": "charts/c2_2/396/sum3_ques2",
+      "rendered_path": "charts/153",
       "variants": [
         "gen1_sug4.png",
         "gen1_sug1.png"
@@ -7580,7 +7580,7 @@
       "columns_used": [],
       "summary_text": "",
       "question_text": "How does the area devoted to agriculture compare with the area covered by forests?",
-      "rendered_path": "charts/c2_2/480/sum1_ques3",
+      "rendered_path": "charts/154",
       "variants": [
         "gen1_sug1.png",
         "gen2_sug2.png"
@@ -7614,7 +7614,7 @@
       "columns_used": [],
       "summary_text": "",
       "question_text": "How dominant is agricultural land compared with all other categories in terms of area size?",
-      "rendered_path": "charts/c2_2/480/sum1_ques7",
+      "rendered_path": "charts/155",
       "variants": [
         "gen2_sug1.png",
         "gen2_sug3.png"
@@ -7655,7 +7655,7 @@
       ],
       "summary_text": "Combining daily high and low temperatures with per-bridge bicycle crossing counts enables analysis of how thermal conditions differentially influence cycling volumes on each East River bridge. This perspective reveals whether certain bridges are more temperature-sensitive than others, whether relative bridge rankings shift between cold and warm days, and which pairs of bridges exhibit similar or divergent responses to temperature changes. These insights support targeted infrastructure planning, bridge-specific demand forecasting, and understanding of how commuter route preferences evolve with seasonal weather patterns.",
       "question_text": "Which bridge shows the strongest increase in daily crossings as high temperature rises from below 50°F to above 70°F?",
-      "rendered_path": "charts/c2_2/270/sum5_ques1",
+      "rendered_path": "charts/156",
       "variants": [
         "gen2_sug3.png",
         "gen2_sug2.png"
@@ -7705,7 +7705,7 @@
       ],
       "summary_text": "Combining daily high and low temperatures with per-bridge bicycle crossing counts enables analysis of how thermal conditions differentially influence cycling volumes on each East River bridge. This perspective reveals whether certain bridges are more temperature-sensitive than others, whether relative bridge rankings shift between cold and warm days, and which pairs of bridges exhibit similar or divergent responses to temperature changes. These insights support targeted infrastructure planning, bridge-specific demand forecasting, and understanding of how commuter route preferences evolve with seasonal weather patterns.",
       "question_text": "Which bridge shows the strongest increase in daily crossings as high temperature rises from below 50°F to above 70°F?",
-      "rendered_path": "charts/c2_2/270/sum5_ques1",
+      "rendered_path": "charts/157",
       "variants": [
         "gen2_sug6.png",
         "gen3_sug1.png"
@@ -7755,7 +7755,7 @@
       ],
       "summary_text": "Combining daily high and low temperatures with per-bridge bicycle crossing counts enables analysis of how thermal conditions differentially influence cycling volumes on each East River bridge. This perspective reveals whether certain bridges are more temperature-sensitive than others, whether relative bridge rankings shift between cold and warm days, and which pairs of bridges exhibit similar or divergent responses to temperature changes. These insights support targeted infrastructure planning, bridge-specific demand forecasting, and understanding of how commuter route preferences evolve with seasonal weather patterns.",
       "question_text": "Which bridge shows the strongest increase in daily crossings as high temperature rises from below 50°F to above 70°F?",
-      "rendered_path": "charts/c2_2/270/sum5_ques1",
+      "rendered_path": "charts/158",
       "variants": [
         "gen2_sug6.png",
         "gen3_sug6.png"
@@ -7805,7 +7805,7 @@
       ],
       "summary_text": "Combining daily high and low temperatures with per-bridge bicycle crossing counts enables analysis of how thermal conditions differentially influence cycling volumes on each East River bridge. This perspective reveals whether certain bridges are more temperature-sensitive than others, whether relative bridge rankings shift between cold and warm days, and which pairs of bridges exhibit similar or divergent responses to temperature changes. These insights support targeted infrastructure planning, bridge-specific demand forecasting, and understanding of how commuter route preferences evolve with seasonal weather patterns.",
       "question_text": "On days with high temperatures above 70°F, which bridge captures the largest share of total crossings compared to cooler days below 50°F?",
-      "rendered_path": "charts/c2_2/270/sum5_ques2",
+      "rendered_path": "charts/159",
       "variants": [
         "gen2_sug2.png",
         "gen2_sug5.png"
@@ -7855,7 +7855,7 @@
       ],
       "summary_text": "Combining daily high and low temperatures with per-bridge bicycle crossing counts enables analysis of how thermal conditions differentially influence cycling volumes on each East River bridge. This perspective reveals whether certain bridges are more temperature-sensitive than others, whether relative bridge rankings shift between cold and warm days, and which pairs of bridges exhibit similar or divergent responses to temperature changes. These insights support targeted infrastructure planning, bridge-specific demand forecasting, and understanding of how commuter route preferences evolve with seasonal weather patterns.",
       "question_text": "How does the ratio of Williamsburg Bridge crossings to Manhattan Bridge crossings change between cold days under 45°F and warm days above 65°F?",
-      "rendered_path": "charts/c2_2/270/sum5_ques3",
+      "rendered_path": "charts/160",
       "variants": [
         "gen2_sug4.png",
         "gen3_sug1.png"
@@ -7905,7 +7905,7 @@
       ],
       "summary_text": "Combining daily high and low temperatures with per-bridge bicycle crossing counts enables analysis of how thermal conditions differentially influence cycling volumes on each East River bridge. This perspective reveals whether certain bridges are more temperature-sensitive than others, whether relative bridge rankings shift between cold and warm days, and which pairs of bridges exhibit similar or divergent responses to temperature changes. These insights support targeted infrastructure planning, bridge-specific demand forecasting, and understanding of how commuter route preferences evolve with seasonal weather patterns.",
       "question_text": "Which bridge has the most stable ridership across the full temperature range from about 40°F to 80°F?",
-      "rendered_path": "charts/c2_2/270/sum5_ques4",
+      "rendered_path": "charts/161",
       "variants": [
         "gen2_sug5.png",
         "gen1_sug2.png"
@@ -7952,7 +7952,7 @@
       ],
       "summary_text": "This field combination enables analysis of how standardized salaries evolve across years when segmented by experience level. By comparing compensation trajectories over time, stakeholders can assess whether seniority-based pay progression is widening, stabilizing, or compressing. The structure supports identifying macro trends such as market maturation or shifting demand for senior talent, helping decision makers benchmark internal pay bands against external trends and adjust long-term workforce planning.",
       "question_text": "How has the average salary in USD changed from 2020 to 2022 for each experience level?",
-      "rendered_path": "charts/c2_3/38/sum1_ques1",
+      "rendered_path": "charts/162",
       "variants": [
         "gen1_sug1.png",
         "gen1_sug2.png"
@@ -8000,7 +8000,7 @@
       ],
       "summary_text": "This field combination enables analysis of how standardized salaries evolve across years when segmented by experience level. By comparing compensation trajectories over time, stakeholders can assess whether seniority-based pay progression is widening, stabilizing, or compressing. The structure supports identifying macro trends such as market maturation or shifting demand for senior talent, helping decision makers benchmark internal pay bands against external trends and adjust long-term workforce planning.",
       "question_text": "Is the gap in salary in USD between entry-level and senior-level roles widening or narrowing over time?",
-      "rendered_path": "charts/c2_3/38/sum1_ques3",
+      "rendered_path": "charts/163",
       "variants": [
         "gen2_sug1.png",
         "gen1_sug3.png"
@@ -8049,7 +8049,7 @@
       ],
       "summary_text": "This combination supports analysis of how varying levels of remote work relate to compensation when considering employee and employer locations. By comparing remote intensity with geographic alignment or separation, analysts can investigate whether remote roles reduce location-based pay differences or introduce new disparities. The structure enables insights into globalization of talent, informing policy discussion and organizational strategies around remote hiring and location-based compensation models.",
       "question_text": "How does average salary in USD compare across fully on-site, hybrid, and fully remote roles?",
-      "rendered_path": "charts/c2_3/38/sum3_ques1",
+      "rendered_path": "charts/164",
       "variants": [
         "gen1_sug1.png",
         "gen2_sug4.png"
@@ -8098,7 +8098,7 @@
       ],
       "summary_text": "Combining urine pH with measures of concentration offers a holistic view of the urine environment. When analyzed against the kidney stone indicator, this set allows learners to examine how chemical balance and hydration interact in a clinically meaningful way. The dataset supports exploratory analysis, visualization of joint distributions, and introductory predictive reasoning, making it well suited for teaching applied health analytics and interpretability-focused modeling.",
       "question_text": "How does urine pH differ between patients with and without kidney stones?",
-      "rendered_path": "charts/c2_3/42/sum4_ques1",
+      "rendered_path": "charts/165",
       "variants": [
         "gen2_sug1.png",
         "gen2_sug2.png"
@@ -8141,7 +8141,7 @@
       ],
       "summary_text": "This field combination supports analysis of how urine acidity and calcium concentration jointly relate to kidney stone detection. By examining variations in pH alongside calcium levels and linking them to the binary outcome, clinicians can explore which biochemical environments are more frequently associated with stone presence. This enables pattern discovery around metabolic conditions, supports hypothesis testing about stone composition tendencies, and informs clinical decisions such as dietary or pharmacological intervention strategies.",
       "question_text": "What relationship is observed between urinary calcium levels and kidney stone presence?",
-      "rendered_path": "charts/c2_3/42/sum1_ques2",
+      "rendered_path": "charts/166",
       "variants": [
         "gen2_sug4.png",
         "gen1_sug1.png"
@@ -8185,7 +8185,7 @@
       ],
       "summary_text": "This multivariate combination enables exploration of how ionic concentration, protein metabolism byproducts, and calcium levels collectively relate to kidney stone occurrence. By analyzing these fields together, researchers can investigate interaction effects, identify dominant predictors, and assess whether combined biochemical profiles yield stronger associations with the outcome than individual measures. This supports feature selection, model refinement, and deeper insight into physiological mechanisms.",
       "question_text": "How does kidney stone occurrence differ across levels of urinary calcium concentration?",
-      "rendered_path": "charts/c2_3/42/sum3_ques1",
+      "rendered_path": "charts/167",
       "variants": [
         "gen2_sug1.png",
         "gen2_sug3.png"
@@ -8227,7 +8227,7 @@
       ],
       "summary_text": "By examining the relationship between region and category, the data supports analysis of how public and privately controlled institutions are spread across states. This combination enables stakeholders to identify patterns in institutional governance that may reflect regional policy preferences or historical development of higher education systems. Policymakers can use this perspective to assess whether certain regions rely more heavily on public institutions for access, or whether private institutions dominate, which can influence affordability, enrollment capacity, and strategic investment decisions.",
       "question_text": "How does the number of public versus privately controlled higher education institutions compare across different U.S. states?",
-      "rendered_path": "charts/c2_3/71/sum1_ques1",
+      "rendered_path": "charts/168",
       "variants": [
         "gen1_sug1.png",
         "gen2_sug4.png"
@@ -8267,7 +8267,7 @@
       ],
       "summary_text": "By examining the relationship between region and category, the data supports analysis of how public and privately controlled institutions are spread across states. This combination enables stakeholders to identify patterns in institutional governance that may reflect regional policy preferences or historical development of higher education systems. Policymakers can use this perspective to assess whether certain regions rely more heavily on public institutions for access, or whether private institutions dominate, which can influence affordability, enrollment capacity, and strategic investment decisions.",
       "question_text": "Are there regions that appear as outliers in their reliance on either public or private higher education institutions relative to most states?",
-      "rendered_path": "charts/c2_3/71/sum1_ques3",
+      "rendered_path": "charts/169",
       "variants": [
         "gen1_sug1.png",
         "gen2_sug1.png"
@@ -8307,7 +8307,7 @@
       ],
       "summary_text": "Linking institution names with their regions allows analysts to study how densely populated different states are with higher education providers and to explore naming patterns that may indicate institutional missions or focus areas. This setup supports regional clustering analysis and helps researchers understand how institutional landscapes vary by state, enabling deeper exploration of competition, collaboration, and regional academic identity.",
       "question_text": "Are there regions where institution names indicate stronger thematic clustering around missions such as technology, health, or religion?",
-      "rendered_path": "charts/c2_3/71/sum2_ques3",
+      "rendered_path": "charts/170",
       "variants": [
         "gen3_sug1.png",
         "gen3_sug2.png"
@@ -8349,7 +8349,7 @@
       ],
       "summary_text": "By combining time-based information with rental counts and calendar indicators, this analysis frames how bike usage systematically differs between weekdays, weekends, and public holidays. It encourages planners to examine recurring temporal rhythms and identify periods where demand behavior diverges from normal working-day patterns. This perspective supports decisions around resource allocation, station balancing, and service availability by emphasizing when and why usage intensity changes across the calendar rather than focusing on individual data points.",
       "question_text": "How does average bike rental volume differ between weekdays, weekends, and public holidays over time?",
-      "rendered_path": "charts/c2_3/133/sum1_ques1",
+      "rendered_path": "charts/171",
       "variants": [
         "gen3_sug1.png",
         "gen3_sug2.png"
@@ -8396,7 +8396,7 @@
       ],
       "summary_text": "By combining time-based information with rental counts and calendar indicators, this analysis frames how bike usage systematically differs between weekdays, weekends, and public holidays. It encourages planners to examine recurring temporal rhythms and identify periods where demand behavior diverges from normal working-day patterns. This perspective supports decisions around resource allocation, station balancing, and service availability by emphasizing when and why usage intensity changes across the calendar rather than focusing on individual data points.",
       "question_text": "What recurring daily or weekly usage patterns emerge in bike rental counts when comparing weekends to regular weekdays?",
-      "rendered_path": "charts/c2_3/133/sum1_ques2",
+      "rendered_path": "charts/172",
       "variants": [
         "gen1_sug1.png",
         "gen1_sug3.png"
@@ -8444,7 +8444,7 @@
       ],
       "summary_text": "This field combination enables a multifactor view of weather influences on bike-sharing demand by pairing rental counts with temperature, humidity, and wind conditions. The dataset structure invites analysis of how comfort and environmental stressors collectively drive or suppress usage rather than isolating single variables. Such an approach supports broader modeling efforts, comparative sensitivity analysis, and the development of predictive frameworks that explain demand variability under different weather scenarios.",
       "question_text": "Are there noticeable drops or anomalies in rental counts during periods of unusually high wind speed compared to typical conditions?",
-      "rendered_path": "charts/c2_3/133/sum2_ques3",
+      "rendered_path": "charts/173",
       "variants": [
         "gen1_sug1.png",
         "gen1_sug2.png"
@@ -8493,7 +8493,7 @@
       ],
       "summary_text": "This analysis combines daily music listening duration, listening during work, and perceived music effects with multiple mental health self assessments. For mental health researchers, this setup invites exploration of whether higher engagement with music corresponds to more positive or negative self reported states, and whether functional listening contexts modify that relationship. The curator appears to emphasize music as a modifiable daily habit rather than a fixed trait, prompting audiences to examine associations, nonlinear patterns, or thresholds of engagement that align with better or worse mental health perceptions. Insights from this combination can guide hypothesis generation around music as a coping mechanism, signal potential confounding behaviors such as work related stress, and support exploratory correlation or segmentation analysis before deeper clinical study.",
       "question_text": "What is the relationship between hours spent per day spent listening to music and self reported anxiety levels?",
-      "rendered_path": "charts/c2_3/174/sum1_ques1",
+      "rendered_path": "charts/174",
       "variants": [],
       "table_metadata": {
         "table_name": "Music & Mental Health Survey Results",
@@ -8564,7 +8564,7 @@
       ],
       "summary_text": "This perspective links age, favorite genre, frequency across multiple genres, and openness indicators such as exploratory listening and foreign language exposure. For music industry analysts, the schema enables identification of distinct listener profiles based not only on stated preferences but also on breadth of engagement across genres. The curator appears to steer attention toward diversity of listening rather than single genre loyalty, encouraging analysis of whether certain age groups show broader or narrower musical palettes. Such insights can support audience segmentation, inform recommendation strategies, and highlight cultural listening patterns that may influence content curation, marketing, or cross genre promotion decisions.",
       "question_text": "How does the likelihood of exploratory listening vary across different age groups?",
-      "rendered_path": "charts/c2_3/174/sum2_ques1",
+      "rendered_path": "charts/175",
       "variants": [
         "gen1_sug4.png",
         "gen2_sug1.png"
@@ -8638,7 +8638,7 @@
       ],
       "summary_text": "This perspective links age, favorite genre, frequency across multiple genres, and openness indicators such as exploratory listening and foreign language exposure. For music industry analysts, the schema enables identification of distinct listener profiles based not only on stated preferences but also on breadth of engagement across genres. The curator appears to steer attention toward diversity of listening rather than single genre loyalty, encouraging analysis of whether certain age groups show broader or narrower musical palettes. Such insights can support audience segmentation, inform recommendation strategies, and highlight cultural listening patterns that may influence content curation, marketing, or cross genre promotion decisions.",
       "question_text": "How is listening to music in foreign languages distributed across age groups?",
-      "rendered_path": "charts/c2_3/174/sum2_ques3",
+      "rendered_path": "charts/176",
       "variants": [
         "gen2_sug1.png",
         "gen2_sug4.png"
@@ -8708,7 +8708,7 @@
       ],
       "summary_text": "By combining geographic location with hotel size and category, this analysis enables decision makers to understand how accommodation capacity is distributed across states and cities and how it aligns with different quality segments. It supports identification of regions dominated by large high category hotels versus areas characterized by smaller or lower category properties. Such patterns help assess competitive intensity, uncover underserved markets, and guide strategic decisions on where to add new properties or upgrade existing ones based on regional capacity and positioning.",
       "question_text": "Which cities have the highest concentration of large hotels based on total rooms within the top category ratings?",
-      "rendered_path": "charts/c2_3/317/sum1_ques2",
+      "rendered_path": "charts/177",
       "variants": [
         "gen2_sug4.png",
         "gen1_sug1.png"
@@ -8753,7 +8753,7 @@
       ],
       "summary_text": "This table enables a comparative analysis of countries based on the scale of their internet-using populations. By examining how internet users are distributed across different nations, decision makers can identify which countries represent large or emerging digital markets versus those with more limited online reach. The combination of country identifiers and user counts supports ranking, clustering, and outlier detection, helping executives assess where digital products, services, or investments may achieve the greatest impact. The dataset also invites follow up analysis when combined with external indicators such as population size or economic metrics, allowing stakeholders to distinguish between sheer population driven scale and deeper levels of internet penetration, ultimately informing more data driven global digital strategies.",
       "question_text": "Are there any countries that stand out as outliers in terms of internet user counts compared to the rest of the dataset?",
-      "rendered_path": "charts/c2_3/389/sum1_ques3",
+      "rendered_path": "charts/178",
       "variants": [
         "gen2_sug3.png",
         "gen1_sug4.png"
@@ -8792,7 +8792,7 @@
       ],
       "summary_text": "Analyzing Amazon, Microsoft, and Google interaction metrics side by side provides a structured way to study engagement patterns among dominant cloud and infrastructure providers. The shared counterparts enable assessment of competitive overlap, relative market reach, and differentiation strategies. This perspective supports identifying whether interaction volumes cluster similarly across providers or reveal distinct engagement strategies, which can guide market positioning analysis and advisory recommendations.",
       "question_text": "How do Amazon, Microsoft, and Google compare in total interaction volume across the listed peer companies?",
-      "rendered_path": "charts/c2_3/397/sum3_ques1",
+      "rendered_path": "charts/179",
       "variants": [
         "gen1_sug1.png",
         "gen1_sug2.png"
@@ -8835,7 +8835,7 @@
       ],
       "summary_text": "Examining Huawei and ZTE sales together by quarter provides a comparative lens on how emerging vendors expand within the global handset market. This setup supports analysis of relative growth rates, convergence or divergence in performance, and timing of expansion phases, enabling researchers to explore broader themes such as globalization of manufacturing, competitive acceleration, and market entry dynamics.",
       "question_text": "How do Huawei and ZTE mobile phone sales compare to each other across the 22 reporting quarters?",
-      "rendered_path": "charts/c2_3/462/sum3_ques1",
+      "rendered_path": "charts/180",
       "variants": [
         "gen2_sug2.png",
         "gen1_sug1.png"
@@ -8878,7 +8878,7 @@
       ],
       "summary_text": "By analyzing quarterly sales trends for Samsung and Apple together, the table enables executives to assess how market leadership, growth momentum, and seasonality differ between the two vendors. The time aligned structure supports identification of periods where one brand gains relative strength or loses ground, helping decision makers evaluate competitive cycles, product launch impacts, and long term strategic effectiveness without relying on isolated snapshots.",
       "question_text": "In which quarters does Apple come closest to matching Samsung's global sales volume, indicating shifts in relative competitive strength?",
-      "rendered_path": "charts/c2_3/462/sum1_ques2",
+      "rendered_path": "charts/181",
       "variants": [
         "gen2_sug1.png",
         "gen1_sug2.png"
@@ -8921,7 +8921,7 @@
       ],
       "summary_text": "By analyzing quarterly sales trends for Samsung and Apple together, the table enables executives to assess how market leadership, growth momentum, and seasonality differ between the two vendors. The time aligned structure supports identification of periods where one brand gains relative strength or loses ground, helping decision makers evaluate competitive cycles, product launch impacts, and long term strategic effectiveness without relying on isolated snapshots.",
       "question_text": "In which quarters does Apple come closest to matching Samsung's global sales volume, indicating shifts in relative competitive strength?",
-      "rendered_path": "charts/c2_3/462/sum1_ques2",
+      "rendered_path": "charts/182",
       "variants": [
         "gen2_sug1.png",
         "gen2_sug2.png"
@@ -8964,7 +8964,7 @@
       ],
       "summary_text": "By analyzing quarterly sales trends for Samsung and Apple together, the table enables executives to assess how market leadership, growth momentum, and seasonality differ between the two vendors. The time aligned structure supports identification of periods where one brand gains relative strength or loses ground, helping decision makers evaluate competitive cycles, product launch impacts, and long term strategic effectiveness without relying on isolated snapshots.",
       "question_text": "Are there quarters where Samsung or Apple show unusually sharp rises or drops in sales compared to their own typical seasonal patterns?",
-      "rendered_path": "charts/c2_3/462/sum1_ques3",
+      "rendered_path": "charts/183",
       "variants": [
         "gen2_sug1.png",
         "gen2_sug3.png"
@@ -9003,7 +9003,7 @@
       "columns_used": [],
       "summary_text": "",
       "question_text": "What proportion of total combined sales does each vendor account for in the last quarter?",
-      "rendered_path": "charts/c2_3/462/sum5_ques1",
+      "rendered_path": "charts/184",
       "variants": [
         "gen2_sug3.png",
         "gen1_sug1.png"
@@ -9048,7 +9048,7 @@
       ],
       "summary_text": "Combining rental counts with multiple weather indicators enables a richer analysis of how environmental comfort and conditions influence cycling demand. This multi variable view supports evaluation of which weather factors most strongly suppress or encourage ridership and whether their effects interact. The analysis can inform predictive usage models, improve demand forecasting under varying weather scenarios, and support strategic planning such as adjusting service expectations during adverse conditions.",
       "question_text": "What is the difference in average bike rentals between hours with low humidity near 25% and very high humidity close to 100%?",
-      "rendered_path": "charts/c2_3/133/sum2_ques2",
+      "rendered_path": "charts/185",
       "variants": [
         "gen2_sug3.png",
         "gen2_sug1.png"
@@ -9096,7 +9096,7 @@
       ],
       "summary_text": "Combining rental counts with multiple weather indicators enables a richer analysis of how environmental comfort and conditions influence cycling demand. This multi variable view supports evaluation of which weather factors most strongly suppress or encourage ridership and whether their effects interact. The analysis can inform predictive usage models, improve demand forecasting under varying weather scenarios, and support strategic planning such as adjusting service expectations during adverse conditions.",
       "question_text": "How do bike rental counts distribute across different ambient temperature levels during a typical day?",
-      "rendered_path": "charts/c2_3/133/sum2_ques4",
+      "rendered_path": "charts/186",
       "variants": [
         "gen1_sug1.png",
         "gen1_sug4.png"
@@ -9146,7 +9146,7 @@
       ],
       "summary_text": "This combination of country identifiers with selected years known for heightened global climate variability enables targeted analysis of potential inflection points and abnormal warming periods. Researchers can assess whether anomaly patterns intensify, stabilize, or fluctuate across key years and evaluate consistency of responses across regions. The structure supports investigations into temporal clustering, comparative volatility, and cross regional synchronicity of climate responses. Such analysis can inform broader scientific discussions on climate regime shifts, stress testing of climate models, and identification of regions exhibiting early signals of accelerated change.",
       "question_text": "Which 10 countries show the highest temperature anomaly in 2020, reaching values close to or above 1.5°C?",
-      "rendered_path": "charts/c2_3/226/sum2_ques1",
+      "rendered_path": "charts/187",
       "variants": [
         "gen1_sug1.png",
         "gen1_sug3.png"
@@ -9257,7 +9257,7 @@
       ],
       "summary_text": "By linking country identifiers with temperature anomaly fields sampled across early, mid, and recent decades, this field combination supports analysis of long term warming trajectories at the national level. Analysts can compare early baseline years to recent observations to identify countries experiencing faster or more volatile temperature change patterns. The structure enables classification of countries into broad warming profiles, detection of divergence between global and national trends, and identification of regions that may warrant priority policy intervention. This comparison oriented view is well suited for informing national climate adaptation planning, international negotiations, and progress benchmarking without relying on a single year snapshot.",
       "question_text": "How does the global aggregate compare to individual countries in temperature change between the early 1960s and 2022?",
-      "rendered_path": "charts/c2_3/226/sum1_ques2",
+      "rendered_path": "charts/188",
       "variants": [
         "gen1_sug3.png",
         "gen1_sug1.png"
@@ -9368,7 +9368,7 @@
       ],
       "summary_text": "By linking country identifiers with temperature anomaly fields sampled across early, mid, and recent decades, this field combination supports analysis of long term warming trajectories at the national level. Analysts can compare early baseline years to recent observations to identify countries experiencing faster or more volatile temperature change patterns. The structure enables classification of countries into broad warming profiles, detection of divergence between global and national trends, and identification of regions that may warrant priority policy intervention. This comparison oriented view is well suited for informing national climate adaptation planning, international negotiations, and progress benchmarking without relying on a single year snapshot.",
       "question_text": "How does the global aggregate compare to individual countries in temperature change between the early 1960s and 2022?",
-      "rendered_path": "charts/c2_3/226/sum1_ques2",
+      "rendered_path": "charts/189",
       "variants": [
         "gen1_sug1.png",
         "gen2_sug4.png"
@@ -9476,7 +9476,7 @@
       ],
       "summary_text": "This analytical angle combines hotel classification, amenity availability, and capacity to study alignment between service offerings and market positioning. Managers can evaluate whether higher-category or larger hotels tend to provide expanded amenities compared to smaller or lower-category properties. Patterns or inconsistencies revealed through this analysis can guide decisions on upgrading services, standardizing offerings within categories, or differentiating properties to better meet guest expectations.",
       "question_text": "Are there large hotels with over 600 rooms that do not offer alcohol service compared to most others?",
-      "rendered_path": "charts/c2_3/317/sum2_ques7",
+      "rendered_path": "charts/190",
       "variants": [
         "gen2_sug3.png",
         "gen2_sug4.png"
@@ -9523,7 +9523,7 @@
       ],
       "summary_text": "Analyzing hotel names alongside location and room capacity supports exploration of how individual properties or implied hotel groups are positioned across cities and states. Researchers can detect whether certain brands favor larger properties in key cities or maintain smaller footprints in secondary locations. This perspective helps in mapping brand expansion strategies, identifying potential clustering effects, and informing competitive analysis within local and national hospitality markets.",
       "question_text": "Which states host the highest concentration of large hotels with more than 300 rooms?",
-      "rendered_path": "charts/c2_3/317/sum4_ques3",
+      "rendered_path": "charts/191",
       "variants": [
         "gen2_sug4.png",
         "gen2_sug1.png"
@@ -9570,7 +9570,7 @@
       ],
       "summary_text": "By jointly analyzing location fields with hotel category and total room capacity, this perspective enables assessment of how hotel quality tiers and scale are distributed across different states and cities. Executives can explore whether certain regions are dominated by smaller lower-category hotels or by large higher-category properties, helping to infer maturity of local hospitality markets. This combination supports strategic decisions such as selecting expansion locations, tailoring hotel size to local demand, and benchmarking regional portfolios against national patterns.",
       "question_text": "Which states are dominated by small hotels with fewer than 50 rooms regardless of quality tier?",
-      "rendered_path": "charts/c2_3/317/sum1_ques5",
+      "rendered_path": "charts/192",
       "variants": [
         "gen2_sug3.png",
         "gen2_sug1.png"
@@ -9620,7 +9620,7 @@
       ],
       "summary_text": "This field combination enables a multidimensional examination of who is most affected by police shootings and under what contextual conditions. By jointly analyzing demographic attributes with indicators of armament, threat level, and reported mental illness, analysts can explore whether perceived danger and response severity vary systematically across population groups. The structure supports comparative distribution analysis, such as assessing how threat classifications align with different arms categories or mental health flags across races and age groups. For policymakers and researchers, this creates a foundation for identifying potential disparities, highlighting mismatches between perceived threat and actual armament, and prioritizing areas where intervention, training reform, or mental health response integration may be most impactful. The insight gained is not about individual incidents but about consistent patterns that can inform oversight, policy refinement, and future data driven evaluations of law enforcement practices.",
       "question_text": "Which racial groups show the highest proportion of incidents involving reported signs of mental illness?",
-      "rendered_path": "charts/c2_3/363/sum1_ques8",
+      "rendered_path": "charts/193",
       "variants": [
         "gen1_sug2.png",
         "gen2_sug4.png"
@@ -9673,7 +9673,7 @@
       ],
       "summary_text": "This field combination enables an analysis of how standardized compensation trends shift across years when segmented by experience level, employment type, and employer size. Executives can explore whether salary growth concentrates at certain seniority tiers, how full time roles compare with contract or flexible arrangements, and whether small, medium, or large organizations exhibit distinct pay patterns. By examining these dimensions together, the data supports evidence based decisions around competitive salary bands, workforce composition, and strategic tradeoffs between hiring senior specialists versus developing junior talent over time.",
       "question_text": "What proportion of total jobs in 2021 comes from large companies at each experience level?",
-      "rendered_path": "charts/c2_3/38/sum1_ques8",
+      "rendered_path": "charts/194",
       "variants": [
         "gen1_sug1.png",
         "gen2_sug3.png"
@@ -9720,7 +9720,7 @@
       ],
       "summary_text": "This dataset pairs countries with their total number of internet users, enabling a comparative analysis of digital market size across geographies. By focusing on absolute user counts rather than percentages, the data supports identification of countries that dominate global internet usage due to population scale or high adoption, as well as those that remain smaller digital markets. For business strategists, this opens pathways to cluster countries into high impact, mid tier, and niche opportunities, flag extreme outliers in market size, and quickly assess where digital initiatives could reach the widest audiences. The structure encourages ranking, distribution analysis, and regional comparison to inform strategic decisions such as market entry sequencing, localization priorities, or resource allocation in global digital planning.",
       "question_text": "Which countries fall at the very bottom in terms of total internet users?",
-      "rendered_path": "charts/c2_3/389/sum1_ques2",
+      "rendered_path": "charts/195",
       "variants": [
         "gen2_sug1.png",
         "gen2_sug4.png"
@@ -9757,7 +9757,7 @@
       ],
       "summary_text": "This dataset pairs countries with their total number of internet users, enabling a comparative analysis of digital market size across geographies. By focusing on absolute user counts rather than percentages, the data supports identification of countries that dominate global internet usage due to population scale or high adoption, as well as those that remain smaller digital markets. For business strategists, this opens pathways to cluster countries into high impact, mid tier, and niche opportunities, flag extreme outliers in market size, and quickly assess where digital initiatives could reach the widest audiences. The structure encourages ranking, distribution analysis, and regional comparison to inform strategic decisions such as market entry sequencing, localization priorities, or resource allocation in global digital planning.",
       "question_text": "How does the number of internet users in the United States compare to other large markets like China?",
-      "rendered_path": "charts/c2_3/389/sum1_ques3",
+      "rendered_path": "charts/196",
       "variants": [
         "gen3_sug1.png",
         "gen2_sug5.png"
@@ -9794,7 +9794,7 @@
       ],
       "summary_text": "This dataset pairs countries with their total number of internet users, enabling a comparative analysis of digital market size across geographies. By focusing on absolute user counts rather than percentages, the data supports identification of countries that dominate global internet usage due to population scale or high adoption, as well as those that remain smaller digital markets. For business strategists, this opens pathways to cluster countries into high impact, mid tier, and niche opportunities, flag extreme outliers in market size, and quickly assess where digital initiatives could reach the widest audiences. The structure encourages ranking, distribution analysis, and regional comparison to inform strategic decisions such as market entry sequencing, localization priorities, or resource allocation in global digital planning.",
       "question_text": "Can the countries be visually grouped into high-impact, mid-tier, and niche digital markets based on their total internet user counts?",
-      "rendered_path": "charts/c2_3/389/sum1_ques8",
+      "rendered_path": "charts/197",
       "variants": [
         "gen1_sug5.png",
         "gen2_sug1.png"
@@ -9836,7 +9836,7 @@
       ],
       "summary_text": "Using the full interaction matrix across all major companies enables analysts to model the dataset as a network, revealing overall connectivity, relative centrality, and interaction density. This comprehensive view is well suited for visual exploration, such as heatmaps or network graphs, supporting pattern detection and structural insights without reliance on individual data points.",
       "question_text": "Which company appears most central by having consistently high interaction levels with multiple partners?",
-      "rendered_path": "charts/c2_3/397/sum3_ques5",
+      "rendered_path": "charts/198",
       "variants": [
         "gen2_sug2.png",
         "gen2_sug3.png"
@@ -9883,7 +9883,7 @@
       ],
       "summary_text": "Using the full interaction matrix across all major companies enables analysts to model the dataset as a network, revealing overall connectivity, relative centrality, and interaction density. This comprehensive view is well suited for visual exploration, such as heatmaps or network graphs, supporting pattern detection and structural insights without reliance on individual data points.",
       "question_text": "How does Apple’s interaction strength compare with Samsung’s across the same set of partner companies?",
-      "rendered_path": "charts/c2_3/397/sum3_ques2",
+      "rendered_path": "charts/199",
       "variants": [
         "gen2_sug3.png",
         "gen1_sug1.png"
@@ -9928,7 +9928,7 @@
       ],
       "summary_text": "This field combination supports an integrated exploration of how urine concentration, chemical balance, and mineral excretion relate to kidney stone presence. By examining gravity and osmolality together, the analysis can highlight hydration status patterns, while pH adds context about the urine environment that influences stone formation. Calcium levels introduce a direct metabolic risk factor. When these variables are viewed alongside the binary outcome, analysts can assess whether specific multi factor profiles are consistently associated with higher stone incidence. The analytical value lies in uncovering joint trends and interactions rather than single variable effects, enabling the audience to evaluate the potential for simple urine based indicators to inform early risk assessment, guide preventive recommendations, and prioritize patients for further diagnostic follow up.",
       "question_text": "Do urine samples with unusually high calcium levels correspond to kidney stone diagnoses?",
-      "rendered_path": "charts/c2_3/42/sum1_ques7",
+      "rendered_path": "charts/200",
       "variants": [
         "gen1_sug5.png",
         "gen1_sug4.png"
@@ -9975,7 +9975,7 @@
       ],
       "summary_text": "By analyzing the Quarter field alongside sales volumes for Samsung, Nokia or Microsoft, Apple, LG, ZTE, and Huawei, this dataset enables a longitudinal comparison of how leading mobile phone vendors perform relative to one another across multiple reporting periods. The structure supports trend analysis to identify which companies are gaining momentum, which are plateauing or declining, and how competitive balance shifts over time. Decision makers can use this combined view to detect sustained growth patterns, emerging challengers, or periods of volatility that may align with product launches, platform shifts, or regional expansion strategies. The data encourages high level evaluation of market leadership dynamics and makes it possible to assess whether industry growth is driven by a single dominant player or by broader competitive expansion, supporting more informed strategic and forecasting discussions.",
       "question_text": "How have Samsung’s global phone sales changed from Q1 ’10 through Q3 ’15?",
-      "rendered_path": "charts/c2_3/462/sum1_ques1",
+      "rendered_path": "charts/201",
       "variants": [
         "gen1_sug1.png",
         "gen2_sug1.png"
@@ -10022,7 +10022,7 @@
       ],
       "summary_text": "By analyzing the Quarter field alongside sales volumes for Samsung, Nokia or Microsoft, Apple, LG, ZTE, and Huawei, this dataset enables a longitudinal comparison of how leading mobile phone vendors perform relative to one another across multiple reporting periods. The structure supports trend analysis to identify which companies are gaining momentum, which are plateauing or declining, and how competitive balance shifts over time. Decision makers can use this combined view to detect sustained growth patterns, emerging challengers, or periods of volatility that may align with product launches, platform shifts, or regional expansion strategies. The data encourages high level evaluation of market leadership dynamics and makes it possible to assess whether industry growth is driven by a single dominant player or by broader competitive expansion, supporting more informed strategic and forecasting discussions.",
       "question_text": "How have Samsung’s global phone sales changed from Q1 ’10 through Q3 ’15?",
-      "rendered_path": "charts/c2_3/462/sum1_ques1",
+      "rendered_path": "charts/202",
       "variants": [
         "gen1_sug1.png",
         "gen1_sug4.png"
@@ -10069,7 +10069,7 @@
       ],
       "summary_text": "By analyzing the Quarter field alongside sales volumes for Samsung, Nokia or Microsoft, Apple, LG, ZTE, and Huawei, this dataset enables a longitudinal comparison of how leading mobile phone vendors perform relative to one another across multiple reporting periods. The structure supports trend analysis to identify which companies are gaining momentum, which are plateauing or declining, and how competitive balance shifts over time. Decision makers can use this combined view to detect sustained growth patterns, emerging challengers, or periods of volatility that may align with product launches, platform shifts, or regional expansion strategies. The data encourages high level evaluation of market leadership dynamics and makes it possible to assess whether industry growth is driven by a single dominant player or by broader competitive expansion, supporting more informed strategic and forecasting discussions.",
       "question_text": "Which company recorded the highest single-quarter phone sales across all reported periods?",
-      "rendered_path": "charts/c2_3/462/sum1_ques2",
+      "rendered_path": "charts/203",
       "variants": [
         "gen1_sug1.png",
         "gen1_sug2.png"
@@ -10116,7 +10116,7 @@
       ],
       "summary_text": "By analyzing the Quarter field alongside sales volumes for Samsung, Nokia or Microsoft, Apple, LG, ZTE, and Huawei, this dataset enables a longitudinal comparison of how leading mobile phone vendors perform relative to one another across multiple reporting periods. The structure supports trend analysis to identify which companies are gaining momentum, which are plateauing or declining, and how competitive balance shifts over time. Decision makers can use this combined view to detect sustained growth patterns, emerging challengers, or periods of volatility that may align with product launches, platform shifts, or regional expansion strategies. The data encourages high level evaluation of market leadership dynamics and makes it possible to assess whether industry growth is driven by a single dominant player or by broader competitive expansion, supporting more informed strategic and forecasting discussions.",
       "question_text": "Which quarter shows the largest gap between the top-selling vendor and the lowest-selling vendor?",
-      "rendered_path": "charts/c2_3/462/sum1_ques6",
+      "rendered_path": "charts/204",
       "variants": [
         "gen2_sug1.png",
         "gen1_sug6.png"
@@ -10163,7 +10163,7 @@
       ],
       "summary_text": "By analyzing the Quarter field alongside sales volumes for Samsung, Nokia or Microsoft, Apple, LG, ZTE, and Huawei, this dataset enables a longitudinal comparison of how leading mobile phone vendors perform relative to one another across multiple reporting periods. The structure supports trend analysis to identify which companies are gaining momentum, which are plateauing or declining, and how competitive balance shifts over time. Decision makers can use this combined view to detect sustained growth patterns, emerging challengers, or periods of volatility that may align with product launches, platform shifts, or regional expansion strategies. The data encourages high level evaluation of market leadership dynamics and makes it possible to assess whether industry growth is driven by a single dominant player or by broader competitive expansion, supporting more informed strategic and forecasting discussions.",
       "question_text": "Are there any quarters where LG’s phone sales noticeably dip relative to its surrounding periods?",
-      "rendered_path": "charts/c2_3/462/sum1_ques8",
+      "rendered_path": "charts/205",
       "variants": [
         "gen1_sug2.png",
         "gen1_sug3.png"
@@ -10208,7 +10208,7 @@
       ],
       "summary_text": "By jointly analyzing total bill, tip, party size, day of week, and meal time, this dataset enables a multifaceted view of dining economics. The combination supports exploration of whether larger groups systematically generate different tipping outcomes, how spending levels scale with party size, and how these relationships shift between lunch and dinner or across weekdays and weekends. For restaurant decision makers, such analysis can surface trends that inform staffing levels, table management, and server incentive planning, while also highlighting contextual factors that may drive variability in gratuity behavior beyond simple bill totals.",
       "question_text": "How does the total amount paid scale as party size increases from 1 to 6 guests?",
-      "rendered_path": "charts/c2_3/465/sum1_ques3",
+      "rendered_path": "charts/206",
       "variants": [
         "gen2_sug4.png",
         "gen1_sug3.png"
@@ -10255,7 +10255,7 @@
       ],
       "summary_text": "By combining restaurant identity with qualitative satisfaction ratings, vote counts, proportional metrics, and timestamps, this table supports layered analysis of customer sentiment strength and credibility over time. Business stakeholders can examine how different pizzerias accumulate engagement and how satisfaction categories distribute relative to total participation, helping distinguish isolated opinions from broadly supported perceptions. The inclusion of time enables tracking of sentiment consistency or volatility, revealing whether changes in customer experience align with shifts in engagement volume. This field combination is particularly valuable for identifying restaurant level performance patterns, prioritizing improvement efforts, and assessing whether highly positive or negative feedback reflects meaningful customer consensus rather than sporadic input.",
       "question_text": "What proportion of all recorded votes is concentrated among the top five most-voted pizza places?",
-      "rendered_path": "charts/c2_3/477/sum1_ques8",
+      "rendered_path": "charts/207",
       "variants": [
         "gen1_sug2.png",
         "gen3_sug2.png"
@@ -10300,7 +10300,7 @@
       ],
       "summary_text": "Linking institution names with their regions and governance categories allows users to explore the breadth of higher education options available in different parts of the country. This combination supports lookup and comparison use cases, such as identifying public versus private institutions within specific states. It also enables broader pattern recognition, helping users understand how institutional diversity varies geographically and aiding informed decision making when considering location, institutional mission, or affordability factors.",
       "question_text": "Which regions have the fewest higher education institutions of any type?",
-      "rendered_path": "charts/c2_3/71/sum2_ques5",
+      "rendered_path": "charts/208",
       "variants": [
         "gen1_sug2.png",
         "gen2_sug3.png"

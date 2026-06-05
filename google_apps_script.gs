@@ -2,7 +2,7 @@
 // Google Apps Script — Assignment + Response Collector
 //
 // Supports two POST actions:
-// 1) action: "assign_entries"   -> returns 15 assigned entry IDs for a session
+// 1) action: "assign_entries"   -> returns 25 assigned entry IDs for a session
 // 2) regular submission payload  -> writes evaluation responses
 //
 // Assignment guarantees:
@@ -19,7 +19,7 @@ const COMPLETION_COUNTS_SHEET = 'CompletionCounts';
 const COMPLETION_LOG_SHEET = 'CompletionLog';
 
 const RESPONSE_HEADERS = [
-  'timestamp', 'sessionId', 'pairId', 'entryId', 'artefact', 'table', 'question',
+  'timestamp', 'sessionId', 'participantId', 'pairId', 'entryId', 'artefact', 'table', 'question',
   'chartA_path', 'chartB_path',
   'chartA_readability_score', 'chartA_readability_label',
   'chartA_precision_score',   'chartA_precision_label',
@@ -33,7 +33,7 @@ const RESPONSE_HEADERS = [
   'chartADisplayedAt', 'chartBDisplayedAt',
   'prefDisplayedAt', 'preferenceLastUpdatedAt',
   'displayedAt', 'savedAt', 'timeToSave_seconds',
-  'userAgent'
+  'userAgent', 'isPartial', 'participantName', 'participantEmail'
 ];
 
 const ASSIGNMENT_HEADERS = ['entryId', 'assignedCount', 'lastAssignedAt'];
@@ -212,7 +212,7 @@ function appendSessionAssignment(sheet, sessionId, entryIds, sampleSize, targetP
 function assignEntries(payload, ss) {
   const sessionId = String(payload.sessionId || '').trim();
   const allEntryIds = Array.isArray(payload.entryIds) ? payload.entryIds.map(String) : [];
-  const sampleSize = Math.max(1, Number(payload.sampleSize || 15));
+  const sampleSize = Math.max(1, Number(payload.sampleSize || 25));
   const targetPerEntry = Math.max(1, Number(payload.targetPerEntry || 5));
 
   if (!sessionId) return { status: 'error', message: 'sessionId is required' };
@@ -371,15 +371,39 @@ function writeResponses(payload, ss) {
     ? payload.submissions
     : [payload];
 
+  // Build a dedupe set of (sessionId||pairId) keys already in the sheet so
+  // retries and sendBeacon partial saves never create duplicate rows.
+  const existingKeys = new Set();
+  const lastRow = sheet.getLastRow();
+  if (lastRow > 1) {
+    // sessionId is col 2 (index 1), pairId is col 4 (index 3) in new header layout
+    const existing = sheet.getRange(2, 1, lastRow - 1, 4).getValues();
+    existing.forEach(row => {
+      const sid = String(row[1] || '').trim();
+      const pid = String(row[3] || '').trim();
+      if (sid && pid) existingKeys.add(sid + '||' + pid);
+    });
+  }
+
   for (const p of submissions) {
     const ev = p.evaluation || {};
     const ca = ev.chartA || {};
     const cb = ev.chartB || {};
     const md = ev.metadata || {};
 
+    const sid = String(p.sessionId || '').trim();
+    const pid = String(p.pairId || '').trim();
+    const dedupeKey = sid + '||' + pid;
+
+    // If a complete row already exists for this session+pair, only overwrite
+    // if the incoming submission is NOT partial (i.e. the final submission wins).
+    if (existingKeys.has(dedupeKey) && p.isPartial) continue;
+    existingKeys.add(dedupeKey);
+
     sheet.appendRow([
       p.timestamp || new Date().toISOString(),
       p.sessionId || '',
+      p.participantId || p.sessionId || '',
       p.pairId || '',
       md.entry_id || '',
       md.artefact || '',
@@ -416,7 +440,10 @@ function writeResponses(payload, ss) {
       ev.displayedAt || '',
       ev.savedAt || '',
       (ev.timeToSave_seconds !== null && ev.timeToSave_seconds !== undefined) ? ev.timeToSave_seconds : '',
-      p.userAgent || ''
+      p.userAgent || '',
+      p.isPartial ? 'partial' : 'final',
+      p.participantName || '',
+      p.participantEmail || ''
     ]);
   }
 

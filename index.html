@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chart Evaluation System - Slider Version</title>
-    <meta name="ui-build" content="f84d75b-fullbleed-v2" />
-    <link rel="stylesheet" href="styles_slider.css?v=20260526a">
+    <meta name="ui-build" content="20260605a-guardrails" />
+    <link rel="stylesheet" href="styles_slider.css?v=20260605a">
     <style>
         :root {
             --full-bleed-offset: calc(50% - 50vw);
@@ -1157,12 +1157,12 @@
     </div>
 
     <!-- New annotation-based data loading system -->
-    <script src="annotation_data_loader_slider.js?v=20260526a"></script>
-    <script src="annotation_ui_controller.js?v=20260526a"></script>
+    <script src="annotation_data_loader_slider.js?v=20260605a"></script>
+    <script src="annotation_ui_controller.js?v=20260605a"></script>
     
     <!-- Modified scripts for slider evaluation functionality -->
-    <script src="simple_evaluation_slider.js?v=20260526a"></script>
-    <script src="pair_slider.js?v=20260526a"></script>
+    <script src="simple_evaluation_slider.js?v=20260605a"></script>
+    <script src="pair_slider.js?v=20260605a"></script>
     <script>
         // Same core functionality as original evaluation.html but adapted for sliders
         // All the existing JavaScript functionality is preserved, 
@@ -1783,12 +1783,15 @@
             if (prevBtn) prevBtn.disabled = currentSlide === 0 && (!window.annotationLoader || !window.annotationLoader.hasPrevious());
             if (nextBtn) nextBtn.disabled = currentSlide === totalSlides - 1 && (!window.annotationLoader || !window.annotationLoader.hasNext());
 
-            // Update question counter
+            // Update question counter — always read from loader when available so
+            // the total is correct even before sliderAnnotations is populated.
             const counter = document.getElementById('slideQuestionCounter');
-            if (counter && sliderAnnotations.length > 0) {
+            if (counter) {
                 const current = window.annotationLoader ? window.annotationLoader.getCurrentIndex() + 1 : 1;
-                const total = window.annotationLoader ? window.annotationLoader.getTotalAnnotations() : sliderAnnotations.length;
-                counter.textContent = `${current} / ${total}`;
+                const total = window.annotationLoader
+                    ? window.annotationLoader.getTotalAnnotations()
+                    : (sliderAnnotations.length || null);
+                counter.textContent = total ? `${current} / ${total}` : `${current} / ?`;
             }
             
             // Update sticky header with current dataset name
@@ -2103,13 +2106,56 @@
             }
         }
 
-        // Always show instructions on page load
-        document.addEventListener('DOMContentLoaded', function() {
-            const modal = document.getElementById('instructionsModal');
-            if (modal) {
-                modal.style.display = 'flex';
-                document.body.style.overflow = 'hidden';
+        // ── Participant info gate ───────────────────────────────────────────
+        // On load, first ask for Name + Email. Only after that do we reveal the
+        // welcome/instructions modal.
+        function showParticipantInfoModal() {
+            const modal = document.getElementById('participantInfoModal');
+            if (!modal) return;
+            // Pre-fill from a previous session in this browser, if any.
+            try {
+                const nameInput  = document.getElementById('participantNameInput');
+                const emailInput = document.getElementById('participantEmailInput');
+                if (nameInput)  nameInput.value  = localStorage.getItem('participantName')  || '';
+                if (emailInput) emailInput.value = localStorage.getItem('participantEmail') || '';
+            } catch (_) {}
+            modal.style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+        }
+
+        function submitParticipantInfo() {
+            const nameInput  = document.getElementById('participantNameInput');
+            const emailInput = document.getElementById('participantEmailInput');
+            const errorEl    = document.getElementById('participantInfoError');
+            const name  = (nameInput  ? nameInput.value  : '').trim();
+            const email = (emailInput ? emailInput.value : '').trim();
+
+            if (!name) {
+                if (errorEl) { errorEl.textContent = 'Please enter your name.'; errorEl.style.display = 'block'; }
+                if (nameInput) nameInput.focus();
+                return;
             }
+            const emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+            if (!emailOk) {
+                if (errorEl) { errorEl.textContent = 'Please enter a valid email address.'; errorEl.style.display = 'block'; }
+                if (emailInput) emailInput.focus();
+                return;
+            }
+            if (errorEl) errorEl.style.display = 'none';
+
+            try {
+                localStorage.setItem('participantName', name);
+                localStorage.setItem('participantEmail', email);
+            } catch (_) {}
+
+            // Hide the info modal and reveal the instructions/welcome modal.
+            const infoModal = document.getElementById('participantInfoModal');
+            if (infoModal) infoModal.style.display = 'none';
+            showInstructionsModal();
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            showParticipantInfoModal();
         });
         
         // Initialize slider value display
@@ -2238,6 +2284,7 @@
                             sliderAnnotations = window.annotationLoader.annotations;
                         }
                         loadCurrentPair();
+                        updateSlideNavigation(); // populate counter total immediately
                         updateStickyQuestionDisplay();
                         return; // Stop checking once loaded
                     }
@@ -2603,8 +2650,51 @@
         });
     </script>
 
+    <!-- Participant Info Modal (shown first, before the welcome/instructions) -->
+    <div id="participantInfoModal" class="modal-overlay" style="display: none;">
+        <div class="modal-content" onclick="event.stopPropagation()" style="max-width: 480px;">
+            <div class="modal-header">
+                <h3>👋 Welcome — Let's get started</h3>
+            </div>
+            <div class="modal-body">
+                <p style="margin-bottom: 20px; line-height: 1.7; color: #333;">
+                    Before you begin, please tell us who you are. This helps us associate
+                    your responses with you for this pilot study.
+                </p>
+
+                <label for="participantNameInput" style="display:block; font-weight:600; color:#495057; margin-bottom:6px;">Name</label>
+                <input id="participantNameInput" type="text" autocomplete="name" placeholder="Your full name"
+                    style="width:100%; box-sizing:border-box; padding:11px 14px; margin-bottom:18px; border:1px solid #ced4da; border-radius:8px; font-size:15px;"
+                    onkeydown="if(event.key==='Enter'){document.getElementById('participantEmailInput').focus();}">
+
+                <label for="participantEmailInput" style="display:block; font-weight:600; color:#495057; margin-bottom:6px;">Email ID</label>
+                <input id="participantEmailInput" type="email" autocomplete="email" placeholder="you@example.com"
+                    style="width:100%; box-sizing:border-box; padding:11px 14px; margin-bottom:8px; border:1px solid #ced4da; border-radius:8px; font-size:15px;"
+                    onkeydown="if(event.key==='Enter'){submitParticipantInfo();}">
+
+                <p id="participantInfoError" style="display:none; color:#d32f2f; font-size:0.9em; margin:0 0 8px 0;"></p>
+
+                <div style="text-align: center; padding-top: 18px; border-top: 1px solid #dee2e6; margin-top: 12px;">
+                    <button onclick="submitParticipantInfo()" style="
+                        background: linear-gradient(135deg, #007bff, #0056b3);
+                        color: white;
+                        border: none;
+                        padding: 12px 28px;
+                        border-radius: 25px;
+                        font-weight: 600;
+                        cursor: pointer;
+                        font-size: 14px;
+                        transition: all 0.3s ease;
+                    " onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 4px 12px rgba(0,123,255,0.3)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none'">
+                        Continue →
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- Initial Instructions Modal -->
-    <div id="instructionsModal" class="modal-overlay" style="display: flex;" onclick="hideInstructionsModal()">
+    <div id="instructionsModal" class="modal-overlay" style="display: none;" onclick="hideInstructionsModal()">
         <div class="modal-content" onclick="event.stopPropagation()">
             <div class="modal-header">
                 <h3>📊 Preference Annotation : A Brief Overview</h3>

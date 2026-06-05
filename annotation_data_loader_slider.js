@@ -12,7 +12,7 @@ class AnnotationDataLoader {
         this.allEntries = [];
         this.datasetInfoCache = {}; // Cache for YAML dataset info
         this.isInitialized = false;
-        this.sampleSize = 15;
+        this.sampleSize = 25;
         this.targetUsersPerEntry = 5;
         this.assignmentApiUrl = null;
     }

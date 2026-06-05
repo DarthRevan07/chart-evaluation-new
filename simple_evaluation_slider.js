@@ -384,13 +384,20 @@ async function submitSimpleEvaluation() {
     console.log(`Batch-submitting ${totalCount} evaluations`);
 
     // Build the batch payload
+    const participantId = getOrCreateSessionId(); // same value; named clearly for sheet column
+    const participantName  = localStorage.getItem('participantName')  || '';
+    const participantEmail = localStorage.getItem('participantEmail') || '';
     const submissions = allEvaluations.map(ev => ({
-        pairId:     ev.pairId,
-        evaluation: ev,
-        userAgent:  navigator.userAgent,
-        timestamp:  now,
-        sessionId:  sessionId,
-        url:        window.location.href
+        pairId:           ev.pairId,
+        evaluation:       ev,
+        userAgent:        navigator.userAgent,
+        timestamp:        now,
+        sessionId:        sessionId,
+        participantId:    participantId,
+        participantName:  participantName,
+        participantEmail: participantEmail,
+        url:              window.location.href,
+        isPartial:        false
     }));
 
     // ── Attempt 1: single batch POST ────────────────────────────────────────
@@ -404,6 +411,9 @@ async function submitSimpleEvaluation() {
         const result = await response.json();
         console.log('Batch submission result:', result);
         showNotification(`🎉 All ${totalCount} evaluations submitted successfully!`, 'success');
+        lockUIAfterSubmission();
+        showSubmissionConfirmed();
+        redirectToCompletion();
         return;
     } catch (batchError) {
         console.warn('Batch submission failed, falling back to sequential:', batchError);
@@ -437,6 +447,9 @@ async function submitSimpleEvaluation() {
 
     if (successCount === totalCount) {
         showNotification(`🎉 All ${successCount} evaluations submitted successfully!`, 'success');
+        lockUIAfterSubmission();
+        showSubmissionConfirmed();
+        redirectToCompletion();
     } else if (successCount > 0) {
         showNotification(`⚠️ ${successCount}/${totalCount} submitted. ${totalCount - successCount} saved locally for retry.`, 'warning');
     } else {
@@ -446,6 +459,34 @@ async function submitSimpleEvaluation() {
     if (typeof updateNavigationControls === 'function') {
         updateNavigationControls();
     }
+}
+
+// Show full-screen confirmation overlay after successful submission.
+function showSubmissionConfirmed() {
+    const existing = document.getElementById('submissionConfirmedOverlay');
+    if (existing) return;
+
+    const redirectUrl = getCompletionRedirectUrl();
+    const redirectNote = redirectUrl
+        ? '<p style="margin-top:14px;font-size:0.9em;opacity:0.85;">You will be redirected back to the study platform shortly…</p>'
+        : '';
+
+    const overlay = document.createElement('div');
+    overlay.id = 'submissionConfirmedOverlay';
+    overlay.style.cssText = [
+        'position:fixed', 'inset:0', 'z-index:99999',
+        'background:rgba(0,0,0,0.82)',
+        'display:flex', 'flex-direction:column',
+        'align-items:center', 'justify-content:center',
+        'color:white', 'text-align:center', 'padding:40px'
+    ].join(';');
+    overlay.innerHTML = `
+        <div style="font-size:3em;margin-bottom:18px;">✅</div>
+        <h2 style="margin:0 0 12px;font-size:1.8em;">Submission Complete</h2>
+        <p style="max-width:480px;line-height:1.6;font-size:1.05em;">Thank you! All your responses have been recorded successfully. You may now close this tab.</p>
+        ${redirectNote}
+    `;
+    document.body.appendChild(overlay);
 }
 
 // Load saved evaluation into the form
@@ -1046,10 +1087,37 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     // Flush one last auto-save when the user leaves the page.
+    // Also fire a best-effort sendBeacon so partial data reaches the server
+    // even when the tab is closed or PlaybookUX redirects the user early.
     window.addEventListener('beforeunload', function() {
         if (currentPair && currentPair.id) {
             autoSavePair(currentPair.id);
         }
+
+        // Skip beacon if the session was already fully submitted.
+        if (localStorage.getItem('evaluationSubmitted') === getOrCreateSessionId()) return;
+
+        const allEvals = Object.values(simpleEvaluations).filter(e => e.pairId);
+        if (!allEvals.length || !navigator.sendBeacon) return;
+
+        const sessionId = getOrCreateSessionId();
+        const participantName  = localStorage.getItem('participantName')  || '';
+        const participantEmail = localStorage.getItem('participantEmail') || '';
+        const body = JSON.stringify({
+            submissions: allEvals.map(ev => ({
+                pairId:           ev.pairId,
+                evaluation:       ev,
+                userAgent:        navigator.userAgent,
+                timestamp:        new Date().toISOString(),
+                sessionId:        sessionId,
+                participantId:    sessionId,
+                participantName:  participantName,
+                participantEmail: participantEmail,
+                url:              window.location.href,
+                isPartial:        true
+            }))
+        });
+        navigator.sendBeacon(GOOGLE_SCRIPT_URL, new Blob([body], { type: 'application/json' }));
     });
     
     // Try to submit any pending submissions
@@ -1072,14 +1140,60 @@ function initializePairEvaluation(pairId, pairMetadata) {
 // Global function that can be called when pairs change
 window.initializePairEvaluation = initializePairEvaluation;
 
-// Get or create a session ID
+// Get or create a session ID.
+// Priority: URL param (PlaybookUX / Prolific participant ID) > localStorage cache > new random ID.
 function getOrCreateSessionId() {
+    try {
+        const params = new URLSearchParams(window.location.search);
+        const external = params.get('participant') || params.get('uid')
+            || params.get('PROLIFIC_PID') || params.get('session')
+            || params.get('participantId');
+        if (external) {
+            localStorage.setItem('evaluationSessionId', external);
+            return external;
+        }
+    } catch (_) {}
+
     let sessionId = localStorage.getItem('evaluationSessionId');
     if (!sessionId) {
         sessionId = 'session_' + Date.now() + '_' + Math.random().toString(36).substr(2, 9);
         localStorage.setItem('evaluationSessionId', sessionId);
     }
     return sessionId;
+}
+
+// Return the PlaybookUX/Prolific completion redirect URL if present in the URL params.
+function getCompletionRedirectUrl() {
+    try {
+        const params = new URLSearchParams(window.location.search);
+        return params.get('completion_url') || params.get('return_url') || params.get('redirect_url') || null;
+    } catch (_) {
+        return null;
+    }
+}
+
+// Redirect to the platform's completion page after a short delay.
+function redirectToCompletion() {
+    const url = getCompletionRedirectUrl();
+    if (url) {
+        setTimeout(() => { window.location.href = url; }, 2500);
+    }
+}
+
+// Lock the entire UI to prevent interaction after final submission.
+function lockUIAfterSubmission() {
+    // Disable all navigation buttons
+    document.querySelectorAll('.slide-nav-btn, .nav-btn, #submitBtn, #prevSlideBtn, #nextSlideBtn').forEach(btn => {
+        btn.disabled = true;
+        btn.style.opacity = '0.4';
+        btn.style.cursor = 'not-allowed';
+    });
+    // Disable all form inputs
+    document.querySelectorAll('input[type="range"], textarea, input[type="radio"]').forEach(el => {
+        el.disabled = true;
+    });
+    // Mark session as submitted so reloads know not to re-submit
+    localStorage.setItem('evaluationSubmitted', getOrCreateSessionId());
 }
 
 // Retry failed submissions

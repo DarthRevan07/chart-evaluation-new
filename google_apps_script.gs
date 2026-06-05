@@ -208,7 +208,7 @@ function appendSessionAssignment(sheet, sessionId, entryIds, sampleSize, targetP
     JSON.stringify(entryIds)
   ]);
 }
-
+// Counter-based user assignment
 function assignEntries(payload, ss) {
   const sessionId = String(payload.sessionId || '').trim();
   const allEntryIds = Array.isArray(payload.entryIds) ? payload.entryIds.map(String) : [];

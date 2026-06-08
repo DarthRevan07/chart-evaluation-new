@@ -220,6 +220,7 @@ function assignEntries(payload, ss) {
 
   const assignmentSheet = getOrCreateSheet(ss, ASSIGNMENTS_SHEET, ASSIGNMENT_HEADERS);
   const sessionSheet = getOrCreateSheet(ss, SESSION_ASSIGNMENTS_SHEET, SESSION_HEADERS);
+  const completionCountSheet = getOrCreateSheet(ss, COMPLETION_COUNTS_SHEET, COMPLETION_COUNT_HEADERS);
 
   const lock = LockService.getScriptLock();
   lock.waitLock(30000);
@@ -234,17 +235,40 @@ function assignEntries(payload, ss) {
     }
 
     const countById = loadCountMap(assignmentSheet);
+    const completedById = loadCountMap(completionCountSheet, COMPLETION_COUNT_HEADERS.length);
     allEntryIds.forEach(id => {
       if (typeof countById[id] !== 'number') countById[id] = 0;
+      if (typeof completedById[id] !== 'number') completedById[id] = 0;
     });
 
-    const underTarget = allEntryIds.filter(id => (countById[id] || 0) < targetPerEntry);
-    let selected = balancedPick(underTarget, countById, Math.min(sampleSize, underTarget.length));
+    // Selection priority is driven by REAL coverage (completions), not by how
+    // many times a pair has merely been handed out. We build a composite
+    // priority where completedCount is the dominant term and assignedCount is a
+    // tie-breaker:
+    //   priority = completedCount * PRIORITY_SCALE + assignedCount
+    // balancedPick() always picks the lowest-priority pairs first, so:
+    //   • A pair with fewer completions is ALWAYS preferred over one with more,
+    //     regardless of how often either has been assigned — this guarantees no
+    //     pair can starve: an under-completed pair stays top priority until its
+    //     completions actually arrive.
+    //   • Among pairs with equal completions, the least-assigned go first, which
+    //     spreads concurrent sessions across pairs instead of piling onto one.
+    const PRIORITY_SCALE = 1000000; // safely larger than any realistic assignedCount
+    const priorityById = {};
+    allEntryIds.forEach(id => {
+      priorityById[id] = (completedById[id] || 0) * PRIORITY_SCALE + (countById[id] || 0);
+    });
+
+    // A pair is "satisfied" only once it has been COMPLETED targetPerEntry times.
+    // Gating on completion (not assignment) is what stops a pair from dropping out
+    // of the priority pool while it still has zero/too-few real evaluations.
+    const underTarget = allEntryIds.filter(id => (completedById[id] || 0) < targetPerEntry);
+    let selected = balancedPick(underTarget, priorityById, Math.min(sampleSize, underTarget.length));
 
     if (selected.length < sampleSize) {
       const selectedSet = new Set(selected);
       const remaining = allEntryIds.filter(id => !selectedSet.has(id));
-      const filler = balancedPick(remaining, countById, Math.min(sampleSize - selected.length, remaining.length));
+      const filler = balancedPick(remaining, priorityById, Math.min(sampleSize - selected.length, remaining.length));
       selected = selected.concat(filler);
     }
 
@@ -255,7 +279,7 @@ function assignEntries(payload, ss) {
     writeCountMap(assignmentSheet, countById, ASSIGNMENT_HEADERS);
     appendSessionAssignment(sessionSheet, sessionId, selected, sampleSize, targetPerEntry);
 
-    const remainingUnderTarget = allEntryIds.filter(id => (countById[id] || 0) < targetPerEntry).length;
+    const remainingUnderTarget = allEntryIds.filter(id => (completedById[id] || 0) < targetPerEntry).length;
     return {
       status: 'ok',
       source: 'new',
@@ -391,6 +415,15 @@ function writeResponses(payload, ss) {
     const cb = ev.chartB || {};
     const md = ev.metadata || {};
 
+    // Sliders use min=0, so a score of 0 ("Strongly Disagree") is valid. Using
+    // `dim.score || ''` would drop a 0 because it is falsy, leaving the cell blank.
+    // scoreCell() preserves 0 and only blanks out genuinely missing values.
+    const scoreCell = (dim) =>
+      (dim && dim.score !== undefined && dim.score !== null && dim.score !== '')
+        ? dim.score : '';
+    const labelCell = (dim) =>
+      (dim && dim.label !== undefined && dim.label !== null) ? dim.label : '';
+
     const sid = String(p.sessionId || '').trim();
     const pid = String(p.pairId || '').trim();
     const dedupeKey = sid + '||' + pid;
@@ -411,18 +444,12 @@ function writeResponses(payload, ss) {
       md.question || '',
       ca.imagePath || '',
       cb.imagePath || '',
-      (ca.readability && ca.readability.score) || '',
-      (ca.readability && ca.readability.label) || '',
-      (ca.precision && ca.precision.score) || '',
-      (ca.precision && ca.precision.label) || '',
-      (ca.aesthetics && ca.aesthetics.score) || '',
-      (ca.aesthetics && ca.aesthetics.label) || '',
-      (cb.readability && cb.readability.score) || '',
-      (cb.readability && cb.readability.label) || '',
-      (cb.precision && cb.precision.score) || '',
-      (cb.precision && cb.precision.label) || '',
-      (cb.aesthetics && cb.aesthetics.score) || '',
-      (cb.aesthetics && cb.aesthetics.label) || '',
+      scoreCell(ca.readability), labelCell(ca.readability),
+      scoreCell(ca.precision),   labelCell(ca.precision),
+      scoreCell(ca.aesthetics),  labelCell(ca.aesthetics),
+      scoreCell(cb.readability), labelCell(cb.readability),
+      scoreCell(cb.precision),   labelCell(cb.precision),
+      scoreCell(cb.aesthetics),  labelCell(cb.aesthetics),
       (ca.readability && ca.readability.lastUpdatedAt) || '',
       (ca.precision && ca.precision.lastUpdatedAt) || '',
       (ca.aesthetics && ca.aesthetics.lastUpdatedAt) || '',

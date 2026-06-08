@@ -21,6 +21,10 @@ const AUTO_SAVE_INTERVAL_MS = 100;
 let autoSaveIntervalId = null;
 let pendingLoadTimeoutId = null;
 const lastAutoSavePayloadByPair = {};
+// True while a pair's form is being cleared and re-populated. Auto-save must be
+// suppressed during this window, otherwise the periodic auto-save timer can read
+// the momentarily-blank form and overwrite the pair's saved answers.
+let isLoadingPairForm = false;
 
 // Label maps for each slider dimension
 const SLIDER_LABELS = {
@@ -53,6 +57,9 @@ function initializeSimpleEvaluation(pairId, pairMetadata) {
     currentPair = { id: pairId, metadata: pairMetadata };
     window.currentPair = currentPair;
     
+    // Block auto-save until the new pair's form has been fully restored.
+    isLoadingPairForm = true;
+
     // Clear form first
     clearSimpleEvaluationForm();
     
@@ -110,6 +117,8 @@ function initializeSimpleEvaluation(pairId, pairMetadata) {
     pendingLoadTimeoutId = setTimeout(() => {
         loadSimpleEvaluation(pairId);
         pendingLoadTimeoutId = null;
+        // Form is now restored — auto-save may resume.
+        isLoadingPairForm = false;
     }, 50);
 }
 
@@ -205,6 +214,8 @@ function saveSimpleEvaluation() {
 // to localStorage. Called automatically on navigation — no notification shown.
 function autoSavePair(pairId) {
     if (!pairId || !simpleEvaluations[pairId]) return;
+    // Don't capture the form while it is being cleared/restored for a pair switch.
+    if (isLoadingPairForm) return;
 
     const evaluation = simpleEvaluations[pairId];
 

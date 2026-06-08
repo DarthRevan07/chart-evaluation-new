@@ -1767,49 +1767,12 @@
             });
         }
         
-        // Add navigation event listeners to trigger image loading
-        function initializeNavigationListeners() {
-            // Listen for slider changes
-            const pairSlider = document.getElementById('pairSlider');
-            if (pairSlider) {
-                pairSlider.addEventListener('input', function() {
-                    console.log('Slider changed to:', this.value);
-                    // Clear form immediately when starting to change
-                    if (typeof clearFormResponses === 'function') {
-                        clearFormResponses();
-                    }
-                    setTimeout(() => {
-                        loadCurrentPair();
-                        updateStickyQuestionDisplay();
-                    }, 100); // Small delay to ensure annotation system updates
-                });
-                
-                pairSlider.addEventListener('change', function() {
-                    console.log('Slider final value:', this.value);
-                    // Ensure form is cleared and new data loaded
-                    if (typeof clearFormResponses === 'function') {
-                        clearFormResponses();
-                    }
-                    setTimeout(() => {
-                        loadCurrentPair();
-                        updateStickyQuestionDisplay();
-                    }, 50);
-                });
-            }
+        // Pair navigation is fully handled by transitionQuestion() and the
+        // annotation controller. (Legacy pairSlider / annotationChanged listeners
+        // were removed — they referenced elements/events that no longer exist and
+        // pre-emptively cleared the form, risking data loss.)
 
-            // Also listen for any programmatic navigation
-            document.addEventListener('annotationChanged', function(event) {
-                console.log('Annotation changed event detected');
-                // Clear form first, then load new pair
-                if (typeof clearFormResponses === 'function') {
-                    clearFormResponses();
-                }
-                setTimeout(() => {
-                    loadCurrentPair();
-                    updateStickyQuestionDisplay();
-                }, 100);
-            });
-        }
+
 
 
         
@@ -1955,8 +1918,12 @@
             }
 
             setTimeout(() => {
-                // Phase 2 – navigate annotation and load new content
-                if (typeof clearFormResponses === 'function') clearFormResponses();
+                // Phase 2 – navigate annotation and load new content.
+                // NOTE: do NOT clear the form here. navigateNext/navigatePrevious
+                // auto-save the current pair by reading the live slider/preference
+                // values from the DOM; clearing first would overwrite the user's
+                // saved responses with blank defaults. The form is cleared and then
+                // repopulated for the new pair inside loadCurrentPair().
                 if (direction === 'next') {
                     window.annotationUI.navigateNext();
                     currentSlide = 0;
@@ -2340,7 +2307,6 @@
             // Initialize annotation system checks
             updateStickyQuestionDisplay();
             observeQuestionChanges();
-            initializeNavigationListeners();
         });
         
         // Hook into annotation system if available
@@ -2352,16 +2318,6 @@
                 console.log('Force reloading current pair...');
                 loadCurrentPair();
                 updateStickyQuestionDisplay();
-            };
-            
-            // Add hook for when annotation data changes
-            window.onAnnotationChanged = function(annotation) {
-                console.log('Annotation changed, reloading images...', annotation);
-                loadCurrentPair();
-                updateStickyQuestionDisplay();
-                
-                // Trigger custom event for other listeners
-                document.dispatchEvent(new CustomEvent('annotationChanged', { detail: annotation }));
             };
             
             // Also trigger load when annotation system becomes available

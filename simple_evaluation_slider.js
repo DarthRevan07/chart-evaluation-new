@@ -173,7 +173,8 @@ function saveSimpleEvaluation() {
     if (hiddenPrefValue) {
         evaluation.overallPreference = hiddenPrefValue;
     } else {
-        evaluation.overallPreference = null;
+        // Only overwrite when a selection actually exists. The UI has no deselect
+        // action, so a blank form must never erase an already-chosen preference.
         const preferenceRadios = document.querySelectorAll('input[name="overall_preference"]');
         for (const radio of preferenceRadios) {
             if (radio.checked) {
@@ -248,10 +249,18 @@ function autoSavePair(pairId) {
     if (hiddenPrefValue) {
         evaluation.overallPreference = hiddenPrefValue;
     } else {
-        evaluation.overallPreference = null;
+        // Fall back to a checked radio if the hidden input is empty.
+        let radioPref = null;
         const preferenceRadios = document.querySelectorAll('input[name="overall_preference"]');
         for (const radio of preferenceRadios) {
-            if (radio.checked) { evaluation.overallPreference = radio.value; break; }
+            if (radio.checked) { radioPref = radio.value; break; }
+        }
+        // IMPORTANT: only update when we actually found a selection. The UI has no
+        // "deselect" action, so an empty form (e.g. momentarily during navigation,
+        // restore, or before the pref slide is reached) must NOT erase a preference
+        // the user already chose. Nulling here was wiping saved preferences.
+        if (radioPref) {
+            evaluation.overallPreference = radioPref;
         }
     }
 

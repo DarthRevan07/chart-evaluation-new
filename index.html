@@ -1238,11 +1238,25 @@
                 } else {
                     stickyDatasetText.textContent = `Dataset: ${tableNumber}`;
                 }
-                
+                window.adjustStickyHeaderSpacing();
                 return datasetName;
             }
             return null;
         };
+
+        // Keep the page content below the fixed dataset bar at all times.
+        // The dataset bar is position:fixed, so its height (which can grow when
+        // the dataset name wraps to multiple lines) must be reserved as body
+        // padding, otherwise it overlaps the question below it.
+        window.adjustStickyHeaderSpacing = function() {
+            const header = document.getElementById('stickyQuestionDisplay');
+            if (!header) return;
+            const height = header.offsetHeight;
+            if (height > 0) {
+                document.body.style.setProperty('padding-top', height + 'px', 'important');
+            }
+        };
+        window.addEventListener('resize', () => window.adjustStickyHeaderSpacing());
 
         async function loadCSVData(dataset) {
             const currentAnnotation = window.annotationUI && typeof window.annotationUI.getCurrentAnnotation === 'function'
@@ -1846,6 +1860,9 @@
                     stickyDatasetText.textContent = `Dataset: ${dsName}`;
                 }
             }
+            if (typeof window.adjustStickyHeaderSpacing === 'function') {
+                window.adjustStickyHeaderSpacing();
+            }
 
             // Record when each slide is first shown
             if (typeof simpleEvaluations !== 'undefined' && currentPair && currentPair.id) {
@@ -2120,6 +2137,7 @@
             
             updateSlideNavigation();
             initializeSliderDisplays();
+            window.adjustStickyHeaderSpacing();
             
             // Set up mutation observers to sync images when they load
             const chartA = document.getElementById('chartA');

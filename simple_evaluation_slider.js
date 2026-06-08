@@ -7,6 +7,13 @@ const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbz1Iv6wcCWnWv
 window.GOOGLE_SCRIPT_URL = GOOGLE_SCRIPT_URL;
 // ─────────────────────────────────────────────────────────────────────────────
 
+// ─── Completion form redirect ───────────────────────────────────────────────────
+// Participants are redirected here after clicking "Finish and Proceed" so they
+// can upload the JSON file of their responses. Paste the published Microsoft
+// Forms URL below (leave empty to disable the redirect).
+const COMPLETION_FORM_URL = 'https://forms.office.com/r/k4bPxvZZYZ';
+// ─────────────────────────────────────────────────────────────────────────────
+
 // Storage for evaluations
 let simpleEvaluations = {};
 let currentPair = null;
@@ -370,6 +377,13 @@ async function submitSimpleEvaluation() {
         return;
     }
 
+    // Auto-download the participant's responses file before submitting
+    try {
+        exportSimpleEvaluations();
+    } catch (e) {
+        console.warn('Auto-download of responses failed:', e);
+    }
+
     // Mark every entry as submitted
     const now = new Date().toISOString();
     allEvaluations.forEach(ev => {
@@ -468,7 +482,7 @@ function showSubmissionConfirmed() {
 
     const redirectUrl = getCompletionRedirectUrl();
     const redirectNote = redirectUrl
-        ? '<p style="margin-top:14px;font-size:0.9em;opacity:0.85;">You will be redirected back to the study platform shortly…</p>'
+        ? '<p style="margin-top:14px;font-size:0.95em;opacity:0.9;">You will now be redirected to the Microsoft Form. Please upload the JSON file you downloaded to complete your submission…</p>'
         : '';
 
     const overlay = document.createElement('div');
@@ -762,7 +776,9 @@ function exportSimpleEvaluations() {
     const dataStr = JSON.stringify(evaluations, null, 2);
     const dataUri = 'data:application/json;charset=utf-8,'+ encodeURIComponent(dataStr);
     
-    const exportFileDefaultName = 'chart-evaluations-slider-' + new Date().toISOString().slice(0, 10) + '.json';
+    const rawName = (localStorage.getItem('participantName') || '').trim();
+    const safeName = rawName.replace(/[^a-z0-9]+/gi, '_').replace(/^_+|_+$/g, '') || 'participant';
+    const exportFileDefaultName = safeName + '_responses.json';
     
     const linkElement = document.createElement('a');
     linkElement.setAttribute('href', dataUri);
@@ -1162,13 +1178,14 @@ function getOrCreateSessionId() {
     return sessionId;
 }
 
-// Return the PlaybookUX/Prolific completion redirect URL if present in the URL params.
+// Return the completion redirect URL: URL param first, then the configured Microsoft Form.
 function getCompletionRedirectUrl() {
     try {
         const params = new URLSearchParams(window.location.search);
-        return params.get('completion_url') || params.get('return_url') || params.get('redirect_url') || null;
+        return params.get('completion_url') || params.get('return_url') || params.get('redirect_url')
+            || (typeof COMPLETION_FORM_URL !== 'undefined' && COMPLETION_FORM_URL) || null;
     } catch (_) {
-        return null;
+        return (typeof COMPLETION_FORM_URL !== 'undefined' && COMPLETION_FORM_URL) || null;
     }
 }
 

@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chart Evaluation System - Slider Version</title>
-    <meta name="ui-build" content="20260605b-25pairs" />
-    <link rel="stylesheet" href="styles_slider.css?v=20260605b">
+    <meta name="ui-build" content="20260608a-finishflow" />
+    <link rel="stylesheet" href="styles_slider.css?v=20260608a">
     <style>
         :root {
             --full-bleed-offset: calc(50% - 50vw);
@@ -1102,6 +1102,46 @@
 
                                 <!-- Compact comment below preference cards -->
                                 <textarea id="evaluation_comments_pref" placeholder="Additional comments (optional)..." rows="2" style="width: 100%; resize: vertical; padding: 6px 8px; border: 1px solid #ddd; border-radius: 6px; font-family: inherit; font-size: 12px; color: #495057; box-sizing: border-box; margin-top: 12px;"></textarea>
+
+                                <!-- Finish controls: shown ONLY on the 3rd slide of the LAST example -->
+                                <div id="finishProceedContainer" style="display:none; margin-top:18px; padding-top:18px; border-top:1px solid #dee2e6;">
+                                    <p style="margin:0 0 14px; text-align:center; color:#495057; font-size:0.95em; line-height:1.6;">
+                                        You've reached the last example. Please <strong>download your responses</strong> as a JSON file first, then click
+                                        <strong>Finish and Proceed</strong> to submit. You will then be redirected to a Microsoft Form where you must upload this JSON file to complete the study.
+                                    </p>
+                                    <div style="display:flex; gap:14px; justify-content:center; flex-wrap:wrap;">
+                                        <button type="button" id="downloadResponsesBtn" onclick="exportSimpleEvaluations()" style="
+                                            background: linear-gradient(135deg, #28a745, #20c997);
+                                            color: white;
+                                            border: none;
+                                            padding: 12px 24px;
+                                            border-radius: 25px;
+                                            font-weight: 600;
+                                            cursor: pointer;
+                                            font-size: 14px;
+                                            transition: all 0.3s ease;
+                                        " onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 4px 12px rgba(40,167,69,0.3)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none'">
+                                            ⬇️ Download My Responses (JSON)
+                                        </button>
+                                        <button type="button" id="finishProceedBtn" onclick="submitSimpleEvaluation()" disabled style="
+                                            background: linear-gradient(135deg, #007bff, #0056b3);
+                                            color: white;
+                                            border: none;
+                                            padding: 12px 24px;
+                                            border-radius: 25px;
+                                            font-weight: 600;
+                                            cursor: not-allowed;
+                                            font-size: 14px;
+                                            opacity: 0.5;
+                                            transition: all 0.3s ease;
+                                        ">
+                                            Finish and Proceed →
+                                        </button>
+                                    </div>
+                                    <p id="finishProceedHint" style="margin:10px 0 0; text-align:center; color:#dc3545; font-size:0.85em;">
+                                        Please select your overall preference for this example to enable "Finish and Proceed".
+                                    </p>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -1157,12 +1197,12 @@
     </div>
 
     <!-- New annotation-based data loading system -->
-    <script src="annotation_data_loader_slider.js?v=20260605b"></script>
-    <script src="annotation_ui_controller.js?v=20260605b"></script>
+    <script src="annotation_data_loader_slider.js?v=20260608a"></script>
+    <script src="annotation_ui_controller.js?v=20260608a"></script>
     
     <!-- Modified scripts for slider evaluation functionality -->
-    <script src="simple_evaluation_slider.js?v=20260605b"></script>
-    <script src="pair_slider.js?v=20260605b"></script>
+    <script src="simple_evaluation_slider.js?v=20260608a"></script>
+    <script src="pair_slider.js?v=20260608a"></script>
     <script>
         // Same core functionality as original evaluation.html but adapted for sliders
         // All the existing JavaScript functionality is preserved, 
@@ -1822,7 +1862,42 @@
                     }
                 }
             }
+
+            // Show/enable the Finish controls only on slide 3 of the last example
+            updateFinishControls();
         }
+
+        // Show the Download + Finish-and-Proceed buttons only on the preference
+        // slide (slide 3) of the LAST example, and enable "Finish and Proceed"
+        // only once the last example has an overall preference selected.
+        function updateFinishControls() {
+            const container = document.getElementById('finishProceedContainer');
+            if (!container) return;
+
+            const loader = window.annotationLoader;
+            const isLastExample = loader && typeof loader.hasNext === 'function' ? !loader.hasNext() : false;
+            const onPrefSlide = currentSlide === 2;
+            const show = isLastExample && onPrefSlide;
+
+            container.style.display = show ? 'block' : 'none';
+            if (!show) return;
+
+            const finishBtn = document.getElementById('finishProceedBtn');
+            const hint = document.getElementById('finishProceedHint');
+
+            let hasPref = false;
+            if (typeof simpleEvaluations !== 'undefined' && currentPair && currentPair.id && simpleEvaluations[currentPair.id]) {
+                hasPref = !!simpleEvaluations[currentPair.id].overallPreference;
+            }
+
+            if (finishBtn) {
+                finishBtn.disabled = !hasPref;
+                finishBtn.style.opacity = hasPref ? '1' : '0.5';
+                finishBtn.style.cursor = hasPref ? 'pointer' : 'not-allowed';
+            }
+            if (hint) hint.style.display = hasPref ? 'none' : 'block';
+        }
+        window.updateFinishControls = updateFinishControls;
         
         function nextSlide() {
             if (currentSlide < totalSlides - 1) {
@@ -2378,6 +2453,11 @@
                         localStorage.setItem('simpleEvaluations', JSON.stringify(simpleEvaluations));
                     }
                 }
+
+                // Refresh the Finish-and-Proceed enabled state on the last example
+                if (typeof updateFinishControls === 'function') {
+                    updateFinishControls();
+                }
             };
             
             // Sync comparison charts function
@@ -2702,25 +2782,16 @@
             </div>
             <div class="modal-body">
                 <p style="margin-bottom: 20px; line-height: 1.7; color: #333;">
-                    Thanks for signing up for this pilot study! You are tasked with evaluating a series of data visualizations created from real datasets across diverse domains. Each annotation case is presented across <strong>3 slides</strong>, which you can navigate using the arrow buttons or the dot indicators at the top of the page. The first two slides each show one of two candidate data visualizations <i>(Chart A and Chart B)</i> — both built from the same underlying dataset and intended to answer the same question about that data, which is displayed prominently in the navigation bar. The third slide lets you make a direct side-by-side comparison and record your overall preference between the two charts.
+                    Thanks for signing up for this Survey! You are tasked with evaluating a series of data visualizations created from real datasets across diverse domains. Each case is presented across <strong>3 slides</strong>, which you can navigate using the arrow buttons or the dot indicators at the top of the page. The first 2 slides each show one of two candidate data visualizations <i>(Chart A and Chart B)</i> — both built from the same underlying dataset and intended to answer the same question about that data, which is displayed prominently in the navigation bar. 
+                    The third slide lets you make a direct side-by-side comparison and record your overall preference between the two charts. You shall find more details about the expected answering procedure to follow in the instructions below, but feel free to explore the charts and answer at your own pace.
                 </p>
 
                 <div style="background: #fff8e1; border-left: 4px solid #f9a825; border-radius: 6px; padding: 14px 18px; margin-bottom: 20px;">
                     <p style="margin: 0 0 6px 0; font-weight: 700; color: #e65100; font-size: 1em;">💬 Comments are essential</p>
                     <p style="margin: 0; line-height: 1.7; color: #333;">
-                        Each slide includes a <strong>Comments</strong> text box, and we strongly encourage you to use it for each of the 3 slides. Please share your subjective impressions freely — what you noticed, what confused you, what stood out, any trade-offs you weighed, and most importantly, your thoughts while choosing the <strong> overall preference </strong>. Your written thoughts are just as valuable as your slider ratings for this pilot study, and there is no such thing as a comment that is too short or too detailed.
+                        Each slide includes a <strong>Comments</strong> section, which is optional. However, we strongly encourage you to use it to articulate your thought process. Please share your subjective impressions freely — what you noticed, what confused you, what stood out, any trade-offs you weighed, and most importantly, your thoughts while choosing the <strong> overall preference </strong>. You are free to write as much or as little as you like, but detailed, clearly articulated comments are incredibly valuable for us in this study.
                     </p>
                 </div>
-
-                <h4 style="margin-bottom: 12px; color: #495057;">Navigation &amp; Saving</h4>
-                <ul style="margin: 0 0 20px 0; padding-left: 20px; line-height: 1.8; color: #333;">
-                    <li>Use the <strong>‹ ›</strong> arrow buttons or the dot indicators to move between slides within a question.</li>
-                    <li> You may click on a chart image to enlarge it for a closer look. </li>
-                    <li>Continuing past the last slide (slide 3) will advance you to the next annotation question.</li>
-                    <li>Your responses are auto-saved whenever you navigate between pairs — no manual saving needed.</li>
-                    <li>A <strong>Submit All</strong> button will appear when you reach the last pair. You can only submit once all pairs have a preference selected.</li>
-                    <li>You can also download all your saved responses as a JSON file at any time using the download button (<strong> Recommended for this PILOT STUDY </strong>).</li>
-                </ul>
 
                 <h4 style="margin-bottom: 15px; color: #495057;">Expectations</h4>
                 <p style="margin-bottom: 20px; line-height: 1.7; color: #333;">
@@ -2748,6 +2819,17 @@
                     <h5 style="color: #007bff; margin-bottom: 8px;">⭐ Overall Preference</h5>
                     <p style="margin: 0; line-height: 1.5;">Given the previous considerations about presence of important information to answer the question, your ability to easily identify and decode it, and the overall design/aesthetic appeal, which chart would you prefer?</p>
                 </div>
+
+                <h4 style="margin-bottom: 12px; color: #495057;">Navigation &amp; Saving</h4>
+                <ul style="margin: 0 0 20px 0; padding-left: 20px; line-height: 1.8; color: #333;">
+                    <li>Use the <strong>‹ ›</strong> arrow buttons or the dot indicators to move between slides within a question.</li>
+                    <li> You may click on a chart image to enlarge it for a closer look. </li>
+                    <li>Continuing past the last slide (slide 3) will advance you to the next annotation question (YOU ARE EXPECTED TO COMPLETE ALL QUESTIONS PROVIDED TO YOU FOR SUCCESS).</li>
+                    <li>Your responses are auto-saved whenever you navigate between pairs — no manual saving needed.</li>
+                    <li>When you reach the <strong>last example</strong>, two buttons appear on the preference (3rd) slide: <strong>⬇️ Download My Responses (JSON)</strong> and <strong>Finish and Proceed</strong>.</li>
+                    <li><strong>Important:</strong> After completing all examples, please <strong>download the JSON file of your responses</strong>, then click <strong>Finish and Proceed</strong>. You will then be redirected to a <strong>Microsoft Form</strong> where you must upload/submit this JSON file to complete the study.</li>
+                    <li><strong>Finish and Proceed</strong> can only be clicked once you have selected your overall preference for the last example (all earlier examples must also be complete).</li>
+                </ul>
 
                 <div style="text-align: center; padding-top: 15px; border-top: 1px solid #dee2e6;">
                     <button onclick="hideInstructionsModal()" style="

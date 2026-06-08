@@ -375,11 +375,11 @@ class AnnotationUIController {
             nextBtn.disabled = !this.loader.hasNext();
         }
 
-        // Show the Submit button only on the last pair
+        // The legacy "Submit All" button is replaced by the "Finish and Proceed"
+        // button on slide 3 of the last example, so keep it hidden.
         const submitBtn = document.getElementById('submitBtn');
         if (submitBtn) {
-            const isLast = !this.loader.hasNext();
-            submitBtn.style.display = isLast ? 'inline-block' : 'none';
+            submitBtn.style.display = 'none';
         }
     }
 

@@ -33,7 +33,8 @@ const RESPONSE_HEADERS = [
   'chartADisplayedAt', 'chartBDisplayedAt',
   'prefDisplayedAt', 'preferenceLastUpdatedAt',
   'displayedAt', 'savedAt', 'timeToSave_seconds',
-  'userAgent', 'isPartial', 'participantName', 'participantEmail'
+  'userAgent', 'isPartial', 'participantName', 'participantEmail',
+  'prolificPid', 'studyId', 'prolificSessionId'
 ];
 
 const ASSIGNMENT_HEADERS = ['entryId', 'assignedCount', 'lastAssignedAt'];
@@ -470,7 +471,10 @@ function writeResponses(payload, ss) {
       p.userAgent || '',
       p.isPartial ? 'partial' : 'final',
       p.participantName || '',
-      p.participantEmail || ''
+      p.participantEmail || '',
+      p.prolificPid || '',
+      p.studyId || '',
+      p.prolificSessionId || ''
     ]);
   }
 

@@ -198,6 +198,7 @@ class AnnotationDataLoader {
         };
     }
 
+// Get PlaybookUX session ID or create a new one if it doesn't exist
     getOrCreateSessionId() {
         let sessionId = localStorage.getItem('evaluationSessionId');
         if (!sessionId) {

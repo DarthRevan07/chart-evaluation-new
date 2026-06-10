@@ -421,17 +421,21 @@ async function submitSimpleEvaluation() {
     const participantId = getOrCreateSessionId(); // same value; named clearly for sheet column
     const participantName  = localStorage.getItem('participantName')  || '';
     const participantEmail = localStorage.getItem('participantEmail') || '';
+    const prolific = getProlificParams();
     const submissions = allEvaluations.map(ev => ({
-        pairId:           ev.pairId,
-        evaluation:       ev,
-        userAgent:        navigator.userAgent,
-        timestamp:        now,
-        sessionId:        sessionId,
-        participantId:    participantId,
-        participantName:  participantName,
-        participantEmail: participantEmail,
-        url:              window.location.href,
-        isPartial:        false
+        pairId:            ev.pairId,
+        evaluation:        ev,
+        userAgent:         navigator.userAgent,
+        timestamp:         now,
+        sessionId:         sessionId,
+        participantId:     participantId,
+        participantName:   participantName,
+        participantEmail:  participantEmail,
+        prolificPid:       prolific.prolificPid,
+        studyId:           prolific.studyId,
+        prolificSessionId: prolific.prolificSessionId,
+        url:               window.location.href,
+        isPartial:         false
     }));
 
     // ── Attempt 1: single batch POST ────────────────────────────────────────
@@ -792,8 +796,22 @@ function exportSimpleEvaluations() {
         }
     }
     localStorage.setItem('simpleEvaluations', JSON.stringify(simpleEvaluations));
-    const evaluations = simpleEvaluations;
-    const dataStr = JSON.stringify(evaluations, null, 2);
+
+    // Wrap the per-pair evaluations with participant + Prolific metadata so the
+    // downloaded file carries who/which-study it belongs to. The Prolific params
+    // (PROLIFIC_PID / STUDY_ID / SESSION_ID) come from the cached landing-URL values.
+    const prolific = getProlificParams();
+    const exportData = {
+        sessionId:         getOrCreateSessionId(),
+        participantName:   (localStorage.getItem('participantName')  || '').trim(),
+        participantEmail:  (localStorage.getItem('participantEmail') || '').trim(),
+        prolificPid:       prolific.prolificPid,
+        studyId:           prolific.studyId,
+        prolificSessionId: prolific.prolificSessionId,
+        exportedAt:        new Date().toISOString(),
+        evaluations:       simpleEvaluations
+    };
+    const dataStr = JSON.stringify(exportData, null, 2);
     const dataUri = 'data:application/json;charset=utf-8,'+ encodeURIComponent(dataStr);
     
     const rawName = (localStorage.getItem('participantName') || '').trim();
@@ -1111,6 +1129,9 @@ document.addEventListener('DOMContentLoaded', function() {
     initializeSliderDisplays(); // Initialize slider-specific functionality
     startAutoSaveTimer();
     initCoverageStatsPanel();
+    // Capture & cache Prolific params (PROLIFIC_PID/STUDY_ID/SESSION_ID) from the
+    // landing URL immediately, so they persist even if the participant navigates.
+    getProlificParams();
     
     // Add event listeners for radio button changes to auto-save
     document.addEventListener('change', function(e) {
@@ -1139,18 +1160,22 @@ document.addEventListener('DOMContentLoaded', function() {
         const sessionId = getOrCreateSessionId();
         const participantName  = localStorage.getItem('participantName')  || '';
         const participantEmail = localStorage.getItem('participantEmail') || '';
+        const prolific = getProlificParams();
         const body = JSON.stringify({
             submissions: allEvals.map(ev => ({
-                pairId:           ev.pairId,
-                evaluation:       ev,
-                userAgent:        navigator.userAgent,
-                timestamp:        new Date().toISOString(),
-                sessionId:        sessionId,
-                participantId:    sessionId,
-                participantName:  participantName,
-                participantEmail: participantEmail,
-                url:              window.location.href,
-                isPartial:        true
+                pairId:            ev.pairId,
+                evaluation:        ev,
+                userAgent:         navigator.userAgent,
+                timestamp:         new Date().toISOString(),
+                sessionId:         sessionId,
+                participantId:     sessionId,
+                participantName:   participantName,
+                participantEmail:  participantEmail,
+                prolificPid:       prolific.prolificPid,
+                studyId:           prolific.studyId,
+                prolificSessionId: prolific.prolificSessionId,
+                url:               window.location.href,
+                isPartial:         true
             }))
         });
         navigator.sendBeacon(GOOGLE_SCRIPT_URL, new Blob([body], { type: 'application/json' }));
@@ -1197,6 +1222,43 @@ function getOrCreateSessionId() {
     }
     return sessionId;
 }
+
+// Capture Prolific URL parameters appended to the study link:
+//   ?PROLIFIC_PID={{%PROLIFIC_PID%}}&STUDY_ID={{%STUDY_ID%}}&SESSION_ID={{%SESSION_ID%}}
+// They are read from the URL on first load and cached in localStorage so they
+// survive page reloads and in-app navigation. The cached values are recorded in
+// the Google Sheet with every submission. Returns
+// { prolificPid, studyId, prolificSessionId } (empty strings when absent).
+function getProlificParams() {
+    const FIELD_PARAMS = {
+        prolificPid:       ['PROLIFIC_PID', 'prolific_pid'],
+        studyId:           ['STUDY_ID', 'study_id'],
+        prolificSessionId: ['SESSION_ID', 'session_id']
+    };
+
+    let params = null;
+    try { params = new URLSearchParams(window.location.search); } catch (_) {}
+
+    const out = { prolificPid: '', studyId: '', prolificSessionId: '' };
+    Object.keys(FIELD_PARAMS).forEach(field => {
+        const storageKey = 'prolific_' + field;
+        let value = '';
+        if (params) {
+            for (const name of FIELD_PARAMS[field]) {
+                const v = params.get(name);
+                if (v) { value = v.trim(); break; }
+            }
+        }
+        if (value) {
+            localStorage.setItem(storageKey, value);
+        } else {
+            value = localStorage.getItem(storageKey) || '';
+        }
+        out[field] = value;
+    });
+    return out;
+}
+window.getProlificParams = getProlificParams;
 
 // Return the completion redirect URL: URL param first, then the configured Microsoft Form.
 function getCompletionRedirectUrl() {

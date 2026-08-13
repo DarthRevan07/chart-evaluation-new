@@ -29,6 +29,54 @@ class AnnotationDataLoader {
         return `integrated/datasets/${a}/${t}.csv`;
     }
 
+    parseSimpleYaml(text) {
+        const out = {};
+        String(text || '').split(/\r?\n/).forEach(line => {
+            const m = line.match(/^([A-Za-z_][\w-]*):\s*(.*)$/);
+            if (!m) return;
+            out[m[1]] = m[2].trim().replace(/^["']|["']$/g, '');
+        });
+        return out;
+    }
+
+    // Legacy entries carry only a table id; their metadata/CSV live in csv_c_squared/.
+    async enrichLegacyDatasetInfo(entries) {
+        const legacy = entries.filter(e => !e.artefact && e.table);
+        const tableIds = [...new Set(legacy.map(e => String(e.table)))];
+
+        await Promise.all(tableIds.map(async tableId => {
+            const cacheKey = this.getDatasetCacheKey('', tableId);
+            if (this.datasetInfoCache[cacheKey]) return;
+
+            const csvPath = `csv_c_squared/${tableId}.csv`;
+            let meta = {};
+            try {
+                const res = await fetch(`csv_c_squared/${tableId}_info.yaml`);
+                if (res.ok) meta = this.parseSimpleYaml(await res.text());
+            } catch (_) {
+                // Fall back to the bare table id below.
+            }
+
+            const name = meta.dataset_name || `Dataset ${tableId}`;
+            this.datasetInfoCache[cacheKey] = {
+                dataset_name: name,
+                table_name: name,
+                category: meta.category || 'unknown',
+                index: tableId,
+                integrated_csv_path: csvPath,
+                file_path: csvPath,
+                source_url: meta.url || '',
+                source_ref: meta.ref || '',
+                license: meta.license || ''
+            };
+        }));
+
+        legacy.forEach(entry => {
+            const info = this.datasetInfoCache[this.getDatasetCacheKey('', entry.table)];
+            if (info) entry.dataset_info = info;
+        });
+    }
+
     normalizePath(pathValue) {
         return String(pathValue || '').replace(/\\/g, '/').replace(/^\.\//, '');
     }
@@ -111,6 +159,8 @@ class AnnotationDataLoader {
                 .filter(entry => Array.isArray(entry.variants) && entry.variants.length >= 2);
 
             this.allEntries = normalizedEntries;
+
+            await this.enrichLegacyDatasetInfo(normalizedEntries);
 
             // Build artefact+table-level cache from normalized entries.
             normalizedEntries.forEach(entry => {

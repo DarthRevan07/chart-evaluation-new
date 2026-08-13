@@ -26,6 +26,7 @@ const GOOGLE_SCRIPT_URL =
 const DATA_FILE = path.join(__dirname, 'integrated', 'sampled_all.json');
 
 const NUM_USERS = Number(process.argv[2] || 40);
+const CONCURRENCY = Math.max(1, Number(process.argv[3] || 10)); // simultaneous sessions
 const SAMPLE_SIZE = 25;
 const TARGET_PER_ENTRY = 5;
 const DUMMY_PREFIX = 'dummytest_'; // delete rows whose sessionId starts with this
@@ -139,15 +140,29 @@ function buildRandomEvaluation(entry) {
   };
 }
 
-async function postJson(body) {
-  const res = await fetch(GOOGLE_SCRIPT_URL, {
-    method: 'POST',
-    headers: { 'Content-Type': 'text/plain' },
-    body: JSON.stringify(body),
-    redirect: 'follow'
-  });
-  if (!res.ok) throw new Error(`HTTP ${res.status}`);
-  return res.json();
+async function postJson(body, attempts = 4) {
+  let lastErr;
+  for (let attempt = 1; attempt <= attempts; attempt++) {
+    try {
+      const res = await fetch(GOOGLE_SCRIPT_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'text/plain' },
+        body: JSON.stringify(body),
+        redirect: 'follow'
+      });
+      if (!res.ok) throw new Error(`HTTP ${res.status}`);
+      return res.json();
+    } catch (err) {
+      lastErr = err;
+      if (attempt < attempts) {
+        // Exponential backoff with jitter — recovers from transient connection
+        // resets when many sessions hit Apps Script simultaneously.
+        const delay = 500 * Math.pow(2, attempt - 1) + Math.floor(Math.random() * 400);
+        await new Promise(r => setTimeout(r, delay));
+      }
+    }
+  }
+  throw lastErr;
 }
 
 async function runSession(sessionId, entries, entryById) {
@@ -181,6 +196,9 @@ async function runSession(sessionId, entries, entryById) {
       participantId: sessionId,
       participantName: sessionId,
       participantEmail: `${sessionId}@example.test`,
+      prolificPid: sessionId,
+      studyId: `${DUMMY_PREFIX}study`,
+      prolificSessionId: `${sessionId}_psid`,
       url: 'https://dummy.local/load-test',
       isPartial: false
     };
@@ -196,26 +214,45 @@ async function main() {
   const entryById = new Map(entries.map(e => [e.entry_id, e]));
   console.log(`Loaded ${entries.length} eligible entries from ${path.basename(DATA_FILE)}`);
   console.log(`Simulating ${NUM_USERS} dummy sessions (sampleSize=${SAMPLE_SIZE}, targetPerEntry=${TARGET_PER_ENTRY})`);
+  console.log(`Concurrency: ${CONCURRENCY} simultaneous sessions`);
   console.log(`Session id prefix: "${DUMMY_PREFIX}"  (use this to clean up the sheets later)\n`);
 
   const runStamp = Date.now();
   let ok = 0;
   let fail = 0;
+  let started = 0;
 
-  // Sequential to stay friendly with the Apps Script LockService on assign_entries.
-  for (let i = 1; i <= NUM_USERS; i++) {
-    const sessionId = `${DUMMY_PREFIX}${runStamp}_${String(i).padStart(3, '0')}`;
-    try {
-      const r = await runSession(sessionId, entries, entryById);
-      ok++;
-      console.log(`[${i}/${NUM_USERS}] ${sessionId}  assigned=${r.assigned} submitted=${r.submitted} source=${r.source || 'n/a'} status=${r.writeResp?.status || 'n/a'}`);
-    } catch (err) {
-      fail++;
-      console.error(`[${i}/${NUM_USERS}] ${sessionId}  FAILED: ${err.message}`);
+  // Worker-pool model: CONCURRENCY workers pull session indices off a shared
+  // counter and fire requests at the same time. This exercises the Apps Script
+  // LockService under genuine concurrent access (multiple users at once).
+  let nextIndex = 1;
+  const startedAt = Date.now();
+
+  async function worker(workerId) {
+    while (true) {
+      const i = nextIndex++;
+      if (i > NUM_USERS) return;
+      const sessionId = `${DUMMY_PREFIX}${runStamp}_${String(i).padStart(3, '0')}`;
+      started++;
+      try {
+        const r = await runSession(sessionId, entries, entryById);
+        ok++;
+        console.log(`[${ok + fail}/${NUM_USERS}] (w${workerId}) ${sessionId}  assigned=${r.assigned} submitted=${r.submitted} source=${r.source || 'n/a'} status=${r.writeResp?.status || 'n/a'}`);
+      } catch (err) {
+        fail++;
+        console.error(`[${ok + fail}/${NUM_USERS}] (w${workerId}) ${sessionId}  FAILED: ${err.message}`);
+      }
     }
   }
 
-  console.log(`\nDone. ${ok} succeeded, ${fail} failed.`);
+  const workers = [];
+  for (let w = 1; w <= Math.min(CONCURRENCY, NUM_USERS); w++) {
+    workers.push(worker(w));
+  }
+  await Promise.all(workers);
+
+  const elapsed = ((Date.now() - startedAt) / 1000).toFixed(1);
+  console.log(`\nDone in ${elapsed}s. ${ok} succeeded, ${fail} failed (of ${NUM_USERS}).`);
   console.log(`To clean up: delete CrowdResponses / SessionAssignments / AssignmentCounts / CompletionCounts / CompletionLog rows whose sessionId starts with "${DUMMY_PREFIX}".`);
 }
 

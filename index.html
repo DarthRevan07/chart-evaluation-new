@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chart Evaluation System - Slider Version</title>
-    <meta name="ui-build" content="20260610a-prolific" />
-    <link rel="stylesheet" href="styles_slider.css?v=20260610a">
+    <meta name="ui-build" content="20260813a-annotateslider" />
+    <link rel="stylesheet" href="styles_slider.css?v=20260813a">
     <style>
         :root {
             --full-bleed-offset: calc(50% - 50vw);
@@ -1197,12 +1197,12 @@
     </div>
 
     <!-- New annotation-based data loading system -->
-    <script src="annotation_data_loader_slider.js?v=20260610a"></script>
-    <script src="annotation_ui_controller.js?v=20260610a"></script>
+    <script src="annotation_data_loader_slider.js?v=20260813a"></script>
+    <script src="annotation_ui_controller.js?v=20260813a"></script>
     
     <!-- Modified scripts for slider evaluation functionality -->
-    <script src="simple_evaluation_slider.js?v=20260610a"></script>
-    <script src="pair_slider.js?v=20260610a"></script>
+    <script src="simple_evaluation_slider.js?v=20260813a"></script>
+    <script src="pair_slider.js?v=20260813a"></script>
     <script>
         // Same core functionality as original evaluation.html but adapted for sliders
         // All the existing JavaScript functionality is preserved, 
@@ -1534,15 +1534,19 @@
             }
         }
         
-        // Annotations loaded from integrated/sampled_all.json (or loader-assigned subset)
+        // Annotation dataset path — change this ONE value to switch datasets.
+        // The assignment-aware loader (annotation_data_loader_slider.js) reads it too.
+        window.ANNOTATION_DATA_FILE = window.ANNOTATION_DATA_FILE || 'annotate_slider.json';
+
+        // Annotations loaded from window.ANNOTATION_DATA_FILE (or loader-assigned subset)
         let sliderAnnotations = [];
         let currentRenderedAnnotation = null;
 
         // Initialize pair loading on page load
         async function initializeIntegratedPairs() {
             try {
-                console.log('Loading pairs from integrated/sampled_all.json...');
-                const response = await fetch('integrated/sampled_all.json');
+                console.log(`Loading pairs from ${window.ANNOTATION_DATA_FILE}...`);
+                const response = await fetch(window.ANNOTATION_DATA_FILE);
                 if (!response.ok) throw new Error(`HTTP ${response.status}`);
                 const data = await response.json();
                 sliderAnnotations = (data.entries || data.annotations || []).map((entry, idx) => {
@@ -2062,7 +2066,9 @@
                                 : `integrated/charts/${renderedPath}`))
                         : '');
 
-                return basePath ? `${basePath}/${normalizedVariant}` : normalizedVariant;
+                // Legacy variants (e.g. "22/sum_1_ques_4/var1.png") live under this folder.
+                const legacyBase = 'run2_variants_parallel_organized';
+                return basePath ? `${basePath}/${normalizedVariant}` : `${legacyBase}/${normalizedVariant}`;
             }
 
             const chartAPath = buildPath(annotation.variants[0]);

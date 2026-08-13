@@ -1,6 +1,7 @@
 /**
  * Annotation Data Loader (Slider)
- * Handles loading and parsing of question annotation data from integrated/sampled_all.json
+ * Handles loading and parsing of question annotation data (path set via
+ * window.ANNOTATION_DATA_FILE, default annotate_slider.json)
  * and obtaining a quota-aware per-user assignment from the backend.
  */
 
@@ -95,7 +96,10 @@ class AnnotationDataLoader {
      */
     async loadAnnotationData() {
         try {
-            const response = await fetch('./integrated/sampled_all.json');
+            const dataFile = (typeof window !== 'undefined' && window.ANNOTATION_DATA_FILE)
+                ? window.ANNOTATION_DATA_FILE
+                : './annotate_slider.json';
+            const response = await fetch(dataFile);
             if (!response.ok) {
                 throw new Error(`Failed to load annotation data: ${response.status}`);
             }
@@ -151,6 +155,8 @@ class AnnotationDataLoader {
             return {
                 ...entry,
                 entry_id: stableId,
+                // Legacy variants are relative paths like "22/sum_1_ques_4/var1.png"
+                chart_base_path: entry.chart_base_path || 'run2_variants_parallel_organized',
                 dataset_info: entry.dataset_info || {
                     dataset_name: `Dataset ${entry.table}`,
                     category: 'unknown',
